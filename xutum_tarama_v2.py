@@ -220,7 +220,9 @@ if __name__ == "__main__":
             pd.DataFrame(sonuclar).to_csv("ara_kayit.csv", index=False)
 
     # ── SONUÇLAR ─────────────────────────────────────────────
-    df_tm    = pd.DataFrame(sonuclar)
+
+        df_tm    = pd.DataFrame(sonuclar)
+    df_tm    = df_tm.sort_values("RSI(H)", ascending=True, na_position="last").reset_index(drop=True)
     df_gecen = df_tm[df_tm["SINYAL"] == "🟢"].reset_index(drop=True)
 
     print(f"\n{'='*55}")
