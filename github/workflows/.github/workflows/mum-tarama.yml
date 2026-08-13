@@ -1,0 +1,62 @@
+name: Mum Tarama (Hafta/Ay Sonu Kapanışı)
+
+on:
+  schedule:
+    - cron: "30 15 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  kontrol:
+    runs-on: ubuntu-latest
+    outputs:
+      week_end: ${{ steps.gate.outputs.week_end }}
+      month_end: ${{ steps.gate.outputs.month_end }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -q pandas exchange_calendars
+      - id: gate
+        run: python gate.py >> "$GITHUB_OUTPUT"
+
+  tara:
+    needs: kontrol
+    if: needs.kontrol.outputs.week_end == 'true' || needs.kontrol.outputs.month_end == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Bağımlılıkları kur
+        run: pip install -q -r requirements.txt
+
+      - name: mum_tarama çalıştır
+        run: python mum_tarama_v1_7_strict_raw_ohlc.py
+
+      - name: Sonuçları arşivle
+        env:
+          WEEK_END: ${{ needs.kontrol.outputs.week_end }}
+          MONTH_END: ${{ needs.kontrol.outputs.month_end }}
+        run: |
+          TARIH=$(TZ=Europe/Istanbul date +%F)
+          mkdir -p "results/mum/$TARIH"
+          cp -f mum_tarama_sonuc.csv mum_tarama_haftalik.csv mum_tarama_aylik.csv mum_tarama_hatalar.csv "results/mum/$TARIH/" 2>/dev/null || true
+          cp -f mum_tarama_sonuc.csv results/mum/latest.csv 2>/dev/null || true
+          echo "$TARIH" > results/mum/latest_date.txt
+          {
+            echo "week_end=$WEEK_END"
+            echo "month_end=$MONTH_END"
+          } > results/mum/latest_flags.txt
+
+      - name: Commit & push
+        run: |
+          git config user.name "tarama-bot"
+          git config user.email "tarama-bot@users.noreply.github.com"
+          git add results/
+          git diff --cached --quiet || git commit -m "Mum tarama sonucu: $(TZ=Europe/Istanbul date +%F) (hafta_sonu=${{ needs.kontrol.outputs.week_end }}, ay_sonu=${{ needs.kontrol.outputs.month_end }})"
+          git push
