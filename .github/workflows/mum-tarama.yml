@@ -25,7 +25,7 @@ jobs:
 
   tara:
     needs: kontrol
-      if: github.event_name == 'workflow_dispatch' || needs.kontrol.outputs.week_end == 'true' || needs.kontrol.outputs.month_end == 'true'
+    if: github.event_name == 'workflow_dispatch' || needs.kontrol.outputs.week_end == 'true' || needs.kontrol.outputs.month_end == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
