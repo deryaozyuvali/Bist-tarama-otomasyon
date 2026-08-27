@@ -1,0 +1,37 @@
+name: Geçmiş Tarama (Backtest - Ağustos 2025)
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  tara:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Bağımlılıkları kur
+        run: pip install -q -r requirements.txt
+
+      - name: gecmis_tarama.py çalıştır
+        run: python gecmis_tarama.py
+
+      - name: Sonuçları arşivle
+        run: |
+          mkdir -p results/gecmis_tarama
+          cp -f gecmis_tarama_sonuc.csv results/gecmis_tarama/ 2>/dev/null || true
+          echo "$(TZ=Europe/Istanbul date +%F_%H%M)" > results/gecmis_tarama/son_calisma.txt
+
+      - name: Commit & push
+        run: |
+          git config user.name "tarama-bot"
+          git config user.email "tarama-bot@users.noreply.github.com"
+          git add results/gecmis_tarama/
+          git diff --cached --quiet || git commit -m "Geçmiş tarama (backtest) sonucu: $(TZ=Europe/Istanbul date +%F_%H%M)"
+          git push
