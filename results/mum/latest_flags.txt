@@ -1,2 +1,2 @@
 week_end=false
-month_end=false
+month_end=true
