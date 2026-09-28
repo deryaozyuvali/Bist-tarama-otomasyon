@@ -1,0 +1,4 @@
+# Kanalın üyelere özel içeriğinin transkriptleri: kişisel kullanım için, repoya girmesin
+transkriptler/
+# Çerez dosyaları hesabına erişim anahtarıdır: asla repoya girmesin
+*cookies*.txt

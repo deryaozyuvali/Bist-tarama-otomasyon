@@ -82,3 +82,6 @@ geçmiş tarihli bir taramaya da bakabilirsin.
 - `gate.py` — mum taramanın hafta/ay sonu kontrolü (yeni).
 - `.github/workflows/*.yml` — zamanlama tanımları (yeni).
 - `requirements.txt` — gerekli Python paketleri.
+- `youtube_transkript/` — YouTube oynatma listesinden (kanal üyelerine özel
+  videolar dahil) transkript indirme aracı. Actions'ta değil, kendi
+  bilgisayarında çalışır; bkz. `youtube_transkript/README.md`.
