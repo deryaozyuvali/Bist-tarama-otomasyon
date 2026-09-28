@@ -2,3 +2,5 @@
 transkriptler/
 # Çerez dosyaları hesabına erişim anahtarıdır: asla repoya girmesin
 *cookies*.txt
+# Python önbelleği
+__pycache__/
