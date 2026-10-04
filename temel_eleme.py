@@ -98,19 +98,22 @@ def yuzdelik(seri, deger, buyuk_iyi=True):
 
 # ── VERİ ÇEK ─────────────────────────────────────────────
 def veri_cek(ticker, deneme=3):
+    # Yahoo yoğunlukta hata vermeden boş tablo döndürebiliyor; boş sonucu da
+    # yeniden dene.
     for d in range(deneme):
         try:
             t = yf.Ticker(f"{ticker}.IS")
             info = t.info or {}
             inc = t.income_stmt
             bs = t.balance_sheet
-            if inc is None or inc.empty or bs is None or bs.empty:
+            if not (inc is None or inc.empty or bs is None or bs.empty):
+                break
+        except Exception as e:
+            if "404" in str(e) or "Not Found" in str(e):
                 return {"Hisse": ticker, "_veri_yok": True}
-            break
-        except Exception:
-            if d == deneme - 1:
-                return {"Hisse": ticker, "_veri_yok": True}
-            time.sleep(3 * (d + 1))
+        if d == deneme - 1:
+            return {"Hisse": ticker, "_veri_yok": True}
+        time.sleep(5 * (d + 1))
 
     gelir = satir(inc, "Total Revenue", "Operating Revenue")
     brut = satir(inc, "Gross Profit")
@@ -321,9 +324,9 @@ def guvenlik_marji(m, sektor_fk_medyan, k1):
 
 
 # ── ANA AKIŞ ─────────────────────────────────────────────
-def calistir(liste):
+def topla(liste, is_parcacigi):
     ham, veri_yok = [], []
-    with ThreadPoolExecutor(max_workers=P["IS_PARCACIGI"]) as ex:
+    with ThreadPoolExecutor(max_workers=is_parcacigi) as ex:
         isler = {ex.submit(veri_cek, t): t for t in liste}
         for i, f in enumerate(as_completed(isler), 1):
             r = f.result()
@@ -333,6 +336,17 @@ def calistir(liste):
                 ham.append(metrik(r))
             if i % 50 == 0:
                 print(f"  {i}/{len(liste)} | veri: {len(ham)} | yok: {len(veri_yok)}")
+    return ham, veri_yok
+
+
+def calistir(liste):
+    ham, veri_yok = topla(liste, P["IS_PARCACIGI"])
+    if veri_yok:
+        # Rate-limit yüzünden boş dönenler için yavaş ikinci tur
+        print(f"  ↻ {len(veri_yok)} hisse için ikinci tur (yavaş)...")
+        time.sleep(30)
+        ek, veri_yok = topla(veri_yok, 2)
+        ham += ek
 
     evren = pd.DataFrame(ham)
     for k in ["F/K", "PD/DD", "Temettü %", "Hakim Pay", "Piyasa Değeri"]:
@@ -360,6 +374,8 @@ def calistir(liste):
         uyari = []
         if finansal_mi(m):
             uyari.append("Finansal şirket/holding: borç/likidite kriterleri uygulanmadı")
+        if m["Sektör"] == "Real Estate":
+            uyari.append("GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir")
         if m["_borc_artis_trendi"]:
             uyari.append("Finansal borç satışlardan hızlı artıyor")
         if m["Hakim Pay"] is None or np.isnan(m["Hakim Pay"]):

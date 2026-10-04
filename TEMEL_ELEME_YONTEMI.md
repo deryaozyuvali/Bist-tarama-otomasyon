@@ -95,6 +95,10 @@ sütununda).
   büyüme bir bütün) büyük ölçüde örtüşüyor.
 - Hakim ortak payı yfinance'in `heldPercentInsiders` alanından gelir. KAP
   ortaklık yapısıyla birebir aynı olmayabilir.
+- GYO ve gayrimenkul şirketlerinde net kâr, yatırım amaçlı gayrimenkul
+  değerleme kazancı içerebilir. Bu yüzden düşük F/K ve yüksek güvenlik marjı
+  yanıltıcı olabilir (*PD/DD* videosu: defter değeri ve kâr her zaman gerçeği
+  yansıtmaz). Bu hisseler "Uyarı" sütununda işaretlenir.
 - Veriler yıllık tablolardır (son 4 yıl). Çeyreklik ani bozulmaları yakalamaz.
 - TMS 29 enflasyon muhasebesi nedeniyle yıllar arası nominal kıyaslar
   yanıltıcı olabilir. Büyüme bu yüzden mutlak değil, şirketler arası sıra
