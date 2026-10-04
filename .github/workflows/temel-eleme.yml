@@ -1,0 +1,43 @@
+name: Temel Eleme (Haftalık, Cumartesi 10:00 İstanbul)
+
+on:
+  schedule:
+    - cron: "0 7 * * 6"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  eleme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Bağımlılıkları kur
+        run: pip install -q -r requirements.txt
+
+      - name: temel_eleme.py çalıştır
+        run: python temel_eleme.py
+
+      - name: Sonuçları arşivle
+        run: |
+          TARIH=$(TZ=Europe/Istanbul date +%F)
+          mkdir -p "results/temel/$TARIH"
+          cp -f temel_eleme_tum.csv temel_eleme_aday.csv "results/temel/$TARIH/"
+          cp -f temel_eleme_tum.csv results/temel/latest_temel_eleme_tum.csv
+          cp -f temel_eleme_aday.csv results/temel/latest_temel_eleme_aday.csv
+          echo "$TARIH" > results/temel/latest_date.txt
+
+      - name: Commit & push
+        run: |
+          git config user.name "tarama-bot"
+          git config user.email "tarama-bot@users.noreply.github.com"
+          git add results/
+          git diff --cached --quiet || git commit -m "Temel eleme sonucu: $(TZ=Europe/Istanbul date +%F)"
+          git pull --rebase
+          git push
