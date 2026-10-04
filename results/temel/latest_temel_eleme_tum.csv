@@ -1,0 +1,585 @@
+Hisse,Durum,Puan,Sektör,K1 Kurumsallık,K2 Risk,K3 Kâr İstikrarı,K4 Kâr Marjı,K5 Borç,K6 Büyüme,K7 Çarpanlar,K8 Rekabet Avantajı,Güvenlik Marjı %,Gerekli Marj %,F/K,PD/DD,Temettü %,Hakim Pay %,Faaliyet Marjı %,Net Borç/Özkaynak,Kârlı Yıl,Eleme Nedeni,Uyarı
+SRVGY,🟢 ADAY + ALIM BÖLGESİ,83.5,Real Estate,10,6,10.0,7.8,10,5.4,8.6,9.0,76.6,30,2.5,0.24,13.8,71.7,63.2,-0.01,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+MHRGY,🟢 ADAY + ALIM BÖLGESİ,79.4,Real Estate,10,6,7.0,8.7,10,8.9,7.2,5.8,71.6,30,3.4,0.36,2.38,77.6,72.7,-0.05,2/2,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+LMKDC,🟢 ADAY + ALIM BÖLGESİ,77.8,Basic Materials,10,3,7.0,9.8,10,9.4,7.1,5.9,58.2,40,8.3,1.51,8.14,73.2,35.2,-0.3,4/4,,
+RGYAS,🟢 ADAY + ALIM BÖLGESİ,77.7,Real Estate,10,6,7.0,7.6,8,7.5,7.2,8.8,57.5,30,3.3,0.39,4.03,70.6,63.0,0.18,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+AHSGY,🟢 ADAY + ALIM BÖLGESİ,76.8,Real Estate,10,6,5.2,9.2,10,9.0,6.6,5.3,83.0,40,1.6,0.46,1.12,89.0,74.6,-0.13,3/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+ATATP,🟢 ADAY + ALIM BÖLGESİ,75.5,Technology,10,6,5.2,9.6,10,8.8,6.0,4.8,82.8,40,12.1,3.71,0.39,78.4,66.5,-0.1,3/4,,
+ATATR,🟢 ADAY + ALIM BÖLGESİ,75.1,Consumer Cyclical,8,3,10.0,9.2,10,2.9,8.0,9.0,50.6,40,5.3,0.59,,65.1,27.0,-0.02,3/3,,
+AKFGY,🟢 ADAY + ALIM BÖLGESİ,75.0,Real Estate,8,6,10.0,9.6,8,4.9,6.5,7.0,58.4,30,7.4,0.26,0.53,55.5,83.3,0.13,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+RYGYO,🟢 ADAY + ALIM BÖLGESİ,74.8,Real Estate,10,6,7.0,9.7,8,8.6,4.9,5.6,60.5,30,6.0,0.94,,70.9,83.6,0.03,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+GRTHO,🟢 ADAY + ALIM BÖLGESİ,74.5,Consumer Defensive,8,10,7.0,6.0,10,8.4,5.6,4.7,40.3,30,9.1,1.41,0.75,65.0,9.3,-0.16,4/4,,
+BULGS,🟢 ADAY + ALIM BÖLGESİ,74.2,Financial Services,10,6,5.2,9.4,5,9.6,8.6,5.5,63.2,40,1.7,0.41,1.59,72.9,27.5,-0.16,3/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+LILAK,🟢 ADAY + ALIM BÖLGESİ,73.9,Consumer Defensive,5,10,7.0,8.4,10,4.3,6.0,8.3,41.3,30,17.4,0.76,6.4,40.8,13.4,-0.26,4/4,,
+MERIT,🟢 ADAY + ALIM BÖLGESİ,73.9,Consumer Cyclical,10,3,7.0,9.8,10,8.2,9.1,2.0,58.5,40,6.7,0.23,7.16,71.1,61.7,-0.0,4/4,,
+DESA,🟢 ADAY + ALIM BÖLGESİ,73.5,Consumer Cyclical,10,3,10.0,8.8,10,5.3,7.1,4.6,48.4,40,9.2,0.95,3.93,82.8,19.1,-0.4,4/4,,
+TSKB,🟢 ADAY + ALIM BÖLGESİ,72.9,Financial Services,8,6,10.0,8.5,5,6.9,8.5,5.4,53.3,30,2.6,0.55,5.43,56.3,,5.57,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+ESCOM,🟢 ADAY + ALIM BÖLGESİ,71.7,Technology,5,6,5.2,9.9,10,6.6,9.7,4.9,80.8,40,2.2,0.78,,43.6,99.0,-0.0,3/4,,
+CGCAM,🟢 ADAY + ALIM BÖLGESİ,71.4,Basic Materials,8,3,10.0,8.2,8,4.8,6.4,8.7,47.4,40,21.6,0.69,,63.0,16.5,-0.1,4/4,,Finansal borç satışlardan hızlı artıyor
+HLGYO,🟢 ADAY + ALIM BÖLGESİ,71.1,Real Estate,10,6,7.0,3.9,8,8.2,9.0,4.7,87.4,30,1.4,0.24,13.97,79.3,10.1,0.12,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+LIDFA,🟢 ADAY + ALIM BÖLGESİ,70.7,Financial Services,8,6,7.0,8.0,5,8.7,8.2,5.7,50.2,30,2.3,0.77,6.74,55.7,,3.35,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+YYLGD,🟢 ADAY + ALIM BÖLGESİ,70.7,Consumer Defensive,8,10,10.0,5.5,3,3.9,8.9,7.3,35.3,30,3.7,0.45,,69.0,8.2,0.68,4/4,,
+MNDTR,🟢 ADAY + ALIM BÖLGESİ,70.6,Consumer Cyclical,10,3,7.0,8.2,6,8.7,7.9,5.7,67.0,40,6.5,0.53,,84.7,13.3,0.4,2/2,,
+ULKER,🟢 ADAY + ALIM BÖLGESİ,70.2,Consumer Defensive,5,10,7.0,8.6,3,6.5,7.8,8.3,53.9,30,8.7,0.64,6.71,47.2,14.1,0.79,4/4,,
+ALBRK,🟢 ADAY + ALIM BÖLGESİ,69.5,Financial Services,8,6,7.0,9.1,5,6.9,8.1,5.5,73.0,30,2.3,0.66,3.08,53.4,,0.69,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+PLTUR,🟢 ADAY + ALIM BÖLGESİ,69.2,Industrials,8,3,7.0,9.2,6,5.8,9.2,7.2,64.2,40,7.9,0.37,7.82,67.4,28.6,0.27,4/4,,
+PAHOL,🟢 ADAY + ALIM BÖLGESİ,68.2,Industrials,10,3,7.0,9.5,5,9.4,7.9,2.8,73.1,40,11.5,0.4,,80.0,97.7,-0.03,2/2,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+CATES,🟢 ADAY + ALIM BÖLGESİ,67.5,Utilities,10,10,5.2,4.5,10,2.7,8.3,3.2,80.1,40,2.9,0.36,,80.0,6.0,-0.09,3/4,,
+ISFIN,🟢 ADAY + ALIM BÖLGESİ,67.5,Financial Services,8,6,7.0,7.8,5,7.8,7.2,5.2,36.6,30,2.9,0.86,,60.0,,6.67,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ANSGR,🟢 ADAY + ALIM BÖLGESİ,65.8,Financial Services,8,6,7.0,4.8,5,9.0,7.2,5.7,31.7,30,3.1,1.2,5.73,68.9,,-1.75,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+SANKO,🟢 ADAY + ALIM BÖLGESİ,65.3,Consumer Cyclical,10,3,4.7,2.7,10,8.6,6.0,7.3,55.5,50,7.8,1.11,,81.3,-1.2,-0.26,2/3,,
+FROTO,🟢 ADAY + ALIM BÖLGESİ,65.2,Consumer Cyclical,10,3,10.0,5.0,1,6.7,6.7,9.8,49.0,40,9.6,1.45,13.07,80.4,4.4,0.64,4/4,,Finansal borç satışlardan hızlı artıyor
+TERA,🟢 ADAY + ALIM BÖLGESİ,65.0,Financial Services,8,6,5.2,4.0,5,9.9,4.0,9.8,77.2,40,,0.48,,65.6,9.2,-1.77,3/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+FORTE,🟢 ADAY + ALIM BÖLGESİ,64.9,Technology,8,6,5.2,8.8,3,8.7,7.0,5.2,80.0,40,2.7,2.24,,62.8,30.0,0.52,3/4,,
+YUNSA,🟢 ADAY + ALIM BÖLGESİ,64.9,Consumer Cyclical,8,3,7.0,5.6,10,5.4,7.9,5.0,44.9,40,8.5,0.6,5.61,57.9,7.3,-0.1,4/4,,
+LOGO,🟢 ADAY + ALIM BÖLGESİ,62.6,Technology,5,6,7.0,7.7,10,3.5,6.3,4.6,36.9,30,22.5,2.64,3.52,35.6,21.3,-0.37,4/4,,
+EUREN,🟢 ADAY + ALIM BÖLGESİ,62.3,Industrials,5,3,10.0,6.1,8,5.6,3.9,8.1,51.4,40,,0.5,,45.7,11.4,0.14,4/4,,
+SURGY,🟢 ADAY + ALIM BÖLGESİ,62.3,Real Estate,10,6,10.0,0.0,10,6.9,3.1,3.8,61.3,30,,0.38,,70.3,,-0.0,3/3,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+IHGZT,🟢 ADAY + ALIM BÖLGESİ,62.1,Communication Services,5,10,3.5,6.5,10,4.4,9.4,0.8,57.9,40,3.7,0.16,,38.0,-1.2,-0.02,2/4,,
+KOTON,🟢 ADAY + ALIM BÖLGESİ,61.0,Consumer Cyclical,10,3,10.0,6.9,3,4.0,6.1,5.8,69.2,40,7.1,1.19,,86.8,9.8,0.83,3/3,,
+GLYHO,🟢 ADAY + ALIM BÖLGESİ,60.9,Industrials,5,3,7.0,7.8,5,4.6,6.8,9.5,58.5,40,5.7,1.87,0.63,30.1,22.1,3.87,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+A1CAP,🟢 ADAY + ALIM BÖLGESİ,60.1,Financial Services,8,6,5.2,4.1,5,5.3,9.5,4.9,85.3,40,1.1,0.32,,65.4,26.1,-0.62,3/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+MACKO,🟡 ADAY (pahalı),84.2,Communication Services,8,10,10.0,9.6,8,6.4,5.5,9.8,0.3,30,7.0,4.88,14.38,69.6,46.6,-0.01,4/4,,Finansal borç satışlardan hızlı artıyor
+PCILT,🟡 ADAY (pahalı),80.8,Communication Services,8,10,7.0,7.3,10,7.2,6.0,9.1,-4.9,30,8.6,1.49,7.84,59.3,5.2,-0.31,4/4,,
+OYAKC,🟡 ADAY (pahalı),80.0,Basic Materials,10,3,10.0,9.1,10,6.4,6.3,9.2,22.6,40,16.5,1.47,4.78,80.1,20.2,-0.17,4/4,,
+CCOLA,🟡 ADAY (pahalı),78.7,Consumer Defensive,10,10,10.0,8.1,6,3.9,5.4,9.5,-12.0,30,11.4,2.42,1.81,70.4,13.2,0.34,4/4,,
+TBORG,🟡 ADAY (pahalı),78.6,Consumer Defensive,10,10,7.0,9.1,10,6.3,6.3,4.2,14.1,30,12.4,1.37,7.53,95.0,17.1,-0.07,4/4,,
+TNZTP,🟡 ADAY (pahalı),78.2,Healthcare,10,10,7.0,9.0,10,8.0,4.1,4.5,2.3,30,27.1,1.07,,74.2,28.4,-0.04,4/4,,
+NETCD,🟡 ADAY (pahalı),78.0,Technology,8,6,10.0,9.3,10,4.1,5.9,9.1,-44.8,30,17.1,4.23,4.81,67.4,64.2,-0.06,3/3,,
+MOPAS,🟡 ADAY (pahalı),77.2,Consumer Defensive,10,10,7.0,5.2,10,5.3,5.8,8.5,-60.8,30,16.8,0.91,2.84,73.7,6.1,-0.11,4/4,,
+MPARK,🟡 ADAY (pahalı),76.7,Healthcare,8,10,10.0,7.0,4,7.4,5.6,9.4,0.4,30,14.6,1.89,,55.0,17.9,0.34,4/4,,Finansal borç satışlardan hızlı artıyor
+AYGAZ,🟡 ADAY (pahalı),76.6,Utilities,10,10,10.0,3.6,10,3.4,6.3,8.0,15.0,30,12.3,0.75,4.35,71.0,2.3,-0.08,4/4,,
+KLKIM,🟡 ADAY (pahalı),76.6,Basic Materials,10,3,10.0,9.3,10,6.6,3.8,8.6,38.8,40,1135.0,1.61,2.87,72.5,20.3,-0.36,4/4,,
+AKSGY,🟡 ADAY (pahalı),76.5,Real Estate,8,6,10.0,8.0,8,6.3,6.7,8.2,23.3,30,6.9,0.44,4.79,54.1,66.5,0.0,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+VAKFN,🟡 ADAY (pahalı),76.5,Financial Services,8,6,10.0,6.7,5,8.7,7.2,9.6,28.7,30,3.1,0.7,,63.5,25.7,3.49,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+MCARD,🟡 ADAY (pahalı),76.4,Technology,10,6,7.0,7.4,8,6.8,6.2,9.7,20.1,30,14.8,3.21,2.71,74.8,17.5,-1.42,3/3,,Finansal borç satışlardan hızlı artıyor
+ASTOR,🟡 ADAY (pahalı),76.3,Industrials,8,3,10.0,9.0,10,7.6,4.1,9.3,-90.9,40,22.3,5.01,1.0,57.2,28.0,-0.24,4/4,,
+GENIL,🟡 ADAY (pahalı),76.1,Healthcare,10,10,10.0,6.3,8,4.1,5.4,7.1,-94.8,30,23.0,1.83,0.64,74.9,12.3,0.1,4/4,,
+ENERY,🟡 ADAY (pahalı),75.7,Utilities,10,10,10.0,4.8,8,5.5,4.4,7.7,-75.2,30,20.1,1.88,0.12,72.9,10.1,-0.04,3/3,,Finansal borç satışlardan hızlı artıyor
+HTTBT,🟡 ADAY (pahalı),75.7,Technology,10,6,7.0,8.0,10,8.0,4.0,7.5,-75.9,30,25.0,2.99,,72.4,21.8,-0.1,4/4,,
+TRGYO,🟡 ADAY (pahalı),74.6,Real Estate,10,6,10.0,8.2,10,5.7,5.6,4.2,-29.5,30,11.5,0.63,5.39,85.3,66.8,-0.14,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+TABGD,🟡 ADAY (pahalı),74.4,Consumer Cyclical,8,3,10.0,6.1,10,8.2,5.0,9.2,-51.1,40,24.3,2.23,2.19,67.6,8.2,-0.0,4/4,,
+PAGYO,🟡 ADAY (pahalı),74.3,Real Estate,5,6,7.0,8.9,10,7.3,6.3,8.9,27.3,30,6.8,0.7,6.6,35.6,74.1,-0.02,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+YAPRK,🟡 ADAY (pahalı),74.3,Consumer Defensive,10,10,7.0,9.9,10,5.1,2.8,4.7,-100.0,30,180.4,3.57,0.28,71.8,62.3,-0.11,4/4,,
+GWIND,🟡 ADAY (pahalı),74.0,Utilities,10,10,10.0,9.2,6,2.9,7.4,3.6,12.7,30,5.3,0.61,3.14,70.0,35.4,0.11,4/4,,Finansal borç satışlardan hızlı artıyor
+GRSEL,🟡 ADAY (pahalı),73.9,Industrials,10,3,7.0,9.0,10,9.6,5.5,5.0,-11.1,40,13.9,1.97,0.55,70.9,26.5,-0.17,4/4,,
+EFOR,🟡 ADAY (pahalı),73.9,Consumer Defensive,8,10,7.0,8.3,8,7.2,2.3,8.3,-100.0,30,1407.0,5.7,0.12,63.6,13.4,0.04,4/4,,
+SMRVA,🟡 ADAY (pahalı),73.3,Financial Services,10,6,10.0,7.7,5,8.9,5.1,5.8,-21.3,30,7.5,1.67,2.62,73.3,55.2,0.39,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+BESLR,🟡 ADAY (pahalı),73.1,Consumer Defensive,10,10,7.0,7.0,4,3.9,8.9,7.6,1.6,30,5.6,0.36,,70.5,10.9,0.42,4/4,,Finansal borç satışlardan hızlı artıyor
+MGROS,🟡 ADAY (pahalı),73.1,Consumer Defensive,5,10,10.0,4.0,8,6.9,5.9,8.6,-0.9,30,14.8,1.0,2.92,49.2,2.8,0.06,4/4,,
+BRKVY,🟡 ADAY (pahalı),72.9,Financial Services,10,6,10.0,6.5,5,7.2,4.2,9.5,-81.4,30,9.2,2.03,0.99,74.7,49.6,0.64,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+TTKOM,🟡 ADAY (pahalı),72.9,Communication Services,10,10,7.0,8.8,6,6.3,6.6,3.5,-2.3,30,6.9,0.69,,86.7,21.6,0.27,4/4,,
+AHGAZ,🟡 ADAY (pahalı),72.6,Utilities,10,10,10.0,5.2,8,6.9,4.1,4.0,-100.0,30,23.0,1.98,0.13,74.6,10.3,-0.56,4/4,,Finansal borç satışlardan hızlı artıyor
+ECILC,🟡 ADAY (pahalı),72.1,Healthcare,10,10,10.0,0.3,10,5.2,5.6,6.6,-40.1,30,,0.64,2.73,77.9,-9.3,-0.03,4/4,,
+VAKFA,🟡 ADAY (pahalı),71.8,Financial Services,10,6,10.0,6.3,5,8.5,5.9,5.7,-100.0,30,4.0,1.02,,76.2,27.5,4.91,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ZEDUR,🟡 ADAY (pahalı),71.8,Industrials,8,3,10.0,9.4,5,9.0,7.6,5.4,14.0,40,13.0,0.41,,60.0,-5.5,0.17,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+GOKNR,🟡 ADAY (pahalı),71.4,Consumer Defensive,8,10,5.2,6.1,8,5.6,7.5,6.6,20.0,40,16.7,0.45,8.15,60.4,9.6,0.19,3/4,,
+GARFA,🟡 ADAY (pahalı),71.3,Financial Services,10,6,7.0,8.3,5,9.1,5.8,5.9,19.8,30,3.4,1.32,,91.6,,5.2,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+SUNTK,🟡 ADAY (pahalı),71.2,Consumer Cyclical,10,3,10.0,7.5,8,4.8,5.5,8.1,-17.6,40,23.9,1.5,2.01,76.1,10.9,-0.04,4/4,,Finansal borç satışlardan hızlı artıyor
+GARAN,🟡 ADAY (pahalı),71.0,Financial Services,10,6,10.0,6.9,5,7.0,6.4,5.5,7.9,30,4.4,1.09,4.18,86.0,,-1.06,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+NTHOL,🟡 ADAY (pahalı),70.8,Consumer Cyclical,8,3,10.0,8.4,10,7.0,7.7,2.5,32.7,40,20.1,0.21,2.71,69.8,16.7,-0.01,4/4,,
+GIPTA,🟡 ADAY (pahalı),70.5,Consumer Cyclical,8,3,7.0,8.5,10,6.2,7.2,6.6,-14.1,40,2.3,1.07,0.11,58.4,16.7,-0.5,4/4,,
+SEGMN,🟡 ADAY (pahalı),70.5,Consumer Defensive,10,10,7.0,6.6,10,6.7,4.0,2.0,19.7,30,81.8,0.55,,72.6,10.7,-0.05,4/4,,
+ELITE,🟡 ADAY (pahalı),70.4,Consumer Defensive,8,10,5.2,9.4,10,5.8,4.2,3.7,25.3,40,40.9,0.96,0.25,68.6,20.1,-0.01,3/4,,
+VAKBN,🟡 ADAY (pahalı),70.3,Financial Services,10,6,10.0,7.6,5,6.8,6.0,4.8,18.4,30,4.1,0.91,,88.0,,-0.24,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+TUREX,🟡 ADAY (pahalı),70.2,Industrials,8,3,7.0,7.3,6,9.8,7.7,7.3,36.0,40,2.3,0.88,,60.0,17.2,0.06,3/3,,Finansal borç satışlardan hızlı artıyor
+EGEEN,🟡 ADAY (pahalı),70.2,Consumer Cyclical,8,3,10.0,9.1,8,9.1,3.4,5.6,-55.1,40,29.1,1.77,,64.2,22.4,-0.07,3/3,,Finansal borç satışlardan hızlı artıyor
+FONET,🟡 ADAY (pahalı),69.7,Healthcare,5,10,7.0,9.7,8,7.4,4.7,4.0,-26.5,30,18.8,2.03,,38.3,33.5,-0.05,4/4,,Finansal borç satışlardan hızlı artıyor
+LINK,🟡 ADAY (pahalı),69.6,Technology,5,6,7.0,6.6,10,9.6,7.6,4.0,27.6,30,7.8,1.61,,43.3,13.1,-0.4,4/4,,
+AKMGY,🟡 ADAY (pahalı),69.1,Real Estate,10,6,5.2,7.5,10,4.5,5.6,6.5,-31.4,40,11.4,0.73,7.41,76.2,62.9,-0.08,3/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+TUKAS,🟡 ADAY (pahalı),69.1,Consumer Defensive,5,10,10.0,9.8,6,4.8,5.4,4.3,-21.3,30,17.6,0.5,,43.4,21.4,0.34,4/4,,
+ARMGD,🟡 ADAY (pahalı),69.0,Consumer Defensive,10,10,7.0,7.5,3,5.8,3.7,8.3,-100.0,30,11.9,3.9,,73.9,11.4,0.95,4/4,,
+TLMAN,🟡 ADAY (pahalı),69.0,Industrials,8,3,7.0,7.9,10,9.2,4.9,5.2,24.0,40,23.6,0.65,,57.2,19.0,-0.17,4/4,,
+SELEC,🟡 ADAY (pahalı),68.8,Healthcare,10,10,5.2,3.7,10,4.1,6.0,6.1,,40,21.0,1.26,0.59,82.4,2.2,-0.16,3/4,,
+PETUN,🟡 ADAY (pahalı),68.7,Consumer Defensive,8,10,7.0,6.5,4,5.2,7.8,6.5,-16.1,30,13.3,0.27,4.85,66.8,10.2,0.36,4/4,,Finansal borç satışlardan hızlı artıyor
+DOFRB,🟡 ADAY (pahalı),68.7,Consumer Cyclical,10,3,7.0,9.6,8,9.5,2.1,5.8,-100.0,40,40.6,5.3,,71.0,36.1,0.07,4/4,,
+EGPRO,🟡 ADAY (pahalı),68.7,Industrials,10,3,7.0,7.2,10,3.5,6.6,7.7,-12.7,40,13.0,1.8,3.68,86.9,17.0,-0.04,4/4,,
+ATAKP,🟡 ADAY (pahalı),68.6,Consumer Defensive,10,10,5.2,4.2,10,6.3,4.6,4.5,,40,,0.65,2.12,79.7,2.9,-0.06,3/4,,
+RYSAS,🟡 ADAY (pahalı),68.5,Industrials,5,3,7.0,9.4,8,9.0,5.0,8.4,-15.6,40,13.5,1.74,,42.7,33.2,0.14,4/4,,
+TURSG,🟡 ADAY (pahalı),68.5,Financial Services,10,6,7.0,6.2,5,9.3,5.7,5.6,-7.0,30,4.2,1.85,2.75,76.1,,-1.89,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+NTGAZ,🟡 ADAY (pahalı),68.4,Energy,8,6,7.0,9.0,8,2.2,6.0,8.5,7.2,30,7.5,1.27,7.88,60.0,15.3,0.0,4/4,,
+ARDYZ,🟡 ADAY (pahalı),68.1,Technology,8,6,10.0,9.1,4,8.1,4.9,4.5,-100.0,30,37.1,3.19,0.05,60.5,30.4,0.28,4/4,,Finansal borç satışlardan hızlı artıyor
+BRYAT,🟡 ADAY (pahalı),68.1,Basic Materials,10,3,7.0,9.9,10,3.7,7.4,3.5,39.5,40,9.3,1.31,10.86,71.6,4529.6,-0.15,4/4,,
+BIMAS,🟡 ADAY (pahalı),67.9,Consumer Defensive,5,10,10.0,3.7,6,6.5,4.5,8.7,-87.5,30,20.0,2.44,2.29,40.1,2.5,0.23,4/4,,Finansal borç satışlardan hızlı artıyor
+DURKN,🟡 ADAY (pahalı),67.8,Consumer Defensive,8,10,7.0,9.3,8,4.3,4.7,3.0,0.3,30,,0.52,0.87,65.1,19.3,0.16,2/2,,
+AFYON,🟡 ADAY (pahalı),67.7,Basic Materials,8,3,7.0,7.7,10,4.4,6.5,7.5,-21.9,40,122.4,0.55,13.61,51.0,15.4,-0.14,4/4,,
+DAPGM,🟡 ADAY (pahalı),67.7,Real Estate,8,6,10.0,8.3,8,4.5,4.5,4.8,19.1,30,12.3,0.44,,65.5,68.9,0.1,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+ISMEN,🟡 ADAY (pahalı),67.7,Financial Services,8,6,10.0,2.7,5,7.2,5.9,9.4,-16.2,30,7.5,1.28,10.51,65.7,1.3,-0.29,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ASELS,🟡 ADAY (pahalı),67.3,Industrials,10,3,7.0,8.6,8,6.9,3.2,7.1,-100.0,40,46.0,5.39,0.12,74.2,22.9,0.06,4/4,,
+KLNMA,🟡 ADAY (pahalı),67.3,Financial Services,10,6,7.0,8.8,5,8.5,3.1,5.4,-59.1,30,8.3,1.94,,180.1,,3.16,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+AVPGY,🟡 ADAY (pahalı),67.0,Real Estate,10,6,7.0,5.9,10,3.7,5.8,5.2,-41.8,30,20.6,0.45,15.96,74.0,37.9,-0.02,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+FADE,🟡 ADAY (pahalı),67.0,Consumer Defensive,8,10,5.2,8.0,8,6.1,6.0,2.3,-100.0,40,17.3,0.45,,50.2,13.0,0.08,3/4,,
+VKGYO,🟡 ADAY (pahalı),67.0,Real Estate,10,6,7.0,6.6,10,3.2,6.7,4.0,-1.0,30,20.8,0.21,4.82,72.3,52.8,-0.13,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+CEMZY,🟡 ADAY (pahalı),66.9,Consumer Defensive,10,10,5.2,9.6,8,6.2,0.9,3.6,,40,,2.84,,84.0,20.7,0.17,3/4,,
+OFSYM,🟡 ADAY (pahalı),66.6,Consumer Defensive,10,10,10.0,5.8,0,5.0,4.3,8.2,-51.8,30,29.8,1.63,1.49,83.6,8.6,1.07,4/4,,
+KTLEV,🟡 ADAY (pahalı),66.4,Financial Services,5,6,7.0,8.1,5,9.8,6.2,5.9,-39.4,30,3.0,1.89,1.27,44.1,,2.44,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+QNBTR,🟡 ADAY (pahalı),66.4,Financial Services,10,6,10.0,7.4,5,7.9,1.3,5.5,-100.0,30,17.1,4.34,,99.9,,1.55,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+TRCAS,🟡 ADAY (pahalı),66.3,Utilities,8,10,10.0,0.0,10,4.7,7.1,3.3,-20.5,30,10.8,0.67,7.61,54.5,,-0.08,4/4,,
+ANHYT,🟡 ADAY (pahalı),66.1,Financial Services,10,6,7.0,5.5,5,8.3,5.4,5.7,-37.1,30,6.0,3.09,8.15,83.9,,-1.56,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+CLEBI,🟡 ADAY (pahalı),65.9,Industrials,10,3,7.0,8.5,1,7.1,6.4,9.7,39.1,40,9.4,4.74,7.53,89.9,22.8,0.82,4/4,,Finansal borç satışlardan hızlı artıyor
+EGGUB,🟡 ADAY (pahalı),65.9,Industrials,8,3,10.0,9.3,8,3.7,6.8,3.8,5.8,40,14.1,0.99,2.47,53.9,33.1,0.01,4/4,,
+MSGYO,🟡 ADAY (pahalı),65.8,Real Estate,8,6,7.0,5.7,10,6.5,5.0,4.5,-100.0,30,102.8,0.45,8.28,55.9,36.9,-0.03,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+AEFES,🟡 ADAY (pahalı),65.6,Consumer Defensive,8,10,7.0,6.8,3,2.8,6.1,8.7,15.1,30,12.6,0.85,1.88,67.0,10.8,0.51,4/4,,
+BORSK,🟡 ADAY (pahalı),65.6,Consumer Defensive,10,10,5.2,5.3,8,5.0,4.8,4.0,,40,,0.68,3.75,70.8,6.1,0.11,3/4,,
+NUHCM,🟡 ADAY (pahalı),65.6,Basic Materials,8,3,10.0,7.4,10,1.9,4.8,7.4,-100.0,40,251.2,1.28,10.66,60.4,12.6,-0.3,4/4,,
+VAKKO,🟡 ADAY (pahalı),65.6,Consumer Cyclical,10,3,7.0,4.6,8,5.9,5.1,8.9,-100.0,40,,0.91,10.32,84.5,2.2,0.01,4/4,,
+ARTMS,🟡 ADAY (pahalı),65.5,Consumer Cyclical,10,3,7.0,8.7,8,7.2,4.4,4.1,33.7,40,38.0,0.94,,71.7,17.8,0.1,4/4,,
+GLRMK,🟡 ADAY (pahalı),65.5,Industrials,8,3,7.0,5.8,8,6.7,4.8,9.1,28.0,40,14.9,1.63,,68.1,10.5,-0.01,4/4,,Finansal borç satışlardan hızlı artıyor
+DSTKF,🟡 ADAY (pahalı),65.4,Financial Services,10,6,7.0,8.4,5,9.4,0.8,5.7,-100.0,30,47.2,15.61,,73.8,92.3,1.64,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+FRMPL,🟡 ADAY (pahalı),65.1,Basic Materials,10,3,10.0,8.0,6,1.2,5.9,8.0,-61.9,40,18.5,0.98,,74.2,15.7,0.35,3/3,,
+AGESA,🟡 ADAY (pahalı),64.9,Financial Services,10,6,7.0,4.4,5,8.9,4.8,5.9,-47.0,30,6.1,3.35,2.93,80.0,,-2.02,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+TCELL,🟡 ADAY (pahalı),64.9,Communication Services,5,10,7.0,8.1,6,6.4,5.7,3.8,11.5,30,11.9,0.69,4.09,46.0,14.0,0.15,4/4,,Finansal borç satışlardan hızlı artıyor
+CMENT,🟡 ADAY (pahalı),64.8,Basic Materials,10,3,10.0,6.6,10,4.6,4.3,3.2,-16.4,40,30.9,1.14,,97.2,10.6,-0.23,4/4,,
+DERIM,🟡 ADAY (pahalı),64.8,Consumer Cyclical,10,3,5.2,7.0,10,6.0,4.2,6.4,-7.6,50,16.2,1.93,,73.0,9.9,-0.97,3/4,,
+ISCTR,🟡 ADAY (pahalı),64.8,Financial Services,8,6,10.0,5.2,5,5.8,7.0,4.9,12.2,30,4.6,0.69,4.33,67.0,,0.14,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+YIGIT,🟡 ADAY (pahalı),64.8,Industrials,10,3,7.0,4.4,10,5.9,3.6,7.9,-80.1,40,50.9,0.72,,70.1,5.3,-0.12,4/4,,
+SSAAT,🟡 ADAY (pahalı),64.8,Consumer Cyclical,10,3,10.0,9.3,3,2.9,3.7,9.9,21.7,40,11.8,4.74,,92.9,27.2,0.52,3/3,,
+ORGE,🟡 ADAY (pahalı),64.7,Industrials,5,3,7.0,9.8,10,7.0,5.6,4.5,-5.1,40,11.3,1.8,,47.7,50.2,-0.05,4/4,,
+SEKFK,🟡 ADAY (pahalı),64.7,Financial Services,5,6,10.0,4.7,5,7.8,8.0,5.4,17.8,30,3.6,0.4,,47.4,6.9,3.75,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ISDMR,🟡 ADAY (pahalı),64.6,Basic Materials,10,3,7.0,4.5,8,5.5,6.4,7.2,-92.8,40,23.2,1.13,7.38,94.9,5.8,-0.07,4/4,,Finansal borç satışlardan hızlı artıyor
+ENKAI,🟡 ADAY (pahalı),64.5,Industrials,10,3,7.0,7.6,10,1.5,5.6,6.9,-100.0,40,11.9,55.85,7.24,71.8,18.2,-0.57,4/4,,
+PKENT,🟡 ADAY (pahalı),64.4,Consumer Cyclical,8,3,10.0,6.6,10,8.1,0.5,5.4,-100.0,40,461.0,44.81,,67.2,9.5,-0.26,4/4,,
+BOSSA,🟡 ADAY (pahalı),63.9,Consumer Cyclical,10,3,7.0,6.5,8,4.6,3.7,8.3,-73.7,40,inf,0.61,,89.1,9.5,0.19,4/4,,
+ULUUN,🟡 ADAY (pahalı),63.9,Consumer Defensive,8,10,1.8,3.5,8,4.4,8.4,7.1,,40,9.0,0.27,,61.1,2.3,0.13,1/4,,
+MEDTR,🟡 ADAY (pahalı),63.7,Healthcare,10,10,5.2,4.3,10,3.7,5.7,2.0,,40,61.7,0.66,2.45,79.4,4.0,-0.12,3/4,,
+RAYSG,🟡 ADAY (pahalı),63.7,Financial Services,10,6,7.0,4.2,5,9.5,3.6,5.6,-10.4,30,6.0,2.08,,94.3,,-3.01,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+TUPRS,🟡 ADAY (pahalı),63.7,Energy,8,6,7.0,5.0,10,2.3,4.0,8.6,-100.0,30,10.8,1.59,3.58,50.7,5.8,-0.11,4/4,,
+TCKRC,🟡 ADAY (pahalı),63.6,Industrials,8,3,7.0,9.6,6,8.5,4.5,4.3,-18.1,40,12.0,3.0,,64.0,41.2,0.08,4/4,,Finansal borç satışlardan hızlı artıyor
+GEDIK,🟡 ADAY (pahalı),63.5,Financial Services,10,6,7.0,2.4,5,6.4,5.3,8.6,-26.9,30,9.1,1.69,7.5,81.9,0.3,0.25,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+OTTO,🟡 ADAY (pahalı),63.4,Financial Services,5,6,7.0,9.7,5,9.9,2.7,5.5,-100.0,30,152.2,1.26,,33.4,92.2,0.02,2/2,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+KLSYN,🟡 ADAY (pahalı),63.1,Consumer Cyclical,10,3,5.2,8.6,8,8.9,5.4,1.4,5.2,50,18.4,1.57,1.03,72.8,17.6,0.08,3/4,,
+IZENR,🟡 ADAY (pahalı),63.0,Utilities,8,10,5.2,6.1,10,3.3,3.4,4.4,7.2,40,35.8,0.5,,60.8,15.2,-0.04,3/4,,
+SKBNK,🟡 ADAY (pahalı),62.8,Financial Services,5,6,10.0,5.6,5,6.6,7.2,4.8,10.7,30,3.8,0.57,1.27,43.0,,-0.38,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+FMIZP,🟡 ADAY (pahalı),62.7,Consumer Cyclical,10,3,7.0,7.2,10,3.9,4.5,4.5,-100.0,40,27.5,5.45,1.75,77.7,10.1,-0.6,4/4,,
+PNLSN,🟡 ADAY (pahalı),62.5,Industrials,5,3,7.0,5.6,10,4.4,7.7,7.3,34.0,40,9.8,0.72,2.02,45.5,10.4,-0.12,4/4,,
+BRISA,🟡 ADAY (pahalı),62.3,Consumer Cyclical,10,3,5.2,7.1,8,3.5,4.9,8.1,,50,36.7,0.79,,87.3,10.0,0.24,3/4,,
+INDES,🟡 ADAY (pahalı),62.3,Technology,5,6,7.0,3.6,8,4.7,8.2,7.3,-11.8,30,10.1,1.03,1.87,40.1,3.2,-0.1,4/4,,Finansal borç satışlardan hızlı artıyor
+DOAS,🟡 ADAY (pahalı),62.3,Consumer Cyclical,8,3,7.0,5.1,4,5.7,7.7,9.3,33.6,40,16.5,0.42,21.08,60.5,4.5,0.38,4/4,,Finansal borç satışlardan hızlı artıyor
+GESAN,🟡 ADAY (pahalı),62.2,Industrials,8,3,10.0,6.7,6,7.2,5.0,3.9,-55.1,40,16.0,1.22,,64.3,15.4,0.24,4/4,,Finansal borç satışlardan hızlı artıyor
+AKGRT,🟡 ADAY (pahalı),62.1,Financial Services,10,6,5.2,4.5,5,7.5,6.3,5.1,35.5,40,3.7,0.98,,72.0,,-2.73,3/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+YKBNK,🟡 ADAY (pahalı),62.1,Financial Services,8,6,10.0,6.0,5,4.3,5.0,5.3,-19.9,30,5.3,1.03,,61.2,,1.15,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+KLRHO,🟡 ADAY (pahalı),62.0,Industrials,10,3,7.0,8.7,5,6.2,5.4,4.3,19.1,40,24.0,0.48,,144.1,10.9,-0.27,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+MOBTL,🟡 ADAY (pahalı),62.0,Technology,10,6,7.0,5.0,8,3.7,7.3,2.6,-5.5,30,14.5,1.12,,79.7,5.9,0.21,4/4,,
+QNBFK,🟡 ADAY (pahalı),62.0,Financial Services,10,6,7.0,7.2,5,8.2,0.9,5.3,-100.0,30,44.4,11.56,,99.4,32.0,6.44,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+EUPWR,🟡 ADAY (pahalı),61.8,Industrials,8,3,7.0,6.9,6,8.5,1.9,8.2,-100.0,40,40.1,2.79,,61.9,15.7,0.22,4/4,,Finansal borç satışlardan hızlı artıyor
+TEZOL,🟡 ADAY (pahalı),61.8,Basic Materials,10,3,7.0,3.9,10,2.9,5.7,7.0,-40.3,40,,0.57,5.84,71.3,4.5,-0.19,4/4,,
+BVSAN,🟡 ADAY (pahalı),61.5,Industrials,8,3,7.0,6.6,6,5.9,4.4,8.3,-5.5,40,,1.12,1.25,60.4,15.3,0.2,4/4,,Finansal borç satışlardan hızlı artıyor
+ALKLC,🟡 ADAY (pahalı),61.4,Consumer Defensive,8,10,5.2,8.8,1,8.1,2.3,5.7,,40,,5.0,0.02,55.4,16.3,0.75,3/4,,Finansal borç satışlardan hızlı artıyor
+DOCO,🟡 ADAY (pahalı),61.4,Industrials,5,3,10.0,5.1,8,5.2,4.0,8.8,-100.0,40,19.1,226.7,1.28,30.1,8.9,0.01,4/4,,
+KCAER,🟡 ADAY (pahalı),61.2,Basic Materials,10,3,7.0,6.9,6,3.5,5.1,7.4,-100.0,40,35.0,1.35,1.62,74.2,11.1,0.16,4/4,,Finansal borç satışlardan hızlı artıyor
+HALKB,🟡 ADAY (pahalı),60.9,Financial Services,10,6,10.0,4.9,5,5.3,3.3,4.2,-100.0,30,9.9,1.36,,91.5,,-2.06,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+BEYAZ,🟡 ADAY (pahalı),60.8,Industrials,10,3,5.2,3.3,10,5.9,4.4,6.7,12.6,50,,1.3,1.73,75.4,2.0,-0.59,3/4,,
+EBEBK,🟡 ADAY (pahalı),60.8,Consumer Cyclical,10,3,7.0,6.4,6,8.0,4.7,3.6,-100.0,40,25.2,2.29,1.52,71.0,8.6,0.07,4/4,,Finansal borç satışlardan hızlı artıyor
+GOLTS,🟡 ADAY (pahalı),60.6,Basic Materials,5,3,7.0,4.9,8,4.2,7.9,8.4,16.2,40,19.6,0.4,1.61,39.4,6.9,0.2,4/4,,
+AKBNK,🟡 ADAY (pahalı),60.3,Financial Services,5,6,10.0,6.6,5,4.3,6.2,5.2,-16.6,30,5.2,1.07,3.28,40.8,,0.78,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+CIMSA,🟡 ADAY (pahalı),60.2,Basic Materials,8,3,10.0,6.1,1,4.7,7.1,8.2,15.1,40,10.4,1.06,1.77,63.5,9.7,0.59,4/4,,Finansal borç satışlardan hızlı artıyor
+OSMEN,🟡 ADAY (pahalı),60.2,Financial Services,8,6,7.0,3.1,5,7.3,6.6,5.1,-96.0,30,6.4,0.66,3.29,58.7,1.5,-0.66,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ALFAS,⚪ Zayıf puan,59.8,Technology,10,6,5.2,5.8,4,5.9,5.9,5.0,,40,38.4,1.75,0.58,77.0,6.6,0.49,3/4,,Finansal borç satışlardan hızlı artıyor
+LIDER,⚪ Zayıf puan,59.7,Industrials,8,3,10.0,2.0,8,5.4,6.6,4.7,76.2,40,21.6,0.59,1.79,69.1,-3.3,-0.84,4/4,,Finansal borç satışlardan hızlı artıyor
+ADGYO,⚪ Zayıf puan,59.6,Real Estate,10,6,5.2,6.4,10,4.8,0.9,4.4,,40,,1.47,,71.9,51.5,-0.03,3/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+BEGYO,⚪ Zayıf puan,59.6,Real Estate,8,6,5.2,3.2,10,5.0,4.8,5.3,,40,,0.38,3.45,64.7,3.3,-0.0,3/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+PRKME,⚪ Zayıf puan,59.5,Energy,8,6,3.5,7.0,10,3.1,4.5,5.5,,40,,0.42,,68.0,10.8,-0.0,2/4,,
+AVHOL,⚪ Zayıf puan,59.2,Financial Services,5,6,5.2,9.2,5,6.1,3.1,7.6,43.3,40,,0.81,,35.4,-18.4,-0.46,3/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+SOKE,⚪ Zayıf puan,59.2,Consumer Defensive,10,10,1.8,2.5,10,4.4,3.2,5.4,,40,,0.58,,78.4,0.2,-0.09,1/4,,
+KRONT,⚪ Zayıf puan,59.1,Technology,5,6,3.5,8.5,10,5.9,2.0,6.5,-64.3,40,45.0,3.94,,38.0,28.7,-0.06,2/4,,
+ODINE,⚪ Zayıf puan,58.9,Technology,8,6,7.0,0.9,10,9.0,0.9,5.2,-100.0,30,283.7,7.95,,63.7,-8.1,-0.25,4/4,,
+OYYAT,⚪ Zayıf puan,58.9,Financial Services,8,6,7.0,3.8,5,4.3,8.0,5.1,28.5,30,3.7,0.64,13.36,69.7,24.9,-0.88,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+AYES,⚪ Zayıf puan,58.8,Basic Materials,3,3,7.0,2.4,8,7.5,7.6,8.5,73.9,60,2.2,0.97,1.31,,1.7,0.17,4/4,,Hakim ortak payı verisi yok
+SISE,⚪ Zayıf puan,58.8,Industrials,8,3,7.0,6.0,5,2.4,8.4,7.2,24.8,40,10.1,0.34,1.58,59.8,-0.0,0.5,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+CWENE,⚪ Zayıf puan,58.7,Technology,8,6,7.0,7.2,1,2.5,8.1,7.2,34.8,30,7.7,1.22,,57.7,16.0,0.52,3/3,,Finansal borç satışlardan hızlı artıyor
+MARBL,⚪ Zayıf puan,58.7,Basic Materials,8,3,7.0,5.1,6,7.9,3.2,6.8,-100.0,40,902.0,0.79,,67.9,6.9,0.39,4/4,,
+AVGYO,⚪ Zayıf puan,58.5,Real Estate,8,6,5.2,9.9,10,3.9,1.5,2.2,,40,,0.8,,55.2,132.9,-0.06,3/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+VBTYZ,⚪ Zayıf puan,58.4,Technology,8,6,7.0,6.4,6,4.5,5.1,3.8,-9.8,30,22.2,2.47,,53.0,10.1,0.37,4/4,,
+BRSAN,⚪ Zayıf puan,58.3,Basic Materials,10,3,5.2,3.4,8,7.3,2.6,7.0,-100.0,50,40.3,2.3,,82.4,3.9,0.21,3/4,,
+EGEPO,⚪ Zayıf puan,58.3,Healthcare,10,10,3.5,5.0,10,5.4,1.5,1.2,-100.0,40,,1.64,,78.0,4.9,-0.07,2/4,,
+PAMEL,⚪ Zayıf puan,58.2,Utilities,10,10,3.5,9.8,10,2.3,0.2,0.7,,40,,2.35,,76.1,107.3,-0.0,2/4,,
+TRALT,⚪ Zayıf puan,58.2,Basic Materials,10,3,5.2,9.4,10,3.0,4.4,1.4,-100.0,50,29.8,2.64,1.14,70.0,21.9,-0.43,3/4,,
+JANTS,⚪ Zayıf puan,58.1,Consumer Cyclical,10,3,5.2,4.9,8,2.2,6.0,7.1,,50,15.2,1.13,0.18,79.1,4.2,0.0,3/4,,
+OZKGY,⚪ Zayıf puan,58.0,Real Estate,10,6,5.2,3.8,10,2.9,5.1,3.4,,40,,0.24,1.63,77.9,9.2,-0.08,3/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+SANFM,⚪ Zayıf puan,58.0,Consumer Defensive,5,10,7.0,7.8,1,4.6,3.1,7.9,-100.0,30,,2.36,0.91,40.1,11.7,0.66,4/4,,Finansal borç satışlardan hızlı artıyor
+KONYA,⚪ Zayıf puan,57.7,Basic Materials,10,3,5.2,6.5,8,4.8,1.9,6.7,-100.0,50,64.5,3.28,,81.9,10.6,0.08,3/4,,
+KSTUR,⚪ Zayıf puan,57.6,Consumer Cyclical,3,3,7.0,9.5,10,5.9,3.1,4.6,-100.0,60,10555.6,9.99,0.84,,28.0,-0.33,4/4,,Hakim ortak payı verisi yok
+EGEGY,⚪ Zayıf puan,57.6,Real Estate,8,6,3.5,5.2,10,7.4,5.8,0.2,56.9,40,2.9,1.22,1.85,66.0,30.7,-0.02,2/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+DOFER,⚪ Zayıf puan,57.5,Basic Materials,8,3,5.2,2.7,8,6.5,6.1,6.5,-100.0,50,29.7,0.73,0.85,63.5,2.3,0.12,3/4,,
+BFREN,⚪ Zayıf puan,57.4,Consumer Cyclical,10,3,5.2,5.9,8,4.5,1.6,7.6,-100.0,50,53.8,16.78,,84.5,8.1,0.19,3/4,,
+AVTUR,⚪ Zayıf puan,57.3,Financial Services,5,6,7.0,9.8,5,5.4,4.6,3.0,-34.6,30,,0.32,,42.3,29.7,-0.19,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+UCAYM,⚪ Zayıf puan,57.3,Industrials,10,3,4.7,6.4,10,2.0,3.3,6.6,-83.9,50,28.4,1.6,,73.3,11.9,-0.19,2/3,,
+ISGYO,⚪ Zayıf puan,57.2,Real Estate,8,6,5.2,6.1,8,4.7,3.9,3.9,,40,,0.39,0.35,52.7,38.4,0.02,3/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+DOHOL,⚪ Zayıf puan,57.2,Industrials,8,3,5.2,5.0,5,5.5,8.2,5.9,-81.1,50,8.0,0.51,1.38,68.1,4.2,-0.47,3/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+GENKM,⚪ Zayıf puan,57.0,Basic Materials,8,3,7.0,6.8,8,1.4,5.4,6.0,-100.0,40,,0.66,2.71,53.3,11.1,0.04,3/3,,
+KOPOL,⚪ Zayıf puan,56.9,Basic Materials,8,3,5.2,6.4,3,5.2,6.9,7.8,,50,15.5,0.77,,54.3,10.3,0.59,3/4,,
+MIATK,⚪ Zayıf puan,56.9,Technology,5,6,5.2,8.2,6,7.4,2.5,5.1,,40,,2.05,,36.6,26.5,0.07,3/4,,Finansal borç satışlardan hızlı artıyor
+AAGYO,⚪ Zayıf puan,56.8,Real Estate,8,6,4.7,6.8,8,5.4,4.9,1.7,-100.0,40,,0.38,4.72,66.0,53.6,0.02,2/3,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+GLCVY,⚪ Zayıf puan,56.7,Financial Services,10,6,7.0,7.3,5,0.0,5.0,5.0,-100.0,30,13.8,1.37,6.11,81.1,23.5,0.49,1/1,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ASGYO,⚪ Zayıf puan,56.6,Real Estate,10,6,3.5,1.5,10,3.2,8.5,2.5,-9.1,40,1.0,0.23,1.69,74.9,-32.4,-0.06,2/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+AGYO,⚪ Zayıf puan,56.5,Real Estate,10,6,7.0,3.4,10,0.0,4.8,4.0,,30,31.5,0.26,,81.7,6.0,-0.01,1/1,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+EKGYO,⚪ Zayıf puan,56.5,Real Estate,5,6,5.2,4.6,8,6.2,4.1,6.0,-25.6,40,,0.47,3.15,49.3,22.3,0.23,3/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+SAYAS,⚪ Zayıf puan,56.5,Industrials,5,3,7.0,7.0,6,5.0,3.8,8.4,-43.0,40,18.2,2.1,,42.6,15.9,0.05,4/4,,Finansal borç satışlardan hızlı artıyor
+DZGYO,⚪ Zayıf puan,56.5,Real Estate,10,6,7.0,1.1,10,2.4,5.6,3.1,0.3,30,8.3,0.39,,71.9,-49.2,-0.36,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+MAKIM,⚪ Zayıf puan,56.4,Industrials,8,3,7.0,5.4,6,6.1,5.5,4.1,-100.0,40,13.6,1.16,,61.9,9.7,0.05,4/4,,Finansal borç satışlardan hızlı artıyor
+GOLDA,⚪ Zayıf puan,56.3,Consumer Defensive,3,10,7.0,4.3,10,0.8,4.3,5.6,-100.0,50,,0.43,,,2.9,-0.14,3/3,,Hakim ortak payı verisi yok
+KZBGY,⚪ Zayıf puan,56.2,Real Estate,8,6,5.2,7.1,6,2.2,6.2,4.2,27.1,40,14.4,0.23,,65.2,58.9,0.17,3/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir; Finansal borç satışlardan hızlı artıyor"
+SONME,⚪ Zayıf puan,56.2,Consumer Cyclical,10,3,3.5,9.9,10,3.4,3.4,1.7,,50,,1.81,0.46,92.1,66.5,-0.02,2/4,,
+AKCNS,⚪ Zayıf puan,56.1,Basic Materials,10,3,7.0,5.3,8,3.7,4.2,3.7,-100.0,40,72.9,1.38,0.92,79.4,7.2,-0.04,4/4,,Finansal borç satışlardan hızlı artıyor
+BLCYT,⚪ Zayıf puan,56.0,Consumer Cyclical,8,3,7.0,3.9,10,2.4,6.9,3.6,-100.0,40,16.3,0.38,,55.9,0.9,-0.32,4/4,,
+GUNDG,⚪ Zayıf puan,56.0,Consumer Defensive,8,10,3.5,3.0,8,4.6,2.0,5.7,,40,,8.45,0.08,54.3,1.0,0.1,2/4,,
+ONRYT,⚪ Zayıf puan,55.9,Industrials,8,3,5.2,3.8,10,5.9,4.8,4.0,,50,,0.22,,65.7,3.6,-0.04,3/4,,
+KCHOL,⚪ Zayıf puan,55.5,Industrials,8,3,7.0,4.2,5,3.2,6.4,7.5,-58.9,40,22.6,0.66,3.3,57.2,3.8,1.21,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+TRENJ,⚪ Zayıf puan,55.5,Basic Materials,10,3,3.5,9.0,10,2.9,5.0,1.1,-100.0,50,11.2,1.8,,71.8,19.6,-1.41,2/4,,
+GSDHO,⚪ Zayıf puan,55.3,Industrials,8,3,3.5,9.5,8,3.8,7.8,0.6,-15.5,50,13.3,0.26,,59.6,40.1,-0.01,2/4,,Finansal borç satışlardan hızlı artıyor
+GUBRF,⚪ Zayıf puan,55.3,Basic Materials,10,3,3.5,8.8,10,3.8,3.4,1.8,-77.2,50,19.7,3.96,,78.7,19.6,-0.01,2/4,,
+AGHOL,⚪ Zayıf puan,55.1,Industrials,5,3,7.0,4.0,5,4.8,6.9,8.4,-100.0,40,18.0,0.6,2.15,48.6,5.3,0.65,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ALCTL,⚪ Zayıf puan,55.1,Technology,8,6,3.5,6.1,8,5.8,4.2,2.5,,40,,0.99,,65.0,9.8,-0.47,2/4,,Finansal borç satışlardan hızlı artıyor
+BASCM,⚪ Zayıf puan,54.8,Basic Materials,3,3,3.5,5.7,10,5.3,7.1,6.2,-30.2,70,19.7,0.94,9.14,,8.0,-0.04,2/4,,Hakim ortak payı verisi yok
+GLRYH,⚪ Zayıf puan,54.8,Financial Services,5,6,7.0,3.7,5,4.8,8.0,4.4,82.4,30,4.2,0.19,,34.4,26.2,-1.0,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+TURGG,⚪ Zayıf puan,54.8,Real Estate,10,6,7.0,0.0,10,5.1,1.3,4.5,-84.4,30,1196.0,1.15,,74.9,,-0.01,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+SUWEN,⚪ Zayıf puan,54.8,Consumer Cyclical,5,3,10.0,6.8,0,6.4,4.0,8.7,-16.6,40,,1.67,3.51,40.3,9.8,1.06,4/4,,Finansal borç satışlardan hızlı artıyor
+KUTPO,⚪ Zayıf puan,54.6,Consumer Cyclical,10,3,5.2,7.6,8,3.9,3.8,2.1,23.3,50,,0.52,,74.1,11.3,0.01,3/4,,
+PKART,⚪ Zayıf puan,54.6,Industrials,8,3,3.5,4.8,10,5.6,3.0,5.8,-98.2,50,19.7,3.39,,66.2,7.0,-0.15,2/4,,
+CEMTS,⚪ Zayıf puan,54.4,Basic Materials,8,3,3.5,5.2,10,1.9,5.8,6.1,,50,,0.53,3.88,67.0,7.0,-0.07,2/4,,
+EDATA,⚪ Zayıf puan,54.4,Technology,8,6,3.5,3.4,10,4.4,2.6,5.7,,40,,1.99,,63.9,3.0,-0.2,2/4,,
+GEDZA,⚪ Zayıf puan,54.1,Basic Materials,5,3,5.2,9.5,10,4.3,4.2,2.0,-100.0,50,64.7,0.82,,39.3,24.9,-0.23,3/4,,
+GENTS,⚪ Zayıf puan,54.1,Consumer Cyclical,5,3,5.2,7.9,8,4.3,7.6,2.2,19.8,50,7.6,0.75,3.76,45.4,12.1,-0.09,3/4,,Finansal borç satışlardan hızlı artıyor
+LYDYE,⚪ Zayıf puan,54.0,Utilities,8,10,5.2,0.2,10,5.9,3.0,0.8,73.6,40,14.1,2.32,,64.9,-21.2,-0.01,3/4,,
+OZSUB,⚪ Zayıf puan,53.6,Consumer Defensive,8,10,3.5,8.9,1,3.8,5.2,2.4,-6.3,40,9.4,3.09,1.68,59.6,16.4,0.82,2/4,,Finansal borç satışlardan hızlı artıyor
+ALTNY,⚪ Zayıf puan,53.5,Industrials,8,3,7.0,7.0,4,8.6,1.4,3.9,-100.0,40,1316.0,2.45,,60.0,15.8,0.34,4/4,,Finansal borç satışlardan hızlı artıyor
+ONCSM,⚪ Zayıf puan,53.3,Healthcare,8,10,1.8,8.3,8,4.4,1.6,0.6,-100.0,40,33.1,4.53,,57.7,22.5,0.1,1/4,,
+SDTTR,⚪ Zayıf puan,53.3,Industrials,8,3,7.0,5.5,6,6.4,3.3,3.4,-100.0,40,78.8,3.67,0.09,63.1,10.0,0.06,4/4,,Finansal borç satışlardan hızlı artıyor
+GLBMD,⚪ Zayıf puan,53.0,Financial Services,10,6,5.2,2.2,5,4.6,1.5,7.9,,40,,2.0,,75.0,0.6,-0.02,3/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+MERCN,⚪ Zayıf puan,52.9,Basic Materials,8,3,5.2,8.1,6,2.3,7.5,2.2,-2.9,50,14.2,0.77,1.83,61.0,16.1,0.33,3/4,,
+OZGYO,⚪ Zayıf puan,52.8,Real Estate,8,6,3.5,5.5,10,1.6,5.4,2.2,-100.0,40,33.2,0.23,1.01,50.9,36.0,-0.01,2/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+THYAO,⚪ Zayıf puan,52.7,Industrials,5,3,10.0,5.3,3,3.6,3.2,9.1,-100.0,40,,18.38,2.28,49.1,9.5,0.53,4/4,,
+BLUME,⚪ Zayıf puan,52.5,Technology,5,6,7.0,5.3,10,5.8,0.1,2.9,-100.0,30,,10.71,,47.6,6.4,-0.0,4/4,,
+SUMAS,⚪ Zayıf puan,52.4,Basic Materials,3,3,5.2,7.6,10,7.1,3.6,2.4,-100.0,70,82.6,2.4,1.08,,13.8,-0.32,3/4,,Hakim ortak payı verisi yok
+DMRGD,⚪ Zayıf puan,52.1,Consumer Defensive,5,10,5.2,3.4,8,6.3,1.2,2.6,-100.0,40,61.9,5.21,,33.1,1.7,0.04,3/4,,
+LYDHO,⚪ Zayıf puan,51.7,Industrials,8,3,3.5,9.9,5,8.0,1.7,2.3,-100.0,50,,1.9,,63.3,966.8,-0.18,2/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+INTEM,⚪ Zayıf puan,51.5,Consumer Cyclical,10,3,3.5,6.7,8,4.2,1.9,3.9,,50,79.4,3.6,,85.9,9.8,0.07,2/4,,
+INVEO,⚪ Zayıf puan,51.3,Financial Services,10,6,5.2,5.8,5,1.5,4.2,3.4,-100.0,40,,0.44,,81.4,35.4,0.24,3/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+DNISI,⚪ Zayıf puan,51.1,Basic Materials,8,3,5.2,2.3,10,3.4,3.3,5.7,-100.0,50,46.3,1.35,,55.7,1.6,-0.08,3/4,,
+DERHL,⚪ Zayıf puan,50.9,Consumer Cyclical,5,3,7.0,8.3,0,7.5,3.1,6.8,-100.0,40,,0.81,,43.7,14.1,1.21,4/4,,Finansal borç satışlardan hızlı artıyor
+RUBNS,⚪ Zayıf puan,50.9,Consumer Cyclical,5,3,5.2,7.7,6,3.5,4.7,5.5,,50,,0.23,,39.9,11.4,0.15,3/4,,Finansal borç satışlardan hızlı artıyor
+TRMET,⚪ Zayıf puan,50.9,Basic Materials,8,3,3.5,8.6,10,3.0,3.5,1.1,-70.7,50,26.2,1.81,,52.2,19.6,-0.75,2/4,,
+SOHOE,⚪ Zayıf puan,50.8,Consumer Cyclical,8,3,10.0,9.0,1,3.4,4.2,2.0,-100.0,40,129.5,0.62,,67.4,21.7,0.86,3/3,,Finansal borç satışlardan hızlı artıyor
+GSDDE,⚪ Zayıf puan,50.6,Industrials,8,3,3.5,8.4,6,1.9,8.5,1.2,35.2,50,3.3,0.53,,68.0,22.4,0.02,2/4,,Finansal borç satışlardan hızlı artıyor
+KONKA,⚪ Zayıf puan,50.2,Basic Materials,10,3,3.5,4.7,10,2.2,4.9,1.9,,50,,0.34,,78.2,6.1,-0.08,2/4,,
+DESPC,⚪ Zayıf puan,49.8,Technology,5,6,1.8,4.7,10,4.8,3.1,4.5,,40,,1.73,,49.1,5.5,-0.04,1/4,,
+TARKM,⚪ Zayıf puan,49.8,Basic Materials,10,3,3.5,8.4,6,4.8,1.0,3.2,,50,585.9,2.43,,76.2,16.6,0.31,2/4,,
+EMNIS,⚪ Zayıf puan,49.4,Consumer Cyclical,8,3,7.0,6.3,8,0.0,1.4,5.9,-100.0,40,249.6,2.98,,66.0,8.5,0.01,1/1,,
+ETILR,⚪ Zayıf puan,49.4,Consumer Cyclical,5,3,5.2,8.1,3,7.6,0.8,6.8,-100.0,50,,3.54,,46.3,12.5,0.75,3/4,,
+VSNMD,⚪ Zayıf puan,48.8,Basic Materials,10,3,5.2,1.2,10,3.1,3.6,2.9,-100.0,50,,1.27,0.86,76.5,-2.2,-0.13,3/4,,
+IEYHO,⚪ Zayıf puan,48.7,Consumer Cyclical,5,3,3.5,5.5,6,8.6,0.2,7.1,,50,,15.47,,39.0,6.3,0.13,2/4,,Finansal borç satışlardan hızlı artıyor
+PATEK,⚪ Zayıf puan,47.8,Technology,8,6,3.5,0.7,8,9.6,1.9,0.5,41.8,40,,2.68,,51.2,-13.7,-0.88,2/4,,Finansal borç satışlardan hızlı artıyor
+MAALT,⚪ Zayıf puan,47.7,Consumer Cyclical,10,3,1.8,0.9,10,9.2,2.5,0.8,-100.0,50,200.1,1.28,,73.4,-14.7,-0.26,1/4,,
+ECZYT,⚪ Zayıf puan,47.7,Industrials,10,3,10.0,0.0,5,2.6,5.1,2.4,-94.9,40,,0.76,2.5,81.6,,-0.03,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+EREGL,⚪ Zayıf puan,47.4,Basic Materials,5,3,7.0,3.6,6,4.6,6.0,2.7,-100.0,40,32.2,0.78,1.49,49.7,4.3,0.15,4/4,,Finansal borç satışlardan hızlı artıyor
+HEDEF,⚪ Zayıf puan,47.3,Financial Services,10,6,3.5,8.7,5,1.7,1.7,1.3,-100.0,40,12.2,3.6,,92.1,96.8,0.0,2/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+UNLU,⚪ Zayıf puan,47.2,Financial Services,8,6,3.5,1.9,5,4.3,3.7,5.4,,40,,0.61,,64.7,0.7,0.15,2/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+BIENY,⚪ Zayıf puan,46.5,Industrials,10,3,3.5,5.2,6,3.9,4.6,1.0,,50,,0.37,,77.0,9.4,0.33,2/4,,
+GMTAS,⚪ Zayıf puan,46.5,Bilinmiyor,3,6,3.5,5.4,6,6.8,0.8,5.8,,60,,3.31,,,8.4,0.0,2/4,,Finansal borç satışlardan hızlı artıyor; Hakim ortak payı verisi yok
+COSMO,⚪ Zayıf puan,46.2,Financial Services,5,6,4.7,1.6,5,6.1,1.5,7.1,,40,14.2,4.2,,40.2,6.5,-0.03,2/3,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+KMPUR,⚪ Zayıf puan,45.9,Basic Materials,10,3,3.5,7.2,0,2.2,5.7,5.2,,50,8.6,1.61,,73.3,11.5,1.13,2/4,,
+KRPLS,⚪ Zayıf puan,44.9,Consumer Defensive,8,10,0.0,5.7,8,2.2,1.4,0.6,,40,,2.01,,55.0,8.5,0.2,0/4,,
+SAHOL,⚪ Zayıf puan,44.7,Financial Services,5,6,5.2,2.8,5,2.7,6.4,2.6,-100.0,40,8.9,0.43,1.63,34.6,,-0.28,3/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+BRKSN,⚪ Zayıf puan,44.0,Industrials,5,3,3.5,5.1,5,5.2,5.9,2.4,-95.7,50,30.8,0.63,1.91,41.3,10.4,-0.09,2/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+MTRYO,⚪ Zayıf puan,43.8,Financial Services,5,6,3.5,2.0,5,3.3,4.8,5.4,,40,,0.58,0.67,41.5,2.0,-1.0,2/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+SKYMD,⚪ Zayıf puan,43.4,Financial Services,10,6,1.8,2.3,5,3.3,1.2,5.2,,40,,2.21,,71.2,0.7,0.14,1/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+KARSN,⚪ Zayıf puan,41.6,Industrials,8,3,5.2,6.3,0,4.7,4.1,1.9,-100.0,50,25.6,1.01,,58.5,11.9,1.0,3/4,,
+RNPOL,⚪ Zayıf puan,40.8,Basic Materials,5,3,3.5,7.3,1,8.3,2.6,1.9,,50,,0.97,,43.5,12.4,0.58,2/4,,Finansal borç satışlardan hızlı artıyor
+PRKAB,⚪ Zayıf puan,40.2,Industrials,10,3,0.0,3.4,10,1.1,0.4,4.2,,50,,7.12,,83.7,2.5,-0.44,0/4,,
+ALKA,⚪ Zayıf puan,39.8,Basic Materials,10,3,3.5,4.0,6,1.3,1.0,3.0,,50,,1.89,,79.9,4.5,0.11,2/4,,Finansal borç satışlardan hızlı artıyor
+DCTTR,⚪ Zayıf puan,39.8,Financial Services,8,6,3.5,1.3,5,4.2,2.3,1.6,,40,,1.27,,59.7,5.9,0.38,2/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+QUAGR,⚪ Zayıf puan,38.9,Industrials,5,3,3.5,6.5,6,2.0,3.9,1.2,,50,,0.5,,44.9,15.1,0.47,2/4,,
+OYAYO,⚪ Zayıf puan,38.4,Financial Services,5,6,3.5,3.3,5,1.7,1.2,5.0,-100.0,40,60.8,3.57,,47.2,8.3,-1.0,2/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+BALAT,⚪ Zayıf puan,37.3,Consumer Cyclical,3,3,2.3,0.2,10,9.3,1.7,0.4,-100.0,70,39.1,19.56,,,-119.7,-0.0,1/3,,Hakim ortak payı verisi yok
+ORZAX,⚪ Zayıf puan,36.8,Consumer Defensive,10,10,0.0,0.0,5,0.0,4.4,0.0,,30,6.0,7.22,,84.5,,,0/0,,
+YKSLN,⚪ Zayıf puan,36.4,Basic Materials,8,3,1.8,6.2,6,0.4,3.4,0.3,,50,104.0,1.03,,60.4,9.7,0.39,1/4,,
+ALKIM,⚪ Zayıf puan,36.3,Basic Materials,5,3,3.5,2.8,8,1.7,3.3,1.7,,50,,0.74,,48.8,2.5,-0.01,2/4,,Finansal borç satışlardan hızlı artıyor
+BINHO,⚪ Zayıf puan,36.2,Industrials,8,3,4.7,0.0,5,3.8,3.8,0.7,63.8,50,,0.55,,62.1,,-0.02,2/3,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+HKTM,⚪ Zayıf puan,36.2,Industrials,5,3,0.0,6.0,4,3.5,2.8,4.6,,50,,1.0,,45.5,11.4,0.37,0/4,,Finansal borç satışlardan hızlı artıyor
+UFUK,⚪ Zayıf puan,35.3,Real Estate,8,6,1.8,0.0,10,0.6,1.1,0.8,-100.0,40,33.0,5.81,,66.9,,-0.04,1/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+METRO,⚪ Zayıf puan,32.4,Financial Services,5,6,1.8,0.5,5,4.1,3.1,0.4,,40,,0.83,,47.4,29.0,-0.01,1/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+BRLSM,⚪ Zayıf puan,31.6,Industrials,8,3,1.8,5.0,1,3.5,2.2,0.9,,50,,1.58,,51.8,8.6,0.56,1/4,,Finansal borç satışlardan hızlı artıyor
+NIBAS,⚪ Zayıf puan,31.3,Industrials,5,3,1.8,3.2,10,0.7,0.9,0.4,,50,,3.69,,34.7,1.1,-0.04,1/4,,
+BESTE,❌ ELENDİ,73.6,Utilities,10,10,10.0,6.7,8,7.5,4.3,2.3,-100.0,30,19.9,0.75,,71.0,18.1,0.12,3/3,Net borç = 5.7 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+KIMMR,❌ ELENDİ,73.1,Consumer Defensive,10,10,5.2,2.9,8,7.4,8.6,6.4,70.7,40,4.5,0.51,3.74,72.9,0.7,0.15,3/4,Net borç = 7.0 yıllık faaliyet kârı,
+MRGYO,❌ ELENDİ,73.0,Real Estate,0,6,10.0,7.3,8,8.4,9.7,9.0,80.7,50,1.0,0.21,,27.5,61.2,0.08,4/4,Hakim ortak payı %27 (<%30); Net borç = 8.4 yıllık faaliyet kârı,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+AKFYE,❌ ELENDİ,70.0,Utilities,10,10,5.2,7.7,8,4.8,8.1,2.2,8.2,40,10.9,0.06,,71.6,24.2,0.21,3/4,Net borç = 8.2 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+OBAMS,❌ ELENDİ,68.6,Consumer Defensive,10,10,5.2,2.2,10,7.3,3.5,6.6,,40,,1.02,0.76,79.9,-0.6,-0.34,3/4,Son yıl hem faaliyet hem net zarar,
+ZRGYO,❌ ELENDİ,68.0,Real Estate,10,6,10.0,8.5,6,6.0,3.8,4.1,-28.4,30,15.7,0.96,0.49,81.1,70.6,0.1,4/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir; Finansal borç satışlardan hızlı artıyor"
+DGGYO,❌ ELENDİ,67.0,Real Estate,10,6,5.2,9.0,6,6.1,2.0,9.3,,40,,0.57,,94.4,74.3,0.28,3/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+DEVA,❌ ELENDİ,65.6,Healthcare,10,10,5.2,3.0,8,5.1,4.2,6.9,,40,,0.56,,82.2,0.0,0.09,3/4,Net borç = 260.3 yıllık faaliyet kârı,
+CRDFA,❌ ELENDİ,65.5,Financial Services,0,6,7.0,9.5,5,8.9,6.7,9.3,44.8,50,3.0,1.0,,29.0,25.0,0.56,4/4,Hakim ortak payı %29 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+MAVI,❌ ELENDİ,64.7,Consumer Cyclical,0,3,10.0,7.8,10,5.9,5.7,9.3,14.6,60,16.4,1.92,4.46,27.2,11.9,-0.29,4/4,Hakim ortak payı %27 (<%30),
+EDIP,❌ ELENDİ,64.5,Real Estate,0,6,7.0,6.2,8,7.7,6.7,9.9,68.5,50,9.2,0.24,,21.7,47.3,0.16,4/4,Hakim ortak payı %22 (<%30); Nakit KV finansal borca yetmiyor ve cari oran < 1,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+BIGEN,❌ ELENDİ,64.0,Utilities,8,10,5.2,8.3,1,8.9,0.1,9.6,,40,,6.46,,67.0,29.1,0.93,3/4,Net borç = 6.9 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+KOCMT,❌ ELENDİ,63.6,Basic Materials,10,3,5.2,1.8,10,4.7,9.1,7.0,,50,4.2,0.5,,74.2,-0.5,-0.2,3/4,Son yıl hem faaliyet hem net zarar,
+A1YEN,❌ ELENDİ,63.1,Utilities,0,10,7.0,8.9,8,5.9,8.1,2.5,5.1,50,9.5,0.3,,20.0,35.3,0.11,4/4,Hakim ortak payı %20 (<%30),
+SAFKR,❌ ELENDİ,63.1,Consumer Cyclical,0,3,10.0,8.9,10,6.7,3.9,8.0,-7.2,60,18.2,1.89,,29.0,20.6,-0.08,4/4,Hakim ortak payı %29 (<%30),
+KBORU,❌ ELENDİ,62.5,Basic Materials,10,3,7.0,7.0,1,8.6,4.6,8.8,23.2,40,45.7,1.31,0.17,78.3,11.4,0.74,4/4,Net borç = 5.4 yıllık faaliyet kârı,Finansal borç satışlardan hızlı artıyor
+ENTRA,❌ ELENDİ,62.1,Utilities,10,10,5.2,7.3,6,4.5,3.3,3.3,,40,,0.39,,84.4,23.2,0.32,3/4,Net borç = 11.6 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+TSGYO,❌ ELENDİ,61.8,Real Estate,10,6,5.2,4.5,8,4.8,3.3,7.6,-100.0,40,38.2,0.44,,88.6,21.6,0.02,3/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+YGGYO,❌ ELENDİ,61.8,Real Estate,0,6,5.2,9.4,8,6.6,4.8,9.4,0.2,60,9.5,1.76,4.97,20.0,77.4,-0.15,3/4,Hakim ortak payı %20 (<%30),"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir; Finansal borç satışlardan hızlı artıyor"
+CVKMD,❌ ELENDİ,61.7,Basic Materials,10,3,7.0,8.9,8,6.3,2.0,4.2,-100.0,40,183.7,1.43,,70.2,19.6,0.11,4/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,
+DARDL,❌ ELENDİ,61.5,Consumer Defensive,8,10,1.8,6.3,4,9.2,4.4,5.5,,40,,0.39,,51.5,10.1,0.46,1/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+ASUZU,❌ ELENDİ,61.4,Consumer Cyclical,10,3,7.0,4.8,6,5.4,5.4,7.6,20.4,40,,0.7,5.55,85.1,3.3,0.43,4/4,Net borç = 7.1 yıllık faaliyet kârı,
+MOGAN,❌ ELENDİ,61.4,Utilities,10,10,3.5,8.0,3,5.8,7.0,1.8,,40,15.7,0.27,,89.4,27.2,0.89,1/2,Net borç = 7.2 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+GSRAY,❌ ELENDİ,61.2,Communication Services,8,10,1.8,3.5,6,9.7,4.0,6.0,,40,,0.64,,60.0,-23.9,0.48,1/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+AYEN,❌ ELENDİ,61.1,Utilities,10,10,7.0,5.8,6,1.0,5.7,3.3,-100.0,30,53.7,0.37,8.66,83.0,14.8,0.39,4/4,Net borç = 5.8 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+PGSUS,❌ ELENDİ,60.5,Industrials,8,3,10.0,6.2,0,8.5,3.4,9.2,65.7,40,,0.63,,52.8,11.4,1.38,4/4,Finansal borç/özkaynak 2.00; Net borç = 9.2 yıllık faaliyet kârı,Finansal borç satışlardan hızlı artıyor
+RALYH,❌ ELENDİ,60.4,Industrials,8,3,7.0,8.8,4,9.2,2.7,5.6,34.2,40,23.8,2.75,,58.4,25.7,0.38,4/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+EKDMR,❌ ELENDİ,60.2,Basic Materials,8,3,10.0,3.5,6,4.7,6.7,6.2,-45.4,40,21.9,0.57,,59.7,3.9,0.03,3/3,Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+LKMNH,❌ ELENDİ,59.8,Healthcare,0,10,10.0,5.7,1,5.8,6.8,8.6,-9.6,50,24.9,0.9,4.05,0.2,9.4,0.96,4/4,Hakim ortak payı %0 (<%30); Net borç = 5.7 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+KRSTL,❌ ELENDİ,59.7,Consumer Defensive,0,10,3.5,7.6,8,5.3,7.5,5.9,57.0,60,4.9,0.67,,16.4,11.6,0.04,2/4,Hakim ortak payı %16 (<%30),
+ADESE,❌ ELENDİ,58.5,Real Estate,0,6,7.0,4.3,8,5.8,8.6,7.2,-100.0,50,2.9,0.23,,16.5,19.4,0.0,4/4,Hakim ortak payı %16 (<%30),"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+PINSU,❌ ELENDİ,58.3,Consumer Defensive,8,10,7.0,3.9,6,5.9,2.9,2.9,-100.0,30,177.0,0.81,,64.5,2.7,0.29,4/4,Net borç = 9.9 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+BIGTK,❌ ELENDİ,58.1,Communication Services,10,10,0.0,5.0,6,7.4,2.1,5.9,,40,62.5,1.75,,74.0,-13.9,0.02,0/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,Finansal borç satışlardan hızlı artıyor
+TOASO,❌ ELENDİ,57.9,Consumer Cyclical,10,3,7.0,4.3,1,5.8,6.1,9.2,-3.4,40,10.3,1.97,7.71,75.5,1.5,0.56,4/4,Net borç = 6.9 yıllık faaliyet kârı; Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor
+KRGYO,❌ ELENDİ,57.8,Real Estate,0,6,10.0,4.8,10,7.9,3.9,3.6,-100.0,50,14.7,1.22,1.14,0.0,28.6,-0.46,4/4,Hakim ortak payı %0 (<%30),"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+PASEU,❌ ELENDİ,57.7,Industrials,5,3,7.0,3.5,8,8.0,2.1,9.5,-39.4,40,22.5,5.51,,40.1,2.9,0.2,4/4,Net borç = 9.8 yıllık faaliyet kârı,
+PENTA,❌ ELENDİ,57.7,Technology,0,6,7.0,3.1,10,7.1,6.1,6.9,-100.0,50,39.7,0.84,,28.4,3.0,-0.02,4/4,Hakim ortak payı %28 (<%30),
+SMRTG,❌ ELENDİ,57.7,Technology,8,6,5.2,6.9,0,6.9,4.9,8.2,,40,31.3,1.82,,64.0,15.5,2.0,3/4,Finansal borç/özkaynak 2.34; Net borç = 5.6 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+FENER,❌ ELENDİ,57.6,Communication Services,8,10,4.7,2.7,10,9.7,1.0,0.1,10.6,40,,2.21,,62.3,-25.2,-3.07,2/3,Negatif özkaynak; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+KRVGD,❌ ELENDİ,57.6,Consumer Defensive,8,10,3.5,4.7,3,3.8,7.5,5.7,,40,6.7,0.57,1.7,60.8,5.5,0.72,2/4,Net borç = 5.7 yıllık faaliyet kârı,
+KFEIN,❌ ELENDİ,57.5,Technology,0,6,5.2,4.5,10,6.8,6.1,7.4,-74.3,60,62.6,0.88,0.32,25.1,5.4,-0.27,3/4,Hakim ortak payı %25 (<%30),
+KTSKR,❌ ELENDİ,57.5,Consumer Defensive,8,10,5.2,0.6,10,3.2,6.1,2.9,,40,,0.44,10.23,62.1,-22.1,-0.09,3/4,Son yıl hem faaliyet hem net zarar,
+MEPET,❌ ELENDİ,57.4,Energy,5,6,5.2,3.0,8,8.7,3.5,6.4,,40,,0.52,,49.2,3.8,0.05,3/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,
+AKSEN,❌ ELENDİ,57.1,Utilities,10,10,10.0,7.0,1,1.8,2.0,3.9,-66.9,30,29.9,1.34,,80.1,21.5,0.8,4/4,Net borç = 5.3 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+ATSYH,❌ ELENDİ,56.9,Consumer Cyclical,0,3,7.0,9.7,10,7.5,2.5,5.7,-100.0,60,32.7,4.62,,7.3,42.5,-0.0,2/2,Hakim ortak payı %7 (<%30),
+AKSA,❌ ELENDİ,56.7,Consumer Cyclical,8,3,10.0,5.7,1,2.3,7.1,8.1,30.7,40,7.2,1.14,5.4,66.1,7.6,0.64,4/4,Net borç = 8.5 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+SANEL,❌ ELENDİ,56.6,Industrials,0,3,3.5,7.5,10,9.3,6.0,6.0,65.1,70,2.0,2.86,,22.3,17.3,-0.07,2/4,Hakim ortak payı %22 (<%30),
+YEOTK,❌ ELENDİ,56.6,Industrials,8,3,7.0,7.7,0,8.8,5.2,5.6,-9.8,40,10.8,2.29,,60.8,18.5,1.3,4/4,Finansal borç/özkaynak 1.72,Finansal borç satışlardan hızlı artıyor
+ALVES,❌ ELENDİ,56.4,Industrials,0,3,7.0,8.0,0,9.6,8.9,8.6,47.1,60,8.5,0.25,,15.0,20.1,1.19,4/4,Hakim ortak payı %15 (<%30),Finansal borç satışlardan hızlı artıyor
+LUKSK,❌ ELENDİ,56.4,Consumer Cyclical,10,3,5.2,2.9,8,8.9,3.7,3.3,,50,73.3,1.07,,80.1,-0.1,0.07,3/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+SNGYO,❌ ELENDİ,56.3,Real Estate,5,6,7.0,5.0,8,5.3,5.0,3.8,-78.6,30,,0.18,,42.7,30.1,0.16,4/4,Net borç = 5.4 yıllık faaliyet kârı,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+TATEN,❌ ELENDİ,56.0,Utilities,8,10,5.2,8.6,0,6.4,1.6,4.9,,40,,0.99,,66.0,35.1,1.24,3/4,Net borç = 7.1 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+MEGAP,❌ ELENDİ,55.9,Basic Materials,0,3,7.0,8.5,3,9.6,9.8,3.9,90.7,60,2.3,0.15,,16.3,17.7,0.57,3/3,Hakim ortak payı %16 (<%30),
+ENJSA,❌ ELENDİ,55.6,Utilities,10,10,5.2,5.5,3,2.5,4.9,3.4,-100.0,40,20.8,1.36,4.6,80.0,14.7,0.57,3/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,
+HOROZ,❌ ELENDİ,55.2,Industrials,10,3,5.2,3.1,3,8.1,2.9,8.7,,50,,0.89,,75.9,1.0,0.66,3/4,Net borç = 20.7 yıllık faaliyet kârı; Döngüsel sektör + borçlu + marj sektörün altında,
+TGSAS,❌ ELENDİ,55.2,Industrials,0,3,7.0,9.7,10,5.1,4.5,4.9,-25.3,60,18.7,4.16,0.26,9.8,44.6,-0.19,4/4,Hakim ortak payı %10 (<%30),
+BIGCH,❌ ELENDİ,54.8,Consumer Cyclical,5,3,7.0,5.2,3,6.8,4.8,9.0,-100.0,40,93.8,1.38,2.67,44.4,5.4,0.55,4/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,
+HATSN,❌ ELENDİ,54.8,Industrials,10,3,5.2,2.9,8,6.9,2.7,5.1,,50,,1.11,,79.2,-0.2,0.03,3/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+KUYAS,❌ ELENDİ,54.5,Real Estate,0,6,7.0,6.9,8,9.3,0.6,5.8,-100.0,50,75.0,6.07,,26.6,55.6,0.11,2/2,Hakim ortak payı %27 (<%30),"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+MEGMT,❌ ELENDİ,54.4,Industrials,8,3,7.0,3.7,0,7.6,5.9,8.4,55.2,40,8.3,1.95,,67.7,3.1,1.32,4/4,Finansal borç/özkaynak 1.77; Net borç = 7.4 yıllık faaliyet kârı; Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor
+TEHOL,❌ ELENDİ,54.0,Real Estate,0,6,7.0,1.8,10,9.6,3.1,5.6,5.8,50,7.6,2.3,,0.0,-10.7,-0.17,4/4,Hakim ortak payı %0 (<%30),"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+BANVT,❌ ELENDİ,53.5,Consumer Defensive,10,10,3.5,0.9,10,4.9,1.8,1.7,,40,,1.06,,91.7,-8.8,-0.22,2/4,Son yıl hem faaliyet hem net zarar,
+ATEKS,❌ ELENDİ,53.2,Consumer Cyclical,10,3,1.8,0.6,8,3.8,9.5,5.9,92.1,50,1.1,0.23,,71.6,-30.1,0.03,1/4,Net borçlu ama faaliyet kârı yok,
+TATGD,❌ ELENDİ,53.2,Consumer Defensive,8,10,1.8,4.5,3,2.8,7.5,5.0,-100.0,40,7.0,0.55,,51.9,3.3,0.88,1/4,Net borç = 14.1 yıllık faaliyet kârı,
+DURDO,❌ ELENDİ,53.1,Consumer Cyclical,8,3,5.2,4.4,6,9.2,2.7,3.9,,50,101.2,1.5,,65.3,1.8,0.38,3/4,Net borç = 14.5 yıllık faaliyet kârı,
+IMASM,❌ ELENDİ,53.0,Industrials,0,3,7.0,7.4,8,9.1,4.2,3.7,63.2,60,,0.43,,29.7,17.3,0.05,4/4,Hakim ortak payı %30 (<%30),
+AYDEM,❌ ELENDİ,52.9,Utilities,10,10,1.8,6.4,3,2.6,7.9,0.7,,40,9.1,0.35,,81.6,17.1,0.59,1/4,Net borç = 9.9 yıllık faaliyet kârı,
+TAVHL,❌ ELENDİ,52.9,Industrials,8,3,7.0,8.0,0,2.7,6.1,7.5,-100.0,40,16.0,1.18,1.36,50.2,19.9,1.02,4/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,
+CONSE,❌ ELENDİ,52.8,Utilities,8,10,7.0,3.9,0,2.5,3.6,7.2,27.2,30,24.4,0.61,,51.0,4.1,1.03,4/4,Finansal borç/özkaynak 2.53; Net borç = 34.8 yıllık faaliyet kârı,
+DUNYH,❌ ELENDİ,52.7,Consumer Defensive,0,10,7.0,0.1,10,4.8,4.4,5.9,91.3,50,36.6,0.56,,7.9,-119.9,-1.02,4/4,Hakim ortak payı %8 (<%30),
+KLGYO,❌ ELENDİ,52.3,Real Estate,8,6,5.2,4.1,8,2.1,4.6,3.7,,40,,0.22,,53.5,12.7,0.03,3/4,Net borç = 9.0 yıllık faaliyet kârı,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+NUGYO,❌ ELENDİ,52.2,Real Estate,8,6,5.2,2.2,10,3.2,3.5,3.7,,40,,0.36,,59.4,-5.3,-0.06,3/4,Son yıl hem faaliyet hem net zarar,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+INTEK,❌ ELENDİ,52.1,Technology,3,6,7.0,1.5,8,9.7,0.6,5.9,-100.0,50,433.3,9.33,,,-3.5,0.04,3/3,Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,Hakim ortak payı verisi yok
+ISSEN,❌ ELENDİ,51.9,Consumer Cyclical,10,3,1.8,7.4,6,3.0,5.3,5.0,,50,,0.35,0.71,76.4,10.7,0.47,1/4,Net borç = 5.3 yıllık faaliyet kârı,
+MTRKS,❌ ELENDİ,51.8,Financial Services,0,6,7.0,5.9,5,7.6,4.7,5.3,-73.2,50,8.1,1.76,0.89,25.2,14.2,-0.21,4/4,Hakim ortak payı %25 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+OZYSR,❌ ELENDİ,51.6,Industrials,10,3,7.0,4.9,0,9.1,3.2,4.1,-100.0,40,36.7,1.33,,72.6,7.0,1.65,2/2,Finansal borç/özkaynak 1.83; Döngüsel sektör + borçlu + marj sektörün altında,
+GEREL,❌ ELENDİ,51.5,Industrials,8,3,3.5,4.2,4,6.5,6.5,5.5,-100.0,50,6.3,1.63,,69.8,5.0,0.34,2/4,Net borç = 8.4 yıllık faaliyet kârı,Finansal borç satışlardan hızlı artıyor
+PSDTC,❌ ELENDİ,51.4,Industrials,0,3,7.0,9.6,5,3.5,4.3,8.7,10.5,60,33.0,2.8,1.74,10.4,6.6,-1.57,4/4,Hakim ortak payı %10 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ESCAR,❌ ELENDİ,51.0,Industrials,10,3,5.2,0.5,10,4.8,4.5,2.7,,50,,1.13,1.6,79.6,-32.3,-0.14,3/4,Son yıl hem faaliyet hem net zarar,
+YYAPI,❌ ELENDİ,51.0,Industrials,0,3,7.0,0.1,10,5.4,9.9,5.4,93.7,60,0.9,0.18,,16.6,-104.2,-0.01,3/3,Hakim ortak payı %17 (<%30),
+CEOEM,❌ ELENDİ,50.9,Industrials,5,3,3.5,2.6,10,5.2,5.9,5.6,,50,11.4,1.51,,49.0,-0.6,-1.15,2/4,Son yıl hem faaliyet hem net zarar,
+HUNER,❌ ELENDİ,50.9,Utilities,0,10,5.2,9.5,6,5.7,1.9,2.4,,60,,0.89,,29.9,36.6,0.42,3/4,Hakim ortak payı %30 (<%30); Net borç = 5.8 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+MEKAG,❌ ELENDİ,50.7,Basic Materials,8,3,3.5,1.4,10,6.2,2.1,6.4,,50,,1.16,,63.0,-2.0,-0.3,2/4,Son yıl hem faaliyet hem net zarar,
+MNDRS,❌ ELENDİ,50.7,Consumer Cyclical,5,3,5.2,3.2,8,3.2,9.2,3.7,44.2,50,5.5,0.15,,48.3,0.0,0.12,3/4,Net borç = 629.8 yıllık faaliyet kârı,
+BETAE,❌ ELENDİ,50.5,Industrials,10,3,7.0,7.8,0,1.6,1.6,9.4,-72.7,40,39.1,4.47,,85.0,18.7,1.07,3/3,Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+AZTEK,❌ ELENDİ,50.4,Technology,10,6,5.2,3.9,0,3.2,5.2,6.8,,40,,1.72,2.52,74.1,4.5,1.12,3/4,Net borç = 5.2 yıllık faaliyet kârı,Finansal borç satışlardan hızlı artıyor
+ZOREN,❌ ELENDİ,50.4,Utilities,8,10,3.5,2.7,3,1.6,4.8,6.8,,40,,0.16,,62.2,0.0,0.8,2/4,Net borç = 3374.1 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+PRDGS,❌ ELENDİ,50.2,Financial Services,0,6,3.5,9.0,5,1.6,9.5,5.6,-100.0,60,1.9,0.26,,28.6,67.9,-0.0,2/4,Hakim ortak payı %29 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+VANGD,❌ ELENDİ,50.2,Consumer Defensive,0,10,3.5,1.1,10,8.5,1.0,6.1,,60,,2.59,,16.3,-7.7,-0.02,2/4,Hakim ortak payı %16 (<%30); Son yıl hem faaliyet hem net zarar,
+KAPLM,❌ ELENDİ,49.8,Consumer Cyclical,8,3,3.5,3.4,4,8.8,2.0,7.1,,50,,1.2,,65.4,0.3,0.32,2/4,Net borç = 59.1 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+BRKO,❌ ELENDİ,49.7,Consumer Cyclical,0,3,4.7,9.4,8,5.3,4.0,5.4,,70,,0.38,,19.8,27.4,0.02,2/3,Hakim ortak payı %20 (<%30),
+ESEN,❌ ELENDİ,49.7,Utilities,8,10,1.8,3.3,6,1.3,4.5,4.9,,40,,0.29,,55.0,2.1,0.4,1/4,Net borç = 131.0 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+PSGYO,❌ ELENDİ,49.7,Real Estate,5,6,7.0,0.8,6,3.4,6.7,4.8,56.6,30,6.0,0.27,0.6,49.4,-60.2,0.3,4/4,Net borçlu ama faaliyet kârı yok,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+INFO,❌ ELENDİ,49.6,Financial Services,0,6,7.0,3.4,5,5.0,8.4,4.9,-11.3,50,2.7,0.45,,2.3,2.3,-2.65,4/4,Hakim ortak payı %2 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+EKSUN,❌ ELENDİ,49.4,Consumer Defensive,10,10,1.8,2.7,3,5.2,2.2,4.6,,40,,0.98,,72.7,0.5,0.97,1/4,Net borç = 38.6 yıllık faaliyet kârı,
+CELHA,❌ ELENDİ,49.2,Industrials,10,3,3.5,1.2,8,8.1,1.4,4.1,,50,,2.39,,80.4,-13.6,0.12,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+EKOS,❌ ELENDİ,49.2,Industrials,10,3,5.2,1.6,8,7.1,2.7,1.8,,50,,1.11,,72.6,-9.2,0.04,3/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+VESBE,❌ ELENDİ,49.2,Consumer Cyclical,10,3,5.2,2.5,3,4.1,5.8,5.8,,50,,0.15,0.72,77.3,-2.0,0.55,3/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+KAYSE,❌ ELENDİ,49.0,Consumer Defensive,8,10,3.5,1.2,6,3.2,5.0,2.2,,40,,0.2,,59.2,-7.4,0.34,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+ARSAN,❌ ELENDİ,48.9,Industrials,8,3,5.2,0.0,10,3.5,6.4,2.9,,50,17.0,0.49,,57.4,-146.5,-0.16,3/4,Son yıl hem faaliyet hem net zarar,
+OZATD,❌ ELENDİ,48.9,Industrials,10,3,5.2,4.6,6,5.1,0.2,5.0,,50,,20.08,,74.5,5.6,0.3,3/4,Net borç = 9.5 yıllık faaliyet kârı,
+TRILC,❌ ELENDİ,48.9,Healthcare,0,10,5.2,7.7,1,8.5,4.5,2.2,26.4,60,,0.4,,26.8,21.1,0.85,3/4,Hakim ortak payı %27 (<%30),Finansal borç satışlardan hızlı artıyor
+SVGYO,❌ ELENDİ,48.9,Real Estate,10,6,3.5,0.1,10,5.0,2.7,1.8,,40,,0.96,0.19,72.7,-545.5,-0.07,1/2,Son yıl hem faaliyet hem net zarar,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+CRFSA,❌ ELENDİ,48.8,Consumer Defensive,10,10,3.5,1.6,0,5.0,0.0,9.0,,40,,-5.17,,89.3,-1.5,1.61,2/4,Son yıl hem faaliyet hem net zarar; Finansal borç/özkaynak 2.07; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+SARAE,❌ ELENDİ,48.6,Industrials,0,3,7.0,8.1,3,5.1,2.7,10.0,,60,25.8,2.11,,0.0,20.8,0.96,3/3,Hakim ortak payı %0 (<%30),
+BOBET,❌ ELENDİ,48.5,Basic Materials,8,3,5.2,1.1,10,3.8,4.8,2.9,,50,,0.88,2.41,69.3,-2.9,-0.03,3/4,Son yıl hem faaliyet hem net zarar,
+AKFIS,❌ ELENDİ,48.1,Real Estate,10,6,7.0,3.1,3,5.7,0.6,3.2,-100.0,30,452.5,1.84,,89.5,2.1,0.63,4/4,Net borç = 98.6 yıllık faaliyet kârı,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+ALARK,❌ ELENDİ,48.0,Industrials,8,3,5.2,1.7,5,2.3,8.9,4.3,,50,5.8,0.46,3.1,59.8,-27.6,0.19,3/4,Son yıl hem faaliyet hem net zarar,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+PNSUT,❌ ELENDİ,47.9,Consumer Defensive,8,10,3.5,1.7,3,2.3,4.8,5.0,,40,,0.26,,61.4,-0.9,0.51,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+KNFRT,❌ ELENDİ,47.7,Consumer Defensive,10,10,3.5,1.9,8,2.5,1.3,1.0,,40,,2.05,,77.6,-0.9,0.1,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+ISBTR,❌ ELENDİ,47.6,Financial Services,0,6,10.0,5.2,5,5.8,1.3,4.9,-100.0,50,inf,23400.51,0.0,0.0,,0.14,4/4,Hakim ortak payı %0 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+OBASE,❌ ELENDİ,47.5,Technology,8,6,1.8,5.5,8,4.1,3.5,1.1,-100.0,40,,1.53,,65.6,6.5,0.14,1/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,
+SEGYO,❌ ELENDİ,47.5,Real Estate,10,6,3.5,0.4,8,3.9,3.6,2.6,,40,,0.33,,77.7,-271.4,0.03,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+BAKAB,❌ ELENDİ,47.2,Consumer Cyclical,10,3,3.5,3.0,6,2.9,4.2,5.2,,50,113.6,0.7,,78.7,-0.1,0.29,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+FZLGY,❌ ELENDİ,47.2,Real Estate,10,6,3.5,2.5,6,6.4,0.7,2.7,,40,,1.55,,73.1,1.0,0.28,2/4,Net borç = 90.7 yıllık faaliyet kârı,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+POLHO,❌ ELENDİ,47.2,Basic Materials,10,3,3.5,5.9,8,1.1,0.3,6.1,,50,,4.74,,77.7,8.5,0.13,2/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,
+YATAS,❌ ELENDİ,47.1,Consumer Cyclical,0,3,7.0,6.2,1,4.9,8.8,6.8,-100.0,60,4.9,0.32,,21.3,8.3,0.52,4/4,Hakim ortak payı %21 (<%30),Finansal borç satışlardan hızlı artıyor
+ARENA,❌ ELENDİ,46.9,Technology,8,6,5.2,2.8,0,5.1,4.5,5.8,,40,,0.85,,54.5,2.9,2.89,3/4,Finansal borç/özkaynak 3.74,
+BALSU,❌ ELENDİ,46.9,Consumer Defensive,5,10,7.0,7.3,0,1.4,4.5,2.3,-100.0,30,35.7,1.52,2.14,40.9,11.2,2.33,2/2,Finansal borç/özkaynak 2.38; Net borç = 5.5 yıllık faaliyet kârı,
+RTALB,❌ ELENDİ,46.7,Healthcare,0,10,5.2,1.7,8,4.2,4.8,3.5,92.6,60,,0.33,,16.6,-7.4,0.04,3/4,Hakim ortak payı %17 (<%30); Net borçlu ama faaliyet kârı yok,
+DYOBY,❌ ELENDİ,46.7,Basic Materials,10,3,3.5,5.6,3,3.0,7.4,1.9,,50,25.1,0.36,,74.5,7.6,0.76,2/4,Net borç = 7.2 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+BUCIM,❌ ELENDİ,46.5,Basic Materials,8,3,5.2,3.8,6,2.9,5.6,2.8,,50,,0.4,1.12,62.3,4.5,0.24,3/4,Net borç = 7.0 yıllık faaliyet kârı,Finansal borç satışlardan hızlı artıyor
+BSOKE,❌ ELENDİ,46.4,Basic Materials,10,3,3.5,0.9,8,5.8,3.6,2.3,,50,,0.68,,74.6,-6.1,0.23,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+ENDAE,❌ ELENDİ,46.3,Utilities,5,10,3.5,1.7,10,1.9,3.1,1.8,,40,,0.45,,32.1,-12.0,-0.12,2/4,Son yıl hem faaliyet hem net zarar,
+ISATR,❌ ELENDİ,46.3,Financial Services,0,6,10.0,5.2,5,5.8,0.2,4.9,-100.0,50,inf,272547.06,,0.0,,0.14,4/4,Hakim ortak payı %0 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+IHYAY,❌ ELENDİ,46.1,Communication Services,0,10,0.0,5.8,10,3.3,3.7,4.2,,60,,0.66,,26.1,-12.3,-0.13,0/4,Hakim ortak payı %26 (<%30); Son yıl hem faaliyet hem net zarar,
+BTCIM,❌ ELENDİ,46.0,Basic Materials,5,3,5.2,2.0,6,4.5,4.3,6.7,,50,,0.5,,34.0,-0.5,0.25,3/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+ISVEA,❌ ELENDİ,45.5,Basic Materials,10,3,7.0,9.7,0,0.6,2.4,3.8,-100.0,40,40.0,3.34,,70.7,25.6,1.35,3/3,Finansal borç/özkaynak 1.52,Finansal borç satışlardan hızlı artıyor
+ORMA,❌ ELENDİ,45.4,Basic Materials,3,3,5.2,4.8,4,3.6,5.3,7.4,,70,137.2,0.45,,,6.2,0.36,3/4,Net borç = 9.0 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor; Hakim ortak payı verisi yok
+ARFYE,❌ ELENDİ,45.2,Utilities,0,10,7.0,3.0,6,6.5,1.4,2.2,-100.0,50,,1.18,,0.0,1.1,0.2,3/3,Hakim ortak payı %0 (<%30); Net borç = 156.2 yıllık faaliyet kârı,Finansal borç satışlardan hızlı artıyor
+BORLS,❌ ELENDİ,45.2,Industrials,8,3,3.5,2.0,8,5.7,0.0,6.0,,50,,-0.95,,50.4,-4.5,-10.52,2/4,Negatif özkaynak; Son yıl hem faaliyet hem net zarar; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+SELVA,❌ ELENDİ,45.2,Consumer Defensive,0,10,3.5,3.2,6,4.4,3.9,5.2,,60,,0.5,,26.4,1.5,0.13,2/4,Hakim ortak payı %26 (<%30); Net borç = 10.6 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+KRDMA,❌ ELENDİ,45.1,Basic Materials,0,3,3.5,4.3,8,3.4,8.4,5.5,,70,9.6,0.53,,0.0,4.8,0.07,2/4,Hakim ortak payı %0 (<%30),
+KLMSN,❌ ELENDİ,44.9,Industrials,8,3,3.5,3.0,3,5.8,4.3,5.3,,50,,0.41,,67.4,0.3,0.73,2/4,Net borç = 130.5 yıllık faaliyet kârı; Döngüsel sektör + borçlu + marj sektörün altında,
+SNPAM,❌ ELENDİ,44.8,Consumer Cyclical,10,3,3.5,1.8,10,1.9,4.2,1.4,,50,75.0,0.89,,95.9,-7.4,-0.01,2/4,Son yıl hem faaliyet hem net zarar,
+NETAS,❌ ELENDİ,44.6,Technology,8,6,1.8,2.0,10,3.9,0.0,4.0,,40,,-32.88,,63.1,0.5,-8.64,1/4,Negatif özkaynak; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+KRDMD,❌ ELENDİ,44.4,Basic Materials,0,3,3.5,4.3,8,3.4,7.8,5.5,,70,10.6,0.58,,0.0,4.8,0.07,2/4,Hakim ortak payı %0 (<%30),
+SILVR,❌ ELENDİ,44.4,Consumer Cyclical,5,3,3.5,1.5,8,4.0,4.2,6.3,,50,,0.32,,34.9,-8.7,0.09,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+EYGYO,❌ ELENDİ,44.0,Real Estate,8,6,5.2,1.7,3,5.4,3.4,2.4,,40,,0.66,1.48,64.5,-25.2,0.52,3/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+KRTEK,❌ ELENDİ,44.0,Consumer Cyclical,5,3,5.2,2.3,3,8.4,5.1,3.1,,50,inf,0.11,,38.8,-2.6,0.74,3/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Döngüsel sektör + borçlu + marj sektörün altında,
+MAGEN,❌ ELENDİ,44.0,Utilities,10,10,1.8,4.2,6,1.7,0.5,0.9,,40,,2.17,,75.5,5.4,0.31,1/4,Net borç = 54.2 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+AKENR,❌ ELENDİ,43.9,Utilities,10,10,3.5,2.0,0,0.9,3.4,5.3,,40,,0.37,,74.7,-5.9,1.67,2/4,Son yıl hem faaliyet hem net zarar; Finansal borç/özkaynak 1.72; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+BAGFS,❌ ELENDİ,43.8,Basic Materials,8,3,4.7,0.2,4,7.6,4.8,2.7,,50,,0.34,,50.3,-34.5,0.44,2/3,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,Finansal borç satışlardan hızlı artıyor
+TKFEN,❌ ELENDİ,43.8,Basic Materials,10,3,3.5,1.5,8,1.2,2.7,5.1,,50,,2.33,0.13,74.9,-1.9,0.19,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+HDFGS,❌ ELENDİ,43.7,Financial Services,0,6,3.5,7.0,5,2.3,9.8,1.4,29.2,60,1.6,0.25,,0.0,93.0,-0.0,2/4,Hakim ortak payı %0 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+BARMA,❌ ELENDİ,43.5,Consumer Cyclical,8,3,5.2,5.4,0,3.6,2.9,6.7,,50,,0.9,,66.3,6.1,1.54,3/4,Finansal borç/özkaynak 1.57; Net borç = 32.4 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+DOKTA,❌ ELENDİ,43.5,Basic Materials,10,3,3.5,3.2,0,6.1,3.7,5.3,,50,,0.67,,90.1,3.8,1.11,2/4,Net borç = 14.3 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor
+TEKTU,❌ ELENDİ,43.5,Consumer Cyclical,5,3,3.5,0.3,10,2.3,9.6,1.1,,50,0.1,0.23,,34.8,-80.3,-0.0,2/4,Son yıl hem faaliyet hem net zarar,
+PENGD,❌ ELENDİ,43.3,Consumer Defensive,0,10,1.8,1.4,8,3.5,4.9,5.1,,60,,0.24,,22.3,-4.3,0.25,1/4,Hakim ortak payı %22 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+TTRAK,❌ ELENDİ,43.2,Industrials,10,3,7.0,4.0,1,2.5,1.5,5.6,-100.0,40,,2.12,,75.0,4.0,0.52,4/4,Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor
+ANGEN,❌ ELENDİ,43.1,Healthcare,8,10,0.0,2.3,8,2.3,3.2,0.7,,40,,0.88,,63.3,-7.2,0.11,0/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+REEDR,❌ ELENDİ,43.1,Technology,5,6,3.5,0.4,8,4.6,5.0,2.0,,40,inf,0.37,,34.0,-24.0,0.03,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+TMSN,❌ ELENDİ,43.0,Industrials,10,3,5.2,0.3,4,3.9,4.2,3.8,90.1,50,,0.44,,71.3,-45.7,0.32,3/4,Net borçlu ama faaliyet kârı yok,Finansal borç satışlardan hızlı artıyor
+AKSUE,❌ ELENDİ,42.8,Utilities,0,10,3.5,1.1,8,7.8,1.7,2.1,,60,,0.95,,11.8,-12.9,0.0,2/4,Hakim ortak payı %12 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+FLAP,❌ ELENDİ,42.8,Consumer Cyclical,0,3,3.5,3.8,10,3.9,4.3,5.7,99.3,70,,1.0,0.53,27.0,0.7,-0.01,2/4,Hakim ortak payı %27 (<%30),
+KATMR,❌ ELENDİ,42.8,Industrials,0,3,3.5,8.2,8,4.8,5.1,1.6,66.0,70,52.3,0.32,,9.3,21.9,0.2,2/4,Hakim ortak payı %9 (<%30),
+MAKTK,❌ ELENDİ,42.8,Industrials,0,3,5.2,7.1,6,6.1,3.3,3.5,,70,,0.66,,0.0,16.1,0.11,3/4,Hakim ortak payı %0 (<%30),Finansal borç satışlardan hızlı artıyor
+BINBN,❌ ELENDİ,42.7,Technology,10,6,1.8,0.1,10,3.8,1.8,0.7,,40,,2.89,,90.5,-61.2,-0.16,1/4,Son yıl hem faaliyet hem net zarar,
+GATEG,❌ ELENDİ,42.7,Industrials,0,3,7.0,8.7,8,0.7,1.0,5.8,-100.0,60,799.4,4.15,,10.8,23.6,0.08,2/2,Hakim ortak payı %11 (<%30),
+INGRM,❌ ELENDİ,42.7,Technology,10,6,3.5,2.6,0,5.1,1.2,5.8,,40,,3.53,,91.6,2.2,2.55,2/4,Finansal borç/özkaynak 2.62; Net borç = 8.2 yıllık faaliyet kârı,Finansal borç satışlardan hızlı artıyor
+KRDMB,❌ ELENDİ,42.6,Basic Materials,0,3,3.5,4.3,8,3.4,6.4,5.5,,70,16.0,0.88,,0.0,4.8,0.07,2/4,Hakim ortak payı %0 (<%30),
+TSPOR,❌ ELENDİ,42.6,Communication Services,8,10,0.0,1.9,0,9.2,4.4,0.5,,40,,0.5,,51.0,-67.5,2.2,0/3,Son yıl hem faaliyet hem net zarar; Finansal borç/özkaynak 2.23; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+ULAS,❌ ELENDİ,42.6,Consumer Cyclical,0,3,10.0,0.0,10,4.5,3.3,3.3,-21.3,60,,0.72,,13.0,,-0.35,4/4,Hakim ortak payı %13 (<%30),
+IHEVA,❌ ELENDİ,42.4,Consumer Cyclical,0,3,3.5,5.3,6,3.0,8.3,4.9,-46.0,70,7.5,0.25,,27.3,5.6,0.09,2/4,Hakim ortak payı %27 (<%30),Finansal borç satışlardan hızlı artıyor
+ARCLK,❌ ELENDİ,42.1,Consumer Cyclical,8,3,5.2,4.1,0,3.2,3.3,6.8,,50,,0.7,,66.1,1.2,1.96,3/4,Finansal borç/özkaynak 3.35; Net borç = 22.8 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor
+KORDS,❌ ELENDİ,42.0,Consumer Cyclical,10,3,3.5,3.1,1,4.0,3.5,5.5,,50,,0.65,,71.1,-0.0,0.82,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor
+SASA,❌ ELENDİ,42.0,Consumer Cyclical,8,3,5.2,3.3,1,4.4,3.9,4.8,,50,,0.47,,54.8,0.1,0.91,3/4,Net borç = 1969.1 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor
+ALGYO,❌ ELENDİ,41.9,Real Estate,8,6,5.2,0.3,4,3.3,4.7,2.0,,40,,0.34,1.67,56.2,-407.5,0.26,3/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir; Finansal borç satışlardan hızlı artıyor"
+SERNT,❌ ELENDİ,41.9,Basic Materials,10,3,5.2,7.8,0,2.9,4.4,0.0,,50,,0.49,,71.5,15.5,1.1,3/4,Net borç = 11.0 yıllık faaliyet kârı,
+SOKM,❌ ELENDİ,41.9,Consumer Cyclical,0,3,5.2,2.6,8,4.0,3.0,7.7,,70,,0.85,,24.3,-1.6,0.14,3/4,Hakim ortak payı %24 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+VERUS,❌ ELENDİ,41.8,Basic Materials,10,3,5.2,0.3,10,2.4,0.2,2.3,,50,,6.08,,78.9,-28.9,-0.82,3/4,Son yıl hem faaliyet hem net zarar,
+BMSCH,❌ ELENDİ,41.6,Basic Materials,5,3,1.8,1.9,6,3.1,7.7,4.9,,50,9.9,0.71,,36.4,-0.5,0.39,1/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+MERKO,❌ ELENDİ,41.6,Consumer Defensive,0,10,3.5,2.4,8,4.3,4.5,0.6,,60,,0.36,,17.8,-0.2,0.13,2/4,Hakim ortak payı %18 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+BYDNR,❌ ELENDİ,41.5,Consumer Cyclical,10,3,3.5,1.9,3,5.0,4.4,2.3,,50,,1.02,1.75,78.6,-6.7,0.52,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Döngüsel sektör + borçlu + marj sektörün altında,
+GZNMI,❌ ELENDİ,41.4,Consumer Cyclical,8,3,1.8,3.7,3,4.9,1.7,7.1,,50,,1.5,,53.3,0.7,0.98,1/4,Net borç = 54.5 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+IHAAS,❌ ELENDİ,41.4,Communication Services,8,10,0.0,4.2,8,2.3,0.2,0.4,,40,,9.04,,65.6,-19.6,-0.04,0/4,Son yıl hem faaliyet hem net zarar,Finansal borç satışlardan hızlı artıyor
+ATAGY,❌ ELENDİ,41.2,Real Estate,0,6,5.2,3.6,10,1.5,2.2,4.4,,60,,0.5,,26.7,7.1,-0.06,3/4,Hakim ortak payı %27 (<%30),"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+INVES,❌ ELENDİ,41.1,Financial Services,10,6,5.2,0.3,5,1.3,2.0,3.0,,40,11.9,3.45,,93.1,-3480.2,-0.16,3/4,Son yıl hem faaliyet hem net zarar,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+OSTIM,❌ ELENDİ,41.1,Financial Services,0,6,7.0,3.0,5,3.6,4.5,3.8,-100.0,50,,0.32,,16.0,-1.1,0.01,4/4,Hakim ortak payı %16 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+SAMAT,❌ ELENDİ,40.8,Industrials,0,3,4.7,2.2,8,9.6,3.8,1.3,-100.0,70,130.0,0.59,,29.5,-1.8,0.01,2/3,Hakim ortak payı %30 (<%30); Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+PARSN,❌ ELENDİ,40.7,Consumer Cyclical,8,3,3.5,1.1,4,6.7,4.2,2.1,,50,,0.33,,67.1,-10.8,0.31,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+AGROT,❌ ELENDİ,40.5,Industrials,8,3,3.5,1.0,5,5.9,4.4,1.6,,50,,0.39,,53.0,-27.5,-0.03,2/4,Son yıl hem faaliyet hem net zarar,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+KONTR,❌ ELENDİ,40.5,Industrials,0,3,5.2,3.1,5,7.3,5.2,3.5,,70,,0.47,0.39,11.9,-1.1,2.44,3/4,Hakim ortak payı %12 (<%30); Son yıl hem faaliyet hem net zarar,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+LXGYO,❌ ELENDİ,40.5,Real Estate,8,6,2.3,2.4,6,5.6,1.1,0.9,,40,,1.21,,64.2,-0.3,0.41,1/3,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+BERA,❌ ELENDİ,40.4,Industrials,0,3,5.2,4.4,5,3.8,4.8,6.1,-0.6,70,,0.26,,13.2,11.1,-0.03,3/4,Hakim ortak payı %13 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ACSEL,❌ ELENDİ,40.3,Basic Materials,8,3,3.5,1.6,6,2.0,2.1,6.0,,50,167.9,1.41,,50.7,-1.7,0.29,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+DAGI,❌ ELENDİ,40.3,Consumer Cyclical,8,3,3.5,2.4,3,4.9,2.0,5.5,,50,,1.23,,60.7,-2.6,0.79,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Döngüsel sektör + borçlu + marj sektörün altında,
+KUVVA,❌ ELENDİ,40.1,Consumer Defensive,0,10,5.2,5.0,0,9.1,0.2,2.5,,60,,5.91,,4.5,5.8,1.13,3/4,Hakim ortak payı %5 (<%30); Net borç = 7.9 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+SNICA,❌ ELENDİ,40.1,Consumer Cyclical,5,3,3.5,3.6,8,3.4,4.4,1.1,,50,,0.26,,41.6,0.6,0.21,2/4,Net borç = 47.7 yıllık faaliyet kârı,
+KERVN,❌ ELENDİ,40.0,Consumer Cyclical,8,3,3.5,0.1,10,0.0,7.4,0.1,-75.4,50,2.1,1.01,,62.1,-3087540.8,-23.78,1/2,Negatif özkaynak; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+CMBTN,❌ ELENDİ,39.9,Basic Materials,8,3,3.5,1.0,8,3.5,0.1,4.8,,50,,8.81,,50.3,-4.5,0.12,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+HRKET,❌ ELENDİ,39.9,Industrials,8,3,3.5,4.1,3,6.4,2.0,1.9,,50,,1.7,,67.8,4.9,0.53,2/4,Net borç = 12.2 yıllık faaliyet kârı; Döngüsel sektör + borçlu + marj sektörün altında,
+ICBCT,❌ ELENDİ,39.9,Financial Services,0,6,7.0,3.5,5,1.9,3.9,4.6,-100.0,50,5.1,2.04,,0.0,,5.67,4/4,Hakim ortak payı %0 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+ODAS,❌ ELENDİ,39.9,Utilities,0,10,5.2,2.3,8,0.8,2.8,2.7,-22.1,60,,0.54,,21.6,-4.3,0.03,3/4,Hakim ortak payı %22 (<%30); Net borçlu ama faaliyet kârı yok,
+ZERGY,❌ ELENDİ,39.9,Real Estate,10,6,3.5,2.9,6,2.1,0.6,0.8,,40,,1.62,,76.2,1.5,0.43,1/2,Net borç = 10.2 yıllık faaliyet kârı,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+ENSRI,❌ ELENDİ,39.8,Consumer Cyclical,8,3,3.5,1.6,6,4.2,2.6,2.9,,50,,1.0,,53.7,-8.5,0.28,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+MANAS,❌ ELENDİ,39.8,Industrials,0,3,4.7,9.1,4,9.0,0.6,1.4,-100.0,70,,4.9,,7.3,28.4,0.41,2/3,Hakim ortak payı %7 (<%30),Finansal borç satışlardan hızlı artıyor
+ALCAR,❌ ELENDİ,39.7,Industrials,10,3,3.5,2.8,1,2.5,4.0,5.0,,50,,3.27,8.73,84.1,-0.5,0.69,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor
+CANTE,❌ ELENDİ,39.7,Utilities,0,10,3.5,1.4,8,2.7,4.2,2.1,,60,,0.33,,29.3,-12.3,0.01,2/4,Hakim ortak payı %29 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+SARKY,❌ ELENDİ,39.3,Basic Materials,0,3,7.0,2.6,3,3.6,4.4,7.8,-100.0,60,59.4,1.8,1.7,29.5,1.8,0.71,4/4,Hakim ortak payı %30 (<%30); Net borç = 5.7 yıllık faaliyet kârı; Döngüsel sektör + borçlu + marj sektörün altında,
+DITAS,❌ ELENDİ,39.0,Consumer Cyclical,8,3,1.8,0.8,3,4.9,5.5,4.2,,50,9.9,1.13,,67.4,-15.0,0.63,1/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+HURGZ,❌ ELENDİ,39.0,Communication Services,10,10,0.0,1.2,6,1.6,2.1,0.3,,40,,1.67,,81.2,-84.3,0.08,0/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,Finansal borç satışlardan hızlı artıyor
+OTKAR,❌ ELENDİ,39.0,Consumer Cyclical,10,3,3.5,4.5,0,4.3,0.5,5.5,,50,,7.41,,72.2,2.0,3.25,2/4,Finansal borç/özkaynak 4.04; Net borç = 27.0 yıllık faaliyet kârı; Döngüsel sektör + borçlu + marj sektörün altında,
+BIOEN,❌ ELENDİ,38.8,Utilities,8,10,3.5,0.5,0,1.6,5.8,1.6,,40,2.5,1.62,,50.6,-18.2,1.83,2/4,Son yıl hem faaliyet hem net zarar; Finansal borç/özkaynak 1.86; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+TUCLK,❌ ELENDİ,38.8,Industrials,0,3,5.2,8.9,1,4.9,4.5,3.5,,70,,0.39,,18.8,26.5,0.85,3/4,Hakim ortak payı %19 (<%30); Net borç = 5.4 yıllık faaliyet kârı,Finansal borç satışlardan hızlı artıyor
+PEKGY,❌ ELENDİ,38.6,Real Estate,0,6,5.2,2.7,6,5.2,2.9,2.8,-100.0,60,9.4,1.81,,0.0,1.4,0.33,3/4,Hakim ortak payı %0 (<%30); Net borç = 99.5 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+ERSU,❌ ELENDİ,38.1,Consumer Defensive,5,10,0.0,0.7,10,2.1,2.0,0.7,,40,,1.02,,34.3,-20.5,-0.2,0/4,Son yıl hem faaliyet hem net zarar,
+BMSTL,❌ ELENDİ,38.0,Basic Materials,5,3,3.5,3.1,4,5.4,0.2,6.3,,50,,7.51,,49.5,3.2,0.29,2/4,Net borç = 5.3 yıllık faaliyet kârı,Finansal borç satışlardan hızlı artıyor
+DGATE,❌ ELENDİ,38.0,Technology,8,6,1.8,4.2,0,4.3,1.9,4.3,-100.0,40,44.0,4.47,,59.2,4.8,3.55,1/4,Finansal borç/özkaynak 3.85,
+ERCB,❌ ELENDİ,37.5,Basic Materials,5,3,5.2,3.0,0,4.0,4.2,5.6,,50,,0.53,,49.6,2.7,1.56,3/4,Finansal borç/özkaynak 1.58; Net borç = 29.5 yıllık faaliyet kârı; Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor
+BJKAS,❌ ELENDİ,37.4,Communication Services,8,10,3.5,0.4,3,3.4,1.3,0.3,,40,,1.93,,60.2,-92.6,0.86,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+NATEN,❌ ELENDİ,37.2,Utilities,8,10,1.8,0.8,3,1.2,4.0,1.0,,40,,0.35,,55.0,-16.1,0.63,1/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+ATLAS,❌ ELENDİ,37.1,Financial Services,0,6,3.5,1.7,5,3.2,4.9,5.4,,60,,0.57,0.56,17.4,1.9,-1.01,2/4,Hakim ortak payı %17 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+MRSHL,❌ ELENDİ,37.1,Basic Materials,10,3,0.0,6.0,6,4.2,0.0,0.4,,50,,11.83,,93.6,8.7,0.36,0/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,
+VRGYO,❌ ELENDİ,37.1,Real Estate,0,6,3.5,5.4,6,2.3,4.9,1.6,,60,,0.2,,27.3,31.7,0.06,2/4,Hakim ortak payı %27 (<%30); Net borç = 5.6 yıllık faaliyet kârı,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir; Finansal borç satışlardan hızlı artıyor"
+RUZYE,❌ ELENDİ,37.0,Energy,5,6,1.8,1.0,10,2.2,2.5,1.1,,40,,0.9,,39.1,-20.5,-0.27,1/4,Son yıl hem faaliyet hem net zarar,
+SEKUR,❌ ELENDİ,36.4,Consumer Cyclical,0,3,1.8,5.8,0,6.6,6.6,5.3,,70,5.1,1.15,,27.2,7.7,1.15,1/4,Hakim ortak payı %27 (<%30); Net borç = 5.2 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+KGYO,❌ ELENDİ,35.6,Real Estate,8,6,1.8,1.3,4,6.2,0.0,1.2,,40,,6.55,,61.2,-42.9,0.44,1/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir; Finansal borç satışlardan hızlı artıyor"
+SKYLP,❌ ELENDİ,35.6,Industrials,0,3,3.5,1.9,10,5.7,1.8,2.7,,70,,1.81,,10.0,-4.5,-0.16,2/4,Hakim ortak payı %10 (<%30); Son yıl hem faaliyet hem net zarar,
+SEYKM,❌ ELENDİ,35.5,Healthcare,0,10,1.8,1.0,10,2.1,2.8,0.8,,60,104.3,1.06,,9.5,-8.2,-0.51,1/4,Hakim ortak payı %10 (<%30); Son yıl hem faaliyet hem net zarar,
+YAYLA,❌ ELENDİ,35.5,Industrials,0,3,3.5,0.8,10,5.5,3.1,2.5,,70,,0.72,,25.7,-26.9,-0.0,2/4,Hakim ortak payı %26 (<%30); Son yıl hem faaliyet hem net zarar,
+AYCES,❌ ELENDİ,35.1,Consumer Cyclical,10,3,1.8,0.7,6,3.8,1.5,1.3,,50,,1.68,,90.6,-26.1,0.02,1/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,Finansal borç satışlardan hızlı artıyor
+USAK,❌ ELENDİ,35.1,Industrials,0,3,3.5,6.8,4,3.7,5.0,2.1,,70,,0.17,,29.4,15.6,0.47,2/4,Hakim ortak payı %29 (<%30); Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+RODRG,❌ ELENDİ,34.9,Consumer Cyclical,5,3,3.5,2.8,8,3.9,1.4,0.4,-100.0,50,109.3,5.99,,41.0,-0.3,0.0,2/4,Net borçlu ama faaliyet kârı yok,
+TDGYO,❌ ELENDİ,34.9,Real Estate,0,6,1.8,2.0,10,0.8,6.7,0.6,-100.0,60,1.1,0.52,,23.3,-6.6,-0.31,1/4,Hakim ortak payı %23 (<%30),"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+GOODY,❌ ELENDİ,34.7,Consumer Cyclical,10,3,0.0,4.2,4,1.4,1.1,4.1,,50,,2.04,,74.6,1.3,0.47,0/4,Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+AVOD,❌ ELENDİ,34.6,Consumer Defensive,0,10,1.8,4.8,1,2.5,3.0,4.6,,60,,0.65,,6.1,5.6,0.69,1/4,Hakim ortak payı %6 (<%30); Net borç = 8.3 yıllık faaliyet kârı,Finansal borç satışlardan hızlı artıyor
+IDGYO,❌ ELENDİ,34.5,Real Estate,5,6,3.5,0.6,3,6.5,2.2,0.8,41.3,40,17.7,1.55,,37.4,-103.5,0.61,2/4,Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+ORCAY,❌ ELENDİ,34.3,Consumer Defensive,0,10,0.0,7.1,1,2.1,2.7,4.6,,60,,0.69,,29.4,11.0,0.71,0/4,Hakim ortak payı %29 (<%30); Net borç = 6.9 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+TKNSA,❌ ELENDİ,34.1,Consumer Cyclical,8,3,3.5,4.7,0,3.6,0.4,4.1,,50,,8.37,,50.0,2.5,5.08,2/4,Finansal borç/özkaynak 8.50; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+SMART,❌ ELENDİ,34.0,Technology,0,6,3.5,1.8,6,4.6,4.1,1.3,,60,,1.02,,6.4,0.0,0.21,2/4,Hakim ortak payı %6 (<%30); Net borç = 927.6 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+ARZUM,❌ ELENDİ,33.8,Technology,0,6,1.8,1.2,10,2.4,0.0,5.7,,60,,-1.41,,25.2,-5.2,-3.89,1/4,Hakim ortak payı %25 (<%30); Negatif özkaynak; Son yıl hem faaliyet hem net zarar; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+IZMDC,❌ ELENDİ,33.7,Basic Materials,8,3,3.5,2.2,0,2.8,4.5,3.0,,50,,0.49,,58.1,0.2,1.21,2/4,Net borç = 214.4 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+BRMEN,❌ ELENDİ,33.6,Consumer Cyclical,5,3,1.8,2.1,10,4.9,0.0,0.1,,50,,56.26,,34.6,-6.5,-0.68,1/4,Son yıl hem faaliyet hem net zarar,
+LRSHO,❌ ELENDİ,33.1,Industrials,0,3,3.5,2.9,5,6.9,4.9,0.3,,70,,0.2,,15.8,7.8,0.11,2/4,Hakim ortak payı %16 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+KAREL,❌ ELENDİ,33.0,Technology,8,6,1.8,2.3,0,3.8,0.5,4.1,,40,,4.5,,60.0,1.2,4.14,1/4,Finansal borç/özkaynak 4.83; Net borç = 23.9 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+GOZDE,❌ ELENDİ,32.9,Financial Services,8,6,1.8,0.1,5,0.4,4.7,0.4,,40,,0.27,,68.0,-26662.5,-0.0,1/4,Son yıl hem faaliyet hem net zarar,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+PETKM,❌ ELENDİ,32.9,Basic Materials,8,3,1.8,0.5,3,1.3,3.7,5.1,,50,,0.66,,56.0,-11.5,0.73,1/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+VERTU,❌ ELENDİ,32.7,Financial Services,8,6,1.8,0.0,5,0.3,4.8,0.4,,40,,0.26,,63.6,,-0.98,1/4,Son yıl hem faaliyet hem net zarar,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ERBOS,❌ ELENDİ,32.4,Industrials,0,3,1.8,4.5,8,2.2,5.4,1.1,,70,,0.61,2.26,17.6,5.5,0.1,1/4,Hakim ortak payı %18 (<%30),
+SODSN,❌ ELENDİ,32.3,Basic Materials,3,3,3.5,0.6,10,1.9,0.4,3.4,,70,,3.73,,,-9.1,-0.49,2/4,Son yıl hem faaliyet hem net zarar,Hakim ortak payı verisi yok
+VESTL,❌ ELENDİ,31.9,Consumer Cyclical,8,3,2.3,1.4,0,1.4,4.4,4.9,,50,,0.27,,52.8,-8.9,3.22,1/3,Son yıl hem faaliyet hem net zarar; Finansal borç/özkaynak 3.30; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor
+DMSAS,❌ ELENDİ,31.8,Industrials,8,3,1.8,2.5,3,3.6,3.0,0.6,,50,,0.83,,53.0,-0.7,0.51,1/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+BIZIM,❌ ELENDİ,31.6,Consumer Cyclical,10,3,3.5,3.5,0,1.2,0.0,4.0,,50,,-10.18,,72.1,0.4,5.16,2/4,Finansal borç/özkaynak 5.82; Net borç = 12.1 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+IZFAS,❌ ELENDİ,31.6,Consumer Defensive,0,10,1.8,2.0,6,4.2,0.4,0.9,,60,,5.25,,18.7,-0.6,0.06,1/4,Hakim ortak payı %19 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,Finansal borç satışlardan hızlı artıyor
+IHLGM,❌ ELENDİ,31.5,Real Estate,0,6,1.8,1.0,8,1.9,6.5,0.1,80.2,60,1.5,0.5,,24.9,-51.6,0.0,1/4,Hakim ortak payı %25 (<%30); Net borçlu ama faaliyet kârı yok,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+ADEL,❌ ELENDİ,31.3,Industrials,10,3,3.5,1.4,0,2.3,3.5,1.3,,50,,4.72,2.18,88.9,-10.2,1.06,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+DIRIT,❌ ELENDİ,31.0,Consumer Cyclical,0,3,7.0,7.3,3,0.0,0.4,4.1,-100.0,60,inf,13.55,,7.5,10.5,0.66,1/1,Hakim ortak payı %8 (<%30); Net borç = 5.5 yıllık faaliyet kârı; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+TMPOL,❌ ELENDİ,30.9,Basic Materials,0,3,5.2,5.5,3,3.8,2.3,1.9,,70,,1.11,,22.1,7.3,0.74,3/4,Hakim ortak payı %22 (<%30); Net borç = 6.7 yıllık faaliyet kârı,
+TRHOL,❌ ELENDİ,30.8,Financial Services,0,6,1.8,9.9,5,1.6,0.3,0.1,-100.0,60,inf,752.13,,0.0,-30668.9,0.01,1/4,Hakim ortak payı %0 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+MARTI,❌ ELENDİ,30.7,Consumer Cyclical,0,3,3.5,1.0,3,8.3,4.5,1.2,,70,,0.25,,24.2,-12.1,0.63,2/4,Hakim ortak payı %24 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+FRIGO,❌ ELENDİ,30.5,Consumer Defensive,0,10,1.8,0.4,6,3.5,1.9,0.9,,60,,1.05,,20.7,-23.6,0.2,1/4,Hakim ortak payı %21 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,Finansal borç satışlardan hızlı artıyor
+VKING,❌ ELENDİ,30.4,Consumer Defensive,8,10,1.8,0.2,0,0.3,0.0,4.0,,40,,-4.04,,58.8,-35.5,47.12,1/4,Son yıl hem faaliyet hem net zarar; Finansal borç/özkaynak 47.54; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,Finansal borç satışlardan hızlı artıyor
+ICUGS,❌ ELENDİ,29.6,Financial Services,0,6,0.0,0.0,5,9.4,2.9,0.4,,60,,0.93,,8.0,,0.08,0/4,Hakim ortak payı %8 (<%30); Son yıl hem faaliyet hem net zarar,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+FORMT,❌ ELENDİ,28.3,Industrials,0,3,0.0,1.0,8,5.6,4.3,0.7,,70,,0.41,,19.7,-18.5,0.05,0/4,Hakim ortak payı %20 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+IZINV,❌ ELENDİ,28.1,Industrials,5,3,0.0,0.9,5,5.2,2.6,0.8,,50,62.2,1.48,,38.1,-64.4,-0.12,0/3,Son yıl hem faaliyet hem net zarar,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+HATEK,❌ ELENDİ,27.7,Consumer Cyclical,5,3,0.0,2.2,1,1.3,8.9,0.8,,50,2.6,0.31,,39.4,-2.9,0.93,0/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor
+SKTAS,❌ ELENDİ,27.4,Consumer Cyclical,5,3,0.0,1.7,6,2.0,3.9,0.3,,50,,0.47,,45.2,-7.8,0.35,0/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1,
+YESIL,❌ ELENDİ,27.3,Financial Services,0,6,0.0,0.6,5,5.7,4.3,0.2,,60,,0.42,,8.1,-11.3,-0.0,0/4,Hakim ortak payı %8 (<%30); Son yıl hem faaliyet hem net zarar,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+VKFYO,❌ ELENDİ,26.6,Financial Services,8,6,0.0,1.2,5,0.5,0.4,0.3,,40,,9.89,,51.6,-8.4,-0.95,0/4,Son yıl hem faaliyet hem net zarar,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+DGNMO,❌ ELENDİ,26.5,Consumer Cyclical,8,3,3.5,1.3,0,2.2,3.1,0.2,,50,,0.83,,64.1,-10.0,4.39,2/4,Son yıl hem faaliyet hem net zarar; Finansal borç/özkaynak 4.47; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor
+KARTN,❌ ELENDİ,26.5,Consumer Cyclical,10,3,1.8,0.5,4,0.5,1.0,0.5,,50,,2.27,,77.2,-39.1,0.38,1/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,Finansal borç satışlardan hızlı artıyor
+ISYAT,❌ ELENDİ,26.1,Financial Services,0,6,1.8,2.6,5,3.0,1.9,0.7,-100.0,60,,1.42,,5.8,16.1,-0.97,1/4,Hakim ortak payı %6 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+EGSER,❌ ELENDİ,26.1,Basic Materials,8,3,1.8,0.7,3,1.2,2.8,0.5,,50,,0.89,,61.1,-7.9,0.76,1/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+ANELE,❌ ELENDİ,25.3,Industrials,5,3,3.5,1.3,3,2.8,0.3,1.3,,50,,13.81,,44.3,-12.9,0.78,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+PAPIL,❌ ELENDİ,25.3,Industrials,0,3,1.8,2.3,8,3.6,0.6,1.0,,70,,4.85,,20.0,-1.5,-0.31,1/4,Hakim ortak payı %20 (<%30); Son yıl hem faaliyet hem net zarar,Finansal borç satışlardan hızlı artıyor
+AKYHO,❌ ELENDİ,25.2,Industrials,0,3,0.0,1.1,10,1.7,3.7,0.5,,70,,0.58,,20.6,-17.7,-0.04,0/4,Hakim ortak payı %21 (<%30); Son yıl hem faaliyet hem net zarar,
+ULUSE,❌ ELENDİ,25.0,Industrials,10,3,0.0,2.1,0,2.1,2.7,0.0,,50,17.2,13.36,,93.7,-2.1,9.68,0/4,Son yıl hem faaliyet hem net zarar; Finansal borç/özkaynak 12.84; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor
+IHLAS,❌ ELENDİ,24.2,Industrials,0,3,1.8,1.5,5,3.8,0.1,4.2,,70,,33.85,,12.9,-25.2,0.59,1/4,Hakim ortak payı %13 (<%30); Son yıl hem faaliyet hem net zarar,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+KLSER,❌ ELENDİ,23.4,Industrials,8,3,3.5,1.5,0,1.5,0.7,0.5,,50,,4.62,,61.2,-9.7,1.05,2/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+DENGE,❌ ELENDİ,23.2,Industrials,0,3,1.8,1.0,8,0.9,3.2,0.7,,70,,0.71,,12.4,-18.8,0.11,1/4,Hakim ortak payı %12 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+CASA,❌ ELENDİ,23.1,Consumer Cyclical,0,3,4.7,1.2,6,3.1,0.0,0.5,,70,,-3.54,,19.9,-10.0,0.28,2/3,Hakim ortak payı %20 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,
+CUSAN,❌ ELENDİ,21.8,Industrials,10,3,0.0,1.7,0,0.6,1.9,0.2,,50,,1.75,,74.0,-9.0,3.31,0/4,Son yıl hem faaliyet hem net zarar; Finansal borç/özkaynak 3.73; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+HEKTS,❌ ELENDİ,21.4,Basic Materials,5,3,1.8,0.1,3,1.3,2.3,0.7,,50,,1.11,,46.9,-49.7,0.61,1/4,Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,
+EMKEL,❌ ELENDİ,21.3,Industrials,0,3,0.0,2.7,4,3.9,2.5,1.0,,70,,1.21,,23.2,-0.5,0.35,0/4,Hakim ortak payı %23 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,Finansal borç satışlardan hızlı artıyor
+HUBVC,❌ ELENDİ,20.8,Financial Services,0,6,1.8,0.2,5,0.3,3.3,0.2,,60,,0.72,,22.1,-1041.4,-0.02,1/4,Hakim ortak payı %22 (<%30); Son yıl hem faaliyet hem net zarar,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+GRNYO,❌ ELENDİ,19.6,Financial Services,0,6,0.0,1.5,5,1.9,0.9,0.4,,60,,3.38,,0.0,,0.02,0/4,Hakim ortak payı %0 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+CEMAS,❌ ELENDİ,17.9,Industrials,0,3,0.0,0.4,6,1.0,3.4,0.5,,70,,0.64,,27.8,-38.1,0.19,0/4,Hakim ortak payı %28 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok,Finansal borç satışlardan hızlı artıyor
+EUYO,❌ ELENDİ,17.7,Financial Services,0,6,0.0,1.0,5,0.7,1.1,0.3,,60,,3.04,,0.3,9.5,-0.9,0/4,Hakim ortak payı %0 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+EUKYO,❌ ELENDİ,16.6,Financial Services,0,6,0.0,0.9,5,0.6,0.5,0.3,,60,,6.83,,15.1,3.4,-0.88,0/4,Hakim ortak payı %15 (<%30),Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+MMCAS,❌ ELENDİ,16.2,Industrials,0,3,0.0,3.6,0,0.1,0.2,6.0,,70,,16.33,,29.5,3.0,1.46,0/2,Hakim ortak payı %30 (<%30); Negatif özkaynak; Döngüsel sektör + borçlu + marj sektörün altında,
+ETYAT,❌ ELENDİ,16.1,Financial Services,0,6,0.0,0.8,5,0.5,0.4,0.3,,60,,7.81,,6.2,-1.2,-0.96,0/4,Hakim ortak payı %6 (<%30); Son yıl hem faaliyet hem net zarar,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+BAYRK,❌ ELENDİ,10.1,Consumer Cyclical,0,3,1.8,0.4,1,0.9,0.9,0.1,,70,,2.93,,24.1,-50.4,0.94,1/4,Hakim ortak payı %24 (<%30); Son yıl hem faaliyet hem net zarar; Net borçlu ama faaliyet kârı yok; Nakit KV finansal borca yetmiyor ve cari oran < 1; Döngüsel sektör + borçlu + marj sektörün altında,Finansal borç satışlardan hızlı artıyor

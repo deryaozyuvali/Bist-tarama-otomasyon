@@ -1,0 +1,176 @@
+Hisse,Durum,Puan,Sektör,K1 Kurumsallık,K2 Risk,K3 Kâr İstikrarı,K4 Kâr Marjı,K5 Borç,K6 Büyüme,K7 Çarpanlar,K8 Rekabet Avantajı,Güvenlik Marjı %,Gerekli Marj %,F/K,PD/DD,Temettü %,Hakim Pay %,Faaliyet Marjı %,Net Borç/Özkaynak,Kârlı Yıl,Eleme Nedeni,Uyarı
+SRVGY,🟢 ADAY + ALIM BÖLGESİ,83.5,Real Estate,10,6,10.0,7.8,10,5.4,8.6,9.0,76.6,30,2.5,0.24,13.8,71.7,63.2,-0.01,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+MHRGY,🟢 ADAY + ALIM BÖLGESİ,79.4,Real Estate,10,6,7.0,8.7,10,8.9,7.2,5.8,71.6,30,3.4,0.36,2.38,77.6,72.7,-0.05,2/2,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+LMKDC,🟢 ADAY + ALIM BÖLGESİ,77.8,Basic Materials,10,3,7.0,9.8,10,9.4,7.1,5.9,58.2,40,8.3,1.51,8.14,73.2,35.2,-0.3,4/4,,
+RGYAS,🟢 ADAY + ALIM BÖLGESİ,77.7,Real Estate,10,6,7.0,7.6,8,7.5,7.2,8.8,57.5,30,3.3,0.39,4.03,70.6,63.0,0.18,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+AHSGY,🟢 ADAY + ALIM BÖLGESİ,76.8,Real Estate,10,6,5.2,9.2,10,9.0,6.6,5.3,83.0,40,1.6,0.46,1.12,89.0,74.6,-0.13,3/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+ATATP,🟢 ADAY + ALIM BÖLGESİ,75.5,Technology,10,6,5.2,9.6,10,8.8,6.0,4.8,82.8,40,12.1,3.71,0.39,78.4,66.5,-0.1,3/4,,
+ATATR,🟢 ADAY + ALIM BÖLGESİ,75.1,Consumer Cyclical,8,3,10.0,9.2,10,2.9,8.0,9.0,50.6,40,5.3,0.59,,65.1,27.0,-0.02,3/3,,
+AKFGY,🟢 ADAY + ALIM BÖLGESİ,75.0,Real Estate,8,6,10.0,9.6,8,4.9,6.5,7.0,58.4,30,7.4,0.26,0.53,55.5,83.3,0.13,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+RYGYO,🟢 ADAY + ALIM BÖLGESİ,74.8,Real Estate,10,6,7.0,9.7,8,8.6,4.9,5.6,60.5,30,6.0,0.94,,70.9,83.6,0.03,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+GRTHO,🟢 ADAY + ALIM BÖLGESİ,74.5,Consumer Defensive,8,10,7.0,6.0,10,8.4,5.6,4.7,40.3,30,9.1,1.41,0.75,65.0,9.3,-0.16,4/4,,
+BULGS,🟢 ADAY + ALIM BÖLGESİ,74.2,Financial Services,10,6,5.2,9.4,5,9.6,8.6,5.5,63.2,40,1.7,0.41,1.59,72.9,27.5,-0.16,3/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+LILAK,🟢 ADAY + ALIM BÖLGESİ,73.9,Consumer Defensive,5,10,7.0,8.4,10,4.3,6.0,8.3,41.3,30,17.4,0.76,6.4,40.8,13.4,-0.26,4/4,,
+MERIT,🟢 ADAY + ALIM BÖLGESİ,73.9,Consumer Cyclical,10,3,7.0,9.8,10,8.2,9.1,2.0,58.5,40,6.7,0.23,7.16,71.1,61.7,-0.0,4/4,,
+DESA,🟢 ADAY + ALIM BÖLGESİ,73.5,Consumer Cyclical,10,3,10.0,8.8,10,5.3,7.1,4.6,48.4,40,9.2,0.95,3.93,82.8,19.1,-0.4,4/4,,
+TSKB,🟢 ADAY + ALIM BÖLGESİ,72.9,Financial Services,8,6,10.0,8.5,5,6.9,8.5,5.4,53.3,30,2.6,0.55,5.43,56.3,,5.57,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+ESCOM,🟢 ADAY + ALIM BÖLGESİ,71.7,Technology,5,6,5.2,9.9,10,6.6,9.7,4.9,80.8,40,2.2,0.78,,43.6,99.0,-0.0,3/4,,
+CGCAM,🟢 ADAY + ALIM BÖLGESİ,71.4,Basic Materials,8,3,10.0,8.2,8,4.8,6.4,8.7,47.4,40,21.6,0.69,,63.0,16.5,-0.1,4/4,,Finansal borç satışlardan hızlı artıyor
+HLGYO,🟢 ADAY + ALIM BÖLGESİ,71.1,Real Estate,10,6,7.0,3.9,8,8.2,9.0,4.7,87.4,30,1.4,0.24,13.97,79.3,10.1,0.12,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+LIDFA,🟢 ADAY + ALIM BÖLGESİ,70.7,Financial Services,8,6,7.0,8.0,5,8.7,8.2,5.7,50.2,30,2.3,0.77,6.74,55.7,,3.35,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+YYLGD,🟢 ADAY + ALIM BÖLGESİ,70.7,Consumer Defensive,8,10,10.0,5.5,3,3.9,8.9,7.3,35.3,30,3.7,0.45,,69.0,8.2,0.68,4/4,,
+MNDTR,🟢 ADAY + ALIM BÖLGESİ,70.6,Consumer Cyclical,10,3,7.0,8.2,6,8.7,7.9,5.7,67.0,40,6.5,0.53,,84.7,13.3,0.4,2/2,,
+ULKER,🟢 ADAY + ALIM BÖLGESİ,70.2,Consumer Defensive,5,10,7.0,8.6,3,6.5,7.8,8.3,53.9,30,8.7,0.64,6.71,47.2,14.1,0.79,4/4,,
+ALBRK,🟢 ADAY + ALIM BÖLGESİ,69.5,Financial Services,8,6,7.0,9.1,5,6.9,8.1,5.5,73.0,30,2.3,0.66,3.08,53.4,,0.69,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+PLTUR,🟢 ADAY + ALIM BÖLGESİ,69.2,Industrials,8,3,7.0,9.2,6,5.8,9.2,7.2,64.2,40,7.9,0.37,7.82,67.4,28.6,0.27,4/4,,
+PAHOL,🟢 ADAY + ALIM BÖLGESİ,68.2,Industrials,10,3,7.0,9.5,5,9.4,7.9,2.8,73.1,40,11.5,0.4,,80.0,97.7,-0.03,2/2,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+CATES,🟢 ADAY + ALIM BÖLGESİ,67.5,Utilities,10,10,5.2,4.5,10,2.7,8.3,3.2,80.1,40,2.9,0.36,,80.0,6.0,-0.09,3/4,,
+ISFIN,🟢 ADAY + ALIM BÖLGESİ,67.5,Financial Services,8,6,7.0,7.8,5,7.8,7.2,5.2,36.6,30,2.9,0.86,,60.0,,6.67,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ANSGR,🟢 ADAY + ALIM BÖLGESİ,65.8,Financial Services,8,6,7.0,4.8,5,9.0,7.2,5.7,31.7,30,3.1,1.2,5.73,68.9,,-1.75,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+SANKO,🟢 ADAY + ALIM BÖLGESİ,65.3,Consumer Cyclical,10,3,4.7,2.7,10,8.6,6.0,7.3,55.5,50,7.8,1.11,,81.3,-1.2,-0.26,2/3,,
+FROTO,🟢 ADAY + ALIM BÖLGESİ,65.2,Consumer Cyclical,10,3,10.0,5.0,1,6.7,6.7,9.8,49.0,40,9.6,1.45,13.07,80.4,4.4,0.64,4/4,,Finansal borç satışlardan hızlı artıyor
+TERA,🟢 ADAY + ALIM BÖLGESİ,65.0,Financial Services,8,6,5.2,4.0,5,9.9,4.0,9.8,77.2,40,,0.48,,65.6,9.2,-1.77,3/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+FORTE,🟢 ADAY + ALIM BÖLGESİ,64.9,Technology,8,6,5.2,8.8,3,8.7,7.0,5.2,80.0,40,2.7,2.24,,62.8,30.0,0.52,3/4,,
+YUNSA,🟢 ADAY + ALIM BÖLGESİ,64.9,Consumer Cyclical,8,3,7.0,5.6,10,5.4,7.9,5.0,44.9,40,8.5,0.6,5.61,57.9,7.3,-0.1,4/4,,
+LOGO,🟢 ADAY + ALIM BÖLGESİ,62.6,Technology,5,6,7.0,7.7,10,3.5,6.3,4.6,36.9,30,22.5,2.64,3.52,35.6,21.3,-0.37,4/4,,
+EUREN,🟢 ADAY + ALIM BÖLGESİ,62.3,Industrials,5,3,10.0,6.1,8,5.6,3.9,8.1,51.4,40,,0.5,,45.7,11.4,0.14,4/4,,
+SURGY,🟢 ADAY + ALIM BÖLGESİ,62.3,Real Estate,10,6,10.0,0.0,10,6.9,3.1,3.8,61.3,30,,0.38,,70.3,,-0.0,3/3,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+IHGZT,🟢 ADAY + ALIM BÖLGESİ,62.1,Communication Services,5,10,3.5,6.5,10,4.4,9.4,0.8,57.9,40,3.7,0.16,,38.0,-1.2,-0.02,2/4,,
+KOTON,🟢 ADAY + ALIM BÖLGESİ,61.0,Consumer Cyclical,10,3,10.0,6.9,3,4.0,6.1,5.8,69.2,40,7.1,1.19,,86.8,9.8,0.83,3/3,,
+GLYHO,🟢 ADAY + ALIM BÖLGESİ,60.9,Industrials,5,3,7.0,7.8,5,4.6,6.8,9.5,58.5,40,5.7,1.87,0.63,30.1,22.1,3.87,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+A1CAP,🟢 ADAY + ALIM BÖLGESİ,60.1,Financial Services,8,6,5.2,4.1,5,5.3,9.5,4.9,85.3,40,1.1,0.32,,65.4,26.1,-0.62,3/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+MACKO,🟡 ADAY (pahalı),84.2,Communication Services,8,10,10.0,9.6,8,6.4,5.5,9.8,0.3,30,7.0,4.88,14.38,69.6,46.6,-0.01,4/4,,Finansal borç satışlardan hızlı artıyor
+PCILT,🟡 ADAY (pahalı),80.8,Communication Services,8,10,7.0,7.3,10,7.2,6.0,9.1,-4.9,30,8.6,1.49,7.84,59.3,5.2,-0.31,4/4,,
+OYAKC,🟡 ADAY (pahalı),80.0,Basic Materials,10,3,10.0,9.1,10,6.4,6.3,9.2,22.6,40,16.5,1.47,4.78,80.1,20.2,-0.17,4/4,,
+CCOLA,🟡 ADAY (pahalı),78.7,Consumer Defensive,10,10,10.0,8.1,6,3.9,5.4,9.5,-12.0,30,11.4,2.42,1.81,70.4,13.2,0.34,4/4,,
+TBORG,🟡 ADAY (pahalı),78.6,Consumer Defensive,10,10,7.0,9.1,10,6.3,6.3,4.2,14.1,30,12.4,1.37,7.53,95.0,17.1,-0.07,4/4,,
+TNZTP,🟡 ADAY (pahalı),78.2,Healthcare,10,10,7.0,9.0,10,8.0,4.1,4.5,2.3,30,27.1,1.07,,74.2,28.4,-0.04,4/4,,
+NETCD,🟡 ADAY (pahalı),78.0,Technology,8,6,10.0,9.3,10,4.1,5.9,9.1,-44.8,30,17.1,4.23,4.81,67.4,64.2,-0.06,3/3,,
+MOPAS,🟡 ADAY (pahalı),77.2,Consumer Defensive,10,10,7.0,5.2,10,5.3,5.8,8.5,-60.8,30,16.8,0.91,2.84,73.7,6.1,-0.11,4/4,,
+MPARK,🟡 ADAY (pahalı),76.7,Healthcare,8,10,10.0,7.0,4,7.4,5.6,9.4,0.4,30,14.6,1.89,,55.0,17.9,0.34,4/4,,Finansal borç satışlardan hızlı artıyor
+AYGAZ,🟡 ADAY (pahalı),76.6,Utilities,10,10,10.0,3.6,10,3.4,6.3,8.0,15.0,30,12.3,0.75,4.35,71.0,2.3,-0.08,4/4,,
+KLKIM,🟡 ADAY (pahalı),76.6,Basic Materials,10,3,10.0,9.3,10,6.6,3.8,8.6,38.8,40,1135.0,1.61,2.87,72.5,20.3,-0.36,4/4,,
+AKSGY,🟡 ADAY (pahalı),76.5,Real Estate,8,6,10.0,8.0,8,6.3,6.7,8.2,23.3,30,6.9,0.44,4.79,54.1,66.5,0.0,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+VAKFN,🟡 ADAY (pahalı),76.5,Financial Services,8,6,10.0,6.7,5,8.7,7.2,9.6,28.7,30,3.1,0.7,,63.5,25.7,3.49,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+MCARD,🟡 ADAY (pahalı),76.4,Technology,10,6,7.0,7.4,8,6.8,6.2,9.7,20.1,30,14.8,3.21,2.71,74.8,17.5,-1.42,3/3,,Finansal borç satışlardan hızlı artıyor
+ASTOR,🟡 ADAY (pahalı),76.3,Industrials,8,3,10.0,9.0,10,7.6,4.1,9.3,-90.9,40,22.3,5.01,1.0,57.2,28.0,-0.24,4/4,,
+GENIL,🟡 ADAY (pahalı),76.1,Healthcare,10,10,10.0,6.3,8,4.1,5.4,7.1,-94.8,30,23.0,1.83,0.64,74.9,12.3,0.1,4/4,,
+ENERY,🟡 ADAY (pahalı),75.7,Utilities,10,10,10.0,4.8,8,5.5,4.4,7.7,-75.2,30,20.1,1.88,0.12,72.9,10.1,-0.04,3/3,,Finansal borç satışlardan hızlı artıyor
+HTTBT,🟡 ADAY (pahalı),75.7,Technology,10,6,7.0,8.0,10,8.0,4.0,7.5,-75.9,30,25.0,2.99,,72.4,21.8,-0.1,4/4,,
+TRGYO,🟡 ADAY (pahalı),74.6,Real Estate,10,6,10.0,8.2,10,5.7,5.6,4.2,-29.5,30,11.5,0.63,5.39,85.3,66.8,-0.14,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+TABGD,🟡 ADAY (pahalı),74.4,Consumer Cyclical,8,3,10.0,6.1,10,8.2,5.0,9.2,-51.1,40,24.3,2.23,2.19,67.6,8.2,-0.0,4/4,,
+PAGYO,🟡 ADAY (pahalı),74.3,Real Estate,5,6,7.0,8.9,10,7.3,6.3,8.9,27.3,30,6.8,0.7,6.6,35.6,74.1,-0.02,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+YAPRK,🟡 ADAY (pahalı),74.3,Consumer Defensive,10,10,7.0,9.9,10,5.1,2.8,4.7,-100.0,30,180.4,3.57,0.28,71.8,62.3,-0.11,4/4,,
+GWIND,🟡 ADAY (pahalı),74.0,Utilities,10,10,10.0,9.2,6,2.9,7.4,3.6,12.7,30,5.3,0.61,3.14,70.0,35.4,0.11,4/4,,Finansal borç satışlardan hızlı artıyor
+GRSEL,🟡 ADAY (pahalı),73.9,Industrials,10,3,7.0,9.0,10,9.6,5.5,5.0,-11.1,40,13.9,1.97,0.55,70.9,26.5,-0.17,4/4,,
+EFOR,🟡 ADAY (pahalı),73.9,Consumer Defensive,8,10,7.0,8.3,8,7.2,2.3,8.3,-100.0,30,1407.0,5.7,0.12,63.6,13.4,0.04,4/4,,
+SMRVA,🟡 ADAY (pahalı),73.3,Financial Services,10,6,10.0,7.7,5,8.9,5.1,5.8,-21.3,30,7.5,1.67,2.62,73.3,55.2,0.39,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+BESLR,🟡 ADAY (pahalı),73.1,Consumer Defensive,10,10,7.0,7.0,4,3.9,8.9,7.6,1.6,30,5.6,0.36,,70.5,10.9,0.42,4/4,,Finansal borç satışlardan hızlı artıyor
+MGROS,🟡 ADAY (pahalı),73.1,Consumer Defensive,5,10,10.0,4.0,8,6.9,5.9,8.6,-0.9,30,14.8,1.0,2.92,49.2,2.8,0.06,4/4,,
+BRKVY,🟡 ADAY (pahalı),72.9,Financial Services,10,6,10.0,6.5,5,7.2,4.2,9.5,-81.4,30,9.2,2.03,0.99,74.7,49.6,0.64,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+TTKOM,🟡 ADAY (pahalı),72.9,Communication Services,10,10,7.0,8.8,6,6.3,6.6,3.5,-2.3,30,6.9,0.69,,86.7,21.6,0.27,4/4,,
+AHGAZ,🟡 ADAY (pahalı),72.6,Utilities,10,10,10.0,5.2,8,6.9,4.1,4.0,-100.0,30,23.0,1.98,0.13,74.6,10.3,-0.56,4/4,,Finansal borç satışlardan hızlı artıyor
+ECILC,🟡 ADAY (pahalı),72.1,Healthcare,10,10,10.0,0.3,10,5.2,5.6,6.6,-40.1,30,,0.64,2.73,77.9,-9.3,-0.03,4/4,,
+VAKFA,🟡 ADAY (pahalı),71.8,Financial Services,10,6,10.0,6.3,5,8.5,5.9,5.7,-100.0,30,4.0,1.02,,76.2,27.5,4.91,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ZEDUR,🟡 ADAY (pahalı),71.8,Industrials,8,3,10.0,9.4,5,9.0,7.6,5.4,14.0,40,13.0,0.41,,60.0,-5.5,0.17,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+GOKNR,🟡 ADAY (pahalı),71.4,Consumer Defensive,8,10,5.2,6.1,8,5.6,7.5,6.6,20.0,40,16.7,0.45,8.15,60.4,9.6,0.19,3/4,,
+GARFA,🟡 ADAY (pahalı),71.3,Financial Services,10,6,7.0,8.3,5,9.1,5.8,5.9,19.8,30,3.4,1.32,,91.6,,5.2,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+SUNTK,🟡 ADAY (pahalı),71.2,Consumer Cyclical,10,3,10.0,7.5,8,4.8,5.5,8.1,-17.6,40,23.9,1.5,2.01,76.1,10.9,-0.04,4/4,,Finansal borç satışlardan hızlı artıyor
+GARAN,🟡 ADAY (pahalı),71.0,Financial Services,10,6,10.0,6.9,5,7.0,6.4,5.5,7.9,30,4.4,1.09,4.18,86.0,,-1.06,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+NTHOL,🟡 ADAY (pahalı),70.8,Consumer Cyclical,8,3,10.0,8.4,10,7.0,7.7,2.5,32.7,40,20.1,0.21,2.71,69.8,16.7,-0.01,4/4,,
+GIPTA,🟡 ADAY (pahalı),70.5,Consumer Cyclical,8,3,7.0,8.5,10,6.2,7.2,6.6,-14.1,40,2.3,1.07,0.11,58.4,16.7,-0.5,4/4,,
+SEGMN,🟡 ADAY (pahalı),70.5,Consumer Defensive,10,10,7.0,6.6,10,6.7,4.0,2.0,19.7,30,81.8,0.55,,72.6,10.7,-0.05,4/4,,
+ELITE,🟡 ADAY (pahalı),70.4,Consumer Defensive,8,10,5.2,9.4,10,5.8,4.2,3.7,25.3,40,40.9,0.96,0.25,68.6,20.1,-0.01,3/4,,
+VAKBN,🟡 ADAY (pahalı),70.3,Financial Services,10,6,10.0,7.6,5,6.8,6.0,4.8,18.4,30,4.1,0.91,,88.0,,-0.24,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+TUREX,🟡 ADAY (pahalı),70.2,Industrials,8,3,7.0,7.3,6,9.8,7.7,7.3,36.0,40,2.3,0.88,,60.0,17.2,0.06,3/3,,Finansal borç satışlardan hızlı artıyor
+EGEEN,🟡 ADAY (pahalı),70.2,Consumer Cyclical,8,3,10.0,9.1,8,9.1,3.4,5.6,-55.1,40,29.1,1.77,,64.2,22.4,-0.07,3/3,,Finansal borç satışlardan hızlı artıyor
+FONET,🟡 ADAY (pahalı),69.7,Healthcare,5,10,7.0,9.7,8,7.4,4.7,4.0,-26.5,30,18.8,2.03,,38.3,33.5,-0.05,4/4,,Finansal borç satışlardan hızlı artıyor
+LINK,🟡 ADAY (pahalı),69.6,Technology,5,6,7.0,6.6,10,9.6,7.6,4.0,27.6,30,7.8,1.61,,43.3,13.1,-0.4,4/4,,
+AKMGY,🟡 ADAY (pahalı),69.1,Real Estate,10,6,5.2,7.5,10,4.5,5.6,6.5,-31.4,40,11.4,0.73,7.41,76.2,62.9,-0.08,3/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+TUKAS,🟡 ADAY (pahalı),69.1,Consumer Defensive,5,10,10.0,9.8,6,4.8,5.4,4.3,-21.3,30,17.6,0.5,,43.4,21.4,0.34,4/4,,
+ARMGD,🟡 ADAY (pahalı),69.0,Consumer Defensive,10,10,7.0,7.5,3,5.8,3.7,8.3,-100.0,30,11.9,3.9,,73.9,11.4,0.95,4/4,,
+TLMAN,🟡 ADAY (pahalı),69.0,Industrials,8,3,7.0,7.9,10,9.2,4.9,5.2,24.0,40,23.6,0.65,,57.2,19.0,-0.17,4/4,,
+SELEC,🟡 ADAY (pahalı),68.8,Healthcare,10,10,5.2,3.7,10,4.1,6.0,6.1,,40,21.0,1.26,0.59,82.4,2.2,-0.16,3/4,,
+PETUN,🟡 ADAY (pahalı),68.7,Consumer Defensive,8,10,7.0,6.5,4,5.2,7.8,6.5,-16.1,30,13.3,0.27,4.85,66.8,10.2,0.36,4/4,,Finansal borç satışlardan hızlı artıyor
+DOFRB,🟡 ADAY (pahalı),68.7,Consumer Cyclical,10,3,7.0,9.6,8,9.5,2.1,5.8,-100.0,40,40.6,5.3,,71.0,36.1,0.07,4/4,,
+EGPRO,🟡 ADAY (pahalı),68.7,Industrials,10,3,7.0,7.2,10,3.5,6.6,7.7,-12.7,40,13.0,1.8,3.68,86.9,17.0,-0.04,4/4,,
+ATAKP,🟡 ADAY (pahalı),68.6,Consumer Defensive,10,10,5.2,4.2,10,6.3,4.6,4.5,,40,,0.65,2.12,79.7,2.9,-0.06,3/4,,
+RYSAS,🟡 ADAY (pahalı),68.5,Industrials,5,3,7.0,9.4,8,9.0,5.0,8.4,-15.6,40,13.5,1.74,,42.7,33.2,0.14,4/4,,
+TURSG,🟡 ADAY (pahalı),68.5,Financial Services,10,6,7.0,6.2,5,9.3,5.7,5.6,-7.0,30,4.2,1.85,2.75,76.1,,-1.89,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+NTGAZ,🟡 ADAY (pahalı),68.4,Energy,8,6,7.0,9.0,8,2.2,6.0,8.5,7.2,30,7.5,1.27,7.88,60.0,15.3,0.0,4/4,,
+ARDYZ,🟡 ADAY (pahalı),68.1,Technology,8,6,10.0,9.1,4,8.1,4.9,4.5,-100.0,30,37.1,3.19,0.05,60.5,30.4,0.28,4/4,,Finansal borç satışlardan hızlı artıyor
+BRYAT,🟡 ADAY (pahalı),68.1,Basic Materials,10,3,7.0,9.9,10,3.7,7.4,3.5,39.5,40,9.3,1.31,10.86,71.6,4529.6,-0.15,4/4,,
+BIMAS,🟡 ADAY (pahalı),67.9,Consumer Defensive,5,10,10.0,3.7,6,6.5,4.5,8.7,-87.5,30,20.0,2.44,2.29,40.1,2.5,0.23,4/4,,Finansal borç satışlardan hızlı artıyor
+DURKN,🟡 ADAY (pahalı),67.8,Consumer Defensive,8,10,7.0,9.3,8,4.3,4.7,3.0,0.3,30,,0.52,0.87,65.1,19.3,0.16,2/2,,
+AFYON,🟡 ADAY (pahalı),67.7,Basic Materials,8,3,7.0,7.7,10,4.4,6.5,7.5,-21.9,40,122.4,0.55,13.61,51.0,15.4,-0.14,4/4,,
+DAPGM,🟡 ADAY (pahalı),67.7,Real Estate,8,6,10.0,8.3,8,4.5,4.5,4.8,19.1,30,12.3,0.44,,65.5,68.9,0.1,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+ISMEN,🟡 ADAY (pahalı),67.7,Financial Services,8,6,10.0,2.7,5,7.2,5.9,9.4,-16.2,30,7.5,1.28,10.51,65.7,1.3,-0.29,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ASELS,🟡 ADAY (pahalı),67.3,Industrials,10,3,7.0,8.6,8,6.9,3.2,7.1,-100.0,40,46.0,5.39,0.12,74.2,22.9,0.06,4/4,,
+KLNMA,🟡 ADAY (pahalı),67.3,Financial Services,10,6,7.0,8.8,5,8.5,3.1,5.4,-59.1,30,8.3,1.94,,180.1,,3.16,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+AVPGY,🟡 ADAY (pahalı),67.0,Real Estate,10,6,7.0,5.9,10,3.7,5.8,5.2,-41.8,30,20.6,0.45,15.96,74.0,37.9,-0.02,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+FADE,🟡 ADAY (pahalı),67.0,Consumer Defensive,8,10,5.2,8.0,8,6.1,6.0,2.3,-100.0,40,17.3,0.45,,50.2,13.0,0.08,3/4,,
+VKGYO,🟡 ADAY (pahalı),67.0,Real Estate,10,6,7.0,6.6,10,3.2,6.7,4.0,-1.0,30,20.8,0.21,4.82,72.3,52.8,-0.13,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+CEMZY,🟡 ADAY (pahalı),66.9,Consumer Defensive,10,10,5.2,9.6,8,6.2,0.9,3.6,,40,,2.84,,84.0,20.7,0.17,3/4,,
+OFSYM,🟡 ADAY (pahalı),66.6,Consumer Defensive,10,10,10.0,5.8,0,5.0,4.3,8.2,-51.8,30,29.8,1.63,1.49,83.6,8.6,1.07,4/4,,
+KTLEV,🟡 ADAY (pahalı),66.4,Financial Services,5,6,7.0,8.1,5,9.8,6.2,5.9,-39.4,30,3.0,1.89,1.27,44.1,,2.44,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+QNBTR,🟡 ADAY (pahalı),66.4,Financial Services,10,6,10.0,7.4,5,7.9,1.3,5.5,-100.0,30,17.1,4.34,,99.9,,1.55,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+TRCAS,🟡 ADAY (pahalı),66.3,Utilities,8,10,10.0,0.0,10,4.7,7.1,3.3,-20.5,30,10.8,0.67,7.61,54.5,,-0.08,4/4,,
+ANHYT,🟡 ADAY (pahalı),66.1,Financial Services,10,6,7.0,5.5,5,8.3,5.4,5.7,-37.1,30,6.0,3.09,8.15,83.9,,-1.56,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+CLEBI,🟡 ADAY (pahalı),65.9,Industrials,10,3,7.0,8.5,1,7.1,6.4,9.7,39.1,40,9.4,4.74,7.53,89.9,22.8,0.82,4/4,,Finansal borç satışlardan hızlı artıyor
+EGGUB,🟡 ADAY (pahalı),65.9,Industrials,8,3,10.0,9.3,8,3.7,6.8,3.8,5.8,40,14.1,0.99,2.47,53.9,33.1,0.01,4/4,,
+MSGYO,🟡 ADAY (pahalı),65.8,Real Estate,8,6,7.0,5.7,10,6.5,5.0,4.5,-100.0,30,102.8,0.45,8.28,55.9,36.9,-0.03,4/4,,"GYO/gayrimenkul: net kâr değerleme kazancı içerebilir, F/K yanıltıcı olabilir"
+AEFES,🟡 ADAY (pahalı),65.6,Consumer Defensive,8,10,7.0,6.8,3,2.8,6.1,8.7,15.1,30,12.6,0.85,1.88,67.0,10.8,0.51,4/4,,
+BORSK,🟡 ADAY (pahalı),65.6,Consumer Defensive,10,10,5.2,5.3,8,5.0,4.8,4.0,,40,,0.68,3.75,70.8,6.1,0.11,3/4,,
+NUHCM,🟡 ADAY (pahalı),65.6,Basic Materials,8,3,10.0,7.4,10,1.9,4.8,7.4,-100.0,40,251.2,1.28,10.66,60.4,12.6,-0.3,4/4,,
+VAKKO,🟡 ADAY (pahalı),65.6,Consumer Cyclical,10,3,7.0,4.6,8,5.9,5.1,8.9,-100.0,40,,0.91,10.32,84.5,2.2,0.01,4/4,,
+ARTMS,🟡 ADAY (pahalı),65.5,Consumer Cyclical,10,3,7.0,8.7,8,7.2,4.4,4.1,33.7,40,38.0,0.94,,71.7,17.8,0.1,4/4,,
+GLRMK,🟡 ADAY (pahalı),65.5,Industrials,8,3,7.0,5.8,8,6.7,4.8,9.1,28.0,40,14.9,1.63,,68.1,10.5,-0.01,4/4,,Finansal borç satışlardan hızlı artıyor
+DSTKF,🟡 ADAY (pahalı),65.4,Financial Services,10,6,7.0,8.4,5,9.4,0.8,5.7,-100.0,30,47.2,15.61,,73.8,92.3,1.64,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+FRMPL,🟡 ADAY (pahalı),65.1,Basic Materials,10,3,10.0,8.0,6,1.2,5.9,8.0,-61.9,40,18.5,0.98,,74.2,15.7,0.35,3/3,,
+AGESA,🟡 ADAY (pahalı),64.9,Financial Services,10,6,7.0,4.4,5,8.9,4.8,5.9,-47.0,30,6.1,3.35,2.93,80.0,,-2.02,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+TCELL,🟡 ADAY (pahalı),64.9,Communication Services,5,10,7.0,8.1,6,6.4,5.7,3.8,11.5,30,11.9,0.69,4.09,46.0,14.0,0.15,4/4,,Finansal borç satışlardan hızlı artıyor
+CMENT,🟡 ADAY (pahalı),64.8,Basic Materials,10,3,10.0,6.6,10,4.6,4.3,3.2,-16.4,40,30.9,1.14,,97.2,10.6,-0.23,4/4,,
+DERIM,🟡 ADAY (pahalı),64.8,Consumer Cyclical,10,3,5.2,7.0,10,6.0,4.2,6.4,-7.6,50,16.2,1.93,,73.0,9.9,-0.97,3/4,,
+ISCTR,🟡 ADAY (pahalı),64.8,Financial Services,8,6,10.0,5.2,5,5.8,7.0,4.9,12.2,30,4.6,0.69,4.33,67.0,,0.14,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+YIGIT,🟡 ADAY (pahalı),64.8,Industrials,10,3,7.0,4.4,10,5.9,3.6,7.9,-80.1,40,50.9,0.72,,70.1,5.3,-0.12,4/4,,
+SSAAT,🟡 ADAY (pahalı),64.8,Consumer Cyclical,10,3,10.0,9.3,3,2.9,3.7,9.9,21.7,40,11.8,4.74,,92.9,27.2,0.52,3/3,,
+ORGE,🟡 ADAY (pahalı),64.7,Industrials,5,3,7.0,9.8,10,7.0,5.6,4.5,-5.1,40,11.3,1.8,,47.7,50.2,-0.05,4/4,,
+SEKFK,🟡 ADAY (pahalı),64.7,Financial Services,5,6,10.0,4.7,5,7.8,8.0,5.4,17.8,30,3.6,0.4,,47.4,6.9,3.75,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+ISDMR,🟡 ADAY (pahalı),64.6,Basic Materials,10,3,7.0,4.5,8,5.5,6.4,7.2,-92.8,40,23.2,1.13,7.38,94.9,5.8,-0.07,4/4,,Finansal borç satışlardan hızlı artıyor
+ENKAI,🟡 ADAY (pahalı),64.5,Industrials,10,3,7.0,7.6,10,1.5,5.6,6.9,-100.0,40,11.9,55.85,7.24,71.8,18.2,-0.57,4/4,,
+PKENT,🟡 ADAY (pahalı),64.4,Consumer Cyclical,8,3,10.0,6.6,10,8.1,0.5,5.4,-100.0,40,461.0,44.81,,67.2,9.5,-0.26,4/4,,
+BOSSA,🟡 ADAY (pahalı),63.9,Consumer Cyclical,10,3,7.0,6.5,8,4.6,3.7,8.3,-73.7,40,inf,0.61,,89.1,9.5,0.19,4/4,,
+ULUUN,🟡 ADAY (pahalı),63.9,Consumer Defensive,8,10,1.8,3.5,8,4.4,8.4,7.1,,40,9.0,0.27,,61.1,2.3,0.13,1/4,,
+MEDTR,🟡 ADAY (pahalı),63.7,Healthcare,10,10,5.2,4.3,10,3.7,5.7,2.0,,40,61.7,0.66,2.45,79.4,4.0,-0.12,3/4,,
+RAYSG,🟡 ADAY (pahalı),63.7,Financial Services,10,6,7.0,4.2,5,9.5,3.6,5.6,-10.4,30,6.0,2.08,,94.3,,-3.01,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+TUPRS,🟡 ADAY (pahalı),63.7,Energy,8,6,7.0,5.0,10,2.3,4.0,8.6,-100.0,30,10.8,1.59,3.58,50.7,5.8,-0.11,4/4,,
+TCKRC,🟡 ADAY (pahalı),63.6,Industrials,8,3,7.0,9.6,6,8.5,4.5,4.3,-18.1,40,12.0,3.0,,64.0,41.2,0.08,4/4,,Finansal borç satışlardan hızlı artıyor
+GEDIK,🟡 ADAY (pahalı),63.5,Financial Services,10,6,7.0,2.4,5,6.4,5.3,8.6,-26.9,30,9.1,1.69,7.5,81.9,0.3,0.25,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+OTTO,🟡 ADAY (pahalı),63.4,Financial Services,5,6,7.0,9.7,5,9.9,2.7,5.5,-100.0,30,152.2,1.26,,33.4,92.2,0.02,2/2,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+KLSYN,🟡 ADAY (pahalı),63.1,Consumer Cyclical,10,3,5.2,8.6,8,8.9,5.4,1.4,5.2,50,18.4,1.57,1.03,72.8,17.6,0.08,3/4,,
+IZENR,🟡 ADAY (pahalı),63.0,Utilities,8,10,5.2,6.1,10,3.3,3.4,4.4,7.2,40,35.8,0.5,,60.8,15.2,-0.04,3/4,,
+SKBNK,🟡 ADAY (pahalı),62.8,Financial Services,5,6,10.0,5.6,5,6.6,7.2,4.8,10.7,30,3.8,0.57,1.27,43.0,,-0.38,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+FMIZP,🟡 ADAY (pahalı),62.7,Consumer Cyclical,10,3,7.0,7.2,10,3.9,4.5,4.5,-100.0,40,27.5,5.45,1.75,77.7,10.1,-0.6,4/4,,
+PNLSN,🟡 ADAY (pahalı),62.5,Industrials,5,3,7.0,5.6,10,4.4,7.7,7.3,34.0,40,9.8,0.72,2.02,45.5,10.4,-0.12,4/4,,
+BRISA,🟡 ADAY (pahalı),62.3,Consumer Cyclical,10,3,5.2,7.1,8,3.5,4.9,8.1,,50,36.7,0.79,,87.3,10.0,0.24,3/4,,
+INDES,🟡 ADAY (pahalı),62.3,Technology,5,6,7.0,3.6,8,4.7,8.2,7.3,-11.8,30,10.1,1.03,1.87,40.1,3.2,-0.1,4/4,,Finansal borç satışlardan hızlı artıyor
+DOAS,🟡 ADAY (pahalı),62.3,Consumer Cyclical,8,3,7.0,5.1,4,5.7,7.7,9.3,33.6,40,16.5,0.42,21.08,60.5,4.5,0.38,4/4,,Finansal borç satışlardan hızlı artıyor
+GESAN,🟡 ADAY (pahalı),62.2,Industrials,8,3,10.0,6.7,6,7.2,5.0,3.9,-55.1,40,16.0,1.22,,64.3,15.4,0.24,4/4,,Finansal borç satışlardan hızlı artıyor
+AKGRT,🟡 ADAY (pahalı),62.1,Financial Services,10,6,5.2,4.5,5,7.5,6.3,5.1,35.5,40,3.7,0.98,,72.0,,-2.73,3/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+YKBNK,🟡 ADAY (pahalı),62.1,Financial Services,8,6,10.0,6.0,5,4.3,5.0,5.3,-19.9,30,5.3,1.03,,61.2,,1.15,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+KLRHO,🟡 ADAY (pahalı),62.0,Industrials,10,3,7.0,8.7,5,6.2,5.4,4.3,19.1,40,24.0,0.48,,144.1,10.9,-0.27,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+MOBTL,🟡 ADAY (pahalı),62.0,Technology,10,6,7.0,5.0,8,3.7,7.3,2.6,-5.5,30,14.5,1.12,,79.7,5.9,0.21,4/4,,
+QNBFK,🟡 ADAY (pahalı),62.0,Financial Services,10,6,7.0,7.2,5,8.2,0.9,5.3,-100.0,30,44.4,11.56,,99.4,32.0,6.44,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+EUPWR,🟡 ADAY (pahalı),61.8,Industrials,8,3,7.0,6.9,6,8.5,1.9,8.2,-100.0,40,40.1,2.79,,61.9,15.7,0.22,4/4,,Finansal borç satışlardan hızlı artıyor
+TEZOL,🟡 ADAY (pahalı),61.8,Basic Materials,10,3,7.0,3.9,10,2.9,5.7,7.0,-40.3,40,,0.57,5.84,71.3,4.5,-0.19,4/4,,
+BVSAN,🟡 ADAY (pahalı),61.5,Industrials,8,3,7.0,6.6,6,5.9,4.4,8.3,-5.5,40,,1.12,1.25,60.4,15.3,0.2,4/4,,Finansal borç satışlardan hızlı artıyor
+ALKLC,🟡 ADAY (pahalı),61.4,Consumer Defensive,8,10,5.2,8.8,1,8.1,2.3,5.7,,40,,5.0,0.02,55.4,16.3,0.75,3/4,,Finansal borç satışlardan hızlı artıyor
+DOCO,🟡 ADAY (pahalı),61.4,Industrials,5,3,10.0,5.1,8,5.2,4.0,8.8,-100.0,40,19.1,226.7,1.28,30.1,8.9,0.01,4/4,,
+KCAER,🟡 ADAY (pahalı),61.2,Basic Materials,10,3,7.0,6.9,6,3.5,5.1,7.4,-100.0,40,35.0,1.35,1.62,74.2,11.1,0.16,4/4,,Finansal borç satışlardan hızlı artıyor
+HALKB,🟡 ADAY (pahalı),60.9,Financial Services,10,6,10.0,4.9,5,5.3,3.3,4.2,-100.0,30,9.9,1.36,,91.5,,-2.06,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
+BEYAZ,🟡 ADAY (pahalı),60.8,Industrials,10,3,5.2,3.3,10,5.9,4.4,6.7,12.6,50,,1.3,1.73,75.4,2.0,-0.59,3/4,,
+EBEBK,🟡 ADAY (pahalı),60.8,Consumer Cyclical,10,3,7.0,6.4,6,8.0,4.7,3.6,-100.0,40,25.2,2.29,1.52,71.0,8.6,0.07,4/4,,Finansal borç satışlardan hızlı artıyor
+GOLTS,🟡 ADAY (pahalı),60.6,Basic Materials,5,3,7.0,4.9,8,4.2,7.9,8.4,16.2,40,19.6,0.4,1.61,39.4,6.9,0.2,4/4,,
+AKBNK,🟡 ADAY (pahalı),60.3,Financial Services,5,6,10.0,6.6,5,4.3,6.2,5.2,-16.6,30,5.2,1.07,3.28,40.8,,0.78,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı; Finansal borç satışlardan hızlı artıyor
+CIMSA,🟡 ADAY (pahalı),60.2,Basic Materials,8,3,10.0,6.1,1,4.7,7.1,8.2,15.1,40,10.4,1.06,1.77,63.5,9.7,0.59,4/4,,Finansal borç satışlardan hızlı artıyor
+OSMEN,🟡 ADAY (pahalı),60.2,Financial Services,8,6,7.0,3.1,5,7.3,6.6,5.1,-96.0,30,6.4,0.66,3.29,58.7,1.5,-0.66,4/4,,Finansal şirket/holding: borç/likidite kriterleri uygulanmadı
