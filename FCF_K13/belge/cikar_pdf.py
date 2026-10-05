@@ -78,11 +78,19 @@ def isle(kod, y, m, idx, metin_yolu):
     fin = satirlar(sayfalar, r'^c?[.)]?\s*finansman faaliyet\w*.{0,40}nakit')
     net = satirlar(sayfalar, r'nakit benzerlerindeki.{0,40}(artış|azalış|değişim)|^net (artış|azalış)')
     etki = [e for e in satirlar(sayfalar, r'etki') if re.search(r'enflasyon|yabancı para|çevrim|kur', e[1].lower())]
+    # net değişim satırı okunamadıysa: dönem sonu − dönem başı nakit (etki satırları tutar() içinde ayrıca denenir)
+    bas = satirlar(sayfalar, r'dönem başı.{0,40}nakit')
+    son = satirlar(sayfalar, r'dönem sonu.{0,40}nakit')
+    if bas and son:
+        net = net + [(son[0][0], 'dönem sonu − başı', [son[0][2][i] - bas[0][2][i] for i in (0, 1)])]
     for j, sut in enumerate(('cari', 'onceki')):
         def tutar(t):
             return any(abs(t - n[2][j]) <= 2 or any(abs(t + e[2][j] - n[2][j]) <= 2 for e in etki)
                        or abs(t + sum(e[2][j] for e in etki) - n[2][j]) <= 2 for n in net)
-        gecerli = {a[2][j]: a for a in aday for y_ in yat[:3] for f_ in fin[:3] if tutar(a[2][j] + y_[2][j] + f_[2][j])}
+        # B ya da C toplam satırı okunamadıysa 0 kabul edilip denenir (bölüm boş/tek satırlı tablolar)
+        sifir = [(0, '', [0.0, 0.0])]
+        gecerli = {a[2][j]: a for a in aday for y_ in (yat[:3] or sifir) for f_ in (fin[:3] or sifir)
+                   if tutar(a[2][j] + y_[2][j] + f_[2][j])}
         if len(gecerli) == 1:
             a = next(iter(gecerli.values()))
             ekle('CFO', sut, a[2][j] * carp, 'PDF_OKUNDU', a[1], 'özdeşlik A+B+C(+etki)=net değişim tuttu', a[0])

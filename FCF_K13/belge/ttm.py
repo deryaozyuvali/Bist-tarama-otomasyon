@@ -207,6 +207,12 @@ for r in csv.DictReader(open(SATIRLAR)):
                 ttm, vals, st = iz[0], iz[1], 'IZAHNAME'
                 parca = [(1, (None, st, iz[2]))]
         satir[f'{kalem} TTM'] = None if ttm is None else round(ttm, 3)
+        if MOD == 'KOSULLU':
+            # Evo bazı şirketlerde her dönemi kendi raporundaki (çevrilmemiş) haliyle saklayıp TTM'i karışık kuruyor;
+            # bu farkı ayırt etmek için belge TTM'inin çevrimsiz (nominal) hali de verilir
+            don = [(y, 12)] if m == 12 else [(y, m), (y - 1, 12), (y, m)]
+            satir[f'{kalem} TTM nominal'] = (None if st == 'IZAHNAME' or any(v is None for v in vals) else
+                                             round(sum(s * v / _kat(kod, *d) for (s, _), v, d in zip(parca, vals, don)), 3))
         satir[f'{kalem} statü'] = st
         satir[f'{kalem} bileşen'] = ' | '.join('—' if v is None else f'{v:.3f}' for v in vals)
         satir[f'{kalem} kanıt'] = ' ‖ '.join(p[1][2] for p in parca)

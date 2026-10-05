@@ -174,6 +174,10 @@ def pdf_etiket_satirlari(sayfalar, kalem):
             if 'çıkış' in tam and 'giriş' not in tam and any(v > 0 for v in vals[-2:]): sorun.append('çıkış satırında pozitif (işaret?)')
             out.append((no, ' '.join(satir.split())[:160], vals[-2] if len(vals) >= 2 else None,
                         vals[-1] if vals else None, '; '.join(sorun)))
+    # aynı kalemde hem ödeme satırı hem 'değişim' satırı (ör. işletme bölümündeki 'kiralama işlemlerindeki değişim-net')
+    # yakalandıysa 'değişim' satırı çift sayım olur → atılır (yalnız 'değişim' satırı varsa o kullanılır)
+    if any('değişim' in kucuk(o[1]) for o in out) and any('değişim' not in kucuk(o[1]) for o in out):
+        out = [o for o in out if 'değişim' not in kucuk(o[1])]
     # toplam + alt satır birlikte yakalandıysa: değerleri diğerlerinin toplamına eşit satır tek başına alınır
     if len(out) >= 2:
         for t in out:

@@ -44,3 +44,6 @@ tek aday 110/136, MDV satırı %99, MDV 'satır yok' güvenilmez) → rapor_kale
 KOŞULLU 405: 147 hesaplandı (51'i V7 ile 3 bileşende aynı), 258 rapor eksik (KAP açılınca kosullu_harita.py eşlemesiyle indir).
 İncelenecek farklar: DOFER, MEGMT, OBAMS, OYLUM, TTRAK, TEKTU, GZNMI, SELVA (CFO/CAPEX), SASA/KRDM/EKOS/TEZOL kira;
 BLCYT/GMTAS/ECOGR oranı 1,1776 = Evo 2025/12'yi Haz-26'ya taşımamış (baz farkı). USHOL raporları MARKA bildirimleriyle eşleşiyor.
+KOŞULLU teslim: belge/KOSULLU_belge_kontrol.xlsx (kosullu_sonuc.py → teslim_kosullu.py). 147/405: KESİN_ONERI 53,
+BELGE_DEGERI 31, ELLE 63; BELGE_YOK 258 (KAP). Evo bazı şirketlerde TMS29 çevirmeden saklıyor (MEGMT: Evo = belge nominal).
+cikar_pdf: dönem sonu−başı ile net, B/C yoksa 0 denemesi (CFO 1.037/1.042). Kira 'değişim' satırı ödeme satırıyla birlikteyse atılır (TEZOL çift sayım).
