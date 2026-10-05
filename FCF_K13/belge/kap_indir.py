@@ -39,7 +39,7 @@ def isle(idx, ek_filtre=None):
                     hedef_txt = f'{OB}/{idx}_{n}.txt'
                     subprocess.run(['pdftotext', '-layout', p, hedef_txt])
                     e['metin'] = f'{idx}_{n}.txt'
-                    if os.path.getsize(hedef_txt) < 5000 and os.environ.get('OCR'):
+                    if os.environ.get('OCR') and (os.path.getsize(hedef_txt) < 5000 or os.environ.get('OCR') == 'zorla'):
                         # taranmış PDF: sayfaları 200 dpi görüntüye çevirip Tesseract (Türkçe) ile oku
                         subprocess.run(['pdftoppm', '-r', '200', '-gray', '-png', '-l', '20', p, f'{td}/s'])  # ilk 20 sayfa: tablolar raporun başında
                         parcalar = []
