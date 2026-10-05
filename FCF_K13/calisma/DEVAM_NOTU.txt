@@ -1,17 +1,27 @@
 DEVAM NOTU — sonraki oturum için
 
-Durum (2026-10-05):
-- K13 rev2 tamam, bağımsız belge testi tamam (oos_test/). V7 rakamlarına dokunulmadı.
-- Kullanıcı kararı: Dolu ve K13'e göre tutarlı satırlar (~1.900) Evo'dan alınır, belge GEREKMEZ.
-  Belgeden okunacak: NULL 734 satır (önce) + KOŞULLU 405 satır (V7'nin 172'si + K13 rev2'nin 233'ü).
-- Yöntem: rapor PDF'lerini storage.fintables.com'dan indir → pdftotext -layout →
-  nakit akış tablosundan CFO, MDV, MODV, YAGM alımı, kira anaparası (cari + karşılaştırmalı sütun) →
-  TTM = YTD_cari + FY_önceki − YTD_önceki, belge rakamlarıyla. Evo yalnız kıyas.
-- PDF URL'leri: EVO dokumanlarda_ara sonucu 'dokuman_orijinal_url' alanı
-  (filter: dokuman_tipi = "finansal_rapor" AND iliskili_semboller = "X" AND yil = Y AND ay = M).
-- Doğrulama: programın okuduğu rakamları oos_test/OOS_SONUCLAR.json ve YEDEK_SONUCLAR.json'daki
-  elle okunmuş 24 satırla kıyasla.
-- Ağ: önceki oturumda storage.fintables.com proxy'de 403 veriyordu; kullanıcı ağ erişimini Full yaptı,
-  yeni oturumda geçerli olmalı. İlk iş: curl ile bir PDF indirmeyi dene.
-- Girdi dosyaları kullanıcı yüklemesiydi (V7: FCF_TTM_2025-03_2026-06_v7_nihai.xlsx, DiffSet:
-  K6_K11_Kademe2_DiffSet.xlsx); yeni oturumda yeniden yüklenmeleri gerekebilir.
+Durum (2026-10-05, 2. oturum): NULL 734 satırın belge okuması TAMAM → belge/NULL_belge_okuma.xlsx
+  TEYİTLİ 291 · PDF_OKUNDU 62 · ELLE 131 · BELGE_YOK 250 · FCF_STD hesaplanan 383 (holding hariç)
+  Elle okunmuş kayıtlarla kıyas: 53 nokta → 50 AYNI, 3 doğru işaretlendi (DENGE, MARBL, BERA), 0 sessiz hata.
+  CFO belge TTM vs V7 Evo CFO_TTM: 384 kıyaslanabilir satırın 264'ü |fark|<%0,5.
+
+Yöntem değişikliği (nottaki plandan): PDF'ler Evo (storage.fintables.com) yerine doğrudan KAP'tan alındı —
+  Evo belge havuzunda bu şirketlerin raporlarının çoğu yok (NULL'ların ana nedeni). KAP bildirimi = XBRL nakit
+  akış tablosu + imzalı PDF eki; XBRL tutarı PDF'te (etiketi kaleme ait satırda) bulunursa teyitli.
+Önemli bulgular:
+  - 65 raporda XBRL "Sunum Para Birimi" 1.000 TL (PETKM, ALARK...). Birim çarpanı uygulanıyor.
+  - Evo/V7 TMS29 uygulayanlarda her raporu son raporun satın alma gücüne taşıyor; F tablosu TMS29 sayfasında
+    (Ara24 1.5414 · Mar25 1.4004 · Haz25 1.3211 · Eyl25 1.2289 · Ara25 1.1776 · Mar26 1.0701 · Haz26 1).
+  - Çok sayıda şirket kirayı XBRL'de standart kira elemanına bağlamamış → PDF satırından okunuyor (PDF_OKUNDU).
+  - V7 formülü: FCF_STD = CFO − (|MDV+MODV|+|YAGM|) − |Kira|, pozitif TTM kalem 0 (K6).
+
+Açık işler:
+  1. ELLE 131 satır (ELLE sayfası: kalem kalem neden + PDF satırı). Sık nedenler: CFO ara toplamı PDF'te yok,
+     taranmış PDF (metinsiz), alım+satış net satır, etiket uymadı, kopya tutar (KRDMA/B/D kira).
+  2. BELGE_YOK 250: 207 rapor KAP'ta yok (halka arz öncesi / çeyrek yayımlamıyor / KOZAA, KOZAL, IPEKE, MARKA,
+     ROYAL, NETGL, SNKRN, INTET kod eşleşmedi), 35 hesap yılı takvim dışı (BJKAS, FENER, GSRAY, TSPOR, KAYSE,
+     MERKO, BALSU), 8 XBRL tablosu yok (DOHOL vb.).
+  3. Holding (FCF_HLD, 76 satır) formülü için V7 dosyası gerekli (FCF_TTM_2025-03_2026-06_v7_nihai.xlsx yeniden yüklenmeli).
+  4. Yeni belge noktaları üzerinde K13 seri tutarlılığı çalıştırılmadı (statü önerisi henüz yok).
+Yeniden üretim: belge/ içinde kap_liste.py → kap_indir.py (ONBELLEK=<dizin>, xargs < indirilecek.txt) →
+  cikar.py → ttm.py → teslim_belge.py. İndirme ~25 dk; önbellek depoda değil.

@@ -24,9 +24,15 @@ ELEMAN = {
     'KIRA': ['kap-fr_PaymentsOfLeaseLiabilities'],
 }
 PDF_ETIKET = {
-    'KIRA': r'kira|kiralama|leasing|tfrs\s*16|lease',
-    'MDV+MODV': r'maddi.*(alım|alin|edinim|satın|yatırım|değişim|ilave|giriş|harcama)|duran varl[ıi]k.*(alım|alın|edinim)|purchase of property',
-    'YAGM': r'yatırım amaçlı gayrimenkul',
+    'KIRA': r'kira|kiralama|leasing|lease',
+    'MDV+MODV': r'maddi.*(alım|alın|alış|edinim|satın al|ilave|harcama|değişim|yatırım|çıkış)|duran varl\w*\s+(alım|alın|alış|edinim)|purchase of property',
+    'YAGM': r'ya\w{0,3}r?ıı?m amaçlı gayrimenkul.*(alım|alın|edinim|ilave|çıkış|harcama|değişim)|yatrıım amaçlı gayrimenkul.*(alım|alın)',
+}
+# etiket bu kalıplardan birini taşıyorsa kalem satırı sayılmaz (düzeltme, satış, bilanço/dipnot satırları)
+PDF_DISLA = {
+    'KIRA': r'alacak|gelir|alınan kira|kira geliri|faiz|tfrs|standard|taksonomi|amortisman|kullanım hakkı|ilişkin düzeltme|ile ilgili düzeltme|karşılık',
+    'MDV+MODV': r'satış|satın?ılması|elden çıkar|amortisman|itfa|değer düşüklüğü|kazanç|kayıp|avans|düzeltme|yeniden değerleme|gerçeğe uygun',
+    'YAGM': r'satış|satım|elden çıkar|gerçeğe uygun|değer artış|kazanç|kayıp|düzeltme|kira',
 }
 
 def _tarih(s):
@@ -68,7 +74,9 @@ def _say(tok):
     return -v if neg else v
 
 def kucuk(s):
-    return s.replace('İ', 'i').replace('I', 'ı').lower()
+    # PDF metin çıkarma artıkları: harf aralığı ('M addi' → 'Maddi'), bozuk 'ş' ('`')
+    s = re.sub(r'\b([A-ZÇĞİÖŞÜ]) (?=[a-zçğıöşü]{2})', r'\1', s)
+    return s.replace('İ', 'i').replace('I', 'ı').replace('`', 'ş').lower()
 
 def nakit_sayfalari(metin):
     """Nakit akış tablosu sayfaları: faaliyet bölümü başlığı taşıyan sayı yoğun sayfalar + bir sonraki sayfa."""
@@ -82,31 +90,91 @@ def nakit_sayfalari(metin):
             sec.update({no, no + 1})
     return [(no + 1, ps[no]) for no in sorted(sec) if no < len(ps)]
 
-def pdf_ara(sayfalar, v):
-    """|v| (TL) sayfalarda TL / bin TL / mn TL biriminde geçiyor mu → (birim, sayfa, satır) | None."""
+def pdf_ara(sayfalar, v, kalem=None):
+    """|v| (TL) sayfalarda TL / bin TL / mn TL biriminde geçiyor mu → (birim, sayfa, satır, etiket_uygun) | None.
+    kalem verilirse satır etiketi (iki satıra bölünmüşse bir önceki satırla birlikte) kalem kalıbıyla
+    kontrol edilir; etiketi uyan eşleşme tercih edilir (ör. yatırım toplamı satırındaki aynı sayı teyit sayılmaz)."""
     if v is None or v == 0: return None
     a = abs(v)
+    rx = re.compile(PDF_ETIKET[kalem], re.I) if kalem in PDF_ETIKET else None
+    dx = re.compile(PDF_DISLA[kalem], re.I) if kalem in PDF_DISLA else None
+    ilk = None
     for no, p in sayfalar:
-        for satir in p.split('\n'):
+        onceki = []
+        satirlar = p.split('\n')
+        for si, satir in enumerate(satirlar):
+            etiket = re.split(r'\s{2,}', satir.strip())[0] if satir.strip() else ''
+            if re.fullmatch(r'[\d\s().,\-–]*', etiket or ''): etiket = ''  # satır yalnız sayı/dipnot
+            bul = None
             for tok in SAYI.findall(satir):
                 x = _say(tok)
                 if x is None or x == 0: continue
                 x = abs(x)
                 for birim, k, tol in (('TL', 1, 1), ('bin TL', 1e3, 1), ('mn TL', 1e6, 0.051)):
                     if a >= k * 0.5 and abs(x - a / k) <= tol and (k == 1 or x >= 10):
-                        return birim, no, ' '.join(satir.split())[:160]
-    return None
+                        bul = birim; break
+                if bul: break
+            if bul:
+                sonraki = ''
+                if si + 1 < len(satirlar) and not re.search(r'\d{1,3}[.,]\d{3}', satirlar[si + 1]):
+                    sonraki = satirlar[si + 1].strip()  # etiketin devamı alt satırda olabilir
+                tam = kucuk(' '.join(onceki[-2:]) + ' ' + etiket + ' ' + sonraki)
+                uygun = rx is None or (bool(rx.search(tam)) and not dx.search(kucuk(etiket)))
+                sonuc = (bul, no, ' '.join(satir.split())[:160], uygun)
+                if uygun: return sonuc
+                ilk = ilk or sonuc
+            if re.search(r'\d{1,3}[.,]\d{3}', satir): onceki = []
+            elif etiket: onceki.append(etiket)
+    return ilk
+
+NET_SATIR = re.compile(r'(maddi|duran varl).{0,80}(alım|alın).{0,20}(ve|/|ile)\s*(satı|elden)|(satış|satım).{0,20}(ve|/)\s*(alım|alın).{0,60}(maddi|duran varl)')
+
+BOS = {'-', '--', '–', '—', '- -', '(-)'}
+
+def _alanlar(satir):
+    """Satırı etiket + değer alanlarına böler → (etiket, [değer|0.0], dipnot_var)."""
+    parca = [p.strip() for p in re.split(r'\s{2,}', satir.strip()) if p.strip()]
+    if not parca: return '', [], False
+    etiket, vals = parca[0], []
+    for p in parca[1:]:
+        if p in BOS: vals.append(0.0); continue
+        if re.fullmatch(r'\d{1,2}(?:\s*[,\-\.]\s*\d{1,2})*[a-zA-Z]?', p) and not vals: continue  # dipnot no
+        x = _say(p.replace(' ', ''))
+        if x is None: return etiket, [], False
+        vals.append(x)
+    return etiket, vals, True
 
 def pdf_etiket_satirlari(sayfalar, kalem):
-    rx = re.compile(PDF_ETIKET[kalem], re.I)
+    """Kaleme ait PDF satırları → [(sayfa, satır metni, cari, önceki)] (değerler PDF biriminde, işaretli).
+    Etiketi bir önceki satırda kalan (iki satıra bölünmüş) kalemler birleştirilir."""
+    rx, dx = re.compile(PDF_ETIKET[kalem], re.I), re.compile(PDF_DISLA[kalem], re.I)
     out = []
     for no, p in sayfalar:
+        onceki_etiket = ''
         for satir in p.split('\n'):
-            etiket = re.split(r'\s{2,}', satir.strip())[0] if satir.strip() else ''
-            if etiket and rx.search(etiket) and len(SAYI.findall(satir)) >= 1:
-                nums = [_say(t) for t in SAYI.findall(satir)]
-                nums = [n for n in nums if n is not None and abs(n) >= 1000 or (n and abs(n) >= 1 and ',' in satir)]
-                if nums: out.append((no, ' '.join(satir.split())[:160]))
+            etiket, vals, ok = _alanlar(satir)
+            if not etiket: onceki_etiket = ''; continue
+            if not vals:
+                onceki_etiket = etiket if len(etiket) < 140 else ''
+                continue
+            tam = kucuk((onceki_etiket + ' ' + etiket).strip())
+            onceki_etiket = ''
+            if not (rx.search(tam) and not dx.search(tam) and len(tam) < 220): continue
+            if not re.search(r'[çğışöüÇĞİŞÖÜ]', tam) and re.search(r'\b(cash|lease|payments?|purchase|outflows?)\b', tam):
+                continue  # iki dilli raporun İngilizce tekrarı
+            if 'giriş' in tam and 'çıkış' not in tam: continue  # yalnız giriş satırı (yeni kiralama/satış)
+            sorun = []
+            if len(vals) != 2: sorun.append(f'{len(vals)} sütun')
+            if 'çıkış' in tam and 'giriş' not in tam and any(v > 0 for v in vals[-2:]): sorun.append('çıkış satırında pozitif (işaret?)')
+            out.append((no, ' '.join(satir.split())[:160], vals[-2] if len(vals) >= 2 else None,
+                        vals[-1] if vals else None, '; '.join(sorun)))
+    # toplam + alt satır birlikte yakalandıysa: değerleri diğerlerinin toplamına eşit satır tek başına alınır
+    if len(out) >= 2:
+        for t in out:
+            diger = [o for o in out if o is not t]
+            if all(o[2] is not None and o[3] is not None for o in out) and \
+                    abs(sum(o[2] for o in diger) - t[2]) <= 2 and abs(sum(o[3] for o in diger) - t[3]) <= 2:
+                return [t]
     return out
 
 def isle(kod, yil, ay, idx):
@@ -118,10 +186,18 @@ def isle(kod, yil, ay, idx):
     role = sorted(roller, key=lambda r: (roller[r]['nitelik'] != 'Konsolide', r))[0]
     T = roller[role]
     ci, oi = sutunlar(T['baslik'], yil, ay)
+    # XBRL tutarları KAP başlığındaki 'Sunum Para Birimi' cinsindendir (TL / 1.000 TL / 1.000.000 TL)
+    xk = {'TL': 1, '1.000 TL': 1e3, '1.000.000 TL': 1e6}.get(T.get('birim', 'TL'))
+    if xk is None:
+        return [dict(kod=kod, yil=yil, ay=ay, idx=idx, kalem='*', durum='BIRIM_BILINMIYOR', not_=T.get('birim'))]
     sayfalar = []
+    tms29 = None
     for e in j.get('ekler', []):
         if e.get('metin') and os.path.exists(f"{OB}/{e['metin']}"):
             metin = open(f"{OB}/{e['metin']}", encoding='utf-8', errors='replace').read()
+            if len(metin) > 5000:
+                km = ' '.join(kucuk(metin[:400000]).split())
+                tms29 = bool(tms29) or bool(re.search(r'satın alma gücü|satınalma gücü|tms 29|yüksek enflasyonlu ekonomilerde', km))
             sec = nakit_sayfalari(metin)
             # başlık metni bozuk / CFO etiketsiz satırda olabilir: XBRL CFO tutarının geçtiği sayfa ve
             # bir sonraki sayfa da nakit akış sayfası sayılır (yalnız sayfa bulmak için; teyit yine kalem kalem)
@@ -141,43 +217,86 @@ def isle(kod, yil, ay, idx):
                 a, b = deger(T['satirlar'], ELEMAN['MDV'], i), deger(T['satirlar'], ELEMAN['MODV'], i)
                 if a is not None or b is not None:
                     v, kaynak = (a or 0) + (b or 0), 'XBRL(MDV+MODV alt)'
-            bul = pdf_ara(sayfalar, v)
-            if kalem == 'MDV+MODV' and v and not bul:
+            bul = pdf_ara(sayfalar, v, kalem)
+            if kalem == 'MDV+MODV' and v and not (bul and bul[3]):
                 # PDF'te MDV ve MODV ayrı satırlarsa: alt elemanların her biri ayrı ayrı aranır
                 alt = [deger(T['satirlar'], ELEMAN[k], i) for k in ('MDV', 'MODV')]
                 alt = [x for x in alt if x]
                 if alt and abs(sum(alt) - v) < 2:
-                    bb = [pdf_ara(sayfalar, x) for x in alt]
-                    if all(bb): bul = (bb[0][0], bb[0][1], ' + '.join(b[2] for b in bb)); kaynak = 'XBRL(alt kalemler PDF)'
+                    bb = [pdf_ara(sayfalar, x, kalem) for x in alt]
+                    if all(bb) and all(b[3] for b in bb):
+                        bul = (bb[0][0], bb[0][1], ' + '.join(b[2] for b in bb), True); kaynak = 'XBRL(alt kalemler PDF)'
             if i is None: durum = 'SUTUN_YOK'
             elif not sayfalar: durum = 'PDF_YOK'
             elif v in (None, 0): durum = 'SIFIR'
-            elif bul: durum = 'TEYITLI'
+            elif bul and bul[3]: durum = 'TEYITLI'
+            elif bul: durum = 'ETIKET_UYMADI'
             else: durum = 'PDF_TUTMADI'
             kayit.append(dict(kod=kod, yil=yil, ay=ay, idx=idx, role=role, nitelik=T['nitelik'], kalem=kalem,
-                              sutun=sut, deger_tl=v, kaynak=kaynak, durum=durum,
+                              sutun=sut, deger_tl=None if v is None else v * xk, kaynak=kaynak, durum=durum,
                               pdf_birim=bul[0] if bul else '', pdf_sayfa=bul[1] if bul else '',
                               pdf_satir=bul[2] if bul else '', not_=''))
         if kalem != 'CFO' and sayfalar:
             ek = pdf_etiket_satirlari(sayfalar, kalem)
             sifir = all(k['deger_tl'] in (None, 0) for k in kayit if k['kalem'] == kalem)
             if sifir and ek:
-                kayit.append(dict(kod=kod, yil=yil, ay=ay, idx=idx, role=role, nitelik=T['nitelik'], kalem=kalem,
-                                  sutun='*', deger_tl=None, kaynak='PDF', durum='PDF_EK_SATIR',
-                                  pdf_sayfa=ek[0][0], pdf_satir=' || '.join(s for _, s in ek[:3]), not_=''))
+                # XBRL bu kalemi standart elemana bağlamamış ama PDF'te satır var: tutar PDF'ten okunur.
+                # Birim aynı raporun PDF'te teyitli CFO satırından; bilinmiyorsa okunmaz (elle).
+                carp = {'TL': 1, 'bin TL': 1e3, 'mn TL': 1e6}.get(birim)
+                satirlar = ' || '.join(e[1] for e in ek[:3])
+                sorun = '; '.join(e[4] for e in ek if e[4]) or ('birim belirlenemedi' if carp is None else '')
+                for k in [k for k in kayit if k['kalem'] == kalem]: kayit.remove(k)
+                for n, (sut, i) in enumerate((('cari', ci), ('onceki', oi))):
+                    if sorun or i is None:
+                        kayit.append(dict(kod=kod, yil=yil, ay=ay, idx=idx, role=role, nitelik=T['nitelik'],
+                                          kalem=kalem, sutun=sut, deger_tl=None, kaynak='PDF', durum='PDF_EK_SATIR',
+                                          pdf_sayfa=ek[0][0], pdf_satir=satirlar, not_=sorun))
+                        continue
+                    v = sum(e[2 + n] for e in ek) * carp * xk
+                    kayit.append(dict(kod=kod, yil=yil, ay=ay, idx=idx, role=role, nitelik=T['nitelik'],
+                                      kalem=kalem, sutun=sut, deger_tl=v, kaynak=f'PDF ({len(ek)} satır)',
+                                      durum='PDF_OKUNDU', pdf_birim=birim, pdf_sayfa=ek[0][0],
+                                      pdf_satir=satirlar, not_='XBRL standart elemanında yok'))
+        if kalem == 'MDV+MODV' and sayfalar:
+            net = [' '.join(l.split())[:140] for _, p in sayfalar for l in p.split('\n') if NET_SATIR.search(kucuk(l))]
+            if net:
+                for k in kayit:
+                    if k['kalem'] == kalem and k['durum'] in ('TEYITLI', 'SIFIR'):
+                        k['durum'] = 'NET_SATIR'; k['not_'] = 'PDF’te alım+satış tek net satır: ' + net[0]
+        if kalem == 'CFO':
+            b = [k for k in kayit if k['kalem'] == 'CFO' and k['durum'] == 'TEYITLI']
+            birim = b[0]['pdf_birim'] if b else None
+    for k in kayit: k['tms29'] = tms29
     return kayit
 
 if __name__ == '__main__':
-    H = json.load(open('rapor_bildirim_haritasi.json'))
+    # kullanım: python3 cikar.py [harita.json] [çıktı.csv]
+    H = json.load(open(sys.argv[1] if len(sys.argv) > 1 else 'rapor_bildirim_haritasi.json'))
     alan = ['kod', 'yil', 'ay', 'idx', 'role', 'nitelik', 'kalem', 'sutun', 'deger_tl', 'kaynak', 'durum',
-            'pdf_birim', 'pdf_sayfa', 'pdf_satir', 'not_']
-    w = csv.DictWriter(open('rapor_kalemleri.csv', 'w', newline=''), fieldnames=alan)
+            'pdf_birim', 'pdf_sayfa', 'pdf_satir', 'tms29', 'not_']
+    w = csv.DictWriter(open(sys.argv[2] if len(sys.argv) > 2 else 'rapor_kalemleri.csv', 'w', newline=''), fieldnames=alan)
     w.writeheader()
     for anahtar, bl in H.items():
         kod, yil, ay = anahtar.split('|'); yil, ay = int(yil), int(ay)
         if not bl: continue
-        # aynı dönemde birden çok bildirim: en son yayımlanan (düzeltme) esas alınır
-        b = sorted(bl, key=lambda x: _tarih(x['tarih'].split()[0]))[-1]
+        # aynı dönemde birden çok bildirim: dönem sütunu takvim dönemine uyanların en son yayımlananı
+        # (düzeltme) esas alınır; hiçbiri uymuyorsa şirketin hesap yılı takvim dışıdır
+        adaylar = sorted(bl, key=lambda x: _tarih(x['tarih'].split()[0]), reverse=True)
+        b = None
+        for a in adaylar:
+            if not os.path.exists(f"{OB}/{a['idx']}.json"): continue
+            j = json.load(open(f"{OB}/{a['idx']}.json"))
+            if any(sutunlar(v['baslik'], yil, ay)[0] is not None for v in j.get('nakit_akis', {}).values()):
+                b = a; break
+        if b is None:
+            a = adaylar[0]
+            j = json.load(open(f"{OB}/{a['idx']}.json")) if os.path.exists(f"{OB}/{a['idx']}.json") else {}
+            if j.get('nakit_akis'):
+                bas = next(iter(j['nakit_akis'].values()))['baslik']
+                w.writerow(dict(kod=kod, yil=yil, ay=ay, idx=a['idx'], kalem='*', durum='MALI_YIL',
+                                not_='takvim dönemine uyan sütun yok: ' + ' / '.join(bas[:2])))
+                continue
+            b = a
         if not os.path.exists(f"{OB}/{b['idx']}.json"):
             w.writerow(dict(kod=kod, yil=yil, ay=ay, idx=b['idx'], kalem='*', durum='INDIRILMEDI')); continue
         for k in isle(kod, yil, ay, b['idx']):
