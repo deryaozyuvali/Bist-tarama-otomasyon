@@ -96,7 +96,7 @@ ozet = pd.DataFrame([
 ], columns=['Ölçü', 'Değer'])
 x = D[(D['CFO statü'] == 'TEYITLI') & D['V7 CFO_TTM (Evo)'].notna()]
 f = (x['CFO fark (belge−Evo)'].abs() / x['V7 CFO_TTM (Evo)'].abs().clip(lower=1))
-ozet.loc[6, 'Değer'] = f'{len(x)} / {(f < 0.005).sum()}'
+ozet.loc[ozet['Ölçü'].str.startswith('CFO belge'), 'Değer'] = f'{len(x)} / {(f < 0.005).sum()}'
 ozet = pd.concat([ozet, by.Kategori.value_counts().rename_axis('Ölçü').reset_index(name='Değer')
                   .assign(**{'Ölçü': lambda d: 'BELGE YOK: ' + d['Ölçü']})])
 
