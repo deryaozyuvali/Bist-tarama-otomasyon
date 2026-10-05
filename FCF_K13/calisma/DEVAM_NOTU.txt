@@ -59,7 +59,7 @@ Sıradaki: şirket sitelerinden (Yatırımcı İlişkileri) rapor PDF'leri.
 Eski/geçersiz kod, 30 satır ÇIKAR: KOZAL→TRALT, KOZAA→TRMET, IPEKE→TRENJ, MARKA→USHOL (KAP'ta USHOL raporlarının unvanı
 MARKA YATIRIM HOLDİNG; Evo USHOL = US Yatırım Holding), SNKRN (hiçbir kaynakta yok). TRALT/TRENJ/TRMET ayrı şirketler (grup zinciri), tekrar değil.
 INTET/NETGL/ROYAL: KAP listesinde yok ama Evo'da 6 aylık raporlayan gerçek şirketler — kod sorunu değil.
-Tarama listeleri (xutum_tarama_v2.py, xutum_tarama_haftalik_son.py): KOZAL/KOZAA/IPEKE/SNKRN/MARKA var, USHOL yok — kullanıcıya soruldu.
+Tarama listeleri (xutum_tarama_v2.py, xutum_tarama_haftalik_son.py): KOZAL/KOZAA/IPEKE/SNKRN/MARKA var, USHOL yok — bu görevin konusu değil (kullanıcı kararı), dokunulmadı.
 
 --- 8. tur: V7 dosyası geldi (girdi/FCF_TTM_2025-03_2026-06_v7_nihai.xlsx, SHA-256 b1745853… doğru) → FCF_HLD ---
 FCF_HLD = CFO + Alınan temettüler (YATIRIM bölümü) − CAPEX_STD − |Kira| (V7 Notlar ②). cikar.py/cikar_pdf.py yeni kalem TEMETTU:
