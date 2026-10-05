@@ -13,12 +13,23 @@ dönem başına şirketler arası sapma < %0,01). TMS 29 uygulamayan raporlar (P
 import csv, collections, json, os
 import pandas as pd
 
+# MOD=KOSULLU: aynı hesap KOŞULLU satırlar için (kosullu_satirlar.csv → kosullu_ttm.csv; V7 değerleriyle kıyas)
+MOD = os.environ.get('MOD', 'NULL')
+SATIRLAR, CIKTI = ('kosullu_satirlar.csv', 'kosullu_ttm.csv') if MOD == 'KOSULLU' else ('null_satirlar.csv', 'null_ttm.csv')
+
 K = pd.read_csv('rapor_kalemleri.csv', dtype={'pdf_sayfa': str})
 # KAP sayfası geçici olarak indirilemeyen raporlar (504): aynı bildirimin önceki başarılı çıkarımı kullanılır
 if os.path.exists('rapor_kalemleri_yedek.csv'):
     _Y = pd.read_csv('rapor_kalemleri_yedek.csv', dtype={'pdf_sayfa': str})
     _bozuk = set(K[(K.kalem == '*') & K.durum.isin(['NAKIT_AKIS_YOK', 'INDIRILMEDI'])].idx) & set(_Y.idx)
     K = pd.concat([K[~K.idx.isin(_bozuk)], _Y[_Y.idx.isin(_bozuk)]], ignore_index=True)
+# KAP erişilemeyen raporlar: Evo belge havuzundaki orijinal PDF'ten XBRL'siz okunan kalemler (cikar_pdf.py)
+if os.path.exists('rapor_kalemleri_evo.csv'):
+    _E = pd.read_csv('rapor_kalemleri_evo.csv', dtype={'pdf_sayfa': str})
+    _tam = {(r.kod, r.yil, r.ay) for r in K.itertuples() if r.kalem != '*'}
+    _E = _E[[(r.kod, r.yil, r.ay) not in _tam for r in _E.itertuples()]]
+    _ek = {(r.kod, r.yil, r.ay) for r in _E.itertuples()}
+    K = pd.concat([K[[(r.kod, r.yil, r.ay) not in _ek for r in K.itertuples()]], _E], ignore_index=True)
 F = {(2024, 12): 1.5414, (2025, 3): 1.4004, (2025, 6): 1.3211, (2025, 9): 1.2289,
      (2025, 12): 1.1776, (2026, 3): 1.0701, (2026, 6): 1.0}
 PER = {'3 Aylık': 3, '6 Aylık': 6, '9 Aylık': 9, 'Yıllık': 12}
@@ -37,7 +48,7 @@ BASLIK = set(K[K.tms29 == True].kod)
 # (a) hiçbir raporun başlığında 'satın alma gücü esasına göre' yok VE (b) V7/Evo CFO_TTM, belge rakamının
 # çevrilmemiş hâliyle örtüşüyor (çevrilmiş hâliyle değil). (BIMAS testi: Evo = PDF × F(rapor), 21/21 kalem.)
 _V7 = pd.read_excel('../FCF_V8_aday_K13.xlsx', sheet_name='KARAR', keep_default_na=False, na_values=[''])
-_V7 = _V7[_V7['V7 statü'] == 'NULL'].set_index(['Kod', 'Dönem'])['CFO_TTM'].dropna()
+_V7 = _V7.set_index(['Kod', 'Dönem'])['CFO_TTM'].dropna()  # TMS 29 oylaması: V7'de CFO_TTM olan tüm satırlar
 def _cfo(k, y, m, s):
     r = K[(K.kod == k) & (K.yil == y) & (K.ay == m) & (K.kalem == 'CFO') & (K.sutun == s) & (K.durum == 'TEYITLI')]
     return None if r.empty else r.deger_tl.iloc[0] / 1e6
@@ -98,6 +109,12 @@ def al(kod, y, m, kalem, sut):
             return (v or 0.0), 'TEYITLI', kanit + f" · {t['kaynak']}: {k}"
         if isinstance(k, str):
             return v, 'ELLE', kanit + f" · {t['kaynak']}: {k}"
+    if r.durum == 'PDF_SATIR_YOK':
+        # XBRL'siz PDF: kalem satırı yok → 0. Testte (XBRL'e karşı) YAGM %99, kira %97 doğru; MDV+MODV yalnız %45 → elle
+        if kalem in ('YAGM', 'KIRA'): return 0.0, 'PDF_OKUNDU', kanit + ' · Evo PDF: nakit akışta kalem satırı yok → 0'
+        return 0.0, 'ELLE', kanit + ' · Evo PDF: MDV+MODV satırı bulunamadı (etiket okunamamış olabilir)'
+    if r.durum == 'PDF_ADAY':
+        return v, 'ELLE', kanit + f' · Evo PDF: tek CFO adayı, özdeşlik kurulamadı (düşük güven): {r.pdf_satir}'
     if (kod, y, m, kalem) in tekrar:
         return v, 'ELLE', kanit + ' · aynı cari tutar şirketin başka bir dönem raporunda da var (kopya şüphesi)'
     if r.durum in ('TEYITLI', 'SIFIR'): return (v or 0.0), 'TEYITLI', kanit
@@ -167,7 +184,7 @@ for (kod, kalem, v), g in c.groupby(['kod', 'kalem', 'deger_tl']):
     if g[['yil', 'ay']].drop_duplicates().shape[0] > 1 and (g.yil.nunique() > 1 or kalem == 'CFO'):
         for r in g.itertuples(): tekrar.add((kod, int(r.yil), int(r.ay), kalem))
 out = []
-for r in csv.DictReader(open('null_satirlar.csv')):
+for r in csv.DictReader(open(SATIRLAR)):
     kod = r['Kod']; y, m = map(int, r['Dönem'].split('/'))
     satir = {'Kod': kod, 'Tip': r['Tip'], 'Dönem': r['Dönem']}
     genel = 'TEYITLI'
@@ -198,7 +215,7 @@ for r in csv.DictReader(open('null_satirlar.csv')):
     out.append(satir)
 D = pd.DataFrame(out)
 V7 = pd.read_excel('../FCF_V8_aday_K13.xlsx', sheet_name='KARAR', keep_default_na=False, na_values=[''])
-V7 = V7[V7['V7 statü'] == 'NULL'][['Kod', 'Dönem', 'CFO_TTM', 'CAPEX_STD', '|Kira anapara|']]
+V7 = V7[(V7['Önerilen statü'] == 'KOŞULLU') if MOD == 'KOSULLU' else (V7['V7 statü'] == 'NULL')][['Kod', 'Dönem', 'CFO_TTM', 'CAPEX_STD', '|Kira anapara|']]
 V7.columns = ['Kod', 'Dönem', 'V7 CFO_TTM (Evo)', 'V7 CAPEX_STD (Evo)', 'V7 |Kira| (Evo)']
 D = D.merge(V7, on=['Kod', 'Dönem'], how='left')
 D['CFO fark (belge−Evo)'] = (D['CFO TTM'] - D['V7 CFO_TTM (Evo)']).round(3)
@@ -215,7 +232,7 @@ D['K6 dışlanan (belge)'] = ['; '.join(f'{k} TTM {D.at[i, k + " TTM"]:+.3f} (po
                                       if not pd.isna(D.at[i, k + ' TTM']) and D.at[i, k + ' TTM'] > 0) for i in D.index]
 D['FCF_STD (belge)'] = [round(c - x - k, 3) if t == 'Standart' and not any(pd.isna(v) for v in (c, x, k)) else None
                         for t, c, x, k in zip(D['Tip'], D['CFO TTM'], D['CAPEX_STD (belge)'], D['|Kira| (belge)'])]
-D.to_csv('null_ttm.csv', index=False)
+D.to_csv(CIKTI, index=False)
 print(D['Satır statü'].value_counts().to_dict())
 for k in ('CFO', 'MDV+MODV', 'YAGM', 'KIRA'):
     print(k, D[f'{k} statü'].value_counts().to_dict())
