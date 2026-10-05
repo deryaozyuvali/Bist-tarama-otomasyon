@@ -22,3 +22,15 @@ Açık işler:
   3. Hisse kodu değişenler: KOZAL→TRALT, KOZAA→TRMET?, IPEKE→TRENJ (V7'de eski kodlu NULL satırlar yeni kodların tekrarı olabilir) — doğrulanmalı.
   4. Holding FCF_HLD formülü için V7 dosyası gerekli. 5. KOŞULLU 405 satır (sıradaki büyük adım).
 Not: OCR için OMP_THREAD_LIMIT=1 şart (4 çekirdek; çok iş parçacıklı Tesseract makineyi kilitliyor).
+
+=== 4. TUR (2026-10-05, ELLE kapanışı) ===
+NULL 734: TEYITLI 332 · PDF_OKUNDU 151 · IZAHNAME 15 · XBRL_ESAS 1 · ELLE 6 · BELGE_YOK 229 · FCF_STD 440.
+Kalan ELLE (gerekçeli): ALBTN 2026/03 (izahname taranmış, rakamlar bozuk), KCAER 2026/06 (taranmış; OCR KAP engeli
+nedeniyle bekliyor, KAP 1643859), TEHOL 2026/06 (PDF'te yatırım bölümü görüntü), TGSAS 2025/03-06-09 (alım+satış tek
+satır, işaretler raporlar arası tutarsız).
+Düzeltilen hatalar: izahname okuyucu (sütun sırası en yakın tarih satırından; bölünmüş etiket; yanlış sayfa; "Not"
+sütunu; "(A+B+C)" eki; A+B+C(+etki)=net özdeşliği → ozdeslik sütunu; Evo yok/farklıysa özdeşlikle kabul);
+cikar.py: bin/mn TL eşleşmesi binlik ayraç ister (dipnot no yanlış teyitleri: EGEPO, IHYAY, KSTUR, RUBNS, ECZYT, EUPWR),
+MDV regex '\balış' (azalış yanlış eşleşmesi TGSAS), 'değer artış' dışlandı, TL tolerans ±5 (≥100 bin), CFO regex genişledi.
+Evo gözlemi: KPEKS/SSAAT/SARAE izahnamelerinde Evo vergi öncesi "Faaliyetlerden elde edilen" satırını CFO almış.
+Sırada: KOŞULLU 405 satır (V7 KOŞULLU 172 + KESİN→KOŞULLU 200 + TÜRETİLMİŞ→KOŞULLU 33); alarm çoğunlukla MDV+MODV / kira.
