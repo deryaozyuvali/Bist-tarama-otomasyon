@@ -121,7 +121,18 @@ def isle(kod, yil, ay, idx):
     sayfalar = []
     for e in j.get('ekler', []):
         if e.get('metin') and os.path.exists(f"{OB}/{e['metin']}"):
-            sayfalar += nakit_sayfalari(open(f"{OB}/{e['metin']}", encoding='utf-8', errors='replace').read())
+            metin = open(f"{OB}/{e['metin']}", encoding='utf-8', errors='replace').read()
+            sec = nakit_sayfalari(metin)
+            # başlık metni bozuk / CFO etiketsiz satırda olabilir: XBRL CFO tutarının geçtiği sayfa ve
+            # bir sonraki sayfa da nakit akış sayfası sayılır (yalnız sayfa bulmak için; teyit yine kalem kalem)
+            tum = [(no + 1, p) for no, p in enumerate(re.sub(r'\(\s+', '(', metin).split('\f'))]
+            var = {no for no, _ in sec}
+            for i in (ci, oi):
+                b = pdf_ara(tum, deger(T['satirlar'], ELEMAN['CFO'], i))
+                if b:
+                    for no in (b[1], b[1] + 1):
+                        if no not in var and no <= len(tum): sec.append(tum[no - 1]); var.add(no)
+            sayfalar += sec
     for kalem in ('CFO', 'MDV+MODV', 'YAGM', 'KIRA'):
         for sut, i in (('cari', ci), ('onceki', oi)):
             v = deger(T['satirlar'], ELEMAN[kalem], i)
