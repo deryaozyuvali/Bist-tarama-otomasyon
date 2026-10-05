@@ -27,9 +27,9 @@ kolon = ['Kod', 'Tip', 'Dönem', 'Sonuç', 'Fark özeti', 'Satır statü',
          'CFO statü', 'CFO bileşen', 'CFO kanıt', 'MDV+MODV statü', 'MDV+MODV bileşen', 'MDV+MODV kanıt',
          'YAGM statü', 'YAGM bileşen', 'YAGM kanıt', 'KIRA statü', 'KIRA bileşen', 'KIRA kanıt', 'K6 dışlanan (belge)']
 with pd.ExcelWriter('KOSULLU_belge_kontrol.xlsx') as w:
-    okubeni.to_excel(w, 'OKUBENI', index=False)
-    ozet.to_excel(w, 'OZET', index=False)
+    okubeni.to_excel(w, sheet_name='OKUBENI', index=False)
+    ozet.to_excel(w, sheet_name='OZET', index=False)
     for s in ('BELGE_DEGERI', 'KESİN_ONERI', 'ELLE', 'BELGE_YOK'):
-        R[R['Sonuç'] == s][[k for k in kolon if k in R]].to_excel(w, s[:31], index=False)
-    R[[k for k in kolon if k in R]].to_excel(w, 'TUMU', index=False)
+        R[R['Sonuç'] == s][[k for k in kolon if k in R]].to_excel(w, sheet_name=s[:31], index=False)
+    R[[k for k in kolon if k in R]].to_excel(w, sheet_name='TUMU', index=False)
 print(ozet.to_string(index=False))
