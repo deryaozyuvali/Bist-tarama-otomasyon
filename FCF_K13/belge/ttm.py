@@ -146,8 +146,10 @@ def izahname(kod, y, m, kalem):
 # aynı şirketin farklı rapor tarihlerinde birebir aynı sıfır dışı cari tutar: belge içi kopya şüphesi
 tekrar = set()
 c = K[(K.sutun == 'cari') & K.deger_tl.notna() & (K.deger_tl != 0)]
+# Aynı yıl içinde birikimli (YTD) çıkış kalemi değişmeden kalabilir (ara dönemde yeni harcama yok) → şüphe değil.
+# Şüpheli: tekrar farklı yıllara yayılıyor (ör. FY24 = Q1-25) ya da kalem CFO (birikimli CFO kuruşu kuruşuna sabit kalmaz).
 for (kod, kalem, v), g in c.groupby(['kod', 'kalem', 'deger_tl']):
-    if g[['yil', 'ay']].drop_duplicates().shape[0] > 1:
+    if g[['yil', 'ay']].drop_duplicates().shape[0] > 1 and (g.yil.nunique() > 1 or kalem == 'CFO'):
         for r in g.itertuples(): tekrar.add((kod, int(r.yil), int(r.ay), kalem))
 out = []
 for r in csv.DictReader(open('null_satirlar.csv')):
