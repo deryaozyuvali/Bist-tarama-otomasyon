@@ -4198,13 +4198,62 @@
 "unvan": "MANAS ENERJİ YÖNETİMİ SANAYİ VE TİCARET A.Ş."
 }
 ],
-"MARKA|2024|12": [],
-"MARKA|2025|3": [],
-"MARKA|2025|6": [],
-"MARKA|2025|9": [],
-"MARKA|2025|12": [],
-"MARKA|2026|3": [],
-"MARKA|2026|6": [],
+"MARKA|2024|12": [
+{
+"idx": 1404599,
+"tarih": "01.01.2000 00:00:00",
+"ozet": "Evo finansal_rapor_kap_bildirim_id",
+"unvan": ""
+}
+],
+"MARKA|2025|3": [
+{
+"idx": 1438187,
+"tarih": "01.01.2000 00:00:00",
+"ozet": "Evo finansal_rapor_kap_bildirim_id",
+"unvan": ""
+}
+],
+"MARKA|2025|6": [
+{
+"idx": 1480102,
+"tarih": "01.01.2000 00:00:00",
+"ozet": "Evo finansal_rapor_kap_bildirim_id",
+"unvan": ""
+}
+],
+"MARKA|2025|9": [
+{
+"idx": 1515107,
+"tarih": "01.01.2000 00:00:00",
+"ozet": "Evo finansal_rapor_kap_bildirim_id",
+"unvan": ""
+}
+],
+"MARKA|2025|12": [
+{
+"idx": 1597844,
+"tarih": "01.01.2000 00:00:00",
+"ozet": "Evo finansal_rapor_kap_bildirim_id",
+"unvan": ""
+}
+],
+"MARKA|2026|3": [
+{
+"idx": 1616494,
+"tarih": "01.01.2000 00:00:00",
+"ozet": "Evo finansal_rapor_kap_bildirim_id",
+"unvan": ""
+}
+],
+"MARKA|2026|6": [
+{
+"idx": 1652385,
+"tarih": "01.01.2000 00:00:00",
+"ozet": "Evo finansal_rapor_kap_bildirim_id",
+"unvan": ""
+}
+],
 "MARMR|2024|12": [],
 "MARMR|2025|3": [],
 "MARMR|2025|6": [],
@@ -5448,11 +5497,25 @@
 "unvan": "RODRİGO TEKSTİL SANAYİ VE TİCARET A.Ş."
 }
 ],
-"ROYAL|2024|12": [],
+"ROYAL|2024|12": [
+{
+"idx": 1443362,
+"tarih": "01.01.2000 00:00:00",
+"ozet": "Evo finansal_rapor_kap_bildirim_id",
+"unvan": ""
+}
+],
 "ROYAL|2025|3": [],
 "ROYAL|2025|6": [],
 "ROYAL|2025|9": [],
-"ROYAL|2025|12": [],
+"ROYAL|2025|12": [
+{
+"idx": 1570568,
+"tarih": "01.01.2000 00:00:00",
+"ozet": "Evo finansal_rapor_kap_bildirim_id",
+"unvan": ""
+}
+],
 "ROYAL|2026|3": [],
 "ROYAL|2026|6": [],
 "RUBNS|2024|12": [

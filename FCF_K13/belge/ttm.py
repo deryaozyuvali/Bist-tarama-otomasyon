@@ -82,7 +82,46 @@ def al(kod, y, m, kalem, sut):
         return None, 'ELLE', kanit + f' · PDF satırı otomatik okunamadı ({r.not_}): {r.pdf_satir}'
     return v, 'ELLE', kanit + f" · {r.durum}{'' if pd.isna(r.not_) else ' ' + str(r.not_)}"
 
-SIRA = {'TEYITLI': 0, 'PDF_OKUNDU': 1, 'ELLE': 2, 'BELGE_YOK': 3}
+SIRA = {'TEYITLI': 0, 'PDF_OKUNDU': 1, 'IZAHNAME': 1, 'ELLE': 2, 'BELGE_YOK': 3}
+
+# Halka arz izahnamesi (izahname_oku.py): KAP'ta finansal rapor bulunmayan dönemler için. Tüm sütunlar tek
+# tablodan ve aynı satın alma gücü tarihinde (sap) → TTM bu tarihte kurulur, sonra × F(sap)/F(son rapor).
+import os, ast
+IZ = pd.read_csv('izahname_kalemleri.csv') if os.path.exists('izahname_kalemleri.csv') else pd.DataFrame()
+EVO_IZ = json.load(open('evo_izahname.json')) if os.path.exists('evo_izahname.json') else {}
+def izahname(kod, y, m, kalem):
+    if IZ.empty: return None
+    g = IZ[(IZ.kod == kod) & (IZ.kalem == kalem)]
+    def v(yy, mm):
+        r = g[(g.yil == yy) & (g.ay == mm)]
+        return None if r.empty else r.iloc[0]
+    parca = [v(y, m)] if m == 12 else [v(y, m), v(y - 1, 12), v(y - 1, m)]
+    if any(p is None for p in parca) or len({p.idx for p in parca}) > 1: return None
+    s = ast.literal_eval(parca[0].sap) if isinstance(parca[0].sap, str) else None
+    if s is None and kod in TMS29_SIRKET:  # başlıkta okunamadıysa: tablodaki en son dönem (izahnamenin tarihi)
+        g2 = g[g.idx == parca[0].idx]; s = max(zip(g2.yil, g2.ay))
+    # Evo kontrolü (CFO, MDV+MODV): Evo bu dönemleri de izahnameden alır; belge × F(sap)/F(son) Evo dönemseliyle
+    # %0,5 içinde tutmalı. Tutmazsa ya da Evo'da karşılık yoksa kullanılmaz (elle).
+    # Kontrol tablo düzeyinde: aynı izahname tablosunda bu kalemin Evo'da karşılığı olan tüm dönemleri tutmalı
+    # (en az biri); Evo'da karşılığı olmayan dönemler de o zaman kabul edilir.
+    if kalem in EVO_IZ:
+        kat0 = F.get(s, 1) / F[son_rapor.get(kod, (2026, 6))] if kod in TMS29_SIRKET and s else 1
+        tut = 0
+        for p in g[g.idx == parca[0].idx].itertuples():
+            e = EVO_IZ[kalem].get(f'{kod}|{p.yil}|{p.ay}')
+            if e is None: continue
+            b = p.deger_tl / 1e6 * kat0
+            if abs(b - e) > 0.005 * abs(e) + 0.05: return 'EVO_TUTMADI', p, e, b
+            tut += 1
+        if tut == 0: return 'EVO_TUTMADI', parca[0], None, parca[0].deger_tl / 1e6 * kat0
+    ttm = (parca[0].deger_tl if m == 12 else parca[0].deger_tl + parca[1].deger_tl - parca[2].deger_tl) / 1e6
+    kat = 1.0
+    if s and kod in TMS29_SIRKET:
+        if s not in F: return None
+        kat = F[s] / F[son_rapor.get(kod, (2026, 6))]
+    kanit = (f"İzahname KAP {int(parca[0].idx)} ({parca[0].ek}, s.{parca[0].sayfa}); sap {s}; ×{kat:.4f}; "
+             f"{'okundu' if parca[0].durum == 'OKUNDU' else 'satır yok → 0'}: {'' if pd.isna(parca[0].satir) else parca[0].satir}")
+    return ttm * kat, [round(p.deger_tl / 1e6, 3) for p in parca], kanit
 
 # aynı şirketin farklı rapor tarihlerinde birebir aynı sıfır dışı cari tutar: belge içi kopya şüphesi
 tekrar = set()
@@ -104,6 +143,15 @@ for r in csv.DictReader(open('null_satirlar.csv')):
         st = max((p[1][1] for p in parca), key=SIRA.get)
         vals = [p[1][0] for p in parca]
         ttm = None if any(v is None for v in vals) else sum(s * v for (s, _), v in zip(parca, vals))
+        if st == 'BELGE_YOK':
+            iz = izahname(kod, y, m, kalem)
+            if isinstance(iz, tuple) and iz[0] == 'EVO_TUTMADI':
+                st = 'ELLE'; p, e, b = iz[1], iz[2], iz[3]
+                parca = [(1, (None, st, f"İzahname KAP {int(p.idx)} {p.yil}/{p.ay:02d}: belge (çevrilmiş) {b:.1f} ≠ Evo {e} → elle"))]
+                iz = None
+            if iz is not None:
+                ttm, vals, st = iz[0], iz[1], 'IZAHNAME'
+                parca = [(1, (None, st, iz[2]))]
         satir[f'{kalem} TTM'] = None if ttm is None else round(ttm, 3)
         satir[f'{kalem} statü'] = st
         satir[f'{kalem} bileşen'] = ' | '.join('—' if v is None else f'{v:.3f}' for v in vals)
