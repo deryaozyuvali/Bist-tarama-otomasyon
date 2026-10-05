@@ -1,0 +1,567 @@
+{
+ "aciklama": "K13 revizyonu rev: ZAYIF=2 (R1'), R2 (pencere disi yalitilmis tek pozitif nokta haric), R4 (sifir=veri, FY_onceki >= yil ici dolu nokta). YEDEK orneklem tahminleri, BELGE OKUNMADAN donduruldu. base = revizyon oncesi K13.",
+ "satirlar": [
+  {
+   "varyant": "base",
+   "kod": "HOROZ",
+   "donem": "2025/03",
+   "tabaka": "A_seri_tek",
+   "v7_statu": "TÜRETİLMİŞ",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "MDV+MODV alımı",
+     "kesin": "",
+     "olasi": "2503",
+     "karar": 309.963,
+     "esik": 37.943,
+     "net": 0.0,
+     "alarm": true
+    },
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "2412",
+     "karar": 0.0,
+     "esik": 37.943,
+     "net": 0.0,
+     "alarm": false
+    }
+   ]
+  },
+  {
+   "varyant": "base",
+   "kod": "AVTUR",
+   "donem": "2026/06",
+   "tabaka": "A_seri_tek",
+   "v7_statu": "KESİN",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "MDV+MODV alımı",
+     "kesin": "",
+     "olasi": "2606",
+     "karar": 6.849,
+     "esik": 2.589,
+     "net": 8.743,
+     "alarm": true
+    }
+   ]
+  },
+  {
+   "varyant": "base",
+   "kod": "GEREL",
+   "donem": "2025/03",
+   "tabaka": "A_seri_tek",
+   "v7_statu": "KESİN",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "MDV+MODV alımı",
+     "kesin": "",
+     "olasi": "2403",
+     "karar": 0.0,
+     "esik": 6.424,
+     "net": 0.0,
+     "alarm": false
+    },
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "2503,2412,2403",
+     "karar": 9.037,
+     "esik": 6.424,
+     "net": 42.974,
+     "alarm": true
+    }
+   ]
+  },
+  {
+   "varyant": "base",
+   "kod": "BIENY",
+   "donem": "2025/12",
+   "tabaka": "B_zayif_bagimli",
+   "v7_statu": "KESİN",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "2512",
+     "karar": 73.236,
+     "esik": 70.647,
+     "net": 0.0,
+     "alarm": true
+    }
+   ]
+  },
+  {
+   "varyant": "base",
+   "kod": "OTTO",
+   "donem": "2025/12",
+   "tabaka": "B_zayif_bagimli",
+   "v7_statu": "KESİN",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "MDV+MODV alımı",
+     "kesin": "",
+     "olasi": "2512",
+     "karar": 3.183,
+     "esik": 1.151,
+     "net": 0.0,
+     "alarm": true
+    }
+   ]
+  },
+  {
+   "varyant": "base",
+   "kod": "KRPLS",
+   "donem": "2025/12",
+   "tabaka": "B_zayif_bagimli",
+   "v7_statu": "KESİN",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "2512",
+     "karar": 54.499,
+     "esik": 10.333,
+     "net": 0.0,
+     "alarm": true
+    }
+   ]
+  },
+  {
+   "varyant": "base",
+   "kod": "EGSER",
+   "donem": "2025/12",
+   "tabaka": "C_net_bagimli",
+   "v7_statu": "KESİN",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "",
+     "karar": 0.0,
+     "esik": 33.099,
+     "net": 94.234,
+     "alarm": true
+    }
+   ]
+  },
+  {
+   "varyant": "base",
+   "kod": "SILVR",
+   "donem": "2025/12",
+   "tabaka": "C_net_bagimli",
+   "v7_statu": "KESİN",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "",
+     "karar": 0.0,
+     "esik": 4.834,
+     "net": 21.207,
+     "alarm": true
+    }
+   ]
+  },
+  {
+   "varyant": "base",
+   "kod": "BYDNR",
+   "donem": "2025/12",
+   "tabaka": "C_net_bagimli",
+   "v7_statu": "TÜRETİLMİŞ",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "",
+     "karar": 0.0,
+     "esik": 18.286,
+     "net": 311.833,
+     "alarm": true
+    }
+   ]
+  },
+  {
+   "varyant": "base",
+   "kod": "QUAGR",
+   "donem": "2025/03",
+   "tabaka": "E_radar_temizlenen",
+   "v7_statu": "KESİN",
+   "onerilen": "KESİN",
+   "alarm": false,
+   "kalemler": [
+    {
+     "kalem": "MDV+MODV alımı",
+     "kesin": "",
+     "olasi": "2412",
+     "karar": 0.0,
+     "esik": 147.7,
+     "net": 0.0,
+     "alarm": false
+    },
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "2412",
+     "karar": 0.0,
+     "esik": 147.7,
+     "net": 0.0,
+     "alarm": false
+    }
+   ]
+  },
+  {
+   "varyant": "base",
+   "kod": "BLUME",
+   "donem": "2025/06",
+   "tabaka": "E_radar_temizlenen",
+   "v7_statu": "TÜRETİLMİŞ",
+   "onerilen": "TÜRETİLMİŞ",
+   "alarm": false,
+   "kalemler": [
+    {
+     "kalem": "MDV+MODV alımı",
+     "kesin": "",
+     "olasi": "",
+     "karar": 0.0,
+     "esik": 5.734,
+     "net": 1.257,
+     "alarm": false
+    },
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "2412",
+     "karar": 0.0,
+     "esik": 5.734,
+     "net": 0.0,
+     "alarm": false
+    }
+   ]
+  },
+  {
+   "varyant": "base",
+   "kod": "BEYAZ",
+   "donem": "2026/06",
+   "tabaka": "F_temiz_kesin",
+   "v7_statu": "KESİN",
+   "onerilen": "KESİN",
+   "alarm": false,
+   "kalemler": []
+  },
+  {
+   "varyant": "base",
+   "kod": "BASGZ",
+   "donem": "2025/09",
+   "tabaka": "F_temiz_kesin",
+   "v7_statu": "KESİN",
+   "onerilen": "KESİN",
+   "alarm": false,
+   "kalemler": []
+  },
+  {
+   "varyant": "base",
+   "kod": "ERBOS",
+   "donem": "2026/03",
+   "tabaka": "F_temiz_kesin",
+   "v7_statu": "KESİN",
+   "onerilen": "KESİN",
+   "alarm": false,
+   "kalemler": []
+  },
+  {
+   "varyant": "rev",
+   "kod": "HOROZ",
+   "donem": "2025/03",
+   "tabaka": "A_seri_tek",
+   "v7_statu": "TÜRETİLMİŞ",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "MDV+MODV alımı",
+     "kesin": "",
+     "olasi": "2503",
+     "karar": 309.963,
+     "esik": 37.943,
+     "net": 0.0,
+     "alarm": true
+    },
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "2412",
+     "karar": 0.0,
+     "esik": 37.943,
+     "net": 0.0,
+     "alarm": false
+    }
+   ]
+  },
+  {
+   "varyant": "rev",
+   "kod": "AVTUR",
+   "donem": "2026/06",
+   "tabaka": "A_seri_tek",
+   "v7_statu": "KESİN",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "MDV+MODV alımı",
+     "kesin": "",
+     "olasi": "2606",
+     "karar": 6.849,
+     "esik": 2.589,
+     "net": 8.743,
+     "alarm": true
+    }
+   ]
+  },
+  {
+   "varyant": "rev",
+   "kod": "GEREL",
+   "donem": "2025/03",
+   "tabaka": "A_seri_tek",
+   "v7_statu": "KESİN",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "MDV+MODV alımı",
+     "kesin": "",
+     "olasi": "2403",
+     "karar": 0.0,
+     "esik": 6.424,
+     "net": 0.0,
+     "alarm": false
+    },
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "2503,2412,2403",
+     "karar": 9.037,
+     "esik": 6.424,
+     "net": 42.974,
+     "alarm": true
+    }
+   ]
+  },
+  {
+   "varyant": "rev",
+   "kod": "BIENY",
+   "donem": "2025/12",
+   "tabaka": "B_zayif_bagimli",
+   "v7_statu": "KESİN",
+   "onerilen": "KESİN",
+   "alarm": false,
+   "kalemler": [
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "2512",
+     "karar": 0.0,
+     "esik": 70.647,
+     "net": 0.0,
+     "alarm": false
+    }
+   ]
+  },
+  {
+   "varyant": "rev",
+   "kod": "OTTO",
+   "donem": "2025/12",
+   "tabaka": "B_zayif_bagimli",
+   "v7_statu": "KESİN",
+   "onerilen": "KESİN",
+   "alarm": false,
+   "kalemler": [
+    {
+     "kalem": "MDV+MODV alımı",
+     "kesin": "",
+     "olasi": "2512",
+     "karar": 0.0,
+     "esik": 1.151,
+     "net": 0.0,
+     "alarm": false
+    }
+   ]
+  },
+  {
+   "varyant": "rev",
+   "kod": "KRPLS",
+   "donem": "2025/12",
+   "tabaka": "B_zayif_bagimli",
+   "v7_statu": "KESİN",
+   "onerilen": "KESİN",
+   "alarm": false,
+   "kalemler": [
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "2512",
+     "karar": 0.0,
+     "esik": 10.333,
+     "net": 0.0,
+     "alarm": false
+    }
+   ]
+  },
+  {
+   "varyant": "rev",
+   "kod": "EGSER",
+   "donem": "2025/12",
+   "tabaka": "C_net_bagimli",
+   "v7_statu": "KESİN",
+   "onerilen": "KESİN",
+   "alarm": false,
+   "kalemler": []
+  },
+  {
+   "varyant": "rev",
+   "kod": "SILVR",
+   "donem": "2025/12",
+   "tabaka": "C_net_bagimli",
+   "v7_statu": "KESİN",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "",
+     "karar": 0.0,
+     "esik": 4.834,
+     "net": 21.207,
+     "alarm": true
+    }
+   ]
+  },
+  {
+   "varyant": "rev",
+   "kod": "BYDNR",
+   "donem": "2025/12",
+   "tabaka": "C_net_bagimli",
+   "v7_statu": "TÜRETİLMİŞ",
+   "onerilen": "KOŞULLU",
+   "alarm": true,
+   "kalemler": [
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "",
+     "karar": 0.0,
+     "esik": 18.286,
+     "net": 86.308,
+     "alarm": true
+    }
+   ]
+  },
+  {
+   "varyant": "rev",
+   "kod": "QUAGR",
+   "donem": "2025/03",
+   "tabaka": "E_radar_temizlenen",
+   "v7_statu": "KESİN",
+   "onerilen": "KESİN",
+   "alarm": false,
+   "kalemler": [
+    {
+     "kalem": "MDV+MODV alımı",
+     "kesin": "",
+     "olasi": "2412",
+     "karar": 0.0,
+     "esik": 147.7,
+     "net": 0.0,
+     "alarm": false
+    },
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "2412",
+     "karar": 0.0,
+     "esik": 147.7,
+     "net": 0.0,
+     "alarm": false
+    }
+   ]
+  },
+  {
+   "varyant": "rev",
+   "kod": "BLUME",
+   "donem": "2025/06",
+   "tabaka": "E_radar_temizlenen",
+   "v7_statu": "TÜRETİLMİŞ",
+   "onerilen": "TÜRETİLMİŞ",
+   "alarm": false,
+   "kalemler": [
+    {
+     "kalem": "MDV+MODV alımı",
+     "kesin": "",
+     "olasi": "",
+     "karar": 0.0,
+     "esik": 5.734,
+     "net": 1.257,
+     "alarm": false
+    },
+    {
+     "kalem": "Kira anapara",
+     "kesin": "",
+     "olasi": "2412",
+     "karar": 0.0,
+     "esik": 5.734,
+     "net": 0.0,
+     "alarm": false
+    }
+   ]
+  },
+  {
+   "varyant": "rev",
+   "kod": "BEYAZ",
+   "donem": "2026/06",
+   "tabaka": "F_temiz_kesin",
+   "v7_statu": "KESİN",
+   "onerilen": "KESİN",
+   "alarm": false,
+   "kalemler": []
+  },
+  {
+   "varyant": "rev",
+   "kod": "BASGZ",
+   "donem": "2025/09",
+   "tabaka": "F_temiz_kesin",
+   "v7_statu": "KESİN",
+   "onerilen": "KESİN",
+   "alarm": false,
+   "kalemler": []
+  },
+  {
+   "varyant": "rev",
+   "kod": "ERBOS",
+   "donem": "2026/03",
+   "tabaka": "F_temiz_kesin",
+   "v7_statu": "KESİN",
+   "onerilen": "KESİN",
+   "alarm": false,
+   "kalemler": []
+  }
+ ]
+}
