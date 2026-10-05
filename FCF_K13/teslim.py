@@ -15,6 +15,9 @@ okubeni = pd.DataFrame([
     ('Karar', 'Eşik = MAX(1 mn; %5 × |FCF|). Köprü noktası şüpheli ve etki ≥ eşik → KOŞULLU. Net davranış ve maks pozitif YTD ≥ eşik → KOŞULLU. Diğer → statü korunur + not.'),
     ('KARAR', 'Tüm 3.048 şirket-dönem: V7 statü → önerilen statü, gerekçe, teşhis, etki alt sınırı, en az düzeltilmiş FCF (TEŞHİS — FCF DEĞİLDİR).'),
     ('FARK', f"Statüsü değişen {int(K['Statü değişti'].sum())} satır (diff-set). Kademe-2 kuralı gereği yalnız bunlar incelenir."),
+    ('Kod değişikliği', "KOZAL→TRALT, KOZAA→TRMET, IPEKE→TRENJ, MARKA→USHOL (KAP'ta USHOL bildirimlerinin unvanı Marka Yatırım Holding) "
+                        "ve hiçbir kaynakta olmayan SNKRN: 30 satır Önerilen statü = ÇIKAR (aynı şirketin yeni kodlu satırlarının tekrarı). "
+                        "MARKA 2025/12 TÜRETİLMİŞ (−1,49) kaynaksız; aynı dönem USHOL'da KESİN. Diğer K13 ölçümleri bu satırlardan etkilenmez."),
     ('Sürüm', 'K13 rev2 = K13 + R2 (pencere dışı TEK pozitif nokta net bayrağını tetiklemez) + R4 (yıl içi dolu noktadan sonra gelen 0, önceki FY o noktadan küçük değilse veri sayılır). R1 (zayıf ölçüsünü daraltma) holdout testinde yanlışlandı ve ALINMADI.'),
     ('OOS_TEST', 'Bağımsız belge testi: ön kayıtlı 20 ASIL satır + revizyon sonrası dondurulmuş YEDEK satırlar; her satırda belge, bulgu, K13 kararı ve doğru/yanlış.'),
     ('KALEM', 'Kalem düzeyinde ayrıntı: şüpheli köprü noktası (kesin/olası), zayıf atama, S1, net davranış, etki, V7 kaynak.'),
@@ -29,6 +32,19 @@ karar_cols = ['Kod', 'Tip', 'Sektör', 'Dönem', 'V7 statü', 'Önerilen statü'
               'Toplam karar ölçüsü (mn TL)', 'Eşik (mn TL)', 'Alarm kalemleri', 'Teşhis', 'CFO_TTM', 'CAPEX_STD', '|Kira anapara|', 'FCF türü',
               'K6 dışlanan satır', 'KOŞULLU nedeni']
 KARAR = K[karar_cols].sort_values(['Kod', 'Dönem'])
+# Kodu değişen / geçersiz hisseler (belge/kod_degisikligi.py ile doğrulandı): KAP finansal rapor listesinde bu kodla rapor yok,
+# Evo'da kod yok; yeni kodun satırları V7'de mevcut → eski kodun satırları tekrar, ÇIKAR önerilir. K13 ölçümlerine (DUYARLILIK,
+# DOGRULAMA, OOS) dokunmaz; yalnız KARAR/FARK'ta statü önerisi.
+ESKI_KOD = {'KOZAL': 'TRALT', 'KOZAA': 'TRMET', 'IPEKE': 'TRENJ', 'MARKA': 'USHOL', 'SNKRN': None}
+_e = KARAR.Kod.isin(list(ESKI_KOD))
+KARAR.loc[_e, 'Önerilen statü'] = 'ÇIKAR'
+KARAR.loc[_e, 'Statü değişti'] = KARAR.loc[_e, 'V7 statü'] != 'ÇIKAR'
+KARAR.loc[_e, 'Gerekçe'] = [f"Eski kod → {ESKI_KOD[k]} (KAP'ta bu kodla rapor yok, Evo'da kod yok; şirketin satırları {ESKI_KOD[k]} altında)"
+                            if ESKI_KOD[k] else "Geçersiz kod: KAP'ta rapor, Evo'da kod, Yahoo'da fiyat yok; V7'de veri yok"
+                            for k in KARAR.loc[_e, 'Kod']]
+okubeni.loc[okubeni['Başlık'] == 'FARK', 'Açıklama'] = (
+    f"Statüsü değişen {int(KARAR['Statü değişti'].sum())} satır (diff-set; {int(K['Statü değişti'].sum())} K13 + {int(_e.sum())} kod değişikliği). "
+    "Kademe-2 kuralı gereği yalnız bunlar incelenir.")
 FARK = KARAR[KARAR['Statü değişti']].copy()
 FARK['Karar ölçüsü / |FCF|'] = FARK['Toplam karar ölçüsü (mn TL)'] / FARK['V7 FCF (mn TL)'].abs()
 FARK = FARK.sort_values('Toplam karar ölçüsü (mn TL)', ascending=False)

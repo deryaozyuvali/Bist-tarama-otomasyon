@@ -70,3 +70,8 @@ V7 notundaki köprüyle aynı; diğerleri V7 VERİ YETERSİZ / Evo'da kayıt yok
 temettüyü 2025'te yatırıma, 2024'te işletmeye koymuş (sunum değişikliği, TTM karışık).
 NULL: FCF_HLD 63 satır, FCF_STD 441. KOŞULLU: holding temettü kıyası 5 AYNI, 1 EVO_NOMINAL (BLCYT), 11 belge yok.
 K13'ü yeniden üretmek (kod değişikliği dahil) için hâlâ K6_K11_Kademe2_DiffSet.xlsx gerekli.
+
+--- 9. tur: DiffSet geldi (girdi/K6_K11_Kademe2_DiffSet.xlsx, SHA-256 7f505f01…) ---
+CALISTIR zinciri mevcut FCF_V8_aday_K13.xlsx'i 8 sayfada birebir üretti (dogrula.py revizyon öncesi seri_kalem.pkl okur → CALISTIR'a eklendi).
+teslim.py ESKI_KOD: KOZAL/KOZAA/IPEKE/MARKA/SNKRN 30 satır Önerilen statü = ÇIKAR (29 NULL + MARKA 2025/12 TÜRETİLMİŞ). FARK 233→263.
+KALEM/DOGRULAMA/OOS_TEST/ORNEKLEM_DISI/DUYARLILIK değişmedi.
