@@ -10,7 +10,7 @@ TMS 29: Evo (ve V7) TMS 29 uygulayan şirketlerde her raporu şirketin son rapor
 Belge değeri de aynı esasa çevrilir: değer × F(rapor tarihi) / F(şirketin son rapor tarihi).
 F, Evo dönemsel CFO / belge CFO oranından ampirik bulundu (BIOEN, BUCIM, DESA, OZSUB, YEOTK, AFYON, PETKM;
 dönem başına şirketler arası sapma < %0,01). TMS 29 uygulamayan raporlar (PDF'te 'satın alma gücü' yok) çevrilmez."""
-import csv, collections, json
+import csv, collections, json, os
 import pandas as pd
 
 K = pd.read_csv('rapor_kalemleri.csv', dtype={'pdf_sayfa': str})
@@ -54,6 +54,10 @@ idx = collections.defaultdict(dict)
 for r in K.itertuples():
     idx[(r.kod, int(r.yil), int(r.ay))].setdefault(r.kalem, {})[r.sutun] = r
 
+EVO_METIN = json.load(open('evo_metin_teyit.json')) if os.path.exists('evo_metin_teyit.json') else {}
+def _kat(kod, y, m):
+    return F[(y, m)] / F[son_rapor.get(kod, (2026, 6))] if kod in TMS29_SIRKET else 1.0
+
 def al(kod, y, m, kalem, sut):
     """→ (değer mn TL | None, statü, kanıt)"""
     if not H.get(f'{kod}|{y}|{m}'): return None, 'BELGE_YOK', f'{y}/{m:02d} raporu KAP’ta yok'
@@ -73,6 +77,16 @@ def al(kod, y, m, kalem, sut):
         v *= k
         kanit += f' · TMS29 ×{k:.4f} ({y}/{m:02d}→{a[0]}/{a[1]:02d})'
     if r.durum == 'TEYITLI': kanit += f' · PDF s.{r.pdf_sayfa} ({r.pdf_birim}): {r.pdf_satir}'
+    if r.durum == 'PDF_YOK' and str(int(r.idx)) in EVO_METIN:
+        # taranmış PDF: Evo belge havuzundaki OCR metninden elle kontrol (evo_metin_teyit.json)
+        t = EVO_METIN[str(int(r.idx))]
+        k = t.get(f'{kalem}|{sut}', t.get(f'{kalem}|*'))
+        if isinstance(k, dict):
+            return k['deger'] / 1e6 * _kat(kod, y, m), 'PDF_OKUNDU', kanit + f" · {t['kaynak']}: {k['not']}"
+        if isinstance(k, str) and k.startswith('TEYITLI'):
+            return (v or 0.0), 'TEYITLI', kanit + f" · {t['kaynak']}: {k}"
+        if isinstance(k, str):
+            return v, 'ELLE', kanit + f" · {t['kaynak']}: {k}"
     if (kod, y, m, kalem) in tekrar:
         return v, 'ELLE', kanit + ' · aynı cari tutar şirketin başka bir dönem raporunda da var (kopya şüphesi)'
     if r.durum in ('TEYITLI', 'SIFIR'): return (v or 0.0), 'TEYITLI', kanit
