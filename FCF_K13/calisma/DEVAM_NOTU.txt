@@ -34,3 +34,13 @@ cikar.py: bin/mn TL eşleşmesi binlik ayraç ister (dipnot no yanlış teyitler
 MDV regex '\balış' (azalış yanlış eşleşmesi TGSAS), 'değer artış' dışlandı, TL tolerans ±5 (≥100 bin), CFO regex genişledi.
 Evo gözlemi: KPEKS/SSAAT/SARAE izahnamelerinde Evo vergi öncesi "Faaliyetlerden elde edilen" satırını CFO almış.
 Sırada: KOŞULLU 405 satır (V7 KOŞULLU 172 + KESİN→KOŞULLU 200 + TÜRETİLMİŞ→KOŞULLU 33); alarm çoğunlukla MDV+MODV / kira.
+HATIRLAT (kullanıcı istedi): ONRYT 2024/12 — KAP 1415200 indirilemedi; Evo havuzundaki 2025/12 raporunun 2024 sütunundan
+  alındı. MDV XBRL ile birebir; CFO (+9,0 mn) ve kira (0) şirketin XBRL'iyle (−31,0 mn / −4,7 mn) uyuşmuyor → KOŞULLU sonrası tekrar bak.
+
+=== 5. TUR (KOŞULLU başlangıcı) ===
+KAP 19:00'dan beri bağlantıyı kesiyor (WAF). Evo yolu: belge havuzundaki orijinal PDF'ler (storage.fintables.com)
+→ belge/evo_pdf/<yıl>_<ay>.txt listeleri, cikar_pdf.py (XBRL'siz okuma; XBRL'e karşı test: özdeşlikli CFO 969/973,
+tek aday 110/136, MDV satırı %99, MDV 'satır yok' güvenilmez) → rapor_kalemleri_evo.csv; ttm.py MOD=KOSULLU → kosullu_ttm.csv.
+KOŞULLU 405: 147 hesaplandı (51'i V7 ile 3 bileşende aynı), 258 rapor eksik (KAP açılınca kosullu_harita.py eşlemesiyle indir).
+İncelenecek farklar: DOFER, MEGMT, OBAMS, OYLUM, TTRAK, TEKTU, GZNMI, SELVA (CFO/CAPEX), SASA/KRDM/EKOS/TEZOL kira;
+BLCYT/GMTAS/ECOGR oranı 1,1776 = Evo 2025/12'yi Haz-26'ya taşımamış (baz farkı). USHOL raporları MARKA bildirimleriyle eşleşiyor.
