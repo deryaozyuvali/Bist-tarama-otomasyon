@@ -109,8 +109,11 @@ oku = pd.DataFrame([
               '(PDF_OKUNDU). Alım+satış tek net satır, kopya tutar, sütun/işaret belirsizliği → ELLE.'),
     ('Birim', 'XBRL tutarı KAP başlığındaki “Sunum Para Birimi” ile çarpılır (TL / 1.000 TL / 1.000.000 TL; 65 rapor bin TL).'),
     ('TTM', 'TTM = YTD_cari + FY_önceki − YTD_önceki (Aralık: FY). YTD_önceki cari raporun karşılaştırmalı sütunu (V7 köprüsüyle aynı).'),
-    ('TMS 29', 'V7/Evo TMS 29 uygulayan şirketlerde her raporu şirketin son raporunun satın alma gücüne taşır. Belge değeri × '
-               'F(rapor)/F(son rapor). F, Evo/belge CFO oranından ampirik (TMS29 sayfası). PDF’te “satın alma gücü” yoksa çevrilmez.'),
+    ('TMS 29', 'PDF rakamları TMS 29’a göre düzeltilmiştir ama RAPORUN KENDİ TARİHİNE göre (Ara24 raporu Ara24 TL’si). Evo/V7 '
+               'her raporu şirketin son raporunun satın alma gücüne taşır. Belge değeri bir kez × F(rapor)/F(son rapor) çevrilir. '
+               'Test: TMS29_BIMAS_TESTI — 21/21 kalemde Evo = PDF × F; TTM’de yalnız “1 kez çevrim” Evo’yu tutuyor (2 kez %50 şişirir). '
+               'Varsayılan: şirket TMS 29 uygular; istisna yalnız hiçbir rapor başlığında “satın alma gücü esasına göre” yoksa VE '
+               'Evo rakamı çevrilmemiş hâliyle örtüşüyorsa (A1YEN, ALCTL, BESTE, KOPOL, KORDS, NETAS, ODINE, SEKUR).'),
     ('FCF', 'FCF_STD = CFO − CAPEX_STD − |Kira|, CAPEX_STD = |MDV+MODV| + |YAGM|, pozitif TTM kalem 0 (K6) — KARAR’daki 2.262 '
             'FCF_STD satırının 2.261’inde birebir tutan V7 formülü. Holding (FCF_HLD) tanımı türetilemedi → yalnız bileşenler.'),
     ('Tutarlar', 'mn TL, Haz 2026 satın alma gücü (TMS 29 uygulayanlar), işaret belgedeki gibi (çıkış negatif).'),
@@ -133,6 +136,7 @@ with pd.ExcelWriter('NULL_belge_okuma.xlsx') as w:
     by.to_excel(w, sheet_name='BELGE_YOK', index=False)
     DG.to_excel(w, sheet_name='DOGRULAMA', index=False)
     TMS.to_excel(w, sheet_name='TMS29', index=False)
+    pd.read_csv('bimas_testi.csv').to_excel(w, sheet_name='TMS29_BIMAS_TESTI', index=False)
     K.to_excel(w, sheet_name='RAPOR_KALEMLERI', index=False)
 print(ozet.to_string(index=False))
 print(DG['Sonuç'].value_counts().to_dict())

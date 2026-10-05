@@ -25,6 +25,31 @@ for x in json.load(open('kap_fr.json')):
     for s in (x['stockCodes'] or '').replace(' ', '').split(','):
         son_rapor[s] = max(son_rapor.get(s, t), t)
 H = json.load(open('rapor_bildirim_haritasi.json'))
+# TMS 29 şirket düzeyindedir: raporlarından herhangi birinin tablo başlığında 'satın alma gücü esasına göre'
+# varsa şirketin tüm raporları TMS 29'ludur (taranmış PDF / farklı başlık ifadesi tek raporu yanlış sınıflamasın)
+BASLIK = set(K[K.tms29 == True].kod)
+# TMS 29 TL raporlayanlar için zorunlu → varsayılan: uygular. İstisna yalnız iki koşul birlikte varsa:
+# (a) hiçbir raporun başlığında 'satın alma gücü esasına göre' yok VE (b) V7/Evo CFO_TTM, belge rakamının
+# çevrilmemiş hâliyle örtüşüyor (çevrilmiş hâliyle değil). (BIMAS testi: Evo = PDF × F(rapor), 21/21 kalem.)
+_V7 = pd.read_excel('../FCF_V8_aday_K13.xlsx', sheet_name='KARAR', keep_default_na=False, na_values=[''])
+_V7 = _V7[_V7['V7 statü'] == 'NULL'].set_index(['Kod', 'Dönem'])['CFO_TTM'].dropna()
+def _cfo(k, y, m, s):
+    r = K[(K.kod == k) & (K.yil == y) & (K.ay == m) & (K.kalem == 'CFO') & (K.sutun == s) & (K.durum == 'TEYITLI')]
+    return None if r.empty else r.deger_tl.iloc[0] / 1e6
+TMS29_YOK = {}
+for kod in sorted(set(K.kod) - BASLIK):
+    oy = collections.Counter()
+    for (k, d), e in _V7.items():
+        if k != kod or abs(e) < 1: continue
+        y, m = map(int, d.split('/'))
+        a, b, c = (_cfo(k, y, 12, 'cari'), 0, 0) if m == 12 else (_cfo(k, y, m, 'cari'), _cfo(k, y - 1, 12, 'cari'), _cfo(k, y, m, 'onceki'))
+        if None in (a, b, c): continue
+        fa, fb = (F[(y, 12)], 0) if m == 12 else (F[(y, m)], F[(y - 1, 12)])
+        nom, bir = a + b - c, (a - c) * fa + b * fb
+        if abs(nom - e) < 0.005 * abs(e) + 0.05 and abs(bir - e) > 0.005 * abs(e) + 0.05: oy['nominal'] += 1
+        elif abs(bir - e) < 0.005 * abs(e) + 0.05: oy['cevrilmis'] += 1
+    if oy['nominal'] > oy['cevrilmis']: TMS29_YOK[kod] = dict(oy)
+TMS29_SIRKET = set(K.kod) - set(TMS29_YOK)
 idx = collections.defaultdict(dict)
 for r in K.itertuples():
     idx[(r.kod, int(r.yil), int(r.ay))].setdefault(r.kalem, {})[r.sutun] = r
@@ -42,7 +67,7 @@ def al(kod, y, m, kalem, sut):
     if r is None or r.durum == 'SUTUN_YOK': return None, 'BELGE_YOK', f'{y}/{m:02d} {sut} sütunu yok'
     v = None if pd.isna(r.deger_tl) else r.deger_tl / 1e6
     kanit = f'KAP {int(r.idx)} {y}/{m:02d} {sut}'
-    if v is not None and r.tms29 is True:
+    if v is not None and kod in TMS29_SIRKET:
         a = son_rapor.get(kod, (2026, 6))
         k = F[(y, m)] / F[a]
         v *= k

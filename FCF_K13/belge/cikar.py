@@ -197,7 +197,10 @@ def isle(kod, yil, ay, idx):
             metin = open(f"{OB}/{e['metin']}", encoding='utf-8', errors='replace').read()
             if len(metin) > 5000:
                 km = ' '.join(kucuk(metin[:400000]).split())
-                tms29 = bool(tms29) or bool(re.search(r'satın alma gücü|satınalma gücü|tms 29|yüksek enflasyonlu ekonomilerde', km))
+                # yalnız tablo başlığındaki ifade: '… tarihi itibarıyla satın alma gücü esasına göre ifade edilmiştir'
+                # ('TMS 29' / 'satın alma gücünü kaybeder' gibi genel metinler — KGK duyurusu paragrafı — sayılmaz)
+                tms29 = bool(tms29) or bool(re.search(
+                    r'satın ?alma gücü esas|itibar[ıi]y?la satın ?alma gücü', km[:150000]))
             sec = nakit_sayfalari(metin)
             # başlık metni bozuk / CFO etiketsiz satırda olabilir: XBRL CFO tutarının geçtiği sayfa ve
             # bir sonraki sayfa da nakit akış sayfası sayılır (yalnız sayfa bulmak için; teyit yine kalem kalem)
