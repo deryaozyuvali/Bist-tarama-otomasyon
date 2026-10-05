@@ -87,7 +87,7 @@ def al(kod, y, m, kalem, sut):
     if ek:
         if 'deger' in ek:
             return ek['deger'] / 1e6 * _kat(kod, y, m), 'PDF_OKUNDU', kanit + f" · elle karar (PDF): {ek['not']}"
-        return (v or 0.0), 'TEYITLI', kanit + f" · elle karar: {ek['not']}"
+        return (v or 0.0), ek.get('durum', 'TEYITLI'), kanit + f" · elle karar: {ek['not']}"
     if r.durum == 'PDF_YOK' and str(int(r.idx)) in EVO_METIN:
         # taranmış PDF: Evo belge havuzundaki OCR metninden elle kontrol (evo_metin_teyit.json)
         t = EVO_METIN[str(int(r.idx))]
@@ -107,7 +107,7 @@ def al(kod, y, m, kalem, sut):
         return None, 'ELLE', kanit + f' · PDF satırı otomatik okunamadı ({r.not_}): {r.pdf_satir}'
     return v, 'ELLE', kanit + f" · {r.durum}{'' if pd.isna(r.not_) else ' ' + str(r.not_)}"
 
-SIRA = {'TEYITLI': 0, 'PDF_OKUNDU': 1, 'IZAHNAME': 1, 'ELLE': 2, 'BELGE_YOK': 3}
+SIRA = {'TEYITLI': 0, 'PDF_OKUNDU': 1, 'IZAHNAME': 1, 'XBRL_ESAS': 1, 'ELLE': 2, 'BELGE_YOK': 3}
 
 # Halka arz izahnamesi (izahname_oku.py): KAP'ta finansal rapor bulunmayan dönemler için. Tüm sütunlar tek
 # tablodan ve aynı satın alma gücü tarihinde (sap) → TTM bu tarihte kurulur, sonra × F(sap)/F(son rapor).

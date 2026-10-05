@@ -114,11 +114,11 @@
  },
  "EGEPO|2026|3|MDV+MODV|cari": {
   "deger": -19734648,
-  "not": "'Maddi Duran Varlıkların Alımından Nakit Çıkışları' etiketi bir üst satırda; değerler (19.734.648) / (18.822.410) TL"
+  "not": "belgede \"Maddi Duran Varlıkların Alımından Nakit Çıkışları\" (değer alt satırda) (19.734.648) / (18.822.410); B toplamıyla tutarlı"
  },
  "EGEPO|2026|3|MDV+MODV|onceki": {
   "deger": -18822410,
-  "not": "aynı satır karşılaştırmalı"
+  "not": "belgede \"Maddi Duran Varlıkların Alımından Nakit Çıkışları\" (değer alt satırda) (19.734.648) / (18.822.410); B toplamıyla tutarlı"
  },
  "BRMEN|2026|3|MDV+MODV|*": {
   "deger": 0,
@@ -391,5 +391,238 @@
  "KONKA|2026|6|MDV+MODV|*": {
   "durum": "TEYITLI",
   "not": "belgedeki MDV + MODV alım-satış net satırlarının toplamı = XBRL (şirket alım ve satışı tek satırda veriyor)"
+ },
+ "DERIM|2025|3|CFO|*": {
+  "durum": "XBRL_ESAS",
+  "not": "KAP 1432382 PDF eki yalnız dipnotlar (taranmış, OCR ile okundu); finansal tablolar yalnız KAP XBRL formunda → XBRL esas, PDF karşılaştırması yapılamaz; boş eleman = 0"
+ },
+ "DERIM|2025|3|MDV+MODV|*": {
+  "durum": "XBRL_ESAS",
+  "not": "KAP 1432382 PDF eki yalnız dipnotlar (taranmış, OCR ile okundu); finansal tablolar yalnız KAP XBRL formunda → XBRL esas, PDF karşılaştırması yapılamaz; boş eleman = 0"
+ },
+ "DERIM|2025|3|YAGM|*": {
+  "durum": "XBRL_ESAS",
+  "not": "KAP 1432382 PDF eki yalnız dipnotlar (taranmış, OCR ile okundu); finansal tablolar yalnız KAP XBRL formunda → XBRL esas, PDF karşılaştırması yapılamaz; boş eleman = 0"
+ },
+ "DERIM|2025|3|KIRA|*": {
+  "durum": "XBRL_ESAS",
+  "not": "KAP 1432382 PDF eki yalnız dipnotlar (taranmış, OCR ile okundu); finansal tablolar yalnız KAP XBRL formunda → XBRL esas, PDF karşılaştırması yapılamaz; boş eleman = 0"
+ },
+ "GRTHO|2025|6|MDV+MODV|onceki": {
+  "durum": "TEYITLI",
+  "not": "belgede önceki sütunda satış satırı (2.125.543) negatif, alım satırı 22.649.650 pozitif → etiketler yer değişmiş; alım = (2.125.543) = XBRL"
+ },
+ "BERA|2024|12|MDV+MODV|cari": {
+  "deger": -718860654,
+  "not": "belgede alım ve satış tek net satır; alım ayrıştırılamıyor → net satır alındı (XBRL ile aynı)"
+ },
+ "BERA|2024|12|MDV+MODV|onceki": {
+  "deger": -1409435062,
+  "not": "belgede alım ve satış tek net satır; alım ayrıştırılamıyor → net satır alındı (XBRL ile aynı)"
+ },
+ "EGEPO|2026|3|CFO|cari": {
+  "deger": 86784720,
+  "not": "belgede \"A. İşletme Faaliyetlerinden Elde Edilen Nakit Akışları\" 86.784.720 / 52.742.038; A+B+C+E(enflasyon) = net değişim (58.402.162 / −26.176.763) ✓; XBRL (22.968.116 / −118.512.334) belgeyle uyuşmuyor"
+ },
+ "EGEPO|2026|3|CFO|onceki": {
+  "deger": 52742038,
+  "not": "belgede \"A. İşletme Faaliyetlerinden Elde Edilen Nakit Akışları\" 86.784.720 / 52.742.038; A+B+C+E(enflasyon) = net değişim (58.402.162 / −26.176.763) ✓; XBRL (22.968.116 / −118.512.334) belgeyle uyuşmuyor"
+ },
+ "EMNIS|2025|9|CFO|cari": {
+  "deger": -1232588,
+  "not": "belgede A) (1.232.588); A+B+C = (1.315.979) net değişim ✓; XBRL 4.722.110 uyuşmuyor"
+ },
+ "GOKNR|2025|3|CFO|cari": {
+  "deger": -279379316,
+  "not": "belge içinde iki CFO satırı: \"İşletme faaliyetlerden kaynaklanan nakit akışları\" (279.379.316)/298.752.965 özdeşliği sağlıyor (A + 400.789.476 + 21.598.702 − 16.725.714 = 126.283.148); alt toplam satırı (1.057.475.131) sağlamıyor; XBRL 183.657.092/280.963.363 uyuşmuyor"
+ },
+ "GOKNR|2025|3|CFO|onceki": {
+  "deger": 298752965,
+  "not": "belge içinde iki CFO satırı: \"İşletme faaliyetlerden kaynaklanan nakit akışları\" (279.379.316)/298.752.965 özdeşliği sağlıyor (A + 400.789.476 + 21.598.702 − 16.725.714 = 126.283.148); alt toplam satırı (1.057.475.131) sağlamıyor; XBRL 183.657.092/280.963.363 uyuşmuyor"
+ },
+ "KUVVA|2026|6|CFO|cari": {
+  "deger": 1840307,
+  "not": "belgede \"A. Esas Faaliyetlerden Net Nakit Akışı\" 1.840.307; A+B+C = (861.070) ✓; XBRL 3.299.859 uyuşmuyor"
+ },
+ "OSTIM|2024|12|CFO|cari": {
+  "deger": -25733792,
+  "not": "belgede A başlık satırı (25.733.792) / 212.571.084; A+B+C = kur etkisi öncesi net artış (3.683.002) / 43.888.211 ✓; XBRL 11.940.282/342.846.992 uyuşmuyor"
+ },
+ "OSTIM|2024|12|CFO|onceki": {
+  "deger": 212571084,
+  "not": "belgede A başlık satırı (25.733.792) / 212.571.084; A+B+C = kur etkisi öncesi net artış (3.683.002) / 43.888.211 ✓; XBRL 11.940.282/342.846.992 uyuşmuyor"
+ },
+ "DOFRB|2025|12|CFO|cari": {
+  "deger": -496740055,
+  "not": "belgede \"Faaliyetlerden Elde Edilen Nakit Akışları\" (A toplamı) (496.740.055); XBRL (503.185.322) farklı; kur farkı satırı metinde okunamadığından özdeşlik tam kurulamadı, imzalı belge esas alındı"
+ },
+ "DOFRB|2025|12|CFO|onceki": {
+  "deger": -48088078,
+  "not": "belgede \"Faaliyetlerden Elde Edilen Nakit Akışları\" (A toplamı) (496.740.055); XBRL (503.185.322) farklı; kur farkı satırı metinde okunamadığından özdeşlik tam kurulamadı, imzalı belge esas alındı"
+ },
+ "TLMAN|2025|9|CFO|*": {
+  "durum": "TEYITLI",
+  "not": "2025/09 belgesinde A toplam satırı yok; A = net değişim (A+B+C) − B alt kalemleri − C alt kalemleri = XBRL (cari ve önceki birebir)"
+ },
+ "TLMAN|2026|3|CFO|*": {
+  "durum": "TEYITLI",
+  "not": "2026/03 belgesinde A toplam satırı yok; A = net değişim (A+B+C) − B alt kalemleri − C alt kalemleri = XBRL (cari ve önceki birebir)"
+ },
+ "TLMAN|2026|6|CFO|*": {
+  "durum": "TEYITLI",
+  "not": "2026/06 belgesinde A toplam satırı yok; A = net değişim (A+B+C) − B alt kalemleri − C alt kalemleri = XBRL (cari ve önceki birebir)"
+ },
+ "ULAS|2025|6|CFO|cari": {
+  "deger": -3679198,
+  "not": "XBRL 2025/06 değerleri 2025/03 raporunun kopyası; belgede A başlığında toplam yok: alt kalemler (13.229.428) + vergi (162.217) + işletme enflasyon etkisi 9.712.447 = (3.679.198); önceki (27.441.098) − 11.206.284 = (38.647.382); A+B+C+D = net değişim ✓"
+ },
+ "ULAS|2025|6|CFO|onceki": {
+  "deger": -38647382,
+  "not": "XBRL 2025/06 değerleri 2025/03 raporunun kopyası; belgede A başlığında toplam yok: alt kalemler (13.229.428) + vergi (162.217) + işletme enflasyon etkisi 9.712.447 = (3.679.198); önceki (27.441.098) − 11.206.284 = (38.647.382); A+B+C+D = net değişim ✓"
+ },
+ "ULAS|2025|9|CFO|*": {
+  "durum": "TEYITLI",
+  "not": "belgede A toplamı yok; net (19.861) − B 83.731.384 − C (6.174.252) − D (75.323.704) = (2.213.567) = XBRL; önceki (31.564.739) = XBRL"
+ },
+ "ULAS|2024|12|MDV+MODV|cari": {
+  "deger": -10100000,
+  "not": "belgede alım (10.100.000) ve satış 18.700.000 ayrı; XBRL MDV alanına satış girişini koymuş → alım satırı alındı"
+ },
+ "ULAS|2024|12|MDV+MODV|onceki": {
+  "deger": 0,
+  "not": "belgede alım (10.100.000) ve satış 18.700.000 ayrı; XBRL MDV alanına satış girişini koymuş → alım satırı alındı"
+ },
+ "KRDMA|2024|12|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMA|2025|3|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMA|2025|6|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMA|2025|9|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMA|2025|12|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMB|2024|12|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMB|2025|3|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMB|2025|6|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMB|2025|9|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMB|2025|12|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMD|2024|12|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMD|2025|3|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMD|2025|6|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMD|2025|9|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KRDMD|2025|12|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "kopya şüphesi incelendi: cari 2.840.354 tüm 2025 raporlarında aynı (yıllık sabit kira ödemesi yıl başında yapılıyor, sonraki çeyreklerde artış yok); 2025/12 raporunun önceki sütunu 3.717.805 = 2.840.354 × F(2024/12)/F(2025/12) ve 2026/03 raporunun önceki sütunu 3.717.111 = Q1 2025 düzeltilmiş → belge kendi içinde tutarlı"
+ },
+ "KORDS|2026|6|KIRA|cari": {
+  "deger": -88682280,
+  "not": "4 sütunlu tablo (TL cari, TL önceki, ABD$ cari, ABD$ önceki); TL sütunları alındı"
+ },
+ "KORDS|2026|6|KIRA|onceki": {
+  "deger": -13337192,
+  "not": "4 sütunlu tablo (TL cari, TL önceki, ABD$ cari, ABD$ önceki); TL sütunları alındı"
+ },
+ "MARMR|2026|3|MDV+MODV|cari": {
+  "deger": 0,
+  "not": "tek sütunlu tablo (karşılaştırmalı dönem yok; şirketin 2025/12 raporu da tek sütun); B bölümü ve MODV alım satırı \"-\" → 0; önceki dönem nakit akışı raporlanmamış → 0"
+ },
+ "MARMR|2026|3|MDV+MODV|onceki": {
+  "deger": 0,
+  "not": "tek sütunlu tablo (karşılaştırmalı dönem yok; şirketin 2025/12 raporu da tek sütun); B bölümü ve MODV alım satırı \"-\" → 0; önceki dönem nakit akışı raporlanmamış → 0"
+ },
+ "PARSN|2025|6|KIRA|cari": {
+  "deger": -21716886,
+  "not": "belgede \"Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları\" (21.716.886) / \"-\" (yazı tipinde \"i\" harfi kayıp, etiket eşleşmedi)"
+ },
+ "PARSN|2025|6|KIRA|onceki": {
+  "deger": 0,
+  "not": "belgede \"Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları\" (21.716.886) / \"-\" (yazı tipinde \"i\" harfi kayıp, etiket eşleşmedi)"
+ },
+ "SAMAT|2026|3|KIRA|cari": {
+  "deger": 0,
+  "not": "finansman bölümündeki \"Finansal Kiralama Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları\" satırı her iki sütunda boş → 0 (eşleşen 184.212.120 satırı özkaynak/dipnot tablosu)"
+ },
+ "SAMAT|2026|3|KIRA|onceki": {
+  "deger": 0,
+  "not": "finansman bölümündeki \"Finansal Kiralama Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları\" satırı her iki sütunda boş → 0 (eşleşen 184.212.120 satırı özkaynak/dipnot tablosu)"
+ },
+ "MNDTR|2025|3|KIRA|*": {
+  "durum": "PDF_OKUNDU",
+  "not": "belgede finansmanda ikinci \"Borç Ödemelerine İlişkin Nakit Çıkışları\" satırı 33.196.576 / (50.200.707) (kiralama borçlarının bilançoda olduğu, kredi satırından ayrı); XBRL kira olarak aynı değeri taşıyor; FY2024 raporunda da aynı yapı (25.786.785 / (33.497.470)) → belgedeki gibi alındı (cari pozitif)"
+ },
+ "KIMMR|2025|12|MDV+MODV|*": {
+  "durum": "TEYITLI",
+  "not": "taranmış PDF OCR: MDV alım (142.889.855) + MODV alım (1.8xx.xxx, OCR bozuk) = XBRL 144.722.799; önceki (267/268 milyon, OCR bozuk) XBRL ile basamak düzeyinde tutarlı"
+ },
+ "KIMMR|2025|12|YAGM|*": {
+  "durum": "TEYITLI",
+  "not": "taranmış PDF OCR: YAGM alım \"(522 #77 8..)\" / \"9,668 470\" → XBRL (522.877.845) / (59.668.470) ile tutarlı (OCR gürültülü)"
+ },
+ "TGSAS|2025|3|MDV+MODV|_not": {
+  "not": "şirket MDV alım ve satışını \"Satışından Kaynaklanan Nakit Girişleri\" satırında tek net tutar olarak veriyor (alım satırı boş); işaretler raporlar arası tutarsız (H1-2024 +30,8 mn, FY2024 −4,2 mn) → elle"
+ },
+ "TGSAS|2025|6|MDV+MODV|_not": {
+  "not": "şirket MDV alım ve satışını \"Satışından Kaynaklanan Nakit Girişleri\" satırında tek net tutar olarak veriyor (alım satırı boş); işaretler raporlar arası tutarsız (H1-2024 +30,8 mn, FY2024 −4,2 mn) → elle"
+ },
+ "TGSAS|2025|9|MDV+MODV|_not": {
+  "not": "şirket MDV alım ve satışını \"Satışından Kaynaklanan Nakit Girişleri\" satırında tek net tutar olarak veriyor (alım satırı boş); işaretler raporlar arası tutarsız (H1-2024 +30,8 mn, FY2024 −4,2 mn) → elle"
+ },
+ "ULAS|2025|3|CFO|*": {
+  "durum": "TEYITLI",
+  "not": "kopya şüphesi incelendi: 2025/03 değeri kendi PDF’iyle birebir (A. ESAS FAALİYETLERDEN NAKİT AKIŞLARI (23.105.492)/(36.524.202)); kopya 2025/06 XBRL’inde (orada belgeden düzeltildi)"
+ },
+ "ONRYT|2024|12|CFO|cari": {
+  "deger": 8955618,
+  "not": "KAP 1415200 indirilemedi (bağlantı kesiliyor); Evo belge havuzundaki ONRYT 2025/12 raporunun (KAP 1569942) 2024 sütunu, 31.12.2025 satın alma gücünde: A 11.722.308, B (187.954.305), C 627.986.055, A+B+C = 451.754.058 ✓; değerler ×F(2025/12)/F(2024/12) ile 2024/12 gücüne indirildi; XBRL (−31,0 mn nominal) bu sütunla uyuşmuyor"
+ },
+ "ONRYT|2024|12|MDV+MODV|cari": {
+  "durum": "TEYITLI",
+  "not": "KAP 1415200 indirilemedi (bağlantı kesiliyor); Evo belge havuzundaki ONRYT 2025/12 raporunun (KAP 1569942) 2024 sütunu, 31.12.2025 satın alma gücünde: A 11.722.308, B (187.954.305), C 627.986.055, A+B+C = 451.754.058 ✓; değerler ×F(2025/12)/F(2024/12) ile 2024/12 gücüne indirildi; MDV (120.546.079)+MODV (82.469.547)=(203.015.626) → indirgenmiş hali XBRL ile aynı"
+ },
+ "ONRYT|2024|12|YAGM|cari": {
+  "deger": 0,
+  "not": "KAP 1415200 indirilemedi (bağlantı kesiliyor); Evo belge havuzundaki ONRYT 2025/12 raporunun (KAP 1569942) 2024 sütunu, 31.12.2025 satın alma gücünde: A 11.722.308, B (187.954.305), C 627.986.055, A+B+C = 451.754.058 ✓; değerler ×F(2025/12)/F(2024/12) ile 2024/12 gücüne indirildi; YAGM satırı yok"
+ },
+ "ONRYT|2024|12|KIRA|cari": {
+  "deger": 0,
+  "not": "KAP 1415200 indirilemedi (bağlantı kesiliyor); Evo belge havuzundaki ONRYT 2025/12 raporunun (KAP 1569942) 2024 sütunu, 31.12.2025 satın alma gücünde: A 11.722.308, B (187.954.305), C 627.986.055, A+B+C = 451.754.058 ✓; değerler ×F(2025/12)/F(2024/12) ile 2024/12 gücüne indirildi; finansmanda kira satırı yok (C alt kalemleri toplamı C ile tutuyor); XBRL kira (−4,7 mn) bu sütunla uyuşmuyor"
  }
 }

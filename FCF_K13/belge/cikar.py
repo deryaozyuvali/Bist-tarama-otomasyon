@@ -25,13 +25,13 @@ ELEMAN = {
 }
 PDF_ETIKET = {
     'KIRA': r'kira|kiralama|leasing|lease',
-    'MDV+MODV': r'maddi.*(alım|alın|alış|edinim|satın al|ilave|harcama|değişim|yatırım|çıkış)|duran varl\w*\s+(alım|alın|alış|edinim)|purchase of property',
+    'MDV+MODV': r'maddi.*(alım|alın|\balış|edinim|satın al|ilave|harcama|değişim|yatırım|çıkış)|duran varl\w*\s+(alım|alın|alış|edinim)|purchase of property',
     'YAGM': r'ya\w{0,3}r?ıı?m amaçlı gayrimenkul.*(alım|alın|edinim|ilave|çıkış|harcama|değişim)|yatrıım amaçlı gayrimenkul.*(alım|alın)',
 }
 # etiket bu kalıplardan birini taşıyorsa kalem satırı sayılmaz (düzeltme, satış, bilanço/dipnot satırları)
 PDF_DISLA = {
     'KIRA': r'alacak|gelir|alınan kira|kira geliri|faiz|tfrs|standard|taksonomi|amortisman|kullanım hakkı|ilişkin düzeltme|ile ilgili düzeltme|karşılık',
-    'MDV+MODV': r'satış|satın?ılması|elden çıkar|amortisman|itfa|değer düşüklüğü|kazanç|kayıp|avans|düzeltme|yeniden değerleme|gerçeğe uygun',
+    'MDV+MODV': r'satış|satın?ılması|elden çıkar|amortisman|itfa|değer düşüklüğü|değer artış|kazanç|kayıp|avans|düzeltme|yeniden değerleme|gerçeğe uygun',
     'YAGM': r'satış|satım|elden çıkar|gerçeğe uygun|değer artış|kazanç|kayıp|düzeltme|kira',
 }
 
@@ -111,7 +111,8 @@ def pdf_ara(sayfalar, v, kalem=None):
                 if x is None or x == 0: continue
                 x = abs(x)
                 for birim, k, tol in (('TL', 1, 5 if a >= 1e5 else 1), ('bin TL', 1e3, 1), ('mn TL', 1e6, 0.051)):
-                    if a >= k * 0.5 and abs(x - a / k) <= tol and (k == 1 or x >= 10):
+                    # bin/mn TL: belirteç binlik ayraçlı bir tutar olmalı (dipnot no '13,14', tarih '23' eşleşmesin)
+                    if a >= k * 0.5 and abs(x - a / k) <= tol and (k == 1 or re.search(r'\d\.\d{3}\b', tok)):
                         bul = birim; break
                 if bul: break
             if bul:
