@@ -1,27 +1,24 @@
-DEVAM NOTU — sonraki oturum için
+DEVAM NOTU — sonraki oturum için (güncel: 2026-10-05, 3. tur)
 
-Durum (2026-10-05, 2. oturum): NULL 734 satırın belge okuması TAMAM → belge/NULL_belge_okuma.xlsx
-  TEYİTLİ 291 · PDF_OKUNDU 62 · ELLE 131 · BELGE_YOK 250 · FCF_STD hesaplanan 383 (holding hariç)
-  Elle okunmuş kayıtlarla kıyas: 53 nokta → 50 AYNI, 3 doğru işaretlendi (DENGE, MARBL, BERA), 0 sessiz hata.
-  CFO belge TTM vs V7 Evo CFO_TTM: 384 kıyaslanabilir satırın 264'ü |fark|<%0,5.
+NULL 734 satır, belge okuma → belge/NULL_belge_okuma.xlsx
+  TEYİTLİ 316 · PDF_OKUNDU 99 · İZAHNAME 1 · ELLE 82 · BELGE_YOK 236
+  Doğrulama: elle okunmuş 53 nokta → 50 aynı, 3 doğru işaretlendi, 0 sessiz hata. BIMAS ve TUPRS TMS29 testleri:
+  Evo = PDF × F(rapor) her kalemde; TTM'de tek çevrim Evo/V7'yi birebir tutuyor (çift çevrim yok).
 
-Yöntem değişikliği (nottaki plandan): PDF'ler Evo (storage.fintables.com) yerine doğrudan KAP'tan alındı —
-  Evo belge havuzunda bu şirketlerin raporlarının çoğu yok (NULL'ların ana nedeni). KAP bildirimi = XBRL nakit
-  akış tablosu + imzalı PDF eki; XBRL tutarı PDF'te (etiketi kaleme ait satırda) bulunursa teyitli.
-Önemli bulgular:
-  - 65 raporda XBRL "Sunum Para Birimi" 1.000 TL (PETKM, ALARK...). Birim çarpanı uygulanıyor.
-  - Evo/V7 TMS29 uygulayanlarda her raporu son raporun satın alma gücüne taşıyor; F tablosu TMS29 sayfasında
-    (Ara24 1.5414 · Mar25 1.4004 · Haz25 1.3211 · Eyl25 1.2289 · Ara25 1.1776 · Mar26 1.0701 · Haz26 1).
-  - Çok sayıda şirket kirayı XBRL'de standart kira elemanına bağlamamış → PDF satırından okunuyor (PDF_OKUNDU).
-  - V7 formülü: FCF_STD = CFO − (|MDV+MODV|+|YAGM|) − |Kira|, pozitif TTM kalem 0 (K6).
+Bu turda eklenenler:
+  - TMS29 şirket düzeyinde: varsayılan uygular; istisna yalnız (başlıkta ifade yok VE Evo çevirmemiş): A1YEN ALCTL BESTE KOPOL KORDS NETAS ODINE SEKUR
+  - CFO: XBRL PDF'te yoksa PDF adayı yalnız 'işletme+yatırım+finansman = net değişim' özdeşliğini sağlıyorsa alınır;
+    CFO satırı yoksa özdeşlikten türetilen değer XBRL ile aynıysa teyitli.
+  - İzahname (halka arz) okuma: izahname_bul.py / izahname_oku.py; değerler ancak Evo ile tablo düzeyinde tutarsa kullanılır.
+  - Taranmış PDF'ler: Evo belge havuzundaki OCR metninden elle kontrol → evo_metin_teyit.json
+  - Elle kararlar (PDF okunarak) → elle_kararlar.json (gerekçeli)
+  - MARKA/ROYAL eşlemesi Evo finansal_rapor_kap_bildirim_id ile (benim KAP eşlemem Evo ile hiçbir dönemde çelişmedi)
 
 Açık işler:
-  1. ELLE 131 satır (ELLE sayfası: kalem kalem neden + PDF satırı). Sık nedenler: CFO ara toplamı PDF'te yok,
-     taranmış PDF (metinsiz), alım+satış net satır, etiket uymadı, kopya tutar (KRDMA/B/D kira).
-  2. BELGE_YOK 250: 207 rapor KAP'ta yok (halka arz öncesi / çeyrek yayımlamıyor / KOZAA, KOZAL, IPEKE, MARKA,
-     ROYAL, NETGL, SNKRN, INTET kod eşleşmedi), 35 hesap yılı takvim dışı (BJKAS, FENER, GSRAY, TSPOR, KAYSE,
-     MERKO, BALSU), 8 XBRL tablosu yok (DOHOL vb.).
-  3. Holding (FCF_HLD, 76 satır) formülü için V7 dosyası gerekli (FCF_TTM_2025-03_2026-06_v7_nihai.xlsx yeniden yüklenmeli).
-  4. Yeni belge noktaları üzerinde K13 seri tutarlılığı çalıştırılmadı (statü önerisi henüz yok).
-Yeniden üretim: belge/ içinde kap_liste.py → kap_indir.py (ONBELLEK=<dizin>, xargs < indirilecek.txt) →
-  cikar.py → ttm.py → teslim_belge.py. İndirme ~25 dk; önbellek depoda değil.
+  1. KAP bildirim sayfaları 504 veriyordu (yoğun istek). Arka plan betiği (scratchpad/sabirli.sh) 7 Evo-doğrulanmış raporu
+     yeniden indiriyor + 6 taranmış raporu OCR'lıyor (GRTHO, DERIM 2025/03, KIMMR, MEGAP 2024/12, ONRYT, KCAER 2026/06).
+     İndirilemeyenler için rapor_kalemleri_yedek.csv (git 2fc2bc0) kullanılıyor.
+  2. ELLE 82: kalanlar tek tek belge okuması gerektiriyor (KRDM kira kopya hatası, KONKA/BERA net satır, izahname-Evo çelişkileri...).
+  3. Hisse kodu değişenler: KOZAL→TRALT, KOZAA→TRMET?, IPEKE→TRENJ (V7'de eski kodlu NULL satırlar yeni kodların tekrarı olabilir) — doğrulanmalı.
+  4. Holding FCF_HLD formülü için V7 dosyası gerekli. 5. KOŞULLU 405 satır (sıradaki büyük adım).
+Not: OCR için OMP_THREAD_LIMIT=1 şart (4 çekirdek; çok iş parçacıklı Tesseract makineyi kilitliyor).

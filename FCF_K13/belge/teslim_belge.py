@@ -84,6 +84,7 @@ ozet = pd.DataFrame([
     ('NULL satır (V7)', len(D)),
     ('BELGE TEYİTLİ — tüm kalemler XBRL = imzalı PDF (etiket dahil)', int(st.get('TEYITLI', 0))),
     ('BELGE PDF OKUNDU — ≥1 kalem XBRL’de yok, PDF satırından okundu', int(st.get('PDF_OKUNDU', 0))),
+    ('İZAHNAME — halka arz izahnamesinden (Evo ile tablo düzeyinde kontrollü)', int(st.get('IZAHNAME', 0))),
     ('ELLE BAKILACAK', int(st.get('ELLE', 0))),
     ('BELGE YOK', int(st.get('BELGE_YOK', 0))),
     ('FCF_STD hesaplanan (Standart, tüm bileşen var)', int(D['FCF_STD (belge)'].notna().sum())),

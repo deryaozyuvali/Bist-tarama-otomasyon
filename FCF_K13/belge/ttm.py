@@ -14,6 +14,11 @@ import csv, collections, json, os
 import pandas as pd
 
 K = pd.read_csv('rapor_kalemleri.csv', dtype={'pdf_sayfa': str})
+# KAP sayfası geçici olarak indirilemeyen raporlar (504): aynı bildirimin önceki başarılı çıkarımı kullanılır
+if os.path.exists('rapor_kalemleri_yedek.csv'):
+    _Y = pd.read_csv('rapor_kalemleri_yedek.csv', dtype={'pdf_sayfa': str})
+    _bozuk = set(K[(K.kalem == '*') & K.durum.isin(['NAKIT_AKIS_YOK', 'INDIRILMEDI'])].idx) & set(_Y.idx)
+    K = pd.concat([K[~K.idx.isin(_bozuk)], _Y[_Y.idx.isin(_bozuk)]], ignore_index=True)
 F = {(2024, 12): 1.5414, (2025, 3): 1.4004, (2025, 6): 1.3211, (2025, 9): 1.2289,
      (2025, 12): 1.1776, (2026, 3): 1.0701, (2026, 6): 1.0}
 PER = {'3 Aylık': 3, '6 Aylık': 6, '9 Aylık': 9, 'Yıllık': 12}
