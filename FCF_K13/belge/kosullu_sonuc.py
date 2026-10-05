@@ -2,6 +2,7 @@
 Karşılaştırma bileşen bazında: CFO_TTM, CAPEX_STD (|MDV+MODV|+|YAGM|, K6), |Kira| — tolerans %0,5 + 0,05 mn.
 Sonuç:
   KESİN_ONERI   üç bileşen de belgeyle V7 aynı (belge statüsü ne olursa olsun: iki bağımsız kaynak örtüşüyor)
+  KESİN_ONERI_YAKIN  bileşenler V7 ile en fazla %3 farklı (TMS 29 yeniden ifade ayrıntısı düzeyinde; V7 kabul edilebilir)
   BELGE_DEGERI  belge değerleri güvenilir (TEYITLI / PDF_OKUNDU / İZAHNAME) ve en az bir bileşen V7'den farklı →
                 belge değeri önerilir; fark nedeni: EVO_NOMINAL (V7 = belgenin TMS29 çevrimsiz hali) ya da FARKLI
   ELLE          belge değerlerinden en az biri düşük güvenli / okunamadı ve V7 ile örtüşme tam değil
@@ -23,10 +24,12 @@ for _, x in d.iterrows():
         if pd.isna(x[c]) or pd.isna(x[v]): kar[n] = 'YOK'
         elif es(x[c], x[v]): kar[n] = 'AYNI'
         elif es(x[cn], x[v]): kar[n] = 'EVO_NOMINAL'
+        elif abs(x[c] - x[v]) <= 0.03 * abs(x[v]) + 0.05: kar[n] = 'YAKIN'
         else: kar[n] = 'FARKLI'
     st = x['Satır statü']
     if st == 'BELGE_YOK': s = 'BELGE_YOK'
     elif all(k == 'AYNI' for k in kar.values()): s = 'KESİN_ONERI'
+    elif all(k in ('AYNI', 'YAKIN') for k in kar.values()): s = 'KESİN_ONERI_YAKIN'
     elif st in ('TEYITLI', 'PDF_OKUNDU', 'IZAHNAME', 'XBRL_ESAS') and 'YOK' not in kar.values(): s = 'BELGE_DEGERI'
     else: s = 'ELLE'
     fark = '; '.join(f'{n} {k}' for n, k in kar.items() if k not in ('AYNI',))

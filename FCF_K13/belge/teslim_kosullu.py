@@ -12,6 +12,8 @@ okubeni = pd.DataFrame([
                'okunan CFO 1.037/1.042 doğru; tek adaylı CFO 70/92 (yalnız V7 ile örtüşürse kabul); MDV+MODV satırı %99 doğru; '
                '"MDV satırı yok → 0" güvenilmez (elle). Türetilmiş CFO (net − B − C) testte başarısız olduğu için kullanılmıyor.'),
     ('Sonuç: KESİN_ONERI', 'CFO, CAPEX_STD ve |Kira| belgeyle V7 aynı (%0,5 + 0,05 mn) → V7 değeri belgeyle teyitli; KESİN önerilir.'),
+    ('Sonuç: KESİN_ONERI_YAKIN', 'Bileşenler V7 ile en fazla %3 farklı — TMS 29 yeniden ifadesinin Evo’daki uygulama ayrıntısı '
+               'düzeyinde; belge V7’yi esasen doğruluyor, KESİN önerilir.'),
     ('Sonuç: BELGE_DEGERI', 'Belge değerleri güvenilir ve en az bir bileşen V7’den farklı → belge değeri önerilir. '
                'Fark nedeni EVO_NOMINAL: V7, belgenin TMS 29 çevrimsiz (nominal) haliyle tutuyor — Evo bu şirkette dönemleri '
                'kendi raporundaki haliyle saklayıp TTM’i karışık kurmuş. FARKLI: Evo’da başka bir değer (ör. OBAMS 2025/06 CFO '
@@ -38,7 +40,7 @@ kolon = ['Kod', 'Tip', 'Dönem', 'Sonuç', 'Fark özeti', 'Açıklama', 'Satır 
 with pd.ExcelWriter('KOSULLU_belge_kontrol.xlsx') as w:
     okubeni.to_excel(w, sheet_name='OKUBENI', index=False)
     ozet.to_excel(w, sheet_name='OZET', index=False)
-    for s in ('BELGE_DEGERI', 'KESİN_ONERI', 'ELLE', 'BELGE_YOK'):
+    for s in ('BELGE_DEGERI', 'KESİN_ONERI', 'KESİN_ONERI_YAKIN', 'ELLE', 'BELGE_YOK'):
         R[R['Sonuç'] == s][[k for k in kolon if k in R]].to_excel(w, sheet_name=s[:31], index=False)
     R[[k for k in kolon if k in R]].to_excel(w, sheet_name='TUMU', index=False)
 print(ozet.to_string(index=False))
