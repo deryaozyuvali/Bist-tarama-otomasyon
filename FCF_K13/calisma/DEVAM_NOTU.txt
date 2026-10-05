@@ -54,3 +54,9 @@ kosullu_harita.py yedek anahtarları da haritaya ekliyor (KAP açılınca bunlar
 Sonuç: KOŞULLU BELGE_YOK 258→252 (KESİN +2: KATMR 2025/06, MARBL 2025/03); NULL BELGE_YOK 229→226 (ECOGR, PAHOL V7 ile tutuyor; MARMR taranmış → ELLE).
 Yeni sınıf YEDEK_FARKLI (ARTMS 2025/03, BVSAN 2025/03): fark yeniden düzenlemeden olabilir → orijinal rapor beklenir.
 Sıradaki: şirket sitelerinden (Yatırımcı İlişkileri) rapor PDF'leri.
+
+--- 7. tur: kod değişikliği (belge/kod_degisikligi.py → kod_degisikligi.csv) ---
+Eski/geçersiz kod, 30 satır ÇIKAR: KOZAL→TRALT, KOZAA→TRMET, IPEKE→TRENJ, MARKA→USHOL (KAP'ta USHOL raporlarının unvanı
+MARKA YATIRIM HOLDİNG; Evo USHOL = US Yatırım Holding), SNKRN (hiçbir kaynakta yok). TRALT/TRENJ/TRMET ayrı şirketler (grup zinciri), tekrar değil.
+INTET/NETGL/ROYAL: KAP listesinde yok ama Evo'da 6 aylık raporlayan gerçek şirketler — kod sorunu değil.
+Tarama listeleri (xutum_tarama_v2.py, xutum_tarama_haftalik_son.py): KOZAL/KOZAA/IPEKE/SNKRN/MARKA var, USHOL yok — kullanıcıya soruldu.
