@@ -41,7 +41,7 @@ def isle(idx, ek_filtre=None):
                     e['metin'] = f'{idx}_{n}.txt'
                     if os.path.getsize(hedef_txt) < 5000 and os.environ.get('OCR'):
                         # taranmış PDF: sayfaları 200 dpi görüntüye çevirip Tesseract (Türkçe) ile oku
-                        subprocess.run(['pdftoppm', '-r', '200', '-gray', '-png', p, f'{td}/s'])
+                        subprocess.run(['pdftoppm', '-r', '200', '-gray', '-png', '-l', '20', p, f'{td}/s'])  # ilk 20 sayfa: tablolar raporun başında
                         parcalar = []
                         for g in sorted(f for f in os.listdir(td) if f.startswith('s') and f.endswith('.png')):
                             r = subprocess.run(['tesseract', f'{td}/{g}', '-', '-l', 'tur', '--psm', '6',
