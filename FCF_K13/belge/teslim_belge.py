@@ -137,6 +137,7 @@ with pd.ExcelWriter('NULL_belge_okuma.xlsx') as w:
     DG.to_excel(w, sheet_name='DOGRULAMA', index=False)
     TMS.to_excel(w, sheet_name='TMS29', index=False)
     pd.read_csv('bimas_testi.csv').to_excel(w, sheet_name='TMS29_BIMAS_TESTI', index=False)
+    pd.read_csv('TUPRS_testi.csv').to_excel(w, sheet_name='TMS29_TUPRS_TESTI', index=False)
     K.to_excel(w, sheet_name='RAPOR_KALEMLERI', index=False)
 print(ozet.to_string(index=False))
 print(DG['Sonuç'].value_counts().to_dict())
