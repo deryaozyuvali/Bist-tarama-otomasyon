@@ -624,5 +624,649 @@
  "ONRYT|2024|12|KIRA|cari": {
   "deger": 0,
   "not": "KAP 1415200 indirilemedi (bağlantı kesiliyor); Evo belge havuzundaki ONRYT 2025/12 raporunun (KAP 1569942) 2024 sütunu, 31.12.2025 satın alma gücünde: A 11.722.308, B (187.954.305), C 627.986.055, A+B+C = 451.754.058 ✓; değerler ×F(2025/12)/F(2024/12) ile 2024/12 gücüne indirildi; finansmanda kira satırı yok (C alt kalemleri toplamı C ile tutuyor); XBRL kira (−4,7 mn) bu sütunla uyuşmuyor"
+ },
+ "ARZUM|2025|6|CFO|cari": {
+  "deger": 193534624.0,
+  "not": "Evo PDF: 'A.İşletme faaliyetlerinden elde edilen net nakit'; A+B+C+D = net artış (403.847.389 / −47.521.882) ✓"
+ },
+ "ARZUM|2025|6|CFO|onceki": {
+  "deger": -383021326.0,
+  "not": "Evo PDF: 'A.İşletme faaliyetlerinden elde edilen net nakit'; A+B+C+D = net artış (403.847.389 / −47.521.882) ✓"
+ },
+ "ARZUM|2026|6|CFO|cari": {
+  "deger": 661431359.0,
+  "not": "Evo PDF: 'A.İşletme faaliyetlerinden elde edilen net nakit'; A+B+C+D = net (−42.641.231 / 533.518.891) ✓"
+ },
+ "ARZUM|2026|6|CFO|onceki": {
+  "deger": 255676725.0,
+  "not": "Evo PDF: 'A.İşletme faaliyetlerinden elde edilen net nakit'; A+B+C+D = net (−42.641.231 / 533.518.891) ✓"
+ },
+ "CATES|2025|3|CFO|cari": {
+  "deger": -32458599.0,
+  "not": "Evo PDF: A başlık satırı; A+B+C+D = net (−56.751.733 / −658.038.906) ✓"
+ },
+ "CATES|2025|3|CFO|onceki": {
+  "deger": -615962739.0,
+  "not": "Evo PDF: A başlık satırı; A+B+C+D = net (−56.751.733 / −658.038.906) ✓"
+ },
+ "DITAS|2025|6|CFO|cari": {
+  "deger": 90987050.0,
+  "not": "Evo PDF: 'A. İşletme Faaliyetlerinden Nakit Akışları' başlık toplamı (B ve net satırları metinde değersiz; dönem sonu−başı ile tutarlı B türetilebiliyor)"
+ },
+ "DITAS|2025|6|CFO|onceki": {
+  "deger": -87540253.0,
+  "not": "Evo PDF: 'A. İşletme Faaliyetlerinden Nakit Akışları' başlık toplamı (B ve net satırları metinde değersiz; dönem sonu−başı ile tutarlı B türetilebiliyor)"
+ },
+ "ENDAE|2025|3|CFO|cari": {
+  "deger": 214494896.0,
+  "not": "Evo PDF: vergi sonrası 'İşletme Faaliyetlerinde (Kullanılan)/Elde Edilen Nakit Akışları'; A+B+C = net (1.308.084.562 / −6.789.322) ✓ (A başlığındaki 236.967.351 vergi öncesi)"
+ },
+ "ENDAE|2025|3|CFO|onceki": {
+  "deger": -81951597.0,
+  "not": "Evo PDF: vergi sonrası 'İşletme Faaliyetlerinde (Kullanılan)/Elde Edilen Nakit Akışları'; A+B+C = net (1.308.084.562 / −6.789.322) ✓ (A başlığındaki 236.967.351 vergi öncesi)"
+ },
+ "ENDAE|2026|6|CFO|cari": {
+  "deger": 551141678.0,
+  "not": "Evo PDF: vergi sonrası 'İşletme Faaliyetlerinde (Kullanılan)/Elde Edilen Nakit Akışları'; A+B+C = net (118.666.888 / 1.322.166.098) ✓"
+ },
+ "ENDAE|2026|6|CFO|onceki": {
+  "deger": 201208481.0,
+  "not": "Evo PDF: vergi sonrası 'İşletme Faaliyetlerinde (Kullanılan)/Elde Edilen Nakit Akışları'; A+B+C = net (118.666.888 / 1.322.166.098) ✓"
+ },
+ "ESEN|2025|6|CFO|cari": {
+  "deger": 891529010.0,
+  "not": "Evo PDF: etiketler kaymış; A+B+C = net (50.020.807 / −319.028.619) yalnız 891.529.010 / −262.703.441 ve C = (583.750.216)/(181.968.375) ile tutuyor"
+ },
+ "ESEN|2025|6|CFO|onceki": {
+  "deger": -262703441.0,
+  "not": "Evo PDF: etiketler kaymış; A+B+C = net (50.020.807 / −319.028.619) yalnız 891.529.010 / −262.703.441 ve C = (583.750.216)/(181.968.375) ile tutuyor"
+ },
+ "ESEN|2025|9|CFO|cari": {
+  "deger": 286039732.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (176.113.549 / −82.187.158) ✓"
+ },
+ "ESEN|2025|9|CFO|onceki": {
+  "deger": 62333185.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (176.113.549 / −82.187.158) ✓"
+ },
+ "ESEN|2026|3|CFO|cari": {
+  "deger": 336290042.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (−301.926.916 / 334.909.808) ✓"
+ },
+ "ESEN|2026|3|CFO|onceki": {
+  "deger": 516756296.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (−301.926.916 / 334.909.808) ✓"
+ },
+ "GENIL|2025|9|CFO|cari": {
+  "deger": 228367717.0,
+  "not": "Evo PDF: A toplam satırı yok (son satır 'işletme sermayesi değişimi sonrası' 239.301.962 sonrası kalemler var); A = net − B(finansman) − C(yatırım) − D(enflasyon) = 228.367.717 / 1.527.557.782 (türetilmiş)"
+ },
+ "GENIL|2025|9|CFO|onceki": {
+  "deger": 1527557782.0,
+  "not": "Evo PDF: A toplam satırı yok (son satır 'işletme sermayesi değişimi sonrası' 239.301.962 sonrası kalemler var); A = net − B(finansman) − C(yatırım) − D(enflasyon) = 228.367.717 / 1.527.557.782 (türetilmiş)"
+ },
+ "HUNER|2024|12|CFO|cari": {
+  "deger": 425282300.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C = kur etkisi öncesi net (−164.498.165 / −1.095.649.417) ✓"
+ },
+ "HUNER|2024|12|CFO|onceki": {
+  "deger": 499452467.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C = kur etkisi öncesi net (−164.498.165 / −1.095.649.417) ✓"
+ },
+ "HUNER|2025|6|CFO|cari": {
+  "deger": 563764621.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C = kur etkisi öncesi net (−519.176.979 / −148.757.372) ✓"
+ },
+ "HUNER|2025|6|CFO|onceki": {
+  "deger": 80801849.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C = kur etkisi öncesi net (−519.176.979 / −148.757.372) ✓"
+ },
+ "KUVVA|2025|3|CFO|cari": {
+  "deger": 361632464.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (−8.580.758 / 12.117.319) ✓"
+ },
+ "KUVVA|2025|3|CFO|onceki": {
+  "deger": 32821400.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (−8.580.758 / 12.117.319) ✓"
+ },
+ "MAGEN|2025|3|CFO|cari": {
+  "deger": -86788895.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (173.852.618 / −222.618.716) ✓"
+ },
+ "MAGEN|2025|3|CFO|onceki": {
+  "deger": -1028693.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (173.852.618 / −222.618.716) ✓"
+ },
+ "MAGEN|2025|9|CFO|cari": {
+  "deger": 263621724.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (116.690.187 / −238.245.154) ✓"
+ },
+ "MAGEN|2025|9|CFO|onceki": {
+  "deger": -38702321.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (116.690.187 / −238.245.154) ✓"
+ },
+ "IMASM|2025|12|CFO|cari": {
+  "deger": 50705000.0,
+  "not": "Evo PDF (bin TL): A başlık satırı 50.705 / 589.852; A+B+C = net (109.712 / −103.609) ✓"
+ },
+ "IMASM|2025|12|CFO|onceki": {
+  "deger": 589852000.0,
+  "not": "Evo PDF (bin TL): A başlık satırı 50.705 / 589.852; A+B+C = net (109.712 / −103.609) ✓"
+ },
+ "IMASM|2025|12|MDV+MODV|cari": {
+  "deger": -118808000.0,
+  "not": "Evo PDF (bin TL): 'Maddi ve maddi olmayan duran varlıkların alımından kaynaklanan nakit çıkışları' (değer etiketin ortasındaki satırda) (118.808) / (485.435)"
+ },
+ "IMASM|2025|12|MDV+MODV|onceki": {
+  "deger": -485435000.0,
+  "not": "Evo PDF (bin TL): 'Maddi ve maddi olmayan duran varlıkların alımından kaynaklanan nakit çıkışları' (değer etiketin ortasındaki satırda) (118.808) / (485.435)"
+ },
+ "MTRKS|2024|12|CFO|cari": {
+  "deger": 52353048.0,
+  "not": "Evo PDF: 'İşletme faaliyetlerinden elde edilen net nakit akışları'; A+B+C = net (−108.507.872 / 16.327.977) ✓"
+ },
+ "MTRKS|2024|12|CFO|onceki": {
+  "deger": 150598220.0,
+  "not": "Evo PDF: 'İşletme faaliyetlerinden elde edilen net nakit akışları'; A+B+C = net (−108.507.872 / 16.327.977) ✓"
+ },
+ "NATEN|2026|3|CFO|cari": {
+  "deger": 362270940.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (−213.465.767 / 302.138.454) ✓ (C = (372.161.928)/388.660.422)"
+ },
+ "NATEN|2026|3|CFO|onceki": {
+  "deger": 342973614.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (−213.465.767 / 302.138.454) ✓ (C = (372.161.928)/388.660.422)"
+ },
+ "ODINE|2025|9|CFO|cari": {
+  "deger": 598393349.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D = net (−4.214.558 / 540.858.234) ✓"
+ },
+ "ODINE|2025|9|CFO|onceki": {
+  "deger": 210136278.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D = net (−4.214.558 / 540.858.234) ✓"
+ },
+ "NUHCM|2025|6|CFO|cari": {
+  "deger": 1873376672.0,
+  "not": "Evo PDF: vergi sonrası A toplamı; A+B+C+D = net (−1.594.762.888 / −750.899.184) ✓"
+ },
+ "NUHCM|2025|6|CFO|onceki": {
+  "deger": 2401363169.0,
+  "not": "Evo PDF: vergi sonrası A toplamı; A+B+C+D = net (−1.594.762.888 / −750.899.184) ✓"
+ },
+ "NUHCM|2025|9|CFO|cari": {
+  "deger": 3425917655.0,
+  "not": "Evo PDF: vergi sonrası A toplamı; A+B+C+D = net (−975.425.311 / 4.934.234.694) ✓"
+ },
+ "NUHCM|2025|9|CFO|onceki": {
+  "deger": 4032234655.0,
+  "not": "Evo PDF: vergi sonrası A toplamı; A+B+C+D = net (−975.425.311 / 4.934.234.694) ✓"
+ },
+ "NUHCM|2025|6|MDV+MODV|cari": {
+  "deger": -491277344.0,
+  "not": "Evo PDF: 'M addi ve M addi Olmayan Duran Varlıkları Alımından' (harf aralıklı etiket); B kalemleri toplamı B ile tutuyor"
+ },
+ "NUHCM|2025|6|MDV+MODV|onceki": {
+  "deger": -884270767.0,
+  "not": "Evo PDF: 'M addi ve M addi Olmayan Duran Varlıkları Alımından' (harf aralıklı etiket); B kalemleri toplamı B ile tutuyor"
+ },
+ "NUHCM|2025|6|KIRA|cari": {
+  "deger": 10953846.0,
+  "not": "Evo PDF: 'Kira Ödemelerinden Kaynaklanan Nakit Çıkışları' cari pozitif (belgedeki gibi); C kalemleri toplamı C ile tutuyor"
+ },
+ "NUHCM|2025|6|KIRA|onceki": {
+  "deger": -38404242.0,
+  "not": "Evo PDF: 'Kira Ödemelerinden Kaynaklanan Nakit Çıkışları' cari pozitif (belgedeki gibi); C kalemleri toplamı C ile tutuyor"
+ },
+ "NUHCM|2025|9|MDV+MODV|cari": {
+  "deger": -1010998601.0,
+  "not": "Evo PDF: 'M addi ve M addi Olmayan Duran Varlıkları Alımından' (harf aralıklı etiket); B kalemleri toplamı B ile tutuyor"
+ },
+ "NUHCM|2025|9|MDV+MODV|onceki": {
+  "deger": -1684341587.0,
+  "not": "Evo PDF: 'M addi ve M addi Olmayan Duran Varlıkları Alımından' (harf aralıklı etiket); B kalemleri toplamı B ile tutuyor"
+ },
+ "NUHCM|2025|9|KIRA|cari": {
+  "deger": 14495581.0,
+  "not": "Evo PDF: 'Kira Ödemelerinden Kaynaklanan Nakit Çıkışları' cari pozitif (belgedeki gibi); C kalemleri toplamı C ile tutuyor"
+ },
+ "NUHCM|2025|9|KIRA|onceki": {
+  "deger": -31623442.0,
+  "not": "Evo PDF: 'Kira Ödemelerinden Kaynaklanan Nakit Çıkışları' cari pozitif (belgedeki gibi); C kalemleri toplamı C ile tutuyor"
+ },
+ "NUHCM|2025|9|YAGM|cari": {
+  "deger": -82110176.0,
+  "not": "Evo PDF: 'Yatırım Amaçlı Gayrimenkul Alımından Kaynaklanan Nakit Çıkışları' (82.110.176) / -"
+ },
+ "NUHCM|2025|9|YAGM|onceki": {
+  "deger": 0.0,
+  "not": "Evo PDF: 'Yatırım Amaçlı Gayrimenkul Alımından Kaynaklanan Nakit Çıkışları' (82.110.176) / -"
+ },
+ "PLTUR|2025|12|CFO|cari": {
+  "deger": -386028764.0,
+  "not": "Evo PDF: 'İşletme Faaliyetlerinden Sağlanan / (Kullanılan) Net Nakit' (operasyonel kiralama varlık alım/satımları dahil); A+B+C = net (215.609.873 / 71.268.491) ✓"
+ },
+ "PLTUR|2025|12|CFO|onceki": {
+  "deger": 164499819.0,
+  "not": "Evo PDF: 'İşletme Faaliyetlerinden Sağlanan / (Kullanılan) Net Nakit' (operasyonel kiralama varlık alım/satımları dahil); A+B+C = net (215.609.873 / 71.268.491) ✓"
+ },
+ "PLTUR|2026|3|CFO|cari": {
+  "deger": 1365824838.0,
+  "not": "Evo PDF: 'İşletme Faaliyetlerinden Sağlanan / (Kullanılan) Net Nakit'; A+B+C = net (72.048.371 / −183.198.670) ✓"
+ },
+ "PLTUR|2026|3|CFO|onceki": {
+  "deger": -57864387.0,
+  "not": "Evo PDF: 'İşletme Faaliyetlerinden Sağlanan / (Kullanılan) Net Nakit'; A+B+C = net (72.048.371 / −183.198.670) ✓"
+ },
+ "TMSN|2026|6|CFO|cari": {
+  "deger": 65748479.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D = net (−5.724.134 / −1.464.870) ✓"
+ },
+ "TMSN|2026|6|CFO|onceki": {
+  "deger": 1587874027.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D = net (−5.724.134 / −1.464.870) ✓"
+ },
+ "SELVA|2025|9|CFO|onceki": {
+  "deger": 113716000.0,
+  "not": "Evo PDF (bin TL): A başlığı önceki sütunu 113.716; cari sütunda A+B+C = net tutuyor, önceki sütunda net 54.585 ile tutmuyor (tablo önceki sütunda toplamıyor) — başlık değeri alındı"
+ },
+ "PLTUR|2026|6|CFO|cari": {
+  "deger": 1522456370.0,
+  "not": "Evo PDF: 'İşletme Faaliyetlerinden Sağlanan / (Kullanılan) Net Nakit'; A+B+C = net (−21.717.038 / 276.699.955) ✓"
+ },
+ "PLTUR|2026|6|CFO|onceki": {
+  "deger": -337777355.0,
+  "not": "Evo PDF: 'İşletme Faaliyetlerinden Sağlanan / (Kullanılan) Net Nakit'; A+B+C = net (−21.717.038 / 276.699.955) ✓"
+ },
+ "TEHOL|2025|6|CFO|cari": {
+  "deger": -229786024.0,
+  "not": "Evo PDF: A başlık toplamı (eksi işaretli biçim); A+B+C = net (28.320.903 / 44.795.236) ✓"
+ },
+ "TEHOL|2025|6|CFO|onceki": {
+  "deger": -336578192.0,
+  "not": "Evo PDF: A başlık toplamı (eksi işaretli biçim); A+B+C = net (28.320.903 / 44.795.236) ✓"
+ },
+ "UNLU|2025|3|CFO|cari": {
+  "deger": 157328115.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D+E = dönem sonu − başı (−4.515.146 / −566.892.128) ✓"
+ },
+ "UNLU|2025|3|CFO|onceki": {
+  "deger": -678819755.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D+E = dönem sonu − başı (−4.515.146 / −566.892.128) ✓"
+ },
+ "UNLU|2025|3|KIRA|cari": {
+  "deger": 1752169.0,
+  "not": "Evo PDF: 'Finansal kiralama işlemlerine ilişkin nakit çıkışları' cari pozitif (belgedeki gibi)"
+ },
+ "UNLU|2025|3|KIRA|onceki": {
+  "deger": -2805480.0,
+  "not": "Evo PDF: 'Finansal kiralama işlemlerine ilişkin nakit çıkışları' cari pozitif (belgedeki gibi)"
+ },
+ "UNLU|2025|9|CFO|cari": {
+  "deger": -111144028.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D+E = dönem sonu − başı (−158.600.204 / −538.888.182) ✓"
+ },
+ "UNLU|2025|9|CFO|onceki": {
+  "deger": -1222310219.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D+E = dönem sonu − başı (−158.600.204 / −538.888.182) ✓"
+ },
+ "YAYLA|2024|12|CFO|cari": {
+  "deger": 12979228.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C = net (−1.816.746 / −9.553.120) ✓"
+ },
+ "YAYLA|2024|12|CFO|onceki": {
+  "deger": 43560426.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C = net (−1.816.746 / −9.553.120) ✓"
+ },
+ "KRPLS|2024|12|CFO|cari": {
+  "deger": 210996415.0,
+  "not": "Evo PDF (harf aralıklı başlıklar, otomatik bulunamadı): 'İşletme faaliyetlerinden elde edilen net nakit'; A+B+C = net (−10.214.773 / 45.506.587) ✓"
+ },
+ "KRPLS|2024|12|CFO|onceki": {
+  "deger": 88016879.0,
+  "not": "Evo PDF (harf aralıklı başlıklar, otomatik bulunamadı): 'İşletme faaliyetlerinden elde edilen net nakit'; A+B+C = net (−10.214.773 / 45.506.587) ✓"
+ },
+ "KRPLS|2024|12|MDV+MODV|cari": {
+  "deger": -43661395.0,
+  "not": "Evo PDF: MDV alımı (42.552.173) + MODV alımı (1.109.222); önceki (31.496.079) + (473.021)"
+ },
+ "KRPLS|2024|12|MDV+MODV|onceki": {
+  "deger": -31969100.0,
+  "not": "Evo PDF: MDV alımı (42.552.173) + MODV alımı (1.109.222); önceki (31.496.079) + (473.021)"
+ },
+ "KRPLS|2024|12|KIRA|cari": {
+  "deger": -107517414.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borçlara ilişkin nakit çıkışları'"
+ },
+ "KRPLS|2024|12|KIRA|onceki": {
+  "deger": -39328926.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borçlara ilişkin nakit çıkışları'"
+ },
+ "ARZUM|2024|12|CFO|cari": {
+  "deger": -152009088.0,
+  "not": "Evo PDF: 'A.İşletme faaliyetlerinden elde edilen net nakit'; A+B+C+D = net (−201.669.567 / −418.365.476) ✓"
+ },
+ "ARZUM|2024|12|CFO|onceki": {
+  "deger": 521703224.0,
+  "not": "Evo PDF: 'A.İşletme faaliyetlerinden elde edilen net nakit'; A+B+C+D = net (−201.669.567 / −418.365.476) ✓"
+ },
+ "ARZUM|2025|12|CFO|cari": {
+  "deger": 1485106193.0,
+  "not": "Evo PDF: 'A.İşletme faaliyetlerinden elde edilen net nakit'; A+B+C+D = net (−27.796.212 / −238.537.836) ✓"
+ },
+ "ARZUM|2025|12|CFO|onceki": {
+  "deger": -173536078.0,
+  "not": "Evo PDF: 'A.İşletme faaliyetlerinden elde edilen net nakit'; A+B+C+D = net (−27.796.212 / −238.537.836) ✓"
+ },
+ "CATES|2024|12|CFO|cari": {
+  "deger": 281574326.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D = net (−1.252.499.884 / 1.592.327.215) ✓"
+ },
+ "CATES|2024|12|CFO|onceki": {
+  "deger": 2524482282.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D = net (−1.252.499.884 / 1.592.327.215) ✓"
+ },
+ "ENDAE|2024|12|CFO|cari": {
+  "deger": -464421492.0,
+  "not": "Evo PDF: vergi sonrası A; A+B+C = net (−749.046.952 / −1.382.113.663) ✓"
+ },
+ "ENDAE|2024|12|CFO|onceki": {
+  "deger": -752339468.0,
+  "not": "Evo PDF: vergi sonrası A; A+B+C = net (−749.046.952 / −1.382.113.663) ✓"
+ },
+ "ENDAE|2025|12|CFO|cari": {
+  "deger": -290591368.0,
+  "not": "Evo PDF: vergi sonrası A; A+B+C = net (768.605.917 / −980.444.996) ✓"
+ },
+ "ENDAE|2025|12|CFO|onceki": {
+  "deger": -352872109.0,
+  "not": "Evo PDF: vergi sonrası A; A+B+C = net (768.605.917 / −980.444.996) ✓"
+ },
+ "ESEN|2024|12|CFO|cari": {
+  "deger": 289950013.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (−152.965.567 / −102.845.909) ✓"
+ },
+ "ESEN|2024|12|CFO|onceki": {
+  "deger": -172954337.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (−152.965.567 / −102.845.909) ✓"
+ },
+ "ESEN|2025|12|CFO|cari": {
+  "deger": 790851474.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (230.050.564 / −200.220.192) ✓"
+ },
+ "ESEN|2025|12|CFO|onceki": {
+  "deger": 379522323.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (230.050.564 / −200.220.192) ✓"
+ },
+ "KUVVA|2024|12|CFO|cari": {
+  "deger": 2111577911.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (22.321.727 / −11.053.692) ✓"
+ },
+ "KUVVA|2024|12|CFO|onceki": {
+  "deger": -194303226.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (22.321.727 / −11.053.692) ✓"
+ },
+ "MAGEN|2024|12|CFO|cari": {
+  "deger": 202789789.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (−142.617.109 / −100.012.649) ✓ (C = (310.508.648)/1.203.500.246)"
+ },
+ "MAGEN|2024|12|CFO|onceki": {
+  "deger": -438623598.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (−142.617.109 / −100.012.649) ✓ (C = (310.508.648)/1.203.500.246)"
+ },
+ "NATEN|2025|12|CFO|cari": {
+  "deger": 535995008.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (298.375.351 / −190.691.490) ✓"
+ },
+ "NATEN|2025|12|CFO|onceki": {
+  "deger": 691322936.0,
+  "not": "Evo PDF: A değeri alt satırda; A+B+C = net (298.375.351 / −190.691.490) ✓"
+ },
+ "TMSN|2025|12|CFO|cari": {
+  "deger": 1373349042.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D = net (−60.013.481 / −349.270.892) ✓"
+ },
+ "TMSN|2025|12|CFO|onceki": {
+  "deger": -360906777.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D = net (−60.013.481 / −349.270.892) ✓"
+ },
+ "UNLU|2024|12|CFO|cari": {
+  "deger": -626805484.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D+E = dönem sonu − başı (−443.005.258 / 618.228.345) ✓"
+ },
+ "UNLU|2024|12|CFO|onceki": {
+  "deger": 1411958586.0,
+  "not": "Evo PDF: A başlık toplamı; A+B+C+D+E = dönem sonu − başı (−443.005.258 / 618.228.345) ✓"
+ },
+ "PGSUS|2024|12|CFO|cari": {
+  "deger": 32251686976.0,
+  "not": "Evo PDF (TL + Avro sütunlu tablo; bölüm toplamları etiketsiz satırda): A+B+C = kur etkisi öncesi net ✓ (28.101.179.687 / −1.251.072.749)"
+ },
+ "PGSUS|2024|12|CFO|onceki": {
+  "deger": 20176667463.0,
+  "not": "Evo PDF (TL + Avro sütunlu tablo; bölüm toplamları etiketsiz satırda): A+B+C = kur etkisi öncesi net ✓ (28.101.179.687 / −1.251.072.749)"
+ },
+ "PGSUS|2025|3|CFO|cari": {
+  "deger": 4057460556.0,
+  "not": "Evo PDF (TL + Avro sütunlu tablo; bölüm toplamları etiketsiz satırda): A+B+C = kur etkisi öncesi net ✓ (−18.403.531.324 / 11.110.202.473)"
+ },
+ "PGSUS|2025|3|CFO|onceki": {
+  "deger": 5147653377.0,
+  "not": "Evo PDF (TL + Avro sütunlu tablo; bölüm toplamları etiketsiz satırda): A+B+C = kur etkisi öncesi net ✓ (−18.403.531.324 / 11.110.202.473)"
+ },
+ "PGSUS|2025|6|CFO|cari": {
+  "deger": 9864241154.0,
+  "not": "Evo PDF (TL + Avro sütunlu tablo; bölüm toplamları etiketsiz satırda): A+B+C = kur etkisi öncesi net ✓ (−17.510.586.346 / 12.846.835.595)"
+ },
+ "PGSUS|2025|6|CFO|onceki": {
+  "deger": 13994838662.0,
+  "not": "Evo PDF (TL + Avro sütunlu tablo; bölüm toplamları etiketsiz satırda): A+B+C = kur etkisi öncesi net ✓ (−17.510.586.346 / 12.846.835.595)"
+ },
+ "PGSUS|2025|9|CFO|cari": {
+  "deger": 39954352622.0,
+  "not": "Evo PDF (TL + Avro sütunlu tablo; bölüm toplamları etiketsiz satırda): A+B+C = kur etkisi öncesi net ✓ (8.745.269.171 / 27.539.210.911)"
+ },
+ "PGSUS|2025|9|CFO|onceki": {
+  "deger": 26779259818.0,
+  "not": "Evo PDF (TL + Avro sütunlu tablo; bölüm toplamları etiketsiz satırda): A+B+C = kur etkisi öncesi net ✓ (8.745.269.171 / 27.539.210.911)"
+ },
+ "PGSUS|2024|12|MDV+MODV|cari": {
+  "deger": 2568003128.0,
+  "not": "Evo PDF: MDV+MODV alım ve satımı tek net satır ('alım ve satımından kaynaklanan net nakit girişleri/(çıkışları)'); net değer alındı (uçak alımları büyük ölçüde kiralama yoluyla)"
+ },
+ "PGSUS|2024|12|MDV+MODV|onceki": {
+  "deger": 265752578.0,
+  "not": "Evo PDF: MDV+MODV alım ve satımı tek net satır ('alım ve satımından kaynaklanan net nakit girişleri/(çıkışları)'); net değer alındı (uçak alımları büyük ölçüde kiralama yoluyla)"
+ },
+ "PGSUS|2025|3|MDV+MODV|cari": {
+  "deger": 462696488.0,
+  "not": "Evo PDF: MDV+MODV alım ve satımı tek net satır ('alım ve satımından kaynaklanan net nakit girişleri/(çıkışları)'); net değer alındı (uçak alımları büyük ölçüde kiralama yoluyla)"
+ },
+ "PGSUS|2025|3|MDV+MODV|onceki": {
+  "deger": 1524069908.0,
+  "not": "Evo PDF: MDV+MODV alım ve satımı tek net satır ('alım ve satımından kaynaklanan net nakit girişleri/(çıkışları)'); net değer alındı (uçak alımları büyük ölçüde kiralama yoluyla)"
+ },
+ "PGSUS|2025|6|MDV+MODV|cari": {
+  "deger": -1226740386.0,
+  "not": "Evo PDF: MDV+MODV alım ve satımı tek net satır ('alım ve satımından kaynaklanan net nakit girişleri/(çıkışları)'); net değer alındı (uçak alımları büyük ölçüde kiralama yoluyla)"
+ },
+ "PGSUS|2025|6|MDV+MODV|onceki": {
+  "deger": 1238148007.0,
+  "not": "Evo PDF: MDV+MODV alım ve satımı tek net satır ('alım ve satımından kaynaklanan net nakit girişleri/(çıkışları)'); net değer alındı (uçak alımları büyük ölçüde kiralama yoluyla)"
+ },
+ "PGSUS|2025|9|MDV+MODV|cari": {
+  "deger": -2699485125.0,
+  "not": "Evo PDF: MDV+MODV alım ve satımı tek net satır ('alım ve satımından kaynaklanan net nakit girişleri/(çıkışları)'); net değer alındı (uçak alımları büyük ölçüde kiralama yoluyla)"
+ },
+ "PGSUS|2025|9|MDV+MODV|onceki": {
+  "deger": 2395415979.0,
+  "not": "Evo PDF: MDV+MODV alım ve satımı tek net satır ('alım ve satımından kaynaklanan net nakit girişleri/(çıkışları)'); net değer alındı (uçak alımları büyük ölçüde kiralama yoluyla)"
+ },
+ "PGSUS|2024|12|KIRA|cari": {
+  "deger": -12635066627.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' (TL sütunları)"
+ },
+ "PGSUS|2024|12|KIRA|onceki": {
+  "deger": -8879652930.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' (TL sütunları)"
+ },
+ "PGSUS|2025|3|KIRA|cari": {
+  "deger": -3788171444.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' (TL sütunları)"
+ },
+ "PGSUS|2025|3|KIRA|onceki": {
+  "deger": -2822024849.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' (TL sütunları)"
+ },
+ "PGSUS|2025|6|KIRA|cari": {
+  "deger": -8030806928.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' (TL sütunları)"
+ },
+ "PGSUS|2025|6|KIRA|onceki": {
+  "deger": -5869011260.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' (TL sütunları)"
+ },
+ "PGSUS|2025|9|KIRA|cari": {
+  "deger": -12829231537.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' (TL sütunları)"
+ },
+ "PGSUS|2025|9|KIRA|onceki": {
+  "deger": -8997070693.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' (TL sütunları)"
+ },
+ "HUNER|2024|12|MDV+MODV|cari": {
+  "deger": -59779943.0,
+  "not": "Evo PDF: 'Maddi ve Maddi Olmayan Duran Varlık Alımından Kaynaklanan Nakit Çıkışları' (etiket iki satır)"
+ },
+ "HUNER|2024|12|MDV+MODV|onceki": {
+  "deger": -1061421343.0,
+  "not": "Evo PDF: 'Maddi ve Maddi Olmayan Duran Varlık Alımından Kaynaklanan Nakit Çıkışları' (etiket iki satır)"
+ },
+ "HUNER|2025|3|MDV+MODV|cari": {
+  "deger": -200923649.0,
+  "not": "Evo PDF: 'Maddi ve Maddi Olmayan Duran Varlık Alımından Kaynaklanan Nakit Çıkışları' (etiket iki satır)"
+ },
+ "HUNER|2025|3|MDV+MODV|onceki": {
+  "deger": -247536092.0,
+  "not": "Evo PDF: 'Maddi ve Maddi Olmayan Duran Varlık Alımından Kaynaklanan Nakit Çıkışları' (etiket iki satır)"
+ },
+ "CATES|2025|3|MDV+MODV|cari": {
+  "deger": -10670785.0,
+  "not": "Evo PDF: MDV alımı (10.670.785) / 174.903.894 (önceki sütun pozitif, belgedeki gibi) + MODV - / (324.725); B toplamıyla aynı"
+ },
+ "CATES|2025|3|MDV+MODV|onceki": {
+  "deger": 174579169.0,
+  "not": "Evo PDF: MDV alımı (10.670.785) / 174.903.894 (önceki sütun pozitif, belgedeki gibi) + MODV - / (324.725); B toplamıyla aynı"
+ },
+ "MERCN|2025|3|MDV+MODV|cari": {
+  "deger": -65580674.0,
+  "not": "Evo PDF: 'Maddi ve Maddi Olmayan Varlıkların Alımından Kaynaklanan Nakit Çıkışları' (dipnot '13 14' ayrık)"
+ },
+ "MERCN|2025|3|MDV+MODV|onceki": {
+  "deger": -41443335.0,
+  "not": "Evo PDF: 'Maddi ve Maddi Olmayan Varlıkların Alımından Kaynaklanan Nakit Çıkışları' (dipnot '13 14' ayrık)"
+ },
+ "MERCN|2025|3|YAGM|cari": {
+  "deger": 50000000.0,
+  "not": "Evo PDF: 'Yatırım Amaçlı Gayrimenkul Alımından Kaynaklanan Nakit Çıkışları' cari +50.000.000 (çıkış satırında pozitif, belgedeki gibi)"
+ },
+ "MERCN|2025|3|YAGM|onceki": {
+  "deger": 0.0,
+  "not": "Evo PDF: 'Yatırım Amaçlı Gayrimenkul Alımından Kaynaklanan Nakit Çıkışları' cari +50.000.000 (çıkış satırında pozitif, belgedeki gibi)"
+ },
+ "ARASE|2025|3|MDV+MODV|cari": {
+  "deger": -2793133.0,
+  "not": "Evo PDF: alım satırı yok; tek MDV satırı 'satışından kaynaklanan nakit girişleri' (2.793.133) negatif → net çıkış olarak alındı; önceki '-'"
+ },
+ "ARASE|2025|3|MDV+MODV|onceki": {
+  "deger": 0.0,
+  "not": "Evo PDF: alım satırı yok; tek MDV satırı 'satışından kaynaklanan nakit girişleri' (2.793.133) negatif → net çıkış olarak alındı; önceki '-'"
+ },
+ "GEREL|2024|12|KIRA|cari": {
+  "deger": 5069304.0,
+  "not": "Evo PDF: 'Finansal kiralama sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — çıkış satırında pozitif tutar (belgedeki işaretle alındı; pozitif TTM K6 gereği 0 sayılır)"
+ },
+ "GEREL|2024|12|KIRA|onceki": {
+  "deger": 3434898.0,
+  "not": "Evo PDF: 'Finansal kiralama sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — çıkış satırında pozitif tutar (belgedeki işaretle alındı; pozitif TTM K6 gereği 0 sayılır)"
+ },
+ "GEREL|2025|3|KIRA|cari": {
+  "deger": 13580563.0,
+  "not": "Evo PDF: 'Finansal kiralama sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — çıkış satırında pozitif tutar (belgedeki işaretle alındı; pozitif TTM K6 gereği 0 sayılır)"
+ },
+ "GEREL|2025|3|KIRA|onceki": {
+  "deger": -521287.0,
+  "not": "Evo PDF: 'Finansal kiralama sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — çıkış satırında pozitif tutar (belgedeki işaretle alındı; pozitif TTM K6 gereği 0 sayılır)"
+ },
+ "GEREL|2025|6|KIRA|cari": {
+  "deger": 13521540.0,
+  "not": "Evo PDF: 'Finansal kiralama sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — çıkış satırında pozitif tutar (belgedeki işaretle alındı; pozitif TTM K6 gereği 0 sayılır)"
+ },
+ "GEREL|2025|6|KIRA|onceki": {
+  "deger": 5510450.0,
+  "not": "Evo PDF: 'Finansal kiralama sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — çıkış satırında pozitif tutar (belgedeki işaretle alındı; pozitif TTM K6 gereği 0 sayılır)"
+ },
+ "GEREL|2025|9|KIRA|cari": {
+  "deger": 13910791.0,
+  "not": "Evo PDF: 'Finansal kiralama sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — çıkış satırında pozitif tutar (belgedeki işaretle alındı; pozitif TTM K6 gereği 0 sayılır)"
+ },
+ "GEREL|2025|9|KIRA|onceki": {
+  "deger": 6759376.0,
+  "not": "Evo PDF: 'Finansal kiralama sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — çıkış satırında pozitif tutar (belgedeki işaretle alındı; pozitif TTM K6 gereği 0 sayılır)"
+ },
+ "KARTN|2025|3|KIRA|cari": {
+  "deger": 43518256.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — cari pozitif (belgedeki işaretle alındı)"
+ },
+ "KARTN|2025|3|KIRA|onceki": {
+  "deger": -826379.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — cari pozitif (belgedeki işaretle alındı)"
+ },
+ "KARTN|2025|6|KIRA|cari": {
+  "deger": 71726558.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — cari pozitif (belgedeki işaretle alındı)"
+ },
+ "KARTN|2025|6|KIRA|onceki": {
+  "deger": -756610.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — cari pozitif (belgedeki işaretle alındı)"
+ },
+ "KARTN|2025|9|KIRA|cari": {
+  "deger": 110781620.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — cari pozitif (belgedeki işaretle alındı)"
+ },
+ "KARTN|2025|9|KIRA|onceki": {
+  "deger": -1138948.0,
+  "not": "Evo PDF: 'Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları' — cari pozitif (belgedeki işaretle alındı)"
+ },
+ "BERA|2025|12|MDV+MODV|cari": {
+  "deger": -463433015.0,
+  "not": "Evo PDF: belgede alım ve satış tek net satır ('Maddi ve Maddi Olmayan Duran Varlıkların Alım ve Satışından Kaynaklanan Nakit Girişleri/Çıkışları'); net değer alındı"
+ },
+ "BERA|2025|12|MDV+MODV|onceki": {
+  "deger": -940933447.0,
+  "not": "Evo PDF: belgede alım ve satış tek net satır ('Maddi ve Maddi Olmayan Duran Varlıkların Alım ve Satışından Kaynaklanan Nakit Girişleri/Çıkışları'); net değer alındı"
+ },
+ "BERA|2026|6|MDV+MODV|cari": {
+  "deger": 195513709.0,
+  "not": "KAP PDF: belgede alım ve satış tek net satır ('Maddi ve Maddi Olmayan Duran Varlıkların Alım ve Satışından Kaynaklanan Nakit Girişleri/Çıkışları'); net değer alındı"
+ },
+ "BERA|2026|6|MDV+MODV|onceki": {
+  "deger": -283337858.0,
+  "not": "KAP PDF: belgede alım ve satış tek net satır ('Maddi ve Maddi Olmayan Duran Varlıkların Alım ve Satışından Kaynaklanan Nakit Girişleri/Çıkışları'); net değer alındı"
+ },
+ "TEZOL|2026|6|CFO|cari": {
+  "deger": 64812000.0,
+  "not": "Evo PDF (bin TL; harf aralıklı başlık): 'İşletme faaliyetlerinden kaynaklanan nakit akışları' 64.812 = 143.661 − 8.738 − 70.111 ✓"
+ },
+ "TEZOL|2026|6|CFO|onceki": {
+  "deger": 844908000.0,
+  "not": "Evo PDF (bin TL; harf aralıklı başlık): 'İşletme faaliyetlerinden kaynaklanan nakit akışları' 64.812 = 143.661 − 8.738 − 70.111 ✓"
+ },
+ "TEZOL|2026|6|MDV+MODV|cari": {
+  "deger": -77539000.0,
+  "not": "Evo PDF (bin TL): 'Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları' (77.539)/(52.935)"
+ },
+ "TEZOL|2026|6|MDV+MODV|onceki": {
+  "deger": -52935000.0,
+  "not": "Evo PDF (bin TL): 'Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları' (77.539)/(52.935)"
  }
 }

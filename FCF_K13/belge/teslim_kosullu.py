@@ -20,8 +20,17 @@ okubeni = pd.DataFrame([
     ('Sonuç: BELGE_YOK', 'Gereken rapor(lar) KAP’tan indirilemedi (erişim engeli) ve Evo havuzunda yok — KAP açılınca tamamlanacak.'),
     ('Tutarlar', 'mn TL, Haziran 2026 satın alma gücü (TMS 29 uygulayanlar); bileşen işaretleri belgedeki gibi.'),
 ], columns=['Başlık', 'Açıklama'])
+# elle kalan satırların gerekçesi (belgeden incelendi)
+ACIKLAMA = {
+    'ODAS': 'ODAS nakit akış tabloları güvenilmez: MDV alımları bazı raporlarda pozitif (giriş gibi), aynı dönem farklı '
+            'raporlarda farklı işaretle; A+B+C(+D) basılı net değişimle tutmuyor (2025/03: 3 mn, 2025/06: 4,5 mn fark). '
+            'CFO başlık toplamları açık etiketli olsa da CAPEX/kira belgeden güvenle kurulamıyor.',
+    'GSDHO': 'GSDHO 2025/09: A başlık değeri (1.764.997 bin TL) ile alt toplamlar ve dönem sonu − başı nakit değişimi '
+             'birbiriyle tutmuyor; CFO belgeden tek değere bağlanamadı.',
+}
+R['Açıklama'] = [ACIKLAMA.get(k, '') if s == 'ELLE' else '' for k, s in zip(R.Kod, R['Sonuç'])]
 ozet = R['Sonuç'].value_counts().rename_axis('Sonuç').reset_index(name='Satır')
-kolon = ['Kod', 'Tip', 'Dönem', 'Sonuç', 'Fark özeti', 'Satır statü',
+kolon = ['Kod', 'Tip', 'Dönem', 'Sonuç', 'Fark özeti', 'Açıklama', 'Satır statü',
          'CFO TTM', 'V7 CFO_TTM (Evo)', 'CFO TTM nominal', 'CAPEX_STD (belge)', 'V7 CAPEX_STD (Evo)',
          '|Kira| (belge)', 'V7 |Kira| (Evo)', 'FCF_STD (belge)',
          'CFO statü', 'CFO bileşen', 'CFO kanıt', 'MDV+MODV statü', 'MDV+MODV bileşen', 'MDV+MODV kanıt',
