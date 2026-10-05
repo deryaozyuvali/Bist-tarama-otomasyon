@@ -1,11 +1,15 @@
-K13 paketini yeniden üretmek (Python 3 + pandas + openpyxl):
+K13 rev2 paketini yeniden üretmek (Python 3 + pandas + openpyxl):
 
-  python3 seri_motoru.py <V7.xlsx> x          # seri analizi → seri_kalem.pkl, seri_analiz.pkl
+  export K13_SFX=_rev2 K13_ZAYIF=1 K13_R2=1 K13_R4=1     # rev2 ayarları
+  python3 seri_motoru.py <V7.xlsx> x          # seri analizi → seri_kalem_rev2.pkl, seri_analiz_rev2.pkl
   python3 dogrula.py <DiffSet.xlsx>           # belgeli örneklem eşleşmesi → dogrulama.pkl
   python3 karar.py <V7.xlsx> <DiffSet.xlsx> x 0.03
   python3 karar.py <V7.xlsx> <DiffSet.xlsx> x 0.05   # seçilen eşik
   python3 karar.py <V7.xlsx> <DiffSet.xlsx> x 0.10
-  python3 teslim.py                           # → FCF_V8_aday_K13.xlsx
+  python3 teslim.py                           # → FCF_V8_aday_K13.xlsx (OOS_SONUCLAR.json ve YEDEK_SONUCLAR.json gerekir)
+  python3 degerlendir.py 5 rev2               # örneklem içi + bağımsız test özeti
 
+Revizyon öncesi K13'ü üretmek için: K13_ZAYIF=1 K13_R2=0 K13_R4=0.
 Girdi: FCF_TTM_2025-03_2026-06_v7_nihai.xlsx (SHA-256 b1745853…), K6_K11_Kademe2_DiffSet.xlsx.
 Hiçbir FCF rakamı değiştirilmez; yalnız statü önerilir. Aynı girdi → aynı çıktı.
+Bağımsız test kayıtları: oos_test/ (ön kayıtlar commit a34b8ca ve d00975b'de, belge okunmadan önce).

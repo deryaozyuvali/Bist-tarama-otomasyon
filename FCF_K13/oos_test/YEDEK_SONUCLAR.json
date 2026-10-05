@@ -1,0 +1,50 @@
+[
+ {
+  "kod": "BIENY",
+  "donem": "2025/12",
+  "kalem": "Kira",
+  "base": "alarm",
+  "rev": "sessiz",
+  "gercek": "CELISKI_ESIGI_KAPSAR",
+  "dogru_karar": "KOŞULLU",
+  "base_dogru": true,
+  "rev_dogru": false,
+  "not": "FY25 kira 22.0 (Ara25 TL ≈25.9 = Evo); Q1-25 raporu 62.1 (Mar25 TL ≈86.9 = Evo). Şirketin Q1 raporu yıllık toplamdan büyük; hangisi yanlış belgeden çözülemiyor. FY yanlışsa hata ≥61 (muhtemelen >70.6 eşik). R1-üssü alt sınır=0 olduğu için kapattı → kaçırma."
+ },
+ {
+  "kod": "OTTO",
+  "donem": "2025/12",
+  "kalem": "MDV",
+  "base": "alarm",
+  "rev": "sessiz",
+  "gercek": "TEMIZ",
+  "dogru_karar": "KESİN",
+  "base_dogru": false,
+  "rev_dogru": true,
+  "not": "FY25 MDV 18.0 (Ara25 TL ≈21.2 = Evo, denetimli). Köprü yalnız FY. Q1-25 5.27 (≈7.4=Evo) > H1/9A gerilemesi köprü dışı ara noktalarda."
+ },
+ {
+  "kod": "KRPLS",
+  "donem": "2025/12",
+  "kalem": "Kira",
+  "base": "alarm",
+  "rev": "sessiz",
+  "gercek": "HATA",
+  "dogru_karar": "KOŞULLU",
+  "base_dogru": true,
+  "rev_dogru": false,
+  "not": "9A25 kira 89.5 (Eyl25 TL ×1.229 ≈110.0 = Evo). Evo FY25 57.2 < 9A 110 → YTD monotonluğu gereği FY ≥110 (FY25 belgesi havuzda yok). V7 57.2 kullandı → hata ≥52.8 > eşik 10.3. R1-üssü kaçırdı (alt sınır 0: 9A atılırsa etki yok)."
+ },
+ {
+  "kod": "EGSER",
+  "donem": "2025/12",
+  "kalem": "Kira",
+  "base": "alarm",
+  "rev": "sessiz",
+  "gercek": "TEMIZ (FY belgesi yok; 9A teyitli)",
+  "dogru_karar": "KESİN",
+  "base_dogru": false,
+  "rev_dogru": true,
+  "not": "9A25 kira 4.71 (Eyl25 TL ×1.229 ≈5.79 = Evo); FY Evo 7.9 tutarlı. Alarm kaynağı pencere dışı tekil Q1-24 +94.2 (R2-çift üssü bunu doğru eler). FY25 raporu havuzda yok."
+ }
+]

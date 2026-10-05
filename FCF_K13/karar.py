@@ -1,13 +1,16 @@
 """Karar katmanı + teslim dosyası. V7 rakamlarını DEĞİŞTİRMEZ; yalnız statü önerir."""
+import os
 import sys
 import pandas as pd
+SFX = os.environ.get('K13_SFX', '')
+NET = os.environ.get('K13_NET', '1') == '1'
 
 V7, DS, OUT = sys.argv[1], sys.argv[2], sys.argv[3]
 ORAN = float(sys.argv[4]) if len(sys.argv) > 4 else 0.05
 TABAN = 1.0  # mn TL — GEM K7 emsali
 
 m = pd.read_excel(V7, sheet_name='FCF_TTM')
-R = pd.read_pickle('seri_kalem.pkl')
+R = pd.read_pickle(f'seri_kalem{SFX}.pkl')
 FCFCOL = 'FCF ana · TTM · tanım=FCF türü · statü=FCF statü (mn TL)'
 
 
@@ -17,7 +20,7 @@ def esik(fcf):
 
 R['Eşik (mn TL)'] = R['V7 FCF'].map(esik)
 R['A1/A2 seri alarmı'] = R['Karar ölçüsü (mn TL)'] >= R['Eşik (mn TL)']
-R['A3 net alarmı'] = R['A3 net davranış (maks pozitif YTD)'] >= R['Eşik (mn TL)']
+R['A3 net alarmı'] = (R['A3 net davranış (maks pozitif YTD)'] >= R['Eşik (mn TL)']) & NET
 
 
 def teshis(r):
@@ -117,7 +120,7 @@ for c in ['P1 sonuç (formül)', 'YENİ sonuç']:
     sirket[c] = {k: D.loc[D[c] == k, 'Kod'].nunique() for k in ['YAKALANDI', 'SESSİZ HATA', 'YANLIŞ ALARM']}
 SK = pd.DataFrame(sirket)
 
-pd.to_pickle(dict(K=K, R=R, D=D, OZ=OZ, SK=SK), f'karar_{int(ORAN*100)}.pkl')
+pd.to_pickle(dict(K=K, R=R, D=D, OZ=OZ, SK=SK), f'karar_{int(ORAN*100)}{SFX}.pkl')
 print(f'ORAN={ORAN}')
 print(OZ)
 print('Şirket bazında:'); print(SK)

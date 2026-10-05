@@ -28,7 +28,15 @@ import itertools
 import re
 import sys
 
+import os
+
 import pandas as pd
+
+TIE = os.environ.get('K13_TIE', '1') == '1'      # eşitlik bozucu açık mı
+ZAYIF = os.environ.get('K13_ZAYIF', '1')  # zayıf ölçüsü: '1' açık, '0' kapalı, '2' yalnız alt sınır > 0 iken (R1')
+SFX = os.environ.get('K13_SFX', '')
+R2 = os.environ.get('K13_R2', '0') == '1'   # net bayrağı yalnız TTM penceresi (CATES dersi)
+R4 = os.environ.get('K13_R4', '0') == '1'   # yıl içi önceki nokta varken 0 = veri (BERA dersi)
 
 V7, OUT = sys.argv[1], sys.argv[2]
 TOL = 0.01  # mn TL — yuvarlama gürültüsü
@@ -47,8 +55,16 @@ for _, r in b[b['Bileşen'].isin(KALEMLER)].iterrows():
 
 def seri(kod, kalem, yil):
     """Yıl içi YTD noktaları; 0 değerler kayıt yok sayılır (DiffSet ile aynı)."""
-    return [(ay, S[(kod, kalem, yil, ay)]) for ay in (3, 6, 9, 12)
-            if (kod, kalem, yil, ay) in S and abs(S[(kod, kalem, yil, ay)]) > TOL]
+    out = []
+    for ay in (3, 6, 9, 12):
+        k = (kod, kalem, yil, ay)
+        if k not in S:
+            continue
+        onceki_fy = abs(S.get((kod, kalem, yil - 1, 12), 0.0))
+        if abs(S[k]) > TOL or (R4 and out and onceki_fy >= max(abs(v) for _, v in out) - TOL
+                               and any(abs(v) > TOL for _, v in out)):
+            out.append((ay, S[k]))
+    return out
 
 
 def tutarli(alt):
@@ -66,8 +82,14 @@ def optimumlar(pts):
             # olan açıklamalar kalır. Brüt çıkış kaleminde pozitif YTD ekonomik olarak
             # olağandışıdır; kısıt değil, yalnız eşit açıklamalar arasında tercih.
             skor = [sum(max(v, 0.0) for _, v in c) for c in sol]
-            en_az = min(skor)
-            return [frozenset(a for a, _ in c) for c, s in zip(sol, skor) if s <= en_az + TOL]
+            en_az = min(skor) if TIE else float('inf')
+            sol = [c for c, s in zip(sol, skor) if s <= en_az + TOL]
+            if R4:
+                # Yıl içinde dolu noktadan sonra gelen 0 büyük olasılıkla eksik veridir
+                # (BERA 2026/06: net satır kırpılmış) → sıfırı tutan açıklama elenir.
+                sifir = [sum(abs(v) <= TOL for _, v in c) for c in sol]
+                sol = [c for c, z in zip(sol, sifir) if z == min(sifir)]
+            return [frozenset(a for a, _ in c) for c in sol]
     return [frozenset()]
 
 
@@ -107,6 +129,8 @@ def analiz(kod, kalem, yil):
         # hangi noktanın bozuk olduğu seriden söylenemez → tüm noktalar olası.
         cikan = len(pts) - max((len(o) for o in opts), default=0)
         zayif = cikan > 0 and 2 * cikan >= len(pts)
+        if R4 and zayif and all(abs(v) <= TOL for a, v in pts if a not in max(opts, key=len)):
+            zayif = False  # yalnız sıfır(lar) atılıyor: atama belirsiz değil
         if zayif:
             kesin, olasi = set(), set(hepsi)
         # tutarsızlık büyüklüğü: yıl içi pozitif örtük çeyreklerin toplamı
@@ -117,11 +141,22 @@ def analiz(kod, kalem, yil):
     return ANALIZ[key]
 
 
-def net_davranis(kod, kalem):
+POZ = {}  # (kod, kalem, yıl) -> pozitif YTD nokta sayısı
+for (k_, c_, y_, a_), v_ in S.items():
+    if v_ > TOL:
+        POZ[(k_, c_, y_)] = POZ.get((k_, c_, y_), 0) + 1
+
+
+def net_davranis(kod, kalem, y=None, ay=None):
     """Kalemin şirkette pozitif YTD alması; seri tarafından KESİN atanmış tekil
     bozuk noktalar hariç (ALCAR 2025/06 dersi: tek bozuk nokta net sunum değildir)."""
     mx = 0.0
     for (k_, c_, y_, a_), v_ in S.items():
+        if R2 and y is not None and not (y_ == y and a_ <= ay or ay != 12 and y_ == y - 1 and a_ >= ay):
+            # pencere dışı: yalnız o yıl tek (yalıtılmış) pozitif noktaysa yok say (CATES);
+            # yıl boyu yaygın pozitiflik seri düzeyinde sunum/işaret sorunudur (PGSUS, ODAS)
+            if POZ.get((kod, kalem, y_), 0) <= 1:
+                continue
         if k_ == kod and c_ == kalem and v_ > TOL and a_ not in analiz(kod, kalem, y_)['kesin']:
             mx = max(mx, v_)
     return mx
@@ -157,7 +192,7 @@ for _, r in m.iterrows():
                 sup_olasi.append(f'{yy % 100:02d}{aa:02d}')
         c_val = S.get((kod, kalem, y, ay))
         s1 = c_val is not None and c_val > TOL
-        net_max = net_davranis(kod, kalem)
+        net_max = net_davranis(kod, kalem, y, ay)
         if not sup_kesin and not sup_olasi and not s1 and not net_max:
             continue
 
@@ -194,7 +229,8 @@ for _, r in m.iterrows():
             for yy in zayif_yillar:
                 g = analiz(kod, kalem, yy)['gerileme']
                 zg += sum(v for a2, v in g.items() if (a2 <= ay if yy == y else a2 > ay))
-            karar_olcusu = max(karar_olcusu, zg)
+            if ZAYIF == '1' or (ZAYIF == '2' and min(etkiler) > TOL):
+                karar_olcusu = max(karar_olcusu, zg)
         rows.append(dict(
             Kod=kod, Dönem=donem, Kalem=kalem,
             **{'V7 statü': r['FCF statü'] if pd.notna(r['FCF statü']) else 'NULL',
@@ -226,8 +262,8 @@ F['V7 statü'] = F['V7 statü'].fillna('NULL')
 F['Önemlilik eşiği'] = F['CFO_TTM'].abs().mul(0.005).clip(lower=1.0)
 F['Önemli'] = F['Toplam etki alt sınır'] >= F['Önemlilik eşiği']
 
-R.to_pickle('seri_kalem.pkl')
+R.to_pickle(f'seri_kalem{SFX}.pkl')
 F.to_pickle('seri_satir.pkl')
-pd.to_pickle(ANALIZ, 'seri_analiz.pkl')
+pd.to_pickle(ANALIZ, f'seri_analiz{SFX}.pkl')
 print('kalem satırı:', len(R), '| FCF satırı:', len(F), '| şirket:', F.Kod.nunique())
 print(pd.crosstab(F['V7 statü'], F['Önemli'], margins=True))

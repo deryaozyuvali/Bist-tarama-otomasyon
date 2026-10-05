@@ -33,7 +33,18 @@
     FARK olarak girer. Ara YTD noktaları TTM'e GİRMEZ.
 
     ADIM 1 — Seri kısıtı (S2): Brüt çıkış kaleminde yıl içi kümülatif
-    çıkış küçülmez:  YTD_q ≤ YTD_(q−1)   (0 / boş kayıt atlanır)
+    çıkış küçülmez:  YTD_q ≤ YTD_(q−1)   (boş kayıt atlanır)
+      • 0 değeri (rev2-R4): yıl içinde daha önce dolu bir nokta varsa VE
+        önceki FY tutarı o noktadan küçük değilse 0 VERİ sayılır (gerileme
+        olarak görülür); aksi halde atlanır. Eşit açıklamalar arasında
+        0'ı tutan açıklama elenir, yalnız 0 atılıyorsa atama ZAYIF sayılmaz.
+        Vaka: BERA 2026/06 — şirket alım+satışı tek net satırda veriyor,
+        Evo cari H1'26 alımını 0 saklamış (Q1'26 −40,8 sonrası); belge
+        dipnotu brüt alım ≈72 > eşik 19,8. Karşı vaka: TCKRC 2026/06 —
+        önceki FY kira 0,6 iken Q1 −27,6 sonrası 0 → kural tetiklemez
+        (önceki FY < dolu nokta; Q1 noktası zaten yanlış satır eşlemesi).
+        ⚠️ GEÇİCİ: tek bağımsız vakayla desteklenir; holdout'ta ayırt edici
+        satır çıkmadı.
 
     ADIM 2 — Nokta ataması: Her şirket-kalem-yıl serisinde S2'yi
     sağlayan EN UZUN alt dizi bulunur; dışında kalan noktalar ŞÜPHELİ.
@@ -51,6 +62,15 @@
     veya başka içerik). Ölçü: en büyük pozitif YTD.
       ⛔ ADIM 2'de KESİN atanmış tekil bozuk nokta net davranış sayılmaz
          (ALCAR 2025/06: tek nokta yanlış eşleme, kalem net değil).
+      ⛔ (rev2-R2) TTM penceresi DIŞINDAKİ bir yılda o yıl TEK pozitif
+         nokta varsa net davranış sayılmaz (yalıtılmış eşleme hatası).
+         Pencere: cari yıl ≤ cari ay; önceki yıl ≥ cari ay.
+         Vakalar: CATES 2025/06 (Q1'24 +244,5), EGSER 2025/12 (Q1'24 +94,2)
+         — ikisi de belgeyle TEMİZ.
+         Pencere dışında bir yıl boyunca YAYGIN pozitiflik (≥2 nokta) net
+         davranış SAYILIR — seri düzeyinde sunum/işaret sorunudur
+         (PGSUS, ODAS: örneklem içi HATA vakaları; bu yüzden pencere dışı
+         tamamen yok sayılmaz).
 
     ADIM 5 — Etki (alt sınır): Şüpheli köprü noktası, tutarlı
     komşularının izin verdiği aralığa kırpılır; TTM yeniden kurulur.
@@ -151,3 +171,62 @@
    değişikliği (ATATP) K11(a)–(c) ile kalır.
 7. PDF KAYNAKLI TÜRETİLMİŞ BİLEŞENLER — V7'nin köprüsü belgeden
    kurulan bileşenlerinde Evo serisi eksik; K13 uygulanmaz (18 satır).
+
+
+════════════════════════════════════════════════════════════════════
+EK — BAĞIMSIZ BELGE TESTİ VE REVİZYON (rev2)
+════════════════════════════════════════════════════════════════════
+Yöntem: Örneklem belge okunmadan önce donduruldu ve commit edildi
+(a34b8ca: 20 ASIL + 14 YEDEK satır, K13 tahminleriyle). Belgeler sonra
+okundu. Değerlendirme kuralı: belgeler tutarlıysa hata eşikle
+karşılaştırılır; belgeler çelişiyor ve olası aralık eşiği kapsıyorsa
+doğru karar KOŞULLU'dur.
+
+ASIL-20 sonucu (revizyon öncesi K13):
+  Alarm 11: doğru 7 (MARBL, EPLAS, OZRDN, IZFAS, ASUZU, TTRAK, PNSUT)
+            yanlış 4 (OYLUM, TCKRC — zayıf ölçüsü; CATES, DENGE — net bayrağı)
+  Sessiz 9: doğru 8 (BESTE, FORTE, GUNDG, ENSRI, SANEL, MEGMT, ARMGD, YATAS)
+            kaçırma 1 (BERA — 0 kayıt atlandığı için S2 göremedi)
+
+Revizyon adayları ve akıbeti:
+  R1  zayıf ölçüsünü kapat                → REDDEDİLDİ (TTRAK'ı ve örneklem
+                                            içi 2 HATA'yı kaybetti)
+  R1′ zayıf ölçüsü yalnız alt sınır > 0  → REDDEDİLDİ. ASIL-20'de iyi
+      görünüyordu; revizyon sonrası dondurulan YEDEK testinde (d00975b)
+      BIENY ve KRPLS'yi kaçırdı (ikisi de belgeyle KOŞULLU/HATA), yalnız
+      OTTO'da haklı çıktı. Zayıf ölçüsü OLDUĞU GİBİ kalır: yanlış alarm
+      maliyeti (gereksiz dipnot okuma) kaçırma maliyetinden düşüktür.
+  R2  pencere dışı tekil pozitif         → KABUL (CATES + bağımsız EGSER)
+  R4  0 = veri (koşullu)                  → KABUL, GEÇİCİ (BERA)
+  K8 eşitliği (alım = yatırım toplamı)   → UYGULANAMADI: V7'de yatırım
+      toplamı serisi yok. DENGE tipi yanlış alarm kalır; KOŞULLU
+      kapanışında belge zaten çözer.
+
+rev2 performansı (belgeyle etiketli tüm setler):
+                         Yakalanan  Kaçan  Yanlış alarm
+  Örneklem içi (125)        31        4        13      (eski K13 ile aynı)
+  ASIL-20 (bağımsız)         8/8      0         3/12   (eski: 7/8, 4/12)
+  YEDEK ayırt edici 4        2/2      0         1/2    (eski: 2/2, 2/2)
+  Bağımsız toplam: 10 hatanın 10'u yakalandı; 14 temiz satırın 4'ünde
+  yanlış alarm (DENGE, OYLUM, TCKRC, OTTO). n küçüktür (10 hata);
+  "hiç kaçırmaz" diye okunmamalıdır.
+
+Eşik (%5) değerlendirmesi — kayıtlı hata tutarlarıyla:
+  %3  : bağımsız setlerde ek yakalama YOK; evrende +36 KOŞULLU.
+  %5  : seçilen.
+  %10 : TTRAK kaçar (hata aralığı 38–140, eşik %10'da 137); örneklem
+        içi 6 HATA daha kaçar.
+  Sonuç: %5 kanıtla desteklenen en iyi seçenek; "doğru eşik" iddiası
+  değildir.
+
+Bilinen kör noktalar (bağımsız testte görüldü):
+  • Tutarlı seri içinde SEVİYE sapması (MEGMT FY24: belge 243,5,
+    Evo 268,4; seri monoton) — K13 göremez; burada eşik altıydı.
+  • Şirketin kendi raporları çelişkiliyse (EPLAS, TTRAK, BIENY) belge de
+    doğru değeri söylemez → KOŞULLU kalıcıdır, dipnot/şirket teyidi gerekir.
+  • Evo'da yanlış satır eşlemesi yalnız köprü dışı noktadaysa (TCKRC
+    Q1'25) seri alarm verebilir; zararsız ama gereksiz dipnot okuması.
+
+Production kararı için kalan adım: 233 FARK satırının belgeyle kapatılması
+(sıra: karar ölçüsü / |FCF| büyükten küçüğe). Bu kapanış K13'ün kendisini
+değil, tek tek satırların doğru FCF'ini belirler.
