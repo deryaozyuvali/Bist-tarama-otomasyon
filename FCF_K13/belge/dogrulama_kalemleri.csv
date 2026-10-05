@@ -64,7 +64,7 @@ CATES,2025,6,1476506,520003,Konsolide Olmayan,YAGM,onceki,,XBRL,SIFIR,,,,True,
 CATES,2025,6,1476506,520003,Konsolide Olmayan,KIRA,cari,-12432157.0,XBRL,TEYITLI,TL,9,Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları (-) (12.432.157) (1.832.112),True,
 CATES,2025,6,1476506,520003,Konsolide Olmayan,KIRA,onceki,-1832112.0,XBRL,TEYITLI,TL,9,Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları (-) (12.432.157) (1.832.112),True,
 IZFAS,2026,6,1652918,520003,Konsolide,CFO,cari,27589810.0,XBRL,TEYITLI,TL,6,İşletme Faaliyetlerden Sağlanan Net Nakit 27.589.810 (137.695.299),True, 2 bildirim; son kullanıldı
-IZFAS,2026,6,1652918,520003,Konsolide,CFO,onceki,-137695301.0,XBRL,PDF_TUTMADI,,,,True, 2 bildirim; son kullanıldı
+IZFAS,2026,6,1652918,520003,Konsolide,CFO,onceki,-137695301.0,XBRL,PDF_TUTMADI,,,,True,PDF CFO adayları özdeşliği sağlamıyor: Faaliyetlerden elde edilen nakit akışları (1.655.850) 530.374 2 bildirim; son kullanıldı
 IZFAS,2026,6,1652918,520003,Konsolide,MDV+MODV,cari,-18091052.0,XBRL,TEYITLI,TL,6,"Maddi ve maddi olmayan duran varlık alımları 13 , 14 (18.091.052) (47.279.884)",True, 2 bildirim; son kullanıldı
 IZFAS,2026,6,1652918,520003,Konsolide,MDV+MODV,onceki,-47279884.0,XBRL,TEYITLI,TL,6,"Maddi ve maddi olmayan duran varlık alımları 13 , 14 (18.091.052) (47.279.884)",True, 2 bildirim; son kullanıldı
 IZFAS,2026,6,1652918,520003,Konsolide,YAGM,cari,,XBRL,SIFIR,,,,True, 2 bildirim; son kullanıldı
@@ -167,8 +167,8 @@ GUNDG,2025,12,1555943,520003,Konsolide Olmayan,YAGM,cari,,XBRL,SIFIR,,,,False,
 GUNDG,2025,12,1555943,520003,Konsolide Olmayan,YAGM,onceki,,XBRL,SIFIR,,,,False,
 GUNDG,2025,12,1555943,520003,Konsolide Olmayan,KIRA,cari,,XBRL,SIFIR,,,,False,
 GUNDG,2025,12,1555943,520003,Konsolide Olmayan,KIRA,onceki,,XBRL,SIFIR,,,,False,
-FORTE,2026,3,1604960,520003,Konsolide,CFO,cari,87937000.0,XBRL,PDF_TUTMADI,,,,True,
-FORTE,2026,3,1604960,520003,Konsolide,CFO,onceki,-82407025.0,XBRL,PDF_TUTMADI,,,,True,
+FORTE,2026,3,1604960,520003,Konsolide,CFO,cari,87937000.0,XBRL,PDF_TUTMADI,,,,True,PDF CFO adayları özdeşliği sağlamıyor: Faaliyetlerden Elde Edilen Nakit Akışları 94.640.320 (82.034.054)
+FORTE,2026,3,1604960,520003,Konsolide,CFO,onceki,-82407025.0,XBRL,PDF_TUTMADI,,,,True,PDF CFO adayları özdeşliği sağlamıyor: Faaliyetlerden Elde Edilen Nakit Akışları 94.640.320 (82.034.054)
 FORTE,2026,3,1604960,520003,Konsolide,MDV+MODV,cari,-122833050.0,XBRL,TEYITLI,TL,8,Maddi ve maddi olmayan duran varlıkların alımından kaynaklanan nakit çıkışları (122.833.050) (72.483.273),True,
 FORTE,2026,3,1604960,520003,Konsolide,MDV+MODV,onceki,-72483273.0,XBRL,TEYITLI,TL,8,Maddi ve maddi olmayan duran varlıkların alımından kaynaklanan nakit çıkışları (122.833.050) (72.483.273),True,
 FORTE,2026,3,1604960,520003,Konsolide,YAGM,cari,-28501367.0,XBRL,TEYITLI,TL,8,Yatırım amaçlı gayrimenkul alımından kaynaklanan nakit çıkışları (28.501.367) -,True,
@@ -207,7 +207,7 @@ BERA,2026,6,1653116,520003,Konsolide,YAGM,cari,,XBRL,SIFIR,,,,True,
 BERA,2026,6,1653116,520003,Konsolide,YAGM,onceki,,XBRL,SIFIR,,,,True,
 BERA,2026,6,1653116,520003,Konsolide,KIRA,cari,,XBRL,SIFIR,,,,True,
 BERA,2026,6,1653116,520003,Konsolide,KIRA,onceki,,XBRL,SIFIR,,,,True,
-MARBL,2025,3,1437843,520003,Konsolide,CFO,cari,45230575.0,XBRL,PDF_TUTMADI,,,,False,
+MARBL,2025,3,1437843,520003,Konsolide,CFO,cari,45614864.0,"PDF (CFO, özdeşlikle)",PDF_OKUNDU,TL,8,A) İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI 45.614.864 (85.983.061),False,özdeşlik A+B+C=net değişim tuttu; XBRL 45.231 mn ≠ PDF; PDF satırı kullanıldı
 MARBL,2025,3,1437843,520003,Konsolide,CFO,onceki,-85983061.0,XBRL,TEYITLI,TL,8,A) İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI 45.614.864 (85.983.061),False,
 MARBL,2025,3,1437843,520003,Konsolide,MDV+MODV,cari,-36824482.0,XBRL,TEYITLI,TL,8,"Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları 14,15.16 (36.824.482) (26.948.436)",False,
 MARBL,2025,3,1437843,520003,Konsolide,MDV+MODV,onceki,-26948436.0,XBRL,TEYITLI,TL,8,"Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları 14,15.16 (36.824.482) (26.948.436)",False,

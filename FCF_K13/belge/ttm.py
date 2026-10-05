@@ -54,6 +54,7 @@ idx = collections.defaultdict(dict)
 for r in K.itertuples():
     idx[(r.kod, int(r.yil), int(r.ay))].setdefault(r.kalem, {})[r.sutun] = r
 
+ELLE_KARAR = json.load(open('elle_kararlar.json')) if os.path.exists('elle_kararlar.json') else {}
 EVO_METIN = json.load(open('evo_metin_teyit.json')) if os.path.exists('evo_metin_teyit.json') else {}
 def _kat(kod, y, m):
     return F[(y, m)] / F[son_rapor.get(kod, (2026, 6))] if kod in TMS29_SIRKET else 1.0
@@ -77,6 +78,11 @@ def al(kod, y, m, kalem, sut):
         v *= k
         kanit += f' · TMS29 ×{k:.4f} ({y}/{m:02d}→{a[0]}/{a[1]:02d})'
     if r.durum == 'TEYITLI': kanit += f' · PDF s.{r.pdf_sayfa} ({r.pdf_birim}): {r.pdf_satir}'
+    ek = ELLE_KARAR.get(f'{kod}|{y}|{m}|{kalem}|{sut}') or ELLE_KARAR.get(f'{kod}|{y}|{m}|{kalem}|*')
+    if ek:
+        if 'deger' in ek:
+            return ek['deger'] / 1e6 * _kat(kod, y, m), 'PDF_OKUNDU', kanit + f" · elle karar (PDF): {ek['not']}"
+        return (v or 0.0), 'TEYITLI', kanit + f" · elle karar: {ek['not']}"
     if r.durum == 'PDF_YOK' and str(int(r.idx)) in EVO_METIN:
         # taranmış PDF: Evo belge havuzundaki OCR metninden elle kontrol (evo_metin_teyit.json)
         t = EVO_METIN[str(int(r.idx))]

@@ -1,0 +1,17 @@
+{
+ "_aciklama": "PDF nakit akış tablosu elle okunarak verilen kararlar (2026-10-05). Anahtar: KOD|YIL|AY|KALEM|SUTUN (SUTUN='*' iki sütun). deger: belgedeki tutar (TL, işaretli); durum TEYITLI: XBRL değeri belgeyle doğru.",
+ "AFYON|2025|6|MDV+MODV|cari": {"deger": -271300337, "not": "XBRL yatırım bölümü toplamını (271.750.337; avans değişimi + satış dahil) taşıyor; belgedeki 'Maddi ve maddi olmayan duran varlıkların alımından kaynaklanan nakit çıkışları' satırı alındı"},
+ "AFYON|2025|6|MDV+MODV|onceki": {"deger": -273888839, "not": "aynı satırın karşılaştırmalı sütunu"},
+ "EMNIS|2024|12|MDV+MODV|cari": {"deger": -75332400, "not": "XBRL yatırım toplamı (72.450.027, kullanım hakkı değişimi dahil); belgedeki MDV+MODV alım satırı alındı"},
+ "EMNIS|2024|12|MDV+MODV|onceki": {"deger": -127116910, "not": "aynı satırın karşılaştırmalı sütunu"},
+ "ODINE|2026|3|MDV+MODV|cari": {"deger": -134310516, "not": "XBRL yatırım toplamı (133.100.646, satış girişi dahil); belgedeki alım satırı alındı"},
+ "ODINE|2026|3|MDV+MODV|onceki": {"deger": -72097781, "not": "aynı satırın karşılaştırmalı sütunu"},
+ "AKSUE|2024|12|MDV+MODV|*": {"durum": "TEYITLI", "not": "belgede MDV 11.347.696 + MODV 8.587 = 11.356.283 (önceki 1.438.193 + 13.133 = 1.451.326); etiket satırlara bölünmüş"},
+ "BESTE|2025|12|KIRA|*": {"durum": "TEYITLI", "not": "finansman bölümündeki 'Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Düzeltmeler' satırı (etiket hatalı yazılmış, kira ödemesi)"},
+ "BESTE|2026|3|KIRA|*": {"durum": "TEYITLI", "not": "aynı satır (finansman bölümü)"},
+ "BESTE|2026|6|KIRA|*": {"durum": "TEYITLI", "not": "aynı satır (finansman bölümü)"},
+ "AGROT|2024|12|YAGM|*": {"durum": "TEYITLI", "not": "yatırım bölümündeki 'Yatırım amaçlı gayrimenkuller' satırı"},
+ "AGROT|2025|6|YAGM|*": {"durum": "TEYITLI", "not": "yatırım bölümündeki 'Yatırım amaçlı gayrimenkuller' satırı"},
+ "AGROT|2025|9|YAGM|*": {"durum": "TEYITLI", "not": "yatırım bölümündeki 'Yatırım amaçlı gayrimenkuller' satırı"},
+ "TRMET|2026|6|YAGM|*": {"deger": 0, "not": "XBRL YAGM elemanı belgedeki 'Finansal yatırımlardan kaynaklanan nakit çıkışları' satırını taşıyor; belgede YAGM alım satırı yok → 0"}
+}

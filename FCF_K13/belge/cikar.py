@@ -269,45 +269,52 @@ def isle(kod, yil, ay, idx):
         if kalem == 'CFO':
             b = [k for k in kayit if k['kalem'] == 'CFO' and k['durum'] == 'TEYITLI']
             birim = b[0]['pdf_birim'] if b else None
-    # XBRL CFO PDF'te bulunamadıysa (şirketin XBRL girişi imzalı rapordan farklı): CFO PDF satırından okunur.
-    # Birim, aynı raporda PDF'te teyitli herhangi bir kalemden; CFO satırı tek ve iki sütunluysa alınır.
+    # XBRL CFO PDF'te bulunamadıysa (şirketin XBRL girişi imzalı rapordan farklı olabilir): CFO PDF'ten okunur.
+    # Adaylar: CFO etiketli satırlar + 'A. İşletme faaliyetlerinden…' bölüm satırı. Bir aday ancak raporun kendi
+    # özdeşliğini sağlıyorsa alınır: aday + yatırım (B) + finansman (C) = nakitteki net değişim. Sütun başına
+    # özdeşliği sağlayan tek bir değer yoksa (hiç ya da birden çok) CFO elle bakılacaklarda kalır.
     cfo = [k for k in kayit if k['kalem'] == 'CFO']
-    if sayfalar and cfo and all(k['durum'] == 'PDF_TUTMADI' for k in cfo):
-        bb = [k['pdf_birim'] for k in kayit if k['durum'] == 'TEYITLI' and k.get('pdf_birim')]
-        carp = {'TL': 1, 'bin TL': 1e3, 'mn TL': 1e6}.get(bb[0]) if bb else None
-        rx = re.compile(r'(işletme|esas) faaliyetler\w*\s+(elde edilen |sağlanan |kaynaklanan |kullanılan )?(net )?nakit ak')
-        aday = []
-        for no, p in sayfalar:
-            for satir in p.split('\n'):
-                et, vals, ok = _alanlar(satir)
-                if et and len(vals) == 2 and rx.search(kucuk(et)) and 'sermaye' not in kucuk(et):
-                    aday.append((no, ' '.join(satir.split())[:160], vals))
-        degerler = {tuple(a[2]) for a in aday}
-        for n, k in enumerate(cfo):
-            if carp and len(degerler) == 1:
-                # özdeşlik: işletme + yatırım + finansman = nakitteki net değişim (aynı sayfalardan)
-                def tek(desen):
-                    r = []
-                    for _, p in sayfalar:
-                        for satir in p.split('\n'):
-                            et, vals, _ = _alanlar(satir)
-                            if et and len(vals) == 2 and re.search(desen, kucuk(et)): r.append(vals)
-                    return r[0] if r else None
-                yat = tek(r'yatırım faaliyetler\w*\s+.{0,25}nakit')
-                fin = tek(r'finansman faaliyetler\w*\s+.{0,25}nakit')
-                net = tek(r'nakit ve nakit benzerlerindeki.{0,25}(net )?(artış|azalış|değişim)(?!.*(kur|enflasyon|etkisi))')
-                j = 0 if k['sutun'] == 'cari' else 1
-                if yat and fin and net and abs(aday[0][2][j] + yat[j] + fin[j] - net[j]) <= 2:
-                    k['not_'] = 'özdeşlik A+B+C=D tuttu; '
-                else:
-                    k['not_'] = 'özdeşlik kurulamadı; '
-                    if yat and fin and net: k['durum'] = 'PDF_TUTMADI'; continue
-                v = aday[0][2][j] * carp * xk
-                k['not_'] += f"XBRL {k['deger_tl'] / 1e6:.3f} mn ≠ PDF; PDF satırı kullanıldı"
-                k.update(deger_tl=v, durum='PDF_OKUNDU', kaynak='PDF (CFO satırı)', pdf_birim=bb[0],
-                         pdf_sayfa=aday[0][0], pdf_satir=aday[0][1])
-            elif len(degerler) > 1:
-                k['not_'] = 'PDF’te birden çok farklı CFO satırı: ' + ' || '.join(a[1] for a in aday[:3])
+    if sayfalar and cfo and any(k['durum'] == 'PDF_TUTMADI' for k in cfo):
+        bb0 = [k['pdf_birim'] for k in kayit if k['durum'] == 'TEYITLI' and k.get('pdf_birim')]
+        rx = re.compile(r'(işletme|esas) faaliyetler\w*\s+(elde edilen |sağlanan |kaynaklanan |kullanılan )?(net )?nakit ak'
+                        r'|^a[.)]?\s*(işletme|esas) faaliyet\w*.{0,40}nakit|^faaliyetlerden (elde edilen|kaynaklanan) (net )?nakit')
+        def satirlar(desen):
+            r = []
+            for no, p in sayfalar:
+                for satir in p.split('\n'):
+                    et, vals, _ = _alanlar(satir)
+                    if et and len(vals) == 2 and re.search(desen, kucuk(et)) and 'sermaye' not in kucuk(et):
+                        r.append((no, ' '.join(satir.split())[:160], vals))
+            return r
+        aday = satirlar(rx)
+        yat = satirlar(r'^b?[.)]?\s*yatırım faaliyet\w*\s+.{0,30}nakit')
+        fin = satirlar(r'^c?[.)]?\s*finansman faaliyet\w*\s+.{0,30}nakit')
+        net = satirlar(r'nakit ve nakit benzerlerindeki.{0,30}(net )?(artış|azalış|değişim)|^net (artış|azalış)|benzerlerindeki net (artış|azalış)')
+        for k in [k for k in cfo if k['durum'] == 'PDF_TUTMADI']:
+            j = 0 if k['sutun'] == 'cari' else 1
+            gecerli = {}
+            for a in aday:
+                for y_ in yat[:2]:
+                    for f_ in fin[:2]:
+                        if any(abs(a[2][j] + y_[2][j] + f_[2][j] - n[2][j]) <= 2 for n in net):
+                            gecerli[a[2][j]] = a
+            bb = list(bb0); carp = {'TL': 1, 'bin TL': 1e3, 'mn TL': 1e6}.get(bb[0]) if bb else None
+            if len(gecerli) == 1 and not carp and k['deger_tl']:
+                # birim: raporda teyitli kalem yoksa XBRL tutarının büyüklüğüne en yakın PDF birimi (TL/bin/mn)
+                import math
+                pv = abs(next(iter(gecerli))) or 1
+                bb = [min(('TL', 1), ('bin TL', 1e3), ('mn TL', 1e6),
+                          key=lambda u: abs(math.log10(abs(k['deger_tl']) / xk / (pv * u[1]))))[0]]
+                carp = {'TL': 1, 'bin TL': 1e3, 'mn TL': 1e6}[bb[0]]
+            if carp and len(gecerli) == 1:
+                a = next(iter(gecerli.values()))
+                k['not_'] = (f"özdeşlik A+B+C=net değişim tuttu; XBRL {k['deger_tl'] / 1e6:.3f} mn ≠ PDF; PDF satırı kullanıldı")
+                k.update(deger_tl=a[2][j] * carp * xk, durum='PDF_OKUNDU', kaynak='PDF (CFO, özdeşlikle)', pdf_birim=bb[0],
+                         pdf_sayfa=a[0], pdf_satir=a[1])
+            elif len(gecerli) > 1:
+                k['not_'] = 'özdeşliği sağlayan birden çok CFO adayı: ' + ' || '.join(a[1] for a in list(gecerli.values())[:3])
+            elif aday:
+                k['not_'] = 'PDF CFO adayları özdeşliği sağlamıyor: ' + ' || '.join(a[1] for a in aday[:3])
     for k in kayit: k['tms29'] = tms29
     return kayit
 
