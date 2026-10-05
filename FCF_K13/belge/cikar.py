@@ -144,7 +144,7 @@ def _alanlar(satir):
         if p in BOS: vals.append(0.0); continue
         if p.lower() in ('not', 'notlar', 'dipnot', 'dipnotlar') and not vals: continue
         if re.fullmatch(r'\(?[A-F](?:\s*\+\s*[A-F])+\)?', p) and not vals: continue  # '(A+B+C)' etiket eki  # sütun başlığı satırla aynı hizada
-        if re.fullmatch(r'\d{1,2}(?:\s*[,\-\.]\s*\d{1,2})*[a-zA-Z]?', p) and not vals: continue  # dipnot no
+        if re.fullmatch(r'(?i:not(?:lar)?[.:]?\s*)?\[?\d{1,2}(?:\s*[,\-\.\_]\s*\d{1,2})*\]?[a-zA-Z]?', p) and not vals: continue  # dipnot no ('[16,17]', 'Not.11,12')
         x = _say(p.replace(' ', ''))
         if x is None: return etiket, [], False
         vals.append(x)

@@ -24,11 +24,11 @@ ALBTN,2025,3,CFO,8498671.0,"(2026, 3)",OKUNDU,True,1634728,EK_2_AlbayrakBeton_Ba
 ALBTN,2025,12,CFO,-131730215.0,"(2026, 3)",OKUNDU,True,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,İşletme Faaliyetlerinden Nakit Akışları 21.052.037 8.498.671 (131. 730.215) 297.922.367 1.060.891.575
 ALBTN,2024,12,CFO,297922367.0,"(2026, 3)",OKUNDU,True,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,İşletme Faaliyetlerinden Nakit Akışları 21.052.037 8.498.671 (131. 730.215) 297.922.367 1.060.891.575
 ALBTN,2023,12,CFO,1060891575.0,"(2026, 3)",OKUNDU,False,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,İşletme Faaliyetlerinden Nakit Akışları 21.052.037 8.498.671 (131. 730.215) 297.922.367 1.060.891.575
-ALBTN,2026,3,MDV+MODV,0.0,"(2026, 3)",SATIR_YOK,False,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,
-ALBTN,2025,3,MDV+MODV,0.0,"(2026, 3)",SATIR_YOK,True,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,
-ALBTN,2025,12,MDV+MODV,0.0,"(2026, 3)",SATIR_YOK,True,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,
-ALBTN,2024,12,MDV+MODV,0.0,"(2026, 3)",SATIR_YOK,True,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,
-ALBTN,2023,12,MDV+MODV,0.0,"(2026, 3)",SATIR_YOK,False,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,
+ALBTN,2026,3,MDV+MODV,-125863912.0,"(2026, 3)",OKUNDU,False,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,"Nakit Çıkışları Not.18,19 (125.863.912) (4 7.822.877) (147.722.200) (481.807.277) (846.580.587)"
+ALBTN,2025,3,MDV+MODV,-47822877.0,"(2026, 3)",OKUNDU,True,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,"Nakit Çıkışları Not.18,19 (125.863.912) (4 7.822.877) (147.722.200) (481.807.277) (846.580.587)"
+ALBTN,2025,12,MDV+MODV,-147722200.0,"(2026, 3)",OKUNDU,True,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,"Nakit Çıkışları Not.18,19 (125.863.912) (4 7.822.877) (147.722.200) (481.807.277) (846.580.587)"
+ALBTN,2024,12,MDV+MODV,-481807277.0,"(2026, 3)",OKUNDU,True,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,"Nakit Çıkışları Not.18,19 (125.863.912) (4 7.822.877) (147.722.200) (481.807.277) (846.580.587)"
+ALBTN,2023,12,MDV+MODV,-846580587.0,"(2026, 3)",OKUNDU,False,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,"Nakit Çıkışları Not.18,19 (125.863.912) (4 7.822.877) (147.722.200) (481.807.277) (846.580.587)"
 ALBTN,2026,3,YAGM,0.0,"(2026, 3)",SATIR_YOK,False,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,
 ALBTN,2025,3,YAGM,0.0,"(2026, 3)",SATIR_YOK,True,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,
 ALBTN,2025,12,YAGM,0.0,"(2026, 3)",SATIR_YOK,True,1634728,EK_2_AlbayrakBeton_Bağımsız Denetim Raporu_1.pdf,16,

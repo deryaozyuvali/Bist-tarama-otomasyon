@@ -18,6 +18,7 @@ TABAN = 'https://storage.fintables.com/media/uploads/kap-attachments/'
 TMS29 = re.compile(r'satın ?alma gücü esas|itibar[ıi]y?la satın ?alma gücü|20\d\d tarihindeki satın ?alma gücü cinsinden')
 CFO = re.compile(r'(işletme|esas) faaliyetler\w*\s+(elde edilen |sağlanan |kaynaklanan |kullanılan )?(net )?nakit ak'
                  r'|(işletme|esas) faaliyetler\w*\s+.{0,35}net nakit'
+                 r'|(işletme|esas) faaliyetler\w*\s+(elde edilen|sağlanan|kaynaklanan|kullanılan) (net )?nakit (giriş|çıkış)'
                  r'|^a[.)]?\s*(işletme|esas|şirket) faaliyet\w*.{0,40}nakit|^faaliyetlerden (elde edilen|kaynaklanan) (net )?nakit')
 
 def indir(kod, y, m, yol):
@@ -69,6 +70,25 @@ def isle(kod, y, m, idx, metin_yolu):
     km = ' '.join(kucuk(metin[:400000]).split())
     tms = bool(TMS29.search(km[:150000]))
     sayfalar = nakit_sayfalari(metin)
+    # tablo sonraki sayfaya taşabilir (yatırım/finansman bölümü): bulunan her nakit akış sayfasının ardından gelen sayfa da eklenir
+    _tum = re.sub(r'\(\s+', '(', metin).split('\f')
+    _var = {n for n, _ in sayfalar}
+    for n, _ in list(sayfalar):
+        if n + 1 not in _var and n < len(_tum) and re.search(r'faaliyet|nakit', kucuk(_tum[n][:3000])):
+            sayfalar.append((n + 1, _tum[n])); _var.add(n + 1)
+    sayfalar.sort()
+    # TL + döviz (Avro/ABD Doları) kolay çevrim sütunlu tablolar: 4 değerli satırlarda yalnız ilk iki (TL) sütun tutulur
+    def _tl(p):
+        if not re.search(r'avro|abd doları|\busd\b|\beur\b', kucuk(' '.join(p.split('\n')[:40]))): return p
+        out = []
+        for l in p.split('\n'):
+            par = re.split(r'(\s{2,})', l.rstrip())
+            say = [i for i in range(0, len(par), 2) if re.fullmatch(r'\(?-?[\d.,]+\)?|-+|–', par[i].strip() or 'x')]
+            if len(say) >= 4 and say[-4:] == list(range(say[-4], say[-4] + 8, 2)):
+                l = ''.join(par[:say[-2] - 1])
+            out.append(l)
+        return '\n'.join(out)
+    sayfalar = [(n, _tl(p)) for n, p in sayfalar]
     if not sayfalar:
         return [dict(kod=kod, yil=y, ay=m, idx=idx, kalem='*', durum='NAKIT_AKIS_YOK', not_='PDF’te nakit akış sayfası bulunamadı')]
     b_ad, carp = birim(sayfalar[0][1])
@@ -94,6 +114,11 @@ def isle(kod, y, m, idx, metin_yolu):
         if len(gecerli) == 1:
             a = next(iter(gecerli.values()))
             ekle('CFO', sut, a[2][j] * carp, 'PDF_OKUNDU', a[1], 'özdeşlik A+B+C(+etki)=net değişim tuttu', a[0])
+        elif not gecerli and len({a[2][j] for a in aday}) == 1 and yat and fin and net and any(
+                abs(aday[0][2][j] + y_[2][j] + f_[2][j] - n[2][j]) <= 0.01 * max(abs(aday[0][2][j]), abs(y_[2][j]), abs(f_[2][j]), 1)
+                for y_ in yat[:3] for f_ in fin[:3] for n in net):
+            a = aday[0]
+            ekle('CFO', sut, a[2][j] * carp, 'PDF_ADAY', a[1], 'tek CFO adayı; tablo kendi içinde tam toplamıyor (A+B+C ≈ net, fark < %1)', a[0])
         elif not gecerli and len({a[2][j] for a in aday}) == 1 and not (yat and fin and net):
             # özdeşlik kurulamıyor (B/C/net satırı okunamadı) ve tek CFO adayı var: düşük güven
             a = aday[0]
