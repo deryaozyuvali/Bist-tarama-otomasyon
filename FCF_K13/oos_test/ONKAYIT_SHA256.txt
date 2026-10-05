@@ -1,0 +1,2 @@
+36c853d60d2ebc07a72e501e945ae56f4caab449cc4a12a9b9f7d348fff1b571  FCF_K13/oos_test/ONKAYIT_K13_orneklem.txt
+477ed7d647ea2b0101a528664355acf4e9ffa2f0cd79bde3e1d50dfffcdcbea1  FCF_K13/oos_test/ONKAYIT_K13_tahminler.json

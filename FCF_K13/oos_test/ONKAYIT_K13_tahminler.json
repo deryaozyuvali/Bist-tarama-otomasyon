@@ -1,0 +1,1358 @@
+[
+ {
+  "tabaka": "A_seri_tek",
+  "rol": "ASIL",
+  "kod": "MARBL",
+  "donem": "2025/12",
+  "v7_statu": "KESİN",
+  "v7_fcf": -48.554,
+  "v7_cfo": 105.281,
+  "esik": 2.428,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 32.1 ≥ eşik 2.4 · K13 net davranış: kalem bu şirkette brüt çıkış gibi davranmıyor; dipnot şart",
+  "okunacak_raporlar": {
+   "cari": "2512",
+   "fy_onceki": null,
+   "onceki_ayni_donem_ozgun": null,
+   "karsilastirmali": "2512 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2512": -151.916
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2512": -1.919
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2512",
+    "zayif": true,
+    "s1_cari_pozitif": false,
+    "net_maks": 5.621,
+    "v7_kullanilan": 1.919,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 32.097,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "A_seri_tek",
+  "rol": "ASIL",
+  "kod": "EPLAS",
+  "donem": "2025/03",
+  "v7_statu": "TÜRETİLMİŞ",
+  "v7_fcf": -192.508,
+  "v7_cfo": -131.754,
+  "esik": 9.625,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 20.5 ≥ eşik 9.6",
+  "okunacak_raporlar": {
+   "cari": "2503",
+   "fy_onceki": "2412",
+   "onceki_ayni_donem_ozgun": "2403",
+   "karsilastirmali": "2503 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2503": -3.549,
+     "2412": -66.338,
+     "2403": -145.54
+    },
+    "k13_supheli_kesin": "2412",
+    "k13_supheli_olasi": "",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 0.0,
+    "etki_alt_sinir": 20.542,
+    "karar_olcusu": 20.542,
+    "alarm": true
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2503": null,
+     "2412": -60.754,
+     "2403": null
+    }
+   }
+  ]
+ },
+ {
+  "tabaka": "A_seri_tek",
+  "rol": "ASIL",
+  "kod": "OZRDN",
+  "donem": "2025/06",
+  "v7_statu": "KESİN",
+  "v7_fcf": 45.062,
+  "v7_cfo": 67.08,
+  "esik": 2.253,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 5.7 ≥ eşik 2.3",
+  "okunacak_raporlar": {
+   "cari": "2506",
+   "fy_onceki": "2412",
+   "onceki_ayni_donem_ozgun": "2406",
+   "karsilastirmali": "2506 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2506": -0.655,
+     "2412": -35.037,
+     "2406": -13.674
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2506": -0.485,
+     "2412": -2.272,
+     "2406": -10.554
+    },
+    "k13_supheli_kesin": "2412",
+    "k13_supheli_olasi": "2506",
+    "zayif": true,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 0.0,
+    "etki_alt_sinir": 5.708,
+    "karar_olcusu": 5.708,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "A_seri_tek",
+  "rol": "ASIL",
+  "kod": "IZFAS",
+  "donem": "2026/06",
+  "v7_statu": "KESİN",
+  "v7_fcf": -64.477,
+  "v7_cfo": -64.477,
+  "esik": 3.224,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 34.3 ≥ eşik 3.2",
+  "okunacak_raporlar": {
+   "cari": "2606",
+   "fy_onceki": "2512",
+   "onceki_ayni_donem_ozgun": "2506",
+   "karsilastirmali": "2606 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2606": -18.091,
+     "2512": -13.001,
+     "2506": -47.28
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2512,2506",
+    "zayif": true,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 0.0,
+    "etki_alt_sinir": 18.091,
+    "karar_olcusu": 34.279,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "A_seri_tek",
+  "rol": "ASIL",
+  "kod": "ASUZU",
+  "donem": "2026/03",
+  "v7_statu": "KESİN",
+  "v7_fcf": -210.719,
+  "v7_cfo": 1480.526,
+  "esik": 10.536,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 103.8 ≥ eşik 10.5 · K13 net davranış: kalem bu şirkette brüt çıkış gibi davranmıyor; dipnot şart",
+  "okunacak_raporlar": {
+   "cari": "2603",
+   "fy_onceki": "2512",
+   "onceki_ayni_donem_ozgun": "2503",
+   "karsilastirmali": "2603 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2603": -396.609,
+     "2512": -1623.754,
+     "2503": -353.069
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2603": -41.839,
+     "2512": -175.537,
+     "2503": -193.425
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2512,2503",
+    "zayif": true,
+    "s1_cari_pozitif": false,
+    "net_maks": 16.624,
+    "v7_kullanilan": 23.951,
+    "etki_alt_sinir": 97.071,
+    "karar_olcusu": 103.797,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "A_seri_tek",
+  "rol": "YEDEK",
+  "kod": "HOROZ",
+  "donem": "2025/03",
+  "v7_statu": "TÜRETİLMİŞ",
+  "v7_fcf": 758.861,
+  "v7_cfo": 2140.914,
+  "esik": 37.943,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 310.0 ≥ eşik 37.9",
+  "okunacak_raporlar": {
+   "cari": "2503",
+   "fy_onceki": "2412",
+   "onceki_ayni_donem_ozgun": "2403",
+   "karsilastirmali": "2503 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2503": -116.747,
+     "2412": -616.953,
+     "2403": null
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2503",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 402.922,
+    "etki_alt_sinir": 309.963,
+    "karar_olcusu": 309.963,
+    "alarm": true
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2503": -305.975,
+     "2412": -918.012,
+     "2403": -244.856
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2412",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 979.131,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": false
+   }
+  ]
+ },
+ {
+  "tabaka": "A_seri_tek",
+  "rol": "YEDEK",
+  "kod": "AVTUR",
+  "donem": "2026/06",
+  "v7_statu": "KESİN",
+  "v7_fcf": -51.779,
+  "v7_cfo": -51.779,
+  "esik": 2.589,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 6.8 ≥ eşik 2.6 · K13 net davranış: kalem bu şirkette brüt çıkış gibi davranmıyor; dipnot şart",
+  "okunacak_raporlar": {
+   "cari": "2606",
+   "fy_onceki": "2512",
+   "onceki_ayni_donem_ozgun": "2506",
+   "karsilastirmali": "2606 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2606": 8.743,
+     "2512": -0.727,
+     "2506": -0.135
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2606",
+    "zayif": true,
+    "s1_cari_pozitif": true,
+    "net_maks": 8.743,
+    "v7_kullanilan": 0.0,
+    "etki_alt_sinir": 0.592,
+    "karar_olcusu": 6.849,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "A_seri_tek",
+  "rol": "YEDEK",
+  "kod": "GEREL",
+  "donem": "2025/03",
+  "v7_statu": "KESİN",
+  "v7_fcf": 128.483,
+  "v7_cfo": 1443.729,
+  "esik": 6.424,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 9.0 ≥ eşik 6.4 · K13 net davranış: kalem bu şirkette brüt çıkış gibi davranmıyor; dipnot şart",
+  "okunacak_raporlar": {
+   "cari": "2503",
+   "fy_onceki": "2412",
+   "onceki_ayni_donem_ozgun": "2403",
+   "karsilastirmali": "2503 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2503": -20.058,
+     "2412": -1398.795,
+     "2403": -103.607
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2403",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 1315.246,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": false
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2503": -3.202,
+     "2412": 7.814,
+     "2403": -0.73
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2503,2412,2403",
+    "zayif": true,
+    "s1_cari_pozitif": false,
+    "net_maks": 42.974,
+    "v7_kullanilan": 0.0,
+    "etki_alt_sinir": 0.493,
+    "karar_olcusu": 9.037,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "B_zayif_bagimli",
+  "rol": "ASIL",
+  "kod": "TTRAK",
+  "donem": "2025/06",
+  "v7_statu": "KESİN",
+  "v7_fcf": -1373.735,
+  "v7_cfo": 3463.091,
+  "esik": 68.687,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 79.0 ≥ eşik 68.7",
+  "okunacak_raporlar": {
+   "cari": "2506",
+   "fy_onceki": "2412",
+   "onceki_ayni_donem_ozgun": "2406",
+   "karsilastirmali": "2506 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2506": -2004.315,
+     "2412": -5900.317,
+     "2406": -3067.806
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2506": -38.268,
+     "2412": -80.954,
+     "2406": -159.918
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2412,2406",
+    "zayif": true,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 0.0,
+    "etki_alt_sinir": 38.268,
+    "karar_olcusu": 78.964,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "B_zayif_bagimli",
+  "rol": "ASIL",
+  "kod": "OYLUM",
+  "donem": "2025/03",
+  "v7_statu": "KESİN",
+  "v7_fcf": -96.784,
+  "v7_cfo": -49.045,
+  "esik": 4.839,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 5.5 ≥ eşik 4.8",
+  "okunacak_raporlar": {
+   "cari": "2503",
+   "fy_onceki": "2412",
+   "onceki_ayni_donem_ozgun": "2403",
+   "karsilastirmali": "2503 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2503": -2.14,
+     "2412": -64.389,
+     "2403": -18.79
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2503,2412,2403",
+    "zayif": true,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 47.739,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 5.469,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "B_zayif_bagimli",
+  "rol": "ASIL",
+  "kod": "TCKRC",
+  "donem": "2026/06",
+  "v7_statu": "KESİN",
+  "v7_fcf": -171.604,
+  "v7_cfo": 989.736,
+  "esik": 8.58,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 31.9 ≥ eşik 8.6",
+  "okunacak_raporlar": {
+   "cari": "2606",
+   "fy_onceki": "2512",
+   "onceki_ayni_donem_ozgun": "2506",
+   "karsilastirmali": "2606 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2606": -293.42,
+     "2512": -1514.137,
+     "2506": -646.855
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2606": 0.0,
+     "2512": -0.638,
+     "2506": 0.0
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2512",
+    "zayif": true,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 0.638,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 31.896,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "B_zayif_bagimli",
+  "rol": "YEDEK",
+  "kod": "BIENY",
+  "donem": "2025/12",
+  "v7_statu": "KESİN",
+  "v7_fcf": -1412.936,
+  "v7_cfo": 2566.984,
+  "esik": 70.647,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 73.2 ≥ eşik 70.6",
+  "okunacak_raporlar": {
+   "cari": "2512",
+   "fy_onceki": null,
+   "onceki_ayni_donem_ozgun": null,
+   "karsilastirmali": "2512 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2512": -3954.016
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2512": -25.904
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2512",
+    "zayif": true,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 25.904,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 73.236,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "B_zayif_bagimli",
+  "rol": "YEDEK",
+  "kod": "OTTO",
+  "donem": "2025/12",
+  "v7_statu": "KESİN",
+  "v7_fcf": -23.015,
+  "v7_cfo": -1.822,
+  "esik": 1.151,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 3.2 ≥ eşik 1.2",
+  "okunacak_raporlar": {
+   "cari": "2512",
+   "fy_onceki": null,
+   "onceki_ayni_donem_ozgun": null,
+   "karsilastirmali": "2512 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2512": -21.193
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2512",
+    "zayif": true,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 21.193,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 3.183,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "B_zayif_bagimli",
+  "rol": "YEDEK",
+  "kod": "KRPLS",
+  "donem": "2025/12",
+  "v7_statu": "KESİN",
+  "v7_fcf": 206.654,
+  "v7_cfo": 296.795,
+  "esik": 10.333,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 seri tutarlılığı: köprü noktası bozuk, karar ölçüsü 54.5 ≥ eşik 10.3",
+  "okunacak_raporlar": {
+   "cari": "2512",
+   "fy_onceki": null,
+   "onceki_ayni_donem_ozgun": null,
+   "karsilastirmali": "2512 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2512": -32.932
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2512": -57.209
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2512",
+    "zayif": true,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 57.209,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 54.499,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "C_net_bagimli",
+  "rol": "ASIL",
+  "kod": "PNSUT",
+  "donem": "2026/06",
+  "v7_statu": "KESİN",
+  "v7_fcf": 88.895,
+  "v7_cfo": 674.668,
+  "esik": 4.445,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 net davranış: kalem bu şirkette brüt çıkış gibi davranmıyor; dipnot şart",
+  "okunacak_raporlar": {
+   "cari": "2606",
+   "fy_onceki": "2512",
+   "onceki_ayni_donem_ozgun": "2506",
+   "karsilastirmali": "2606 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2606": -203.494,
+     "2512": -623.867,
+     "2506": -258.337
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2606": -5.204,
+     "2512": -66.371,
+     "2506": -54.826
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2506",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 23.836,
+    "v7_kullanilan": 16.749,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "C_net_bagimli",
+  "rol": "ASIL",
+  "kod": "CATES",
+  "donem": "2025/06",
+  "v7_statu": "KESİN",
+  "v7_fcf": -530.035,
+  "v7_cfo": -450.623,
+  "esik": 26.502,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 net davranış: kalem bu şirkette brüt çıkış gibi davranmıyor; dipnot şart",
+  "okunacak_raporlar": {
+   "cari": "2506",
+   "fy_onceki": "2412",
+   "onceki_ayni_donem_ozgun": "2406",
+   "karsilastirmali": "2506 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2506": -24.641,
+     "2412": -99.438,
+     "2406": -72.836
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 244.491,
+    "v7_kullanilan": 51.243,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": true
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2506": -16.424,
+     "2412": -14.165,
+     "2406": -2.42
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2506,2406",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 28.169,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": false
+   }
+  ]
+ },
+ {
+  "tabaka": "C_net_bagimli",
+  "rol": "ASIL",
+  "kod": "DENGE",
+  "donem": "2026/06",
+  "v7_statu": "TÜRETİLMİŞ",
+  "v7_fcf": -439.007,
+  "v7_cfo": -418.407,
+  "esik": 21.95,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 net davranış: kalem bu şirkette brüt çıkış gibi davranmıyor; dipnot şart",
+  "okunacak_raporlar": {
+   "cari": "2606",
+   "fy_onceki": "2512",
+   "onceki_ayni_donem_ozgun": "2506",
+   "karsilastirmali": "2606 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2606": -0.49,
+     "2512": -19.133,
+     "2506": -0.296
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 53.756,
+    "v7_kullanilan": 19.327,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "C_net_bagimli",
+  "rol": "YEDEK",
+  "kod": "EGSER",
+  "donem": "2025/12",
+  "v7_statu": "KESİN",
+  "v7_fcf": -661.973,
+  "v7_cfo": -358.954,
+  "esik": 33.099,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 net davranış: kalem bu şirkette brüt çıkış gibi davranmıyor; dipnot şart",
+  "okunacak_raporlar": {
+   "cari": "2512",
+   "fy_onceki": null,
+   "onceki_ayni_donem_ozgun": null,
+   "karsilastirmali": "2512 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2512": -295.108
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2512": -7.911
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 94.234,
+    "v7_kullanilan": 7.911,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "C_net_bagimli",
+  "rol": "YEDEK",
+  "kod": "SILVR",
+  "donem": "2025/12",
+  "v7_statu": "KESİN",
+  "v7_fcf": 96.67,
+  "v7_cfo": 182.403,
+  "esik": 4.834,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 net davranış: kalem bu şirkette brüt çıkış gibi davranmıyor; dipnot şart",
+  "okunacak_raporlar": {
+   "cari": "2512",
+   "fy_onceki": null,
+   "onceki_ayni_donem_ozgun": null,
+   "karsilastirmali": "2512 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2512": -85.103
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2512": -0.63
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 21.207,
+    "v7_kullanilan": 0.63,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "C_net_bagimli",
+  "rol": "YEDEK",
+  "kod": "BYDNR",
+  "donem": "2025/12",
+  "v7_statu": "TÜRETİLMİŞ",
+  "v7_fcf": -365.728,
+  "v7_cfo": 1040.285,
+  "esik": 18.286,
+  "K13_TAHMIN": "KOŞULLU",
+  "k13_gerekce": "K13 net davranış: kalem bu şirkette brüt çıkış gibi davranmıyor; dipnot şart",
+  "okunacak_raporlar": {
+   "cari": "2512",
+   "fy_onceki": null,
+   "onceki_ayni_donem_ozgun": null,
+   "karsilastirmali": "2512 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2512": -1406.013
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2512": 86.308
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "",
+    "zayif": false,
+    "s1_cari_pozitif": true,
+    "net_maks": 311.833,
+    "v7_kullanilan": 0.0,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": true
+   }
+  ]
+ },
+ {
+  "tabaka": "D_tie_bagimli",
+  "rol": "ASIL",
+  "kod": "BESTE",
+  "donem": "2025/12",
+  "v7_statu": "TÜRETİLMİŞ",
+  "v7_fcf": 233.669,
+  "v7_cfo": 286.12,
+  "esik": 11.683,
+  "K13_TAHMIN": "TÜRETİLMİŞ",
+  "k13_gerekce": "Anomali var, eşik altı — statü korunur, not düşülür",
+  "okunacak_raporlar": {
+   "cari": "2512",
+   "fy_onceki": null,
+   "onceki_ayni_donem_ozgun": null,
+   "karsilastirmali": "2512 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2512": -49.204
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2512": -3.247
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 3.649,
+    "v7_kullanilan": 3.247,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": false
+   }
+  ]
+ },
+ {
+  "tabaka": "E_radar_temizlenen",
+  "rol": "ASIL",
+  "kod": "FORTE",
+  "donem": "2026/03",
+  "v7_statu": "TÜRETİLMİŞ",
+  "v7_fcf": 3174.184,
+  "v7_cfo": 3566.779,
+  "esik": 158.709,
+  "K13_TAHMIN": "TÜRETİLMİŞ",
+  "k13_gerekce": "Anomali var, eşik altı — statü korunur, not düşülür",
+  "okunacak_raporlar": {
+   "cari": "2603",
+   "fy_onceki": "2512",
+   "onceki_ayni_donem_ozgun": "2503",
+   "karsilastirmali": "2603 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2603": -131.448,
+     "2512": -293.214,
+     "2503": -77.567
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2512",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 347.095,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": false
+   }
+  ]
+ },
+ {
+  "tabaka": "E_radar_temizlenen",
+  "rol": "ASIL",
+  "kod": "GUNDG",
+  "donem": "2026/06",
+  "v7_statu": "KESİN",
+  "v7_fcf": -536.473,
+  "v7_cfo": -509.289,
+  "esik": 26.824,
+  "K13_TAHMIN": "KESİN",
+  "k13_gerekce": "Anomali var, eşik altı — statü korunur, not düşülür",
+  "okunacak_raporlar": {
+   "cari": "2606",
+   "fy_onceki": "2512",
+   "onceki_ayni_donem_ozgun": "2506",
+   "karsilastirmali": "2606 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2606": -25.174,
+     "2512": -73.943,
+     "2506": -71.933
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2606,2512",
+    "zayif": true,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 27.184,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 2.107,
+    "alarm": false
+   }
+  ]
+ },
+ {
+  "tabaka": "E_radar_temizlenen",
+  "rol": "ASIL",
+  "kod": "ENSRI",
+  "donem": "2025/12",
+  "v7_statu": "TÜRETİLMİŞ",
+  "v7_fcf": -66.148,
+  "v7_cfo": -51.564,
+  "esik": 3.307,
+  "K13_TAHMIN": "TÜRETİLMİŞ",
+  "k13_gerekce": "",
+  "okunacak_raporlar": {
+   "cari": "2512",
+   "fy_onceki": null,
+   "onceki_ayni_donem_ozgun": null,
+   "karsilastirmali": "2512 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2512": -8.829
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2512": -5.755
+    }
+   }
+  ]
+ },
+ {
+  "tabaka": "E_radar_temizlenen",
+  "rol": "ASIL",
+  "kod": "SANEL",
+  "donem": "2025/06",
+  "v7_statu": "TÜRETİLMİŞ",
+  "v7_fcf": 130.039,
+  "v7_cfo": 172.398,
+  "esik": 6.502,
+  "K13_TAHMIN": "TÜRETİLMİŞ",
+  "k13_gerekce": "",
+  "okunacak_raporlar": {
+   "cari": "2506",
+   "fy_onceki": "2412",
+   "onceki_ayni_donem_ozgun": "2406",
+   "karsilastirmali": "2506 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2506": -42.234,
+     "2412": -0.302,
+     "2406": -0.177
+    }
+   }
+  ]
+ },
+ {
+  "tabaka": "E_radar_temizlenen",
+  "rol": "ASIL",
+  "kod": "MEGMT",
+  "donem": "2025/09",
+  "v7_statu": "KESİN",
+  "v7_fcf": -979.182,
+  "v7_cfo": -722.732,
+  "esik": 48.959,
+  "K13_TAHMIN": "KESİN",
+  "k13_gerekce": "",
+  "okunacak_raporlar": {
+   "cari": "2509",
+   "fy_onceki": "2412",
+   "onceki_ayni_donem_ozgun": "2409",
+   "karsilastirmali": "2509 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2509": -180.009,
+     "2412": -268.364,
+     "2409": -191.923
+    }
+   }
+  ]
+ },
+ {
+  "tabaka": "E_radar_temizlenen",
+  "rol": "ASIL",
+  "kod": "BERA",
+  "donem": "2026/06",
+  "v7_statu": "KESİN",
+  "v7_fcf": -396.191,
+  "v7_cfo": -133.791,
+  "esik": 19.81,
+  "K13_TAHMIN": "KESİN",
+  "k13_gerekce": "",
+  "okunacak_raporlar": {
+   "cari": "2606",
+   "fy_onceki": "2512",
+   "onceki_ayni_donem_ozgun": "2506",
+   "karsilastirmali": "2606 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2606": 0.0,
+     "2512": -545.738,
+     "2506": -283.338
+    }
+   }
+  ]
+ },
+ {
+  "tabaka": "E_radar_temizlenen",
+  "rol": "YEDEK",
+  "kod": "QUAGR",
+  "donem": "2025/03",
+  "v7_statu": "KESİN",
+  "v7_fcf": 2953.998,
+  "v7_cfo": 3921.006,
+  "esik": 147.7,
+  "K13_TAHMIN": "KESİN",
+  "k13_gerekce": "Anomali var, eşik altı — statü korunur, not düşülür",
+  "okunacak_raporlar": {
+   "cari": "2503",
+   "fy_onceki": "2412",
+   "onceki_ayni_donem_ozgun": "2403",
+   "karsilastirmali": "2503 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2503": -42.682,
+     "2412": -765.24,
+     "2403": -202.569
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2412",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 605.353,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": false
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2503": -152.089,
+     "2412": -293.678,
+     "2403": -84.112
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2412",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 361.655,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": false
+   }
+  ]
+ },
+ {
+  "tabaka": "E_radar_temizlenen",
+  "rol": "YEDEK",
+  "kod": "BLUME",
+  "donem": "2025/06",
+  "v7_statu": "TÜRETİLMİŞ",
+  "v7_fcf": 114.687,
+  "v7_cfo": 136.359,
+  "esik": 5.734,
+  "K13_TAHMIN": "TÜRETİLMİŞ",
+  "k13_gerekce": "Anomali var, eşik altı — statü korunur, not düşülür",
+  "okunacak_raporlar": {
+   "cari": "2506",
+   "fy_onceki": "2412",
+   "onceki_ayni_donem_ozgun": "2406",
+   "karsilastirmali": "2506 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2506": -2.836,
+     "2412": -16.644,
+     "2406": 0.758
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 1.257,
+    "v7_kullanilan": 20.238,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": false
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2506": -1.076,
+     "2412": -2.07,
+     "2406": -1.712
+    },
+    "k13_supheli_kesin": "",
+    "k13_supheli_olasi": "2412",
+    "zayif": false,
+    "s1_cari_pozitif": false,
+    "net_maks": 0.0,
+    "v7_kullanilan": 1.434,
+    "etki_alt_sinir": 0.0,
+    "karar_olcusu": 0.0,
+    "alarm": false
+   }
+  ]
+ },
+ {
+  "tabaka": "F_temiz_kesin",
+  "rol": "ASIL",
+  "kod": "ARMGD",
+  "donem": "2025/09",
+  "v7_statu": "KESİN",
+  "v7_fcf": -3158.156,
+  "v7_cfo": -1835.809,
+  "esik": 157.908,
+  "K13_TAHMIN": "KESİN",
+  "k13_gerekce": "",
+  "okunacak_raporlar": {
+   "cari": "2509",
+   "fy_onceki": "2412",
+   "onceki_ayni_donem_ozgun": "2409",
+   "karsilastirmali": "2509 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2509": -1134.699,
+     "2412": -762.662,
+     "2409": -575.014
+    }
+   }
+  ]
+ },
+ {
+  "tabaka": "F_temiz_kesin",
+  "rol": "ASIL",
+  "kod": "YATAS",
+  "donem": "2026/03",
+  "v7_statu": "KESİN",
+  "v7_fcf": -211.443,
+  "v7_cfo": 3333.089,
+  "esik": 10.572,
+  "K13_TAHMIN": "KESİN",
+  "k13_gerekce": "",
+  "okunacak_raporlar": {
+   "cari": "2603",
+   "fy_onceki": "2512",
+   "onceki_ayni_donem_ozgun": "2503",
+   "karsilastirmali": "2603 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2603": -232.624,
+     "2512": -2857.229,
+     "2503": -575.786
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2603": -180.856,
+     "2512": -947.365,
+     "2503": -97.756
+    }
+   }
+  ]
+ },
+ {
+  "tabaka": "F_temiz_kesin",
+  "rol": "YEDEK",
+  "kod": "BEYAZ",
+  "donem": "2026/06",
+  "v7_statu": "KESİN",
+  "v7_fcf": -50.849,
+  "v7_cfo": 586.802,
+  "esik": 2.542,
+  "K13_TAHMIN": "KESİN",
+  "k13_gerekce": "",
+  "okunacak_raporlar": {
+   "cari": "2606",
+   "fy_onceki": "2512",
+   "onceki_ayni_donem_ozgun": "2506",
+   "karsilastirmali": "2606 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2606": -396.606,
+     "2512": -463.494,
+     "2506": -222.449
+    }
+   }
+  ]
+ },
+ {
+  "tabaka": "F_temiz_kesin",
+  "rol": "YEDEK",
+  "kod": "BASGZ",
+  "donem": "2025/09",
+  "v7_statu": "KESİN",
+  "v7_fcf": 786.858,
+  "v7_cfo": 9041.233,
+  "esik": 39.343,
+  "K13_TAHMIN": "KESİN",
+  "k13_gerekce": "",
+  "okunacak_raporlar": {
+   "cari": "2509",
+   "fy_onceki": "2412",
+   "onceki_ayni_donem_ozgun": "2409",
+   "karsilastirmali": "2509 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2509": -5180.166,
+     "2412": -8364.674,
+     "2409": -5659.621
+    }
+   },
+   {
+    "kalem": "Kira anapara",
+    "evo_kopru": {
+     "2509": -268.05,
+     "2412": -435.293,
+     "2409": -334.187
+    }
+   }
+  ]
+ },
+ {
+  "tabaka": "F_temiz_kesin",
+  "rol": "YEDEK",
+  "kod": "ERBOS",
+  "donem": "2026/03",
+  "v7_statu": "KESİN",
+  "v7_fcf": 542.191,
+  "v7_cfo": 617.146,
+  "esik": 27.11,
+  "K13_TAHMIN": "KESİN",
+  "k13_gerekce": "",
+  "okunacak_raporlar": {
+   "cari": "2603",
+   "fy_onceki": "2512",
+   "onceki_ayni_donem_ozgun": "2503",
+   "karsilastirmali": "2603 raporunun önceki dönem sütunu"
+  },
+  "kalemler": [
+   {
+    "kalem": "MDV+MODV alımı",
+    "evo_kopru": {
+     "2603": -8.882,
+     "2512": -106.65,
+     "2503": -40.577
+    }
+   }
+  ]
+ }
+]

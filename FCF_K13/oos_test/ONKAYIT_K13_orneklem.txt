@@ -1,0 +1,11 @@
+ÖN KAYIT — K13 bağımsız örneklem testi (belge okunmadan önce yazıldı)
+Tarih: 2026-10-05. Tohum: 20261005. Örnekleme birimi: FCF satırı (şirket-dönem), şirket başına en çok 1 satır.
+Dışlanan şirketler: DiffSet ORNEKLEM/KACIRILAN/BELGE + K13 tasarımında ya da bu oturumda serisine bakılan tüm şirketler (91).
+Tabakalar (V7 statüsü KESİN/TÜRETİLMİŞ): A seri-tek atama alarmı (5) · B yalnız ZAYIF ölçüsüyle alarm (3) · C yalnız net bayrağıyla alarm (3)
+ · D eşitlik bozucuya bağlı karar (uygun 1 satır; boş yer E'ye) · E radarda olup K13'ün temize çıkardığı (6) · F hiçbir anomalisi olmayan KESİN (2).
+Yedek kuralı: Asıl satırın üç köprü raporundan biri Evo belge havuzunda yoksa satır 'BELGE YOK' kaydedilir ve aynı tabakanın sıradaki yedeği alınır.
+Gerçek durum ölçüsü (etiket değil, tutar): Her kalem için belgelerden TTM kurulur = cari rapor YTD + önceki FY raporu + cari raporun karşılaştırmalı sütunu (önceki aynı dönem);
+ tutarlar aynı rapor sütunundaki CFO oranıyla Evo birimine çevrilir (yalnız ölçüm amaçlı). Ayrıca önceki aynı dönemin ÖZGÜN raporu okunur.
+ Sonuç sınıfları: DOĞRU (belgeler tutarlı, V7 ile fark ölçülür) · YANLIŞ (belgeler tutarlı, V7'den farklı; fark mn TL) · ÇELİŞKİLİ (şirketin kendi raporları
+ birbirini tutmuyor; aralık mn TL). Eşik sonradan bu tutarlar üzerinde değerlendirilir.
+K13 başarı ölçütü: KOŞULLU tahmini, belge farkı/aralığı ≥ eşik ise doğru; KESİN tahmini, fark < eşik ise doğru.
