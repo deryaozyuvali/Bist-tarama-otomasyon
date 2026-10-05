@@ -1,0 +1,17 @@
+DEVAM NOTU — sonraki oturum için
+
+Durum (2026-10-05):
+- K13 rev2 tamam, bağımsız belge testi tamam (oos_test/). V7 rakamlarına dokunulmadı.
+- Kullanıcı kararı: Dolu ve K13'e göre tutarlı satırlar (~1.900) Evo'dan alınır, belge GEREKMEZ.
+  Belgeden okunacak: NULL 734 satır (önce) + KOŞULLU 405 satır (V7'nin 172'si + K13 rev2'nin 233'ü).
+- Yöntem: rapor PDF'lerini storage.fintables.com'dan indir → pdftotext -layout →
+  nakit akış tablosundan CFO, MDV, MODV, YAGM alımı, kira anaparası (cari + karşılaştırmalı sütun) →
+  TTM = YTD_cari + FY_önceki − YTD_önceki, belge rakamlarıyla. Evo yalnız kıyas.
+- PDF URL'leri: EVO dokumanlarda_ara sonucu 'dokuman_orijinal_url' alanı
+  (filter: dokuman_tipi = "finansal_rapor" AND iliskili_semboller = "X" AND yil = Y AND ay = M).
+- Doğrulama: programın okuduğu rakamları oos_test/OOS_SONUCLAR.json ve YEDEK_SONUCLAR.json'daki
+  elle okunmuş 24 satırla kıyasla.
+- Ağ: önceki oturumda storage.fintables.com proxy'de 403 veriyordu; kullanıcı ağ erişimini Full yaptı,
+  yeni oturumda geçerli olmalı. İlk iş: curl ile bir PDF indirmeyi dene.
+- Girdi dosyaları kullanıcı yüklemesiydi (V7: FCF_TTM_2025-03_2026-06_v7_nihai.xlsx, DiffSet:
+  K6_K11_Kademe2_DiffSet.xlsx); yeni oturumda yeniden yüklenmeleri gerekebilir.

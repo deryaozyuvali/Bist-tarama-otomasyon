@@ -1,0 +1,412 @@
+<title>FCF K13 Paketi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Düzen: tek sütun okuma akışı, ölçüm tabloları kendi kaydırma kutusunda; sayfa bir denetim raporu gibi */
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --fg:#17201d; --muted:#5b6a65; --line:#d6dedb;
+  --accent:#0f6e5c; --accent-soft:#e2f0ec; --warn:#9a5b00; --warn-soft:#fbefd9; --ok:#2f6b2f; --bad:#a3322a;
+  --f-display:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111816; --surface:#18211e; --fg:#e4ece9; --muted:#9aaba5; --line:#2c3a35;
+  --accent:#5cc4ab; --accent-soft:#1c3330; --warn:#f0b35a; --warn-soft:#3a2c16; --ok:#8fcf8f; --bad:#f08a80; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111816; --surface:#18211e; --fg:#e4ece9; --muted:#9aaba5; --line:#2c3a35;
+  --accent:#5cc4ab; --accent-soft:#1c3330; --warn:#f0b35a; --warn-soft:#3a2c16; --ok:#8fcf8f; --bad:#f08a80; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--f-body);padding:0 16px}
+.wrap{max-width:860px;margin:0 auto;padding-block:28px 64px;display:flex;flex-direction:column;gap:36px}
+h1,h2{font-family:var(--f-display);font-weight:600;text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(28px,6vw,40px)}
+h2{font-size:22px}
+p{margin:0;max-width:65ch}
+.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lede{color:var(--muted);font-size:16px}
+section{display:flex;flex-direction:column;gap:14px}
+.files{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.file{display:flex;flex-direction:column;gap:4px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:6px;color:var(--fg);text-decoration:none;min-width:0}
+.file:hover,.file:focus-visible{border-color:var(--accent);outline:none}
+.file b{font-weight:600;color:var(--accent);word-break:break-word}
+.file span{color:var(--muted);font-size:13px}
+.note{font-size:13px;color:var(--muted)}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font:600 12px var(--f-body);color:var(--muted);text-transform:uppercase;letter-spacing:.04em;background:var(--surface);position:sticky;top:0}
+td.n,th.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+tr.us td{background:var(--accent-soft);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.stat{padding:12px 14px;border-left:3px solid var(--accent);background:var(--surface)}
+.stat strong{display:block;font:600 26px var(--f-display);font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted)}
+.cases{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
+.cases li{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.cases li>*{min-width:0}
+.cases code{font:500 13px var(--f-mono);color:var(--accent)}
+.tag{display:inline-block;font:500 11px var(--f-mono);padding:2px 6px;border-radius:3px;margin-left:6px;vertical-align:1px}
+.tag.k{background:var(--warn-soft);color:var(--warn)}
+.tag.ok{background:var(--accent-soft);color:var(--ok)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+input[type=search]{font:15px var(--f-body);padding:8px 10px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);width:min(260px,100%)}
+input:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button{font:500 14px var(--f-body);padding:8px 12px;border:1px solid var(--accent);background:var(--accent);color:var(--surface);border-radius:4px;cursor:pointer}
+button.ghost{background:transparent;color:var(--accent)}
+.fark{max-height:70vh}
+.st{font:500 12px var(--f-mono);color:var(--warn)}
+pre{margin:0;padding:16px;font:13px/1.5 var(--f-mono);white-space:pre-wrap;word-break:break-word;background:var(--surface);border:1px solid var(--line);border-radius:6px;max-height:70vh;overflow:auto}
+@media (max-width:520px){.cases li{grid-template-columns:1fr;gap:4px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header style="display:flex;flex-direction:column;gap:10px">
+  <div class="eyebrow">FCF v2.2 adayı · V7 nihai üzerinde paralel çalıştı</div>
+  <h1>FCF K13 Paketi</h1>
+  <p class="lede">Kontrol 13 (seri tutarlılığı) ve K6 v2. V7'deki hiçbir FCF rakamına dokunmaz; yalnız hangi satırların KESİN sayılamayacağını söyler.</p>
+</header>
+
+<section>
+  <h2>Dosyaları indir</h2>
+  <p class="note">Dosyalar GitHub deponda <code>fcf-k13-paket</code> dalında. Bağlantı GitHub'ı açar; dosya sayfasında indirme düğmesi var.</p>
+  <div class="files">
+    <a class="file" href="https://github.com/deryaozyuvali/Bist-tarama-otomasyon/blob/fcf-k13-paket/FCF_K13/FCF_V8_aday_K13.xlsx"><b>FCF_V8_aday_K13.xlsx</b><span>Karar, fark seti, kalem ayrıntısı, doğrulama</span></a>
+    <a class="file" href="https://github.com/deryaozyuvali/Bist-tarama-otomasyon/blob/fcf-k13-paket/FCF_K13/GEM_K6v2_K13_onerisi.txt"><b>GEM_K6v2_K13_onerisi.txt</b><span>GEM'e eklenecek kural metni</span></a>
+    <a class="file" href="https://github.com/deryaozyuvali/Bist-tarama-otomasyon/blob/fcf-k13-paket/FCF_K13/kopru_radar.xlsx"><b>kopru_radar.xlsx</b><span>İlk köprü radarı (372 satır)</span></a>
+    <a class="file" href="https://github.com/deryaozyuvali/Bist-tarama-otomasyon/blob/fcf-k13-paket/FCF_K13/karsilastirma.xlsx"><b>karsilastirma.xlsx</b><span>DiffSet 537 / 275 ile eşleşme</span></a>
+    <a class="file" href="https://github.com/deryaozyuvali/Bist-tarama-otomasyon/tree/fcf-k13-paket/FCF_K13"><b>Tüm klasör</b><span>Motor kodu ve yeniden üretim talimatı dahil</span></a>
+  </div>
+</section>
+
+<section>
+  <h2>Neden şaşıyordu</h2>
+  <p>Formül doğru. On iki aylık capex ve kira rakamı üç ayrı rapordan dikiliyor: bu yılın YTD'si, geçen yılın yıl sonu ve geçen yılın aynı dönemi. Şirket sunumu değiştirdiğinde, Evo yanlış satırı aldığında ya da şirketin kendi raporları çeliştiğinde bu dikiş anlamsız bir rakam üretiyor. Makine çelişkiyi bulabilir; hangi raporun doğru olduğunu ancak dipnot söyler.</p>
+  <p>K13 bunu kullanır: brüt bir çıkış kaleminde kümülatif tutar yıl içinde küçülemez. Seriyi tutarlı yapmak için atılması gereken en az nokta bozuk noktadır. Bozuk nokta TTM'in üç köprü noktasından biriyse ve etkisi eşiği aşarsa satır KOŞULLU olur.</p>
+</section>
+
+<section>
+  <h2>Belgeli örneklemde sonuç</h2>
+  <p class="note">DiffSet'in belgeyle etiketlenmiş satırları, V7 statüsü KESİN veya TÜRETİLMİŞ olanlar. Örneklem kuralın tasarımında da kullanıldı.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Politika</th><th class="n">Yakalanan</th><th class="n">Sessiz hata</th><th class="n">Yanlış alarm</th></tr></thead>
+    <tbody>
+      <tr><td>V7 bugün</td><td class="n">0</td><td class="n">35</td><td class="n">0</td></tr>
+      <tr><td>P1 · kaynak pozitif → KOŞULLU</td><td class="n">29</td><td class="n">6</td><td class="n">16</td></tr>
+      <tr><td>P2 · kaynak pozitif → KESİN + not</td><td class="n">11</td><td class="n">24</td><td class="n">0</td></tr>
+      <tr class="us"><td>K13 rev2</td><td class="n">31</td><td class="n">4</td><td class="n">13</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Kalan 4 sessiz hata: KOPOL ×3 (kira başka satıra gömülü, seri yok) ve TOASO 2026/06 (hata |FCF|'in %0,001'i). Yanlış alarmların gerçek ek maliyeti yalnız KARTN: 6 satır, tek dipnot.</p>
+  <div class="stats">
+    <div class="stat"><strong>233</strong><span>FCF satırı KOŞULLU'ya geçer (98 şirket)</span></div>
+    <div class="stat"><strong>%5,6 → %13,3</strong><span>KOŞULLU oranı</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Belgeyle sınanan vakalar</h2>
+  <ul class="cases">
+    <li><div><code>ALCAR 2026/06</code><span class="tag k">KOŞULLU</span></div><p>2025/06 noktası alım yerine yatırım toplamını taşıyor (+1.357,2). En az düzeltilmiş FCF +689,5; belgeyle ≈ +696. V7: −683,0 KESİN.</p></li>
+    <li><div><code>ALCAR 2025/12</code><span class="tag ok">KESİN</span></div><p>Aynı bozuk nokta bu dönemin köprüsüne girmiyor. Belge: V7 doğru.</p></li>
+    <li><div><code>NTHOL 2025/12</code><span class="tag k">KOŞULLU</span></div><p>FY2025 alımı aynı yılın 9 aylık tutarının çok altında. Etki ≥ 4.488,5 mn TL.</p></li>
+    <li><div><code>VESBE 2025/03</code><span class="tag ok">KESİN</span></div><p>Önceki yılın pozitif noktası köprüde doğru çıkarılıyor. Belge: TEMİZ.</p></li>
+    <li><div><code>TBORG 2025/09</code><span class="tag k">KOŞULLU</span></div><p>TTM negatif olduğu için eski K6 susuyordu; FY2024 köprü noktası serinin geri kalanıyla tutarsız.</p></li>
+    <li><div><code>EREGL 2025/03</code><span class="tag k">KOŞULLU</span></div><p>Örneklem dışı. Q1'25 alımı 11,23 mlr TL, H1'25 raporunda yarıyıl 7,69 mlr TL. Çelişki şirketin kendi raporlarında.</p></li>
+    <li><div><code>ADEL 2025/09</code><span class="tag k">KOŞULLU</span></div><p>Örneklem dışı. 9A'24 kira ödemesi şirketin raporunda 6.069 bin TL; aynı yılın yarıyılı 49,4 mn TL.</p></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Bağımsız belge testi</h2>
+  <p>Satırlar belge okunmadan önce seçildi, K13'ün tahminleri donduruldu ve commit edildi. Belgeler ondan sonra okundu. Kural revize edildikten sonra yeni tahminler yeniden donduruldu ve yedek satırlarda ikinci kez sınandı.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Set</th><th class="n">Hata yakalandı</th><th class="n">Hata kaçtı</th><th class="n">Yanlış alarm</th></tr></thead>
+    <tbody>
+      <tr><td>20 satır · eski K13</td><td class="n">7 / 8</td><td class="n">1</td><td class="n">4 / 12</td></tr>
+      <tr class="us"><td>20 satır · K13 rev2</td><td class="n">8 / 8</td><td class="n">0</td><td class="n">3 / 12</td></tr>
+      <tr><td>Yedek, kuralların ayrıştığı 4 satır · eski K13</td><td class="n">2 / 2</td><td class="n">0</td><td class="n">2 / 2</td></tr>
+      <tr class="us"><td>Yedek, kuralların ayrıştığı 4 satır · K13 rev2</td><td class="n">2 / 2</td><td class="n">0</td><td class="n">1 / 2</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="cases">
+    <li><div><code>BERA 2026/06</code><span class="tag k">rev2 yakalar</span></div><p>Şirket alım ve satışı tek net satırda veriyor; Evo yarıyıl alımını 0 saklamış. Dipnotta brüt alım ≈72, eşik 19,8. Eski K13 sıfırı "kayıt yok" saydığı için kaçırıyordu.</p></li>
+    <li><div><code>CATES · EGSER</code><span class="tag ok">rev2 susar</span></div><p>Pencere dışında tek bir pozitif nokta (eşleme hatası) net bayrağını tetikliyordu. Belgeyle ikisi de temiz.</p></li>
+    <li><div><code>BIENY · KRPLS</code><span class="tag k">KOŞULLU kalır</span></div><p>Zayıf atama ölçüsünü daraltma denemesi bu iki gerçek hatayı kaçırdı. Deneme geri alındı; ölçü olduğu gibi kaldı.</p></li>
+    <li><div><code>DENGE · OYLUM · TCKRC · OTTO</code><span class="tag">yanlış alarm</span></div><p>Bozuk nokta köprü dışında ya da alım satırına yatırım toplamı yazılmış. Maliyeti gereksiz bir dipnot okuması.</p></li>
+  </ul>
+  <p class="note">Bağımsız toplam: 10 gerçek hatanın 10'u yakalandı, 14 temiz satırın 4'ünde yanlış alarm. Örneklem küçük; "hiç kaçırmaz" diye okunmamalı. Eşik: %3 ek bir şey yakalamıyor, %10 TTRAK'ı kaçırıyor; %5 kanıtla desteklenen seçenek.</p>
+</section>
+
+<section>
+  <h2>Statüsü değişen 233 satır</h2>
+  <p class="note">Karar ölçüsüne göre büyükten küçüğe. "Seri": köprü noktası bozuk. "Net": kalem bu şirkette brüt çıkış gibi davranmıyor. "En az düzeltilmiş FCF" teşhistir, FCF değildir.</p>
+  <div class="tools">
+    <label for="q" class="note">Şirket kodu</label>
+    <input id="q" type="search" placeholder="ör. ALCAR" autocomplete="off">
+    <span id="cnt" class="note"></span>
+  </div>
+  <div class="scroll fark"><table id="t">
+    <thead><tr><th>Kod</th><th>Dönem</th><th>V7</th><th class="n">V7 FCF</th><th class="n">Karar ölçüsü</th><th class="n">Eşik</th><th class="n">/ |FCF| %</th><th>Neden</th><th>Kalem</th><th class="n">En az düz. FCF</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>GEM'e eklenecek kural metni</h2>
+  <div class="tools"><button id="kopya" type="button">Metni kopyala</button><span id="kmsg" class="note" role="status"></span></div>
+  <pre id="gem">⚙️ GEM FCF v2.2 ADAYI — KONTROL 6 (v2) + KONTROL 13 (YENİ) — SERİ TUTARLILIĞI
+(V7 üzerinde paralel çalıştırıldı; Kademe-2 kilidi: pozitif + negatif + sınır + diff-set + örneklem dışı)
+
+⸻
+
+6. İŞARET DENETİMİ (v2) — mevcut 6. maddenin YERİNE
+
+    Capex, alım ve kira anaparası ekonomik olarak ÇIKIŞTIR. İşaret
+    denetimi TTM düzeyinde YAPILMAZ; kaynak YTD noktaları düzeyinde
+    yapılır ve karar Kontrol 13&#x27;e devredilir.
+
+    ⛔ &quot;Pozitif TTM → satır kullanılmaz → statü KESİN kalır&quot; uygulaması
+       kaldırılmıştır. TTM işareti, kaynak sorununun ne varlığını ne
+       yokluğunu gösterir:
+       • TBORG 2025/09 kira: TTM −90,2 (negatif, eski K6 sessiz) ama
+         köprü noktası FY2024 bozuk.
+       • CANTE, ODAS 2025/06–2026/06 capex: TTM pozitif → 0 → KESİN;
+         belgeyle YANLIŞ (FCF binlerce mn TL sapmalı).
+    ⛔ Mutlak değer, işaret çevirme, 0 ikamesi ile düzeltme YAPILMAZ.
+    TTM pozitif çıkan kalem formülde 0 alınır (çıkış negatif olamaz),
+    ancak statüyü Kontrol 13 belirler.
+
+⸻
+
+13. SERİ TUTARLILIĞI — K11&#x27;İN ALT-KALEM TETİKLEYİCİSİ (YENİ)
+
+    Kapsam: MDV+MODV alımı · YAGM alımı · kira anaparası.
+    Veri: FCF&#x27;in kullandığı Evo YTD noktaları (aynı vintage).
+    Bu kontrol HİÇBİR RAKAMI DEĞİŞTİRMEZ; yalnız statü belirler.
+
+    Temel gözlem: TTM = YTD_cari + (FY_önceki − YTD_önceki).
+    TTM&#x27;e yalnız ÜÇ köprü noktası girer; önceki yıl noktaları yalnız
+    FARK olarak girer. Ara YTD noktaları TTM&#x27;e GİRMEZ.
+
+    ADIM 1 — Seri kısıtı (S2): Brüt çıkış kaleminde yıl içi kümülatif
+    çıkış küçülmez:  YTD_q ≤ YTD_(q−1)   (boş kayıt atlanır)
+      • 0 değeri (rev2-R4): yıl içinde daha önce dolu bir nokta varsa VE
+        önceki FY tutarı o noktadan küçük değilse 0 VERİ sayılır (gerileme
+        olarak görülür); aksi halde atlanır. Eşit açıklamalar arasında
+        0&#x27;ı tutan açıklama elenir, yalnız 0 atılıyorsa atama ZAYIF sayılmaz.
+        Vaka: BERA 2026/06 — şirket alım+satışı tek net satırda veriyor,
+        Evo cari H1&#x27;26 alımını 0 saklamış (Q1&#x27;26 −40,8 sonrası); belge
+        dipnotu brüt alım ≈72 &gt; eşik 19,8. Karşı vaka: TCKRC 2026/06 —
+        önceki FY kira 0,6 iken Q1 −27,6 sonrası 0 → kural tetiklemez
+        (önceki FY &lt; dolu nokta; Q1 noktası zaten yanlış satır eşlemesi).
+        ⚠️ GEÇİCİ: tek bağımsız vakayla desteklenir; holdout&#x27;ta ayırt edici
+        satır çıkmadı.
+
+    ADIM 2 — Nokta ataması: Her şirket-kalem-yıl serisinde S2&#x27;yi
+    sağlayan EN UZUN alt dizi bulunur; dışında kalan noktalar ŞÜPHELİ.
+      • Eşit uzunlukta birden çok açıklama varsa: tutulan noktalardaki
+        pozitif tutar toplamı en küçük olanlar kalır (pozitif YTD brüt
+        çıkışta olağandışıdır — kısıt değil, eşitlik bozucu).
+      • Tek açıklama kalırsa atama KESİN; birden çok kalırsa OLASI.
+      • Noktaların yarısı ya da fazlası atılıyorsa atama ZAYIF: seri
+        hangi noktanın bozuk olduğunu söyleyemez.
+    ADIM 3 — Cari işaret (S1): YTD_cari &gt; 0 ise cari nokta ŞÜPHELİ.
+      ⛔ YTD_önceki veya FY_önceki&#x27;nin işareti tek başına şüphe DEĞİLDİR
+         (yalnız fark olarak girer). Vaka: VESBE 2025/03.
+    ADIM 4 — Net davranış: Kalem şirkette 2024–2026 herhangi bir YTD&#x27;de
+    pozitifse kalem o şirkette brüt çıkış gibi davranmıyordur (net sunum
+    veya başka içerik). Ölçü: en büyük pozitif YTD.
+      ⛔ ADIM 2&#x27;de KESİN atanmış tekil bozuk nokta net davranış sayılmaz
+         (ALCAR 2025/06: tek nokta yanlış eşleme, kalem net değil).
+      ⛔ (rev2-R2) TTM penceresi DIŞINDAKİ bir yılda o yıl TEK pozitif
+         nokta varsa net davranış sayılmaz (yalıtılmış eşleme hatası).
+         Pencere: cari yıl ≤ cari ay; önceki yıl ≥ cari ay.
+         Vakalar: CATES 2025/06 (Q1&#x27;24 +244,5), EGSER 2025/12 (Q1&#x27;24 +94,2)
+         — ikisi de belgeyle TEMİZ.
+         Pencere dışında bir yıl boyunca YAYGIN pozitiflik (≥2 nokta) net
+         davranış SAYILIR — seri düzeyinde sunum/işaret sorunudur
+         (PGSUS, ODAS: örneklem içi HATA vakaları; bu yüzden pencere dışı
+         tamamen yok sayılmaz).
+
+    ADIM 5 — Etki (alt sınır): Şüpheli köprü noktası, tutarlı
+    komşularının izin verdiği aralığa kırpılır; TTM yeniden kurulur.
+    |V7 kullanılan − yeniden kurulan| = etki alt sınırı.
+    ⛔ Bu rakam FCF&#x27;e YAZILMAZ; tahmin değildir. Yalnız &quot;hata en az
+       bu kadardır&quot; der. Raporda &quot;En az düzeltilmiş FCF (TEŞHİS)&quot;
+       sütununda gösterilir, FCF DENMEZ.
+    Karar ölçüsü: atama KESİN/OLASI ise etki alt sınırı; atama ZAYIF
+    ise MAX(alt sınır ; köprünün kapsadığı aralıktaki tutarsızlık —
+    cari yıl başından YTD_cari&#x27;ye, önceki yıl YTD_önceki&#x27;den FY&#x27;ye
+    pozitif örtük çeyrekler toplamı). Atama yapılamıyorsa hata o
+    tutarsızlık kadar olabilir (TBORG 2025/03: alt sınır 77,0;
+    tutarsızlık 316,2).
+
+    ADIM 6 — Karar:
+      Eşik = MAX( 1 mn TL ; %5 × |FCF| )
+      • Köprü noktası şüpheli VE karar ölçüsü ≥ eşik    → KOŞULLU
+      • Net davranış VE en büyük pozitif YTD ≥ eşik      → KOŞULLU
+                                     (şirket bazında tek dipnot kapatır)
+      • Diğer anomaliler                                 → statü korunur,
+                                                           not düşülür
+      • Hiçbir köprü noktası şüpheli değilse ara noktalardaki gerileme
+        FCF&#x27;i ETKİLEMEZ → statü korunur.
+
+    KOŞULLU KAPANIŞI: Şüpheli noktanın (i) özgün raporu ve (ii) bir
+    yıl sonraki raporun karşılaştırmalı sütunu okunur. Hangi değerin
+    doğru olduğu belgeyle belirlenirse belge rakamıyla TTM kurulur →
+    TÜRETİLMİŞ (kaynak yazılır). Şirketin kendi raporları çelişiyorsa
+    (NTHOL, EREGL, ADEL) → KOŞULLU kalır.
+
+    Doğrulama (Kademe-2):
+      Pozitif vaka: ALCAR 2026/06 → 2025/06 noktası (+1.357,2) tek
+        nokta bozuk; etki 1.372,5; en az düzeltilmiş capex 66,6
+        (belge: ≈59,6); en az düzeltilmiş FCF +689,5 (belge ≈+696)
+        → KOŞULLU. NTHOL 2025/12 → FY2025 bozuk,
+        etki 4.488,5 → KOŞULLU.
+      Negatif vaka: ALCAR 2025/12 → aynı seride ama köprüye girmiyor
+        → KESİN kalır (belge: doğru). VESBE 2025/03 → önceki yıl
+        pozitif noktası köprüde doğru çıkarılıyor → KESİN (belge:
+        TEMİZ). TKFEN 2025/06 YAGM → etki 0 → değişmez (belge: doğru).
+      Sınır vaka: TEKTU 2025/06 (etki 2,4 ≥ eşik 1,1 → KOŞULLU,
+        belge: HATA). PCILT 2025/09 (zayıf atama; FCF zaten NULL).
+        TOASO 2026/06 (etki 0,45; |FCF|&#x27;in %0,001&#x27;i → not).
+      Örneklem dışı (tasarımda kullanılmadı, belgeyle): ADEL 2025/09
+        kira → 9A&#x27;24 noktası şirketin kendi raporunda (6.069 bin TL)
+        H1&#x27;24&#x27;ün altında → atama doğru. EREGL 2025/03 → Q1&#x27;25 alımı
+        (11,23 mlr TL; Q1&#x27;26 karşılaştırmalısında da aynı) H1&#x27;25
+        raporundaki yarıyıl alımının (7,69 mlr TL) üstünde → kümülatif
+        alım şirketin kendi raporlarında geriliyor → atama doğru.
+
+    Ölçüm (DiffSet belgeli örneklemi, V7 statüsü KESİN/TÜRETİLMİŞ):
+                        Yakalandı  Sessiz hata  Yanlış alarm
+      P0 (V7 mevcut)        0          35             0
+      P1 (pozitif→KOŞ.)    29           6            16
+      P2 (pozitif→not)     11          24             0
+      K13 (bu kural)       31           4            13
+      Kalan 4 sessiz hata: KOPOL ×3 (gömülü kira, seri yok — BS #4),
+      TOASO 2026/06 (hata |FCF|&#x27;in %0,001&#x27;i).
+      Yanlış alarm şirket bazında: K13 4 şirket · P1 5 şirket.
+      Bunlardan RTALB ×3 &quot;TEMİZ&quot; etiketi belgeyle değil &quot;tetik yok&quot;
+      ile verilmiştir; DiffSet aynı şirkette H1&#x27;25 noktasının sonraki
+      raporlarla çeliştiğini not eder. ODAS ×2, CANTE ×2 aynı şirket-
+      kalemde belgeli HATA olan şirketlerdedir (ek dipnot maliyeti yok).
+      Gerçek ek maliyet: KARTN (6 satır, tek dipnot).
+      ⚠️ Örneklem kuralın tasarımında da kullanıldı (örneklem içi).
+         Örneklem dışı kanıt: ADEL, EREGL (2/2).
+
+    Evren etkisi (V7, 3.048 satır): 255 FCF satırı (99 şirket)
+    KOŞULLU&#x27;ya geçer (219 KESİN, 36 TÜRETİLMİŞ). KOŞULLU oranı
+    %5,6 → %14,0 (sayısal satırlarda %18,5). Kademe-2 radarı: 537
+    satırın 348&#x27;i, 275 gerileme satırının 223&#x27;ü mekanik olarak
+    temize çıkar.
+    Oran %20&#x27;yi aşarsa eşik yeniden kalibre edilir.
+
+    Elenen testler (tekrar önerilmesin):
+    ✗ TTM işareti (eski K6) — TBORG 2025/09 negatif TTM&#x27;de bozuk köprü
+    ✗ &quot;Kaynak pozitif → KOŞULLU&quot; (P1) — VESBE: pozitif önceki yıl
+      noktası köprüde doğru çıkarılıyor
+    ✗ |YTD_önceki|&#x27;nin %5&#x27;i eşiği — GSDDE %5,03 geçiyor, SASA %2,1
+      (352 mn) kaçıyor; eşik FCF&#x27;e bağlanmalı
+    ✗ Ara noktalarda gerileme tek başına — ALCAR 2025/12 yanlış
+      alarm; köprü noktası şüpheli değilse FCF etkilenmez
+    ✗ Evo değerini cari raporun karşılaştırmalısıyla kıyaslamak —
+      Evo eski noktayı sonraki raporun karşılaştırmalısından alabiliyor
+      (ALCAR); kıyas ÖZGÜN raporla yapılır
+
+⸻
+
+📌 BİLİNEN SINIRLAMALAR KAYDINA EKLENECEK
+
+4. GÖMÜLÜ KİRA (seri yok) — K13 göremez. Kira ayrı satırda değilse
+   (KOPOL: finansman &quot;borç ödemeleri&quot; içinde) seri kurulamaz. Alanı
+   KIRA_DOGRULAMA_KUYRUGU (805) ve K10&#x27;dur.
+5. İÇERİK UYUŞMAZLIĞI — KARTN: kira satırındaki pozitif tutar raporda
+   gerçekten kira satırında ama kira borcu büyüklüğüyle uyuşmuyor.
+   K13 net-davranış bayrağı yakalar (KOŞULLU); dipnot kapatır.
+6. CFO TARAFI — K13 yalnız alt kalemleri kapsar. CFO&#x27;nun sunum
+   değişikliği (ATATP) K11(a)–(c) ile kalır.
+7. PDF KAYNAKLI TÜRETİLMİŞ BİLEŞENLER — V7&#x27;nin köprüsü belgeden
+   kurulan bileşenlerinde Evo serisi eksik; K13 uygulanmaz (18 satır).
+
+
+════════════════════════════════════════════════════════════════════
+EK — BAĞIMSIZ BELGE TESTİ VE REVİZYON (rev2)
+════════════════════════════════════════════════════════════════════
+Yöntem: Örneklem belge okunmadan önce donduruldu ve commit edildi
+(a34b8ca: 20 ASIL + 14 YEDEK satır, K13 tahminleriyle). Belgeler sonra
+okundu. Değerlendirme kuralı: belgeler tutarlıysa hata eşikle
+karşılaştırılır; belgeler çelişiyor ve olası aralık eşiği kapsıyorsa
+doğru karar KOŞULLU&#x27;dur.
+
+ASIL-20 sonucu (revizyon öncesi K13):
+  Alarm 11: doğru 7 (MARBL, EPLAS, OZRDN, IZFAS, ASUZU, TTRAK, PNSUT)
+            yanlış 4 (OYLUM, TCKRC — zayıf ölçüsü; CATES, DENGE — net bayrağı)
+  Sessiz 9: doğru 8 (BESTE, FORTE, GUNDG, ENSRI, SANEL, MEGMT, ARMGD, YATAS)
+            kaçırma 1 (BERA — 0 kayıt atlandığı için S2 göremedi)
+
+Revizyon adayları ve akıbeti:
+  R1  zayıf ölçüsünü kapat                → REDDEDİLDİ (TTRAK&#x27;ı ve örneklem
+                                            içi 2 HATA&#x27;yı kaybetti)
+  R1′ zayıf ölçüsü yalnız alt sınır &gt; 0  → REDDEDİLDİ. ASIL-20&#x27;de iyi
+      görünüyordu; revizyon sonrası dondurulan YEDEK testinde (d00975b)
+      BIENY ve KRPLS&#x27;yi kaçırdı (ikisi de belgeyle KOŞULLU/HATA), yalnız
+      OTTO&#x27;da haklı çıktı. Zayıf ölçüsü OLDUĞU GİBİ kalır: yanlış alarm
+      maliyeti (gereksiz dipnot okuma) kaçırma maliyetinden düşüktür.
+  R2  pencere dışı tekil pozitif         → KABUL (CATES + bağımsız EGSER)
+  R4  0 = veri (koşullu)                  → KABUL, GEÇİCİ (BERA)
+  K8 eşitliği (alım = yatırım toplamı)   → UYGULANAMADI: V7&#x27;de yatırım
+      toplamı serisi yok. DENGE tipi yanlış alarm kalır; KOŞULLU
+      kapanışında belge zaten çözer.
+
+rev2 performansı (belgeyle etiketli tüm setler):
+                         Yakalanan  Kaçan  Yanlış alarm
+  Örneklem içi (125)        31        4        13      (eski K13 ile aynı)
+  ASIL-20 (bağımsız)         8/8      0         3/12   (eski: 7/8, 4/12)
+  YEDEK ayırt edici 4        2/2      0         1/2    (eski: 2/2, 2/2)
+  Bağımsız toplam: 10 hatanın 10&#x27;u yakalandı; 14 temiz satırın 4&#x27;ünde
+  yanlış alarm (DENGE, OYLUM, TCKRC, OTTO). n küçüktür (10 hata);
+  &quot;hiç kaçırmaz&quot; diye okunmamalıdır.
+
+Eşik (%5) değerlendirmesi — kayıtlı hata tutarlarıyla:
+  %3  : bağımsız setlerde ek yakalama YOK; evrende +36 KOŞULLU.
+  %5  : seçilen.
+  %10 : TTRAK kaçar (hata aralığı 38–140, eşik %10&#x27;da 137); örneklem
+        içi 6 HATA daha kaçar.
+  Sonuç: %5 kanıtla desteklenen en iyi seçenek; &quot;doğru eşik&quot; iddiası
+  değildir.
+
+Bilinen kör noktalar (bağımsız testte görüldü):
+  • Tutarlı seri içinde SEVİYE sapması (MEGMT FY24: belge 243,5,
+    Evo 268,4; seri monoton) — K13 göremez; burada eşik altıydı.
+  • Şirketin kendi raporları çelişkiliyse (EPLAS, TTRAK, BIENY) belge de
+    doğru değeri söylemez → KOŞULLU kalıcıdır, dipnot/şirket teyidi gerekir.
+  • Evo&#x27;da yanlış satır eşlemesi yalnız köprü dışı noktadaysa (TCKRC
+    Q1&#x27;25) seri alarm verebilir; zararsız ama gereksiz dipnot okuması.
+
+Production kararı için kalan adım: 233 FARK satırının belgeyle kapatılması
+(sıra: karar ölçüsü / |FCF| büyükten küçüğe). Bu kapanış K13&#x27;ün kendisini
+değil, tek tek satırların doğru FCF&#x27;ini belirler.
+</pre>
+</section>
+</div>
+
+<script>
+const ROWS = [["ODAS", "2025/06", "KESİN", -8814.2, 9882.7, 440.7, 112.1, "MDV+MODV alımı + Kira anapara", "Seri+Net", -18696.9], ["ODAS", "2026/03", "KESİN", -9831.6, 8557.5, 491.6, 87.0, "MDV+MODV alımı + Kira anapara", "Seri+Net", -9945.0], ["ODAS", "2025/12", "KESİN", -5633.5, 8444.1, 281.7, 149.9, "MDV+MODV alımı + Kira anapara", "Seri+Net", -11355.5], ["ODAS", "2025/09", "KESİN", -9476.1, 6890.9, 473.8, 72.7, "MDV+MODV alımı + Kira anapara", "Seri+Net", -15184.7], ["ODAS", "2025/03", "KESİN", -3625.1, 6381.6, 181.3, 176.0, "MDV+MODV alımı + Kira anapara", "Seri+Net", -9802.6], ["CANTE", "2025/12", "KESİN", -2046.9, 5779.8, 102.3, 282.4, "MDV+MODV alımı", "Seri+Net", -4828.8], ["CANTE", "2026/03", "KESİN", -5809.9, 5779.8, 290.5, 99.5, "MDV+MODV alımı", "Seri+Net", -5861.7], ["CANTE", "2025/06", "KESİN", -3074.2, 5528.7, 153.7, 179.8, "MDV+MODV alımı", "Seri+Net", -8566.2], ["CANTE", "2025/03", "KESİN", 256.7, 5503.4, 12.8, 2143.8, "MDV+MODV alımı + Kira anapara", "Seri+Net", -5246.7], ["NTHOL", "2025/12", "KESİN", 985.8, 4488.5, 49.3, 455.3, "MDV+MODV alımı", "Seri", -3502.7], ["NTHOL", "2026/03", "KESİN", 1143.4, 4488.5, 57.2, 392.6, "MDV+MODV alımı", "Seri", -3345.2], ["NTHOL", "2026/06", "KESİN", -1391.8, 4488.5, 69.6, 322.5, "MDV+MODV alımı", "Seri", -5880.3], ["CANTE", "2025/09", "KESİN", -5299.8, 4213.9, 265.0, 79.5, "MDV+MODV alımı", "Seri+Net", -8081.7], ["EREGL", "2025/03", "KESİN", 6345.2, 3545.0, 317.3, 55.9, "MDV+MODV alımı", "Seri", 9890.2], ["EREGL", "2026/03", "TÜRETİLMİŞ", 56570.4, 3545.0, 2828.5, 6.3, "MDV+MODV alımı", "Seri", 53025.4], ["CANTE", "2026/06", "KESİN", -394.5, 2689.4, 19.7, 681.7, "MDV+MODV alımı + Kira anapara", "Seri+Net", -1251.2], ["ODAS", "2026/06", "KESİN", -200.7, 2286.8, 10.0, 1139.7, "MDV+MODV alımı + Kira anapara", "Seri+Net", -1802.8], ["BALSU", "2025/09", "TÜRETİLMİŞ", -7366.3, 1632.4, 368.3, 22.2, "MDV+MODV alımı", "Seri+Net", -8998.6], ["LRSHO", "2025/12", "KESİN", 9.4, 1578.9, 1.0, 16812.4, "MDV+MODV alımı + YAGM alımı + Kira anapara", "Seri", -860.3], ["LRSHO", "2026/03", "KESİN", -439.6, 1466.4, 22.0, 333.6, "MDV+MODV alımı + YAGM alımı + Kira anapara", "Seri", -1196.8], ["LRSHO", "2026/06", "KESİN", -617.4, 1448.0, 30.9, 234.5, "MDV+MODV alımı + YAGM alımı + Kira anapara", "Seri", -1356.3], ["ALCAR", "2026/06", "KESİN", -683.0, 1372.5, 34.2, 200.9, "MDV+MODV alımı", "Seri", 689.5], ["PGSUS", "2025/03", "KESİN", 15596.9, 1329.9, 779.8, 8.5, "MDV+MODV alımı", "Seri+Net", 15310.9], ["PGSUS", "2025/06", "KESİN", 17615.1, 1329.9, 880.8, 7.5, "MDV+MODV alımı", "Seri+Net", 16388.3], ["PLTUR", "2025/12", "KESİN", 428.2, 1031.4, 21.4, 240.9, "MDV+MODV alımı", "Seri", -603.2], ["PLTUR", "2026/06", "KESİN", 2147.8, 1031.4, 107.4, 48.0, "MDV+MODV alımı", "Seri", 1116.4], ["PLTUR", "2026/03", "KESİN", 1722.2, 1031.4, 86.1, 59.9, "MDV+MODV alımı", "Seri", 690.8], ["TEHOL", "2025/03", "KESİN", -156.4, 984.0, 7.8, 629.3, "Kira anapara", "Seri+Net", -449.7], ["IZMDC", "2025/03", "KESİN", -3936.0, 917.4, 196.8, 23.3, "MDV+MODV alımı", "Seri", -4853.4], ["DGNMO", "2026/06", "KESİN", 102.2, 873.5, 5.1, 854.6, "MDV+MODV alımı + Kira anapara", "Seri+Net", 868.3], ["DGNMO", "2026/03", "KESİN", 735.6, 860.2, 36.8, 116.9, "MDV+MODV alımı + Kira anapara", "Seri+Net", 701.1], ["DGNMO", "2025/12", "KESİN", -764.5, 825.8, 38.2, 108.0, "MDV+MODV alımı + Kira anapara", "Seri+Net", -764.5], ["BALSU", "2025/06", "TÜRETİLMİŞ", -7499.9, 797.3, 375.0, 10.6, "MDV+MODV alımı", "Seri+Net", -8297.2], ["TEHOL", "2025/06", "KESİN", -82.9, 719.9, 4.1, 868.5, "Kira anapara", "Seri+Net", -376.2], ["KBORU", "2026/06", "TÜRETİLMİŞ", -1826.2, 592.5, 91.3, 32.4, "MDV+MODV alımı", "Seri", -1826.2], ["IZENR", "2025/03", "KESİN", 782.9, 553.4, 39.1, 70.7, "MDV+MODV alımı", "Seri", 229.5], ["ECOGR", "2025/12", "TÜRETİLMİŞ", 4334.9, 519.9, 216.7, 12.0, "MDV+MODV alımı", "Seri", 4334.9], ["ECOGR", "2026/03", "TÜRETİLMİŞ", 5119.0, 519.9, 256.0, 10.2, "MDV+MODV alımı", "Seri", 5119.0], ["ECOGR", "2026/06", "TÜRETİLMİŞ", 3094.9, 518.2, 154.7, 16.7, "MDV+MODV alımı", "Seri", 3094.9], ["TMSN", "2026/06", "KESİN", -864.0, 508.7, 43.2, 58.9, "MDV+MODV alımı", "Seri", -864.0], ["HUNER", "2025/03", "KESİN", 273.8, 486.1, 13.7, 177.5, "MDV+MODV alımı", "Seri", -212.3], ["HUNER", "2025/06", "KESİN", 487.3, 486.1, 24.4, 99.8, "MDV+MODV alımı", "Seri", 1.2], ["HUNER", "2025/09", "KESİN", 304.0, 486.1, 15.2, 159.9, "MDV+MODV alımı", "Seri", -182.1], ["KUVVA", "2025/03", "KESİN", -51.5, 476.3, 2.6, 925.1, "MDV+MODV alımı", "Seri", 424.8], ["KATMR", "2025/03", "KESİN", 429.8, 415.9, 21.5, 96.8, "MDV+MODV alımı", "Seri", 429.8], ["KATMR", "2025/09", "KESİN", -293.9, 411.6, 14.7, 140.0, "MDV+MODV alımı", "Seri", -332.3], ["KATMR", "2025/06", "KESİN", -19.9, 411.6, 1.0, 2065.9, "MDV+MODV alımı", "Seri", -19.9], ["GLYHO", "2026/06", "KESİN", -2212.9, 409.4, 110.6, 18.5, "Kira anapara", "Seri", -2212.9], ["IMASM", "2025/12", "KESİN", -135.9, 403.9, 6.8, 297.2, "MDV+MODV alımı + Kira anapara", "Seri", -398.4], ["DYOBY", "2025/03", "KESİN", 1482.6, 402.0, 74.1, 27.1, "MDV+MODV alımı", "Seri", 1080.6], ["DYOBY", "2025/06", "KESİN", 2524.9, 375.7, 126.2, 14.9, "MDV+MODV alımı", "Seri", 2149.1], ["SASA", "2025/12", "KESİN", -3822.0, 352.3, 191.1, 9.2, "MDV+MODV alımı", "Seri", -3822.0], ["DYOBY", "2025/09", "KESİN", 2600.6, 328.6, 130.0, 12.6, "MDV+MODV alımı", "Seri", 2272.0], ["TBORG", "2025/03", "KESİN", 3703.6, 316.2, 185.2, 8.5, "Kira anapara", "Seri", 3626.7], ["HOROZ", "2025/03", "TÜRETİLMİŞ", 758.9, 310.0, 37.9, 40.8, "MDV+MODV alımı", "Seri", 448.9], ["IMASM", "2026/03", "KESİN", -151.5, 305.6, 7.6, 201.7, "MDV+MODV alımı + Kira anapara", "Seri", -315.7], ["IMASM", "2026/06", "KESİN", -607.6, 297.2, 30.4, 48.9, "MDV+MODV alımı + Kira anapara", "Seri", -775.2], ["HOROZ", "2025/09", "KESİN", 767.8, 259.1, 38.4, 33.7, "Kira anapara", "Seri", 508.7], ["AYGAZ", "2026/06", "KESİN", -2158.8, 252.0, 107.9, 11.7, "MDV+MODV alımı", "Seri", -2158.8], ["SELVA", "2025/03", "KESİN", 309.1, 228.5, 15.5, 73.9, "MDV+MODV alımı", "Seri", 309.1], ["SELVA", "2025/12", "KESİN", -969.7, 228.2, 48.5, 23.5, "MDV+MODV alımı", "Seri", -1153.8], ["SELVA", "2026/03", "KESİN", -947.5, 228.2, 47.4, 24.1, "MDV+MODV alımı", "Seri", -1131.6], ["SELVA", "2026/06", "KESİN", -997.9, 228.2, 49.9, 22.9, "MDV+MODV alımı", "Seri", -1198.3], ["TBORG", "2025/06", "KESİN", 3468.7, 206.3, 173.4, 5.9, "Kira anapara", "Seri", 3313.6], ["MAALT", "2025/09", "KESİN", -25.2, 196.6, 1.3, 779.2, "MDV+MODV alımı", "Seri", -221.9], ["EGPRO", "2025/03", "KESİN", 3696.8, 192.2, 184.8, 5.2, "MDV+MODV alımı", "Seri", 3505.4], ["TAVHL", "2025/03", "KESİN", 621.4, 188.6, 31.1, 30.4, "Kira anapara", "Seri", 432.7], ["SELVA", "2025/09", "KESİN", 8.7, 174.5, 1.0, 1998.2, "MDV+MODV alımı + Kira anapara", "Seri", -126.3], ["TEHOL", "2025/09", "KESİN", -2598.2, 173.9, 129.9, 6.7, "Kira anapara", "Seri+Net", -2598.2], ["TEHOL", "2025/12", "KESİN", -1559.7, 173.9, 78.0, 11.2, "Kira anapara", "Seri+Net", -1559.7], ["PGSUS", "2025/09", "KESİN", 23220.9, 172.6, 1161.0, 0.7, "MDV+MODV alımı", "Net", null], ["DOKTA", "2026/06", "KESİN", 360.1, 171.5, 18.0, 47.6, "Kira anapara", "Seri", 360.1], ["MTRKS", "2025/06", "KESİN", 59.7, 159.0, 3.0, 266.4, "MDV+MODV alımı", "Seri", -99.3], ["TBORG", "2025/09", "KESİN", -2596.8, 147.5, 129.8, 5.7, "Kira anapara", "Seri", -2744.3], ["SELVA", "2025/06", "KESİN", 546.7, 135.0, 27.3, 24.7, "MDV+MODV alımı", "Seri", 546.7], ["MERCN", "2026/06", "TÜRETİLMİŞ", -478.2, 133.1, 23.9, 27.8, "MDV+MODV alımı + YAGM alımı", "Seri+Net", -611.2], ["MERCN", "2025/12", "TÜRETİLMİŞ", -73.3, 133.1, 3.7, 181.7, "MDV+MODV alımı + YAGM alımı + Kira anapara", "Seri+Net", -206.3], ["IEYHO", "2025/12", "KESİN", 378.8, 124.6, 18.9, 32.9, "MDV+MODV alımı", "Seri", 254.2], ["IEYHO", "2026/03", "KESİN", 260.2, 120.7, 13.0, 46.4, "MDV+MODV alımı", "Seri", 139.4], ["ARTMS", "2025/03", "TÜRETİLMİŞ", -390.9, 118.8, 19.5, 30.4, "MDV+MODV alımı", "Seri", -272.2], ["GSDHO", "2025/09", "TÜRETİLMİŞ", -345.3, 117.7, 17.3, 34.1, "MDV+MODV alımı", "Seri", -463.0], ["ASUZU", "2025/06", "KESİN", -800.2, 115.7, 40.0, 14.5, "Kira anapara", "Seri", -800.2], ["HKTM", "2025/03", "KESİN", 380.9, 110.4, 19.0, 29.0, "MDV+MODV alımı", "Seri", 270.5], ["ASUZU", "2025/12", "KESİN", 579.2, 103.8, 29.0, 17.9, "Kira anapara", "Seri", 579.2], ["ASUZU", "2026/03", "KESİN", -210.7, 103.8, 10.5, 49.3, "Kira anapara", "Seri", -307.8], ["TUREX", "2026/03", "KESİN", 48.5, 102.1, 2.4, 210.6, "Kira anapara", "Seri+Net", -53.6], ["ARZUM", "2026/06", "KESİN", 1873.3, 101.8, 93.7, 5.4, "MDV+MODV alımı", "Seri", 1975.1], ["ARZUM", "2025/06", "KESİN", 205.2, 101.8, 10.3, 49.6, "MDV+MODV alımı", "Seri", 103.3], ["TUREX", "2026/06", "KESİN", 675.0, 98.2, 33.8, 14.5, "MDV+MODV alımı + Kira anapara", "Seri", 616.6], ["KARTN", "2026/03", "KESİN", -721.5, 97.1, 36.1, 13.5, "Kira anapara", "Seri+Net", -721.5], ["KARTN", "2025/12", "KESİN", -970.1, 97.1, 48.5, 10.0, "Kira anapara", "Seri+Net", -970.1], ["KARTN", "2026/06", "KESİN", -861.2, 96.9, 43.1, 11.2, "Kira anapara", "Seri+Net", -861.2], ["BANVT", "2025/03", "TÜRETİLMİŞ", 5420.0, 92.6, 271.0, 1.7, "Kira anapara", "Net", null], ["ZOREN", "2025/12", "KESİN", -765.8, 80.9, 38.3, 10.6, "Kira anapara", "Seri+Net", -765.8], ["TTRAK", "2025/06", "KESİN", -1373.7, 79.0, 68.7, 5.7, "Kira anapara", "Seri", -1412.0], ["KARTN", "2025/09", "KESİN", -1161.2, 75.2, 58.1, 6.5, "Kira anapara", "Seri+Net", -1163.9], ["BVSAN", "2025/03", "KESİN", -209.0, 73.3, 10.4, 35.1, "MDV+MODV alımı", "Seri", -135.7], ["BIENY", "2026/03", "KESİN", -234.5, 73.2, 11.7, 31.2, "Kira anapara", "Seri", -256.1], ["BIENY", "2025/12", "KESİN", -1412.9, 73.2, 70.6, 5.2, "Kira anapara", "Seri", -1412.9], ["BVSAN", "2026/03", "KESİN", -527.2, 73.0, 26.4, 13.9, "MDV+MODV alımı", "Seri", -600.3], ["ASUZU", "2025/03", "KESİN", -4.9, 69.8, 1.0, 1412.3, "Kira anapara", "Seri+Net", 41.0], ["KRPLS", "2026/06", "KESİN", 170.0, 69.5, 8.5, 40.9, "MDV+MODV alımı + Kira anapara", "Seri", 170.0], ["CELHA", "2025/06", "TÜRETİLMİŞ", -457.5, 63.7, 22.9, 13.9, "MDV+MODV alımı", "Seri", -521.2], ["HKTM", "2025/06", "KESİN", -77.3, 60.5, 3.9, 78.3, "MDV+MODV alımı", "Seri", -137.9], ["NTGAZ", "2025/06", "KESİN", 952.4, 57.1, 47.6, 6.0, "Kira anapara", "Seri", 895.3], ["NTGAZ", "2025/03", "KESİN", 364.0, 57.1, 18.2, 15.7, "Kira anapara", "Seri", 314.0], ["POLHO", "2025/09", "KESİN", -111.0, 56.7, 5.6, 51.1, "Kira anapara", "Seri", -167.7], ["SILVR", "2025/09", "KESİN", -68.8, 56.7, 3.4, 82.4, "MDV+MODV alımı + Kira anapara", "Seri+Net", -125.4], ["KRPLS", "2025/12", "KESİN", 206.7, 54.5, 10.3, 26.4, "Kira anapara", "Seri", 206.7], ["KRPLS", "2026/03", "KESİN", 168.7, 54.5, 8.4, 32.3, "Kira anapara", "Seri", 168.7], ["SNICA", "2025/06", "KESİN", 910.4, 51.6, 45.5, 5.7, "MDV+MODV alımı", "Seri", 858.8], ["EGSER", "2026/06", "KESİN", -990.7, 51.5, 49.5, 5.2, "MDV+MODV alımı", "Seri", -990.7], ["NTGAZ", "2025/09", "KESİN", 302.3, 50.0, 15.1, 16.5, "Kira anapara", "Seri", 252.4], ["DENGE", "2026/03", "TÜRETİLMİŞ", -657.8, 48.7, 32.9, 7.4, "MDV+MODV alımı", "Seri+Net", -706.5], ["ELITE", "2025/09", "KESİN", 491.4, 47.9, 24.6, 9.7, "MDV+MODV alımı", "Seri", 539.3], ["TUREX", "2025/09", "KESİN", -343.6, 44.5, 17.2, 12.9, "Kira anapara", "Seri+Net", -388.1], ["TUREX", "2025/12", "KESİN", 248.8, 44.5, 12.4, 17.9, "Kira anapara", "Seri+Net", 204.4], ["TUREX", "2025/06", "KESİN", -737.3, 43.7, 36.9, 5.9, "Kira anapara", "Seri", -781.0], ["BERA", "2026/06", "KESİN", -396.2, 40.8, 19.8, 10.3, "MDV+MODV alımı", "Seri", -437.0], ["EKOS", "2025/06", "TÜRETİLMİŞ", -249.7, 40.3, 12.5, 16.2, "MDV+MODV alımı", "Seri", -290.1], ["PINSU", "2025/09", "KESİN", 237.3, 40.0, 11.9, 16.8, "Kira anapara", "Seri", 197.3], ["ADEL", "2025/09", "KESİN", 36.4, 38.0, 1.8, 104.3, "Kira anapara", "Seri", 74.4], ["ULUSE", "2025/09", "KESİN", 99.7, 37.2, 5.0, 37.3, "MDV+MODV alımı + Kira anapara", "Seri", 113.3], ["GIPTA", "2025/03", "KESİN", 156.5, 35.0, 7.8, 22.4, "MDV+MODV alımı", "Seri", 121.4], ["IZFAS", "2026/06", "KESİN", -64.5, 34.3, 3.2, 53.2, "MDV+MODV alımı", "Seri", -82.6], ["IZFAS", "2025/12", "KESİN", -242.8, 34.3, 12.1, 14.1, "MDV+MODV alımı", "Seri", -242.8], ["IZFAS", "2026/03", "KESİN", -148.2, 34.3, 7.4, 23.1, "MDV+MODV alımı", "Seri", -148.2], ["KARTN", "2025/06", "KESİN", -1126.5, 33.8, 56.3, 3.0, "Kira anapara", "Net", null], ["MARBL", "2025/12", "KESİN", -48.6, 32.1, 2.4, 66.1, "Kira anapara", "Seri+Net", -48.6], ["MARBL", "2026/03", "KESİN", -6.6, 32.1, 1.0, 486.4, "Kira anapara", "Seri+Net", -36.0], ["MARBL", "2025/09", "KESİN", -276.9, 32.1, 13.8, 11.6, "Kira anapara", "Seri", -282.5], ["TCKRC", "2026/03", "KESİN", -301.1, 31.9, 15.1, 10.6, "Kira anapara", "Seri", -328.7], ["TCKRC", "2026/06", "KESİN", -171.6, 31.9, 8.6, 18.6, "Kira anapara", "Seri", -171.6], ["MANAS", "2026/03", "KESİN", 116.3, 30.8, 5.8, 26.5, "MDV+MODV alımı", "Seri", 85.5], ["MANAS", "2025/12", "KESİN", 298.3, 30.8, 14.9, 10.3, "MDV+MODV alımı", "Seri", 267.5], ["MARBL", "2025/06", "KESİN", -128.0, 29.4, 6.4, 23.0, "Kira anapara", "Seri", -130.9], ["SILVR", "2026/06", "KESİN", 85.2, 29.3, 4.3, 34.4, "MDV+MODV alımı + Kira anapara", "Seri+Net", 85.2], ["SILVR", "2025/03", "KESİN", -1.2, 28.8, 1.0, 2355.4, "Kira anapara", "Seri+Net", -4.9], ["IMASM", "2025/06", "KESİN", -268.8, 28.3, 13.4, 10.5, "Kira anapara", "Seri", -285.3], ["MARBL", "2025/03", "KESİN", -234.8, 26.5, 11.7, 11.3, "Kira anapara", "Seri", -208.3], ["KTSKR", "2026/03", "KESİN", -412.7, 25.8, 20.6, 6.3, "MDV+MODV alımı", "Seri+Net", -438.6], ["SILVR", "2025/06", "KESİN", 48.5, 24.4, 2.4, 50.3, "Kira anapara", "Seri+Net", 44.8], ["PNSUT", "2026/03", "KESİN", 91.8, 23.8, 4.6, 26.0, "Kira anapara", "Seri+Net", 68.0], ["BAKAB", "2025/06", "KESİN", 10.9, 22.5, 1.0, 206.3, "Kira anapara", "Seri+Net", 10.9], ["BAKAB", "2025/03", "KESİN", 80.5, 22.5, 4.0, 28.0, "Kira anapara", "Seri+Net", 75.7], ["GEREL", "2025/06", "KESİN", 452.8, 22.1, 22.6, 4.9, "Kira anapara", "Net", null], ["GSDDE", "2025/09", "KESİN", -15.9, 21.4, 1.0, 134.4, "MDV+MODV alımı", "Seri", -37.3], ["GEREL", "2025/09", "KESİN", -417.8, 21.1, 20.9, 5.0, "Kira anapara", "Seri+Net", -418.3], ["HKTM", "2025/09", "KESİN", -9.1, 20.7, 1.0, 226.5, "MDV+MODV alımı", "Seri", -29.9], ["KRPLS", "2025/09", "KESİN", 99.8, 20.6, 5.0, 20.6, "Kira anapara", "Seri", 79.3], ["MZHLD", "2025/03", "TÜRETİLMİŞ", -168.9, 20.6, 8.4, 12.2, "MDV+MODV alımı", "Seri", -189.5], ["EPLAS", "2025/03", "TÜRETİLMİŞ", -192.5, 20.5, 9.6, 10.7, "MDV+MODV alımı", "Seri", -213.1], ["DITAS", "2025/06", "TÜRETİLMİŞ", -335.8, 18.1, 16.8, 5.4, "Kira anapara", "Seri", -339.3], ["SNPAM", "2025/06", "KESİN", -158.7, 18.0, 7.9, 11.3, "MDV+MODV alımı", "Seri", -176.7], ["SNPAM", "2025/09", "KESİN", 226.9, 18.0, 11.3, 7.9, "MDV+MODV alımı", "Seri", 208.9], ["PKENT", "2025/03", "KESİN", 3.8, 17.0, 1.0, 443.1, "MDV+MODV alımı", "Seri", 3.8], ["RTALB", "2026/06", "KESİN", -6.3, 16.2, 1.0, 257.2, "Kira anapara", "Seri", -8.9], ["BAKAB", "2026/06", "KESİN", 204.4, 14.1, 10.2, 6.9, "Kira anapara", "Seri+Net", 200.3], ["BAKAB", "2025/09", "KESİN", 20.9, 14.1, 1.0, 67.4, "Kira anapara", "Seri+Net", 29.3], ["BAKAB", "2025/12", "KESİN", -141.6, 14.1, 7.1, 10.0, "Kira anapara", "Seri+Net", -141.6], ["BAKAB", "2026/03", "KESİN", 155.6, 14.1, 7.8, 9.1, "Kira anapara", "Seri+Net", 149.9], ["OZRDN", "2025/03", "KESİN", -10.1, 13.5, 1.0, 134.0, "Kira anapara", "Seri", -23.5], ["ULUSE", "2025/03", "KESİN", -217.3, 13.1, 10.9, 6.0, "Kira anapara", "Seri", -222.0], ["MAKTK", "2026/03", "KESİN", -71.3, 12.5, 3.6, 17.6, "Kira anapara", "Seri", -83.8], ["MAKTK", "2025/12", "KESİN", -67.0, 12.5, 3.4, 18.7, "Kira anapara", "Seri", -79.6], ["RTALB", "2025/09", "KESİN", 148.7, 12.5, 7.4, 8.4, "Kira anapara", "Seri", 148.7], ["RTALB", "2025/12", "KESİN", 136.8, 12.5, 6.8, 9.1, "Kira anapara", "Seri", 136.8], ["RTALB", "2026/03", "KESİN", 105.5, 12.5, 5.3, 11.8, "Kira anapara", "Seri", 104.3], ["DERHL", "2026/06", "TÜRETİLMİŞ", 5.3, 12.3, 1.0, 230.7, "MDV+MODV alımı", "Seri", 5.3], ["GWIND", "2025/03", "KESİN", 104.1, 11.7, 5.2, 11.2, "Kira anapara", "Seri", 92.4], ["DENGE", "2025/03", "TÜRETİLMİŞ", 37.3, 11.3, 1.9, 30.3, "MDV+MODV alımı", "Seri+Net", 26.0], ["SILVR", "2026/03", "KESİN", 180.0, 10.4, 9.0, 5.8, "Kira anapara", "Seri+Net", 169.6], ["PETUN", "2026/03", "KESİN", 70.8, 10.2, 3.5, 14.5, "Kira anapara", "Seri+Net", 60.5], ["PKENT", "2025/06", "KESİN", 45.7, 9.6, 2.3, 21.0, "MDV+MODV alımı", "Seri", 45.7], ["YKSLN", "2026/03", "KESİN", 173.4, 9.5, 8.7, 5.5, "Kira anapara", "Seri", 163.9], ["GEREL", "2025/03", "KESİN", 128.5, 9.0, 6.4, 7.0, "Kira anapara", "Seri+Net", 128.0], ["BRKSN", "2025/03", "KESİN", 37.3, 7.8, 1.9, 20.9, "MDV+MODV alımı", "Seri", 39.5], ["BRKSN", "2025/06", "KESİN", -94.2, 7.8, 4.7, 8.3, "MDV+MODV alımı", "Seri", -101.9], ["PETUN", "2025/06", "KESİN", -67.8, 7.6, 3.4, 11.2, "Kira anapara", "Seri+Net", -75.4], ["AVTUR", "2026/06", "KESİN", -51.8, 6.8, 2.6, 13.2, "MDV+MODV alımı", "Seri+Net", -52.4], ["USHOL", "2025/09", "KESİN", -7.6, 6.3, 1.0, 82.7, "MDV+MODV alımı", "Seri", -7.6], ["USHOL", "2025/03", "KESİN", -1.1, 6.3, 1.0, 597.2, "MDV+MODV alımı", "Seri", -1.1], ["USHOL", "2025/06", "KESİN", 0.1, 6.3, 1.0, 5059.2, "MDV+MODV alımı", "Seri", 0.1], ["OZRDN", "2025/06", "KESİN", 45.1, 5.7, 2.3, 12.7, "Kira anapara", "Seri", 39.4], ["OYLUM", "2025/03", "KESİN", -96.8, 5.5, 4.8, 5.7, "MDV+MODV alımı", "Seri", -96.8], ["AYCES", "2025/03", "KESİN", -38.1, 5.2, 1.9, 13.7, "Kira anapara", "Seri+Net", -43.4], ["ODINE", "2025/09", "TÜRETİLMİŞ", 88.2, 5.0, 4.4, 5.7, "Kira anapara", "Seri", 93.2], ["OTTO", "2025/09", "KESİN", 38.1, 4.2, 1.9, 11.0, "MDV+MODV alımı", "Seri", 33.9], ["SANFM", "2026/03", "KESİN", -70.5, 3.6, 3.5, 5.1, "Kira anapara", "Seri", -74.1], ["OTTO", "2025/12", "KESİN", -23.0, 3.2, 1.2, 13.8, "MDV+MODV alımı", "Seri", -23.0], ["KARTN", "2025/03", "KESİN", -1329.4, 2.9, 66.5, 0.2, "Kira anapara", "Net", null], ["GSDDE", "2026/06", "KESİN", -51.8, 2.7, 2.6, 5.2, "Kira anapara", "Seri", -54.4], ["SMART", "2025/09", "KESİN", 10.1, 2.7, 1.0, 26.5, "Kira anapara", "Seri", 12.7], ["ONCSM", "2025/12", "KESİN", 10.4, 2.4, 1.0, 23.0, "Kira anapara", "Seri+Net", 10.0], ["ONCSM", "2026/03", "TÜRETİLMİŞ", -45.8, 2.4, 2.3, 5.2, "Kira anapara", "Seri", -45.9], ["TEKTU", "2025/03", "KESİN", -22.3, 2.4, 1.1, 10.7, "MDV+MODV alımı", "Seri", -24.7], ["TEKTU", "2025/06", "KESİN", -22.0, 2.4, 1.1, 10.9, "MDV+MODV alımı", "Seri", -24.4], ["GSDDE", "2026/03", "KESİN", -10.8, 1.8, 1.0, 16.6, "Kira anapara", "Seri", -12.5], ["KRPLS", "2025/06", "KESİN", 22.0, 1.8, 1.1, 8.0, "Kira anapara", "Seri", 22.0], ["TEKTU", "2025/09", "KESİN", 0.1, 1.7, 1.0, 1184.2, "MDV+MODV alımı", "Seri", -1.6], ["HKTM", "2026/06", "KESİN", -11.4, 1.6, 1.0, 13.6, "MDV+MODV alımı", "Seri", -11.4], ["BRKSN", "2025/09", "KESİN", -7.2, 1.5, 1.0, 21.0, "MDV+MODV alımı", "Seri", -8.7], ["AVTUR", "2026/03", "KESİN", 53.5, 0.7, 2.7, 1.3, "MDV+MODV alımı", "Net", null], ["AYCES", "2026/03", "KESİN", -5.1, 0.5, 1.0, 10.3, "Kira anapara", "Net", null], ["MERCN", "2025/06", "TÜRETİLMİŞ", 228.9, 0.0, 11.4, 0.0, "YAGM alımı", "Net", null], ["PNSUT", "2026/06", "KESİN", 88.9, 0.0, 4.4, 0.0, "Kira anapara", "Net", null], ["EGSER", "2025/03", "KESİN", -1123.9, 0.0, 56.2, 0.0, "Kira anapara", "Net", null], ["AVTUR", "2025/03", "KESİN", -2.2, 0.0, 1.0, 0.0, "MDV+MODV alımı", "Net", null], ["AVTUR", "2025/12", "KESİN", 129.0, 0.0, 6.5, 0.0, "MDV+MODV alımı", "Net", null], ["AYCES", "2025/09", "KESİN", -21.1, 0.0, 1.1, 0.0, "Kira anapara", "Net", null], ["AYCES", "2025/06", "KESİN", -12.3, 0.0, 1.0, 0.0, "Kira anapara", "Net", null], ["AYCES", "2025/12", "KESİN", -9.7, 0.0, 1.0, 0.0, "Kira anapara", "Net", null], ["ATATP", "2025/03", "KESİN", 246.6, 0.0, 12.3, 0.0, "Kira anapara", "Net", null], ["AVTUR", "2025/09", "KESİN", 12.5, 0.0, 1.0, 0.0, "MDV+MODV alımı", "Net", null], ["AVTUR", "2025/06", "KESİN", 0.3, 0.0, 1.0, 0.0, "MDV+MODV alımı", "Net", null], ["BALSU", "2026/03", "TÜRETİLMİŞ", -6902.6, 0.0, 345.1, 0.0, "MDV+MODV alımı", "Net", null], ["BALSU", "2025/12", "TÜRETİLMİŞ", -7986.8, 0.0, 399.3, 0.0, "MDV+MODV alımı", "Net", null], ["BYDNR", "2025/09", "TÜRETİLMİŞ", -1266.8, 0.0, 63.3, 0.0, "Kira anapara", "Net", null], ["DENGE", "2025/09", "TÜRETİLMİŞ", -465.5, 0.0, 23.3, 0.0, "MDV+MODV alımı", "Net", null], ["DENGE", "2026/06", "TÜRETİLMİŞ", -439.0, 0.0, 22.0, 0.0, "MDV+MODV alımı", "Net", null], ["BYDNR", "2025/12", "TÜRETİLMİŞ", -365.7, 0.0, 18.3, 0.0, "Kira anapara", "Net", null], ["CATES", "2025/03", "KESİN", 870.1, 0.0, 43.5, 0.0, "MDV+MODV alımı", "Net", null], ["MERCN", "2025/03", "TÜRETİLMİŞ", 621.0, 0.0, 31.1, 0.0, "YAGM alımı", "Net", null], ["KTSKR", "2026/06", "KESİN", -290.4, 0.0, 14.5, 0.0, "MDV+MODV alımı", "Net", null], ["NUHCM", "2025/09", "TÜRETİLMİŞ", 2011.7, 0.0, 100.6, 0.0, "Kira anapara", "Net", null], ["PETUN", "2025/09", "KESİN", 146.0, 0.0, 7.3, 0.0, "Kira anapara", "Net", null], ["PETUN", "2025/12", "KESİN", -185.7, 0.0, 9.3, 0.0, "Kira anapara", "Net", null], ["NUHCM", "2025/06", "TÜRETİLMİŞ", 1851.8, 0.0, 92.6, 0.0, "Kira anapara", "Net", null], ["PGSUS", "2025/12", "KESİN", 14273.3, 0.0, 713.7, 0.0, "MDV+MODV alımı", "Net", null], ["SILVR", "2025/12", "KESİN", 96.7, 0.0, 4.8, 0.0, "Kira anapara", "Net", null], ["PGSUS", "2026/06", "KESİN", 4687.0, 0.0, 234.3, 0.0, "MDV+MODV alımı", "Net", null], ["TRMET", "2025/12", "KESİN", 1277.7, 0.0, 63.9, 0.0, "YAGM alımı", "Net", null], ["TRMET", "2026/03", "KESİN", 6249.9, 0.0, 312.5, 0.0, "YAGM alımı", "Net", null]];
+const fmt = v => v === null || v === undefined ? '—' : v.toLocaleString('tr-TR', {minimumFractionDigits: 1, maximumFractionDigits: 1});
+const tb = document.querySelector('#t tbody'), q = document.getElementById('q'), cnt = document.getElementById('cnt');
+function esc(s){return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function draw(){
+  const f = q.value.trim().toUpperCase();
+  const rows = f ? ROWS.filter(r => r[0].includes(f)) : ROWS;
+  tb.innerHTML = rows.map(r => `<tr><td><b>${esc(r[0])}</b></td><td>${esc(r[1])}</td><td>${esc(r[2])} → <span class="st">KOŞULLU</span></td><td class="n">${fmt(r[3])}</td><td class="n">${fmt(r[4])}</td><td class="n">${fmt(r[5])}</td><td class="n">${fmt(r[6])}</td><td>${esc(r[8])}</td><td>${esc(r[7])}</td><td class="n">${fmt(r[9])}</td></tr>`).join('');
+  cnt.textContent = `${rows.length} satır`;
+}
+q.addEventListener('input', draw); draw();
+document.getElementById('kopya').addEventListener('click', () => {
+  const txt = document.getElementById('gem').textContent, msg = document.getElementById('kmsg');
+  const sel = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById('gem')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); msg.textContent = 'Metin seçildi; kopyalamak için Kopyala\'ya bas.'; };
+  try { navigator.clipboard.writeText(txt).then(() => msg.textContent = 'Kopyalandı.', sel); } catch(e) { sel(); }
+});
+</script>

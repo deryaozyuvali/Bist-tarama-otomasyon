@@ -1,0 +1,161 @@
+<title>FCF K13 Paketi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Düzen: tek sütun okuma akışı, ölçüm tabloları kendi kaydırma kutusunda; sayfa bir denetim raporu gibi */
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --fg:#17201d; --muted:#5b6a65; --line:#d6dedb;
+  --accent:#0f6e5c; --accent-soft:#e2f0ec; --warn:#9a5b00; --warn-soft:#fbefd9; --ok:#2f6b2f; --bad:#a3322a;
+  --f-display:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111816; --surface:#18211e; --fg:#e4ece9; --muted:#9aaba5; --line:#2c3a35;
+  --accent:#5cc4ab; --accent-soft:#1c3330; --warn:#f0b35a; --warn-soft:#3a2c16; --ok:#8fcf8f; --bad:#f08a80; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111816; --surface:#18211e; --fg:#e4ece9; --muted:#9aaba5; --line:#2c3a35;
+  --accent:#5cc4ab; --accent-soft:#1c3330; --warn:#f0b35a; --warn-soft:#3a2c16; --ok:#8fcf8f; --bad:#f08a80; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--f-body);padding:0 16px}
+.wrap{max-width:860px;margin:0 auto;padding-block:28px 64px;display:flex;flex-direction:column;gap:36px}
+h1,h2{font-family:var(--f-display);font-weight:600;text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(28px,6vw,40px)}
+h2{font-size:22px}
+p{margin:0;max-width:65ch}
+.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lede{color:var(--muted);font-size:16px}
+section{display:flex;flex-direction:column;gap:14px}
+.files{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.file{display:flex;flex-direction:column;gap:4px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:6px;color:var(--fg);text-decoration:none;min-width:0}
+.file:hover,.file:focus-visible{border-color:var(--accent);outline:none}
+.file b{font-weight:600;color:var(--accent);word-break:break-word}
+.file span{color:var(--muted);font-size:13px}
+.note{font-size:13px;color:var(--muted)}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font:600 12px var(--f-body);color:var(--muted);text-transform:uppercase;letter-spacing:.04em;background:var(--surface);position:sticky;top:0}
+td.n,th.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+tr.us td{background:var(--accent-soft);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.stat{padding:12px 14px;border-left:3px solid var(--accent);background:var(--surface)}
+.stat strong{display:block;font:600 26px var(--f-display);font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted)}
+.cases{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
+.cases li{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.cases li>*{min-width:0}
+.cases code{font:500 13px var(--f-mono);color:var(--accent)}
+.tag{display:inline-block;font:500 11px var(--f-mono);padding:2px 6px;border-radius:3px;margin-left:6px;vertical-align:1px}
+.tag.k{background:var(--warn-soft);color:var(--warn)}
+.tag.ok{background:var(--accent-soft);color:var(--ok)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+input[type=search]{font:15px var(--f-body);padding:8px 10px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);width:min(260px,100%)}
+input:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button{font:500 14px var(--f-body);padding:8px 12px;border:1px solid var(--accent);background:var(--accent);color:var(--surface);border-radius:4px;cursor:pointer}
+button.ghost{background:transparent;color:var(--accent)}
+.fark{max-height:70vh}
+.st{font:500 12px var(--f-mono);color:var(--warn)}
+pre{margin:0;padding:16px;font:13px/1.5 var(--f-mono);white-space:pre-wrap;word-break:break-word;background:var(--surface);border:1px solid var(--line);border-radius:6px;max-height:70vh;overflow:auto}
+@media (max-width:520px){.cases li{grid-template-columns:1fr;gap:4px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header style="display:flex;flex-direction:column;gap:10px">
+  <div class="eyebrow">FCF v2.2 adayı · V7 nihai üzerinde paralel çalıştı</div>
+  <h1>FCF K13 Paketi</h1>
+  <p class="lede">Kontrol 13 (seri tutarlılığı) ve K6 v2. V7'deki hiçbir FCF rakamına dokunmaz; yalnız hangi satırların KESİN sayılamayacağını söyler.</p>
+</header>
+
+<section>
+  <h2>Dosyaları indir</h2>
+  <p class="note">Dosyalar GitHub deponda <code>fcf-k13-paket</code> dalında. Bağlantı GitHub'ı açar; dosya sayfasında indirme düğmesi var.</p>
+  <div class="files">
+    <a class="file" href="__GH__/FCF_V8_aday_K13.xlsx"><b>FCF_V8_aday_K13.xlsx</b><span>Karar, fark seti, kalem ayrıntısı, doğrulama</span></a>
+    <a class="file" href="__GH__/GEM_K6v2_K13_onerisi.txt"><b>GEM_K6v2_K13_onerisi.txt</b><span>GEM'e eklenecek kural metni</span></a>
+    <a class="file" href="__GH__/kopru_radar.xlsx"><b>kopru_radar.xlsx</b><span>İlk köprü radarı (372 satır)</span></a>
+    <a class="file" href="__GH__/karsilastirma.xlsx"><b>karsilastirma.xlsx</b><span>DiffSet 537 / 275 ile eşleşme</span></a>
+    <a class="file" href="__TREE__"><b>Tüm klasör</b><span>Motor kodu ve yeniden üretim talimatı dahil</span></a>
+  </div>
+</section>
+
+<section>
+  <h2>Neden şaşıyordu</h2>
+  <p>Formül doğru. On iki aylık capex ve kira rakamı üç ayrı rapordan dikiliyor: bu yılın YTD'si, geçen yılın yıl sonu ve geçen yılın aynı dönemi. Şirket sunumu değiştirdiğinde, Evo yanlış satırı aldığında ya da şirketin kendi raporları çeliştiğinde bu dikiş anlamsız bir rakam üretiyor. Makine çelişkiyi bulabilir; hangi raporun doğru olduğunu ancak dipnot söyler.</p>
+  <p>K13 bunu kullanır: brüt bir çıkış kaleminde kümülatif tutar yıl içinde küçülemez. Seriyi tutarlı yapmak için atılması gereken en az nokta bozuk noktadır. Bozuk nokta TTM'in üç köprü noktasından biriyse ve etkisi eşiği aşarsa satır KOŞULLU olur.</p>
+</section>
+
+<section>
+  <h2>Belgeli örneklemde sonuç</h2>
+  <p class="note">DiffSet'in belgeyle etiketlenmiş satırları, V7 statüsü KESİN veya TÜRETİLMİŞ olanlar. Örneklem kuralın tasarımında da kullanıldı.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Politika</th><th class="n">Yakalanan</th><th class="n">Sessiz hata</th><th class="n">Yanlış alarm</th></tr></thead>
+    <tbody>
+      <tr><td>V7 bugün</td><td class="n">0</td><td class="n">35</td><td class="n">0</td></tr>
+      <tr><td>P1 · kaynak pozitif → KOŞULLU</td><td class="n">29</td><td class="n">6</td><td class="n">16</td></tr>
+      <tr><td>P2 · kaynak pozitif → KESİN + not</td><td class="n">11</td><td class="n">24</td><td class="n">0</td></tr>
+      <tr class="us"><td>K13</td><td class="n">31</td><td class="n">4</td><td class="n">13</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Kalan 4 sessiz hata: KOPOL ×3 (kira başka satıra gömülü, seri yok) ve TOASO 2026/06 (hata |FCF|'in %0,001'i). Yanlış alarmların gerçek ek maliyeti yalnız KARTN: 6 satır, tek dipnot.</p>
+  <div class="stats">
+    <div class="stat"><strong>255</strong><span>FCF satırı KOŞULLU'ya geçer (99 şirket)</span></div>
+    <div class="stat"><strong>%5,6 → %14,0</strong><span>KOŞULLU oranı</span></div>
+    <div class="stat"><strong>348 / 537</strong><span>radar satırı mekanik olarak temize çıkar</span></div>
+    <div class="stat"><strong>223 / 275</strong><span>gerileme satırı temize çıkar</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Belgeyle sınanan vakalar</h2>
+  <ul class="cases">
+    <li><div><code>ALCAR 2026/06</code><span class="tag k">KOŞULLU</span></div><p>2025/06 noktası alım yerine yatırım toplamını taşıyor (+1.357,2). En az düzeltilmiş FCF +689,5; belgeyle ≈ +696. V7: −683,0 KESİN.</p></li>
+    <li><div><code>ALCAR 2025/12</code><span class="tag ok">KESİN</span></div><p>Aynı bozuk nokta bu dönemin köprüsüne girmiyor. Belge: V7 doğru.</p></li>
+    <li><div><code>NTHOL 2025/12</code><span class="tag k">KOŞULLU</span></div><p>FY2025 alımı aynı yılın 9 aylık tutarının çok altında. Etki ≥ 4.488,5 mn TL.</p></li>
+    <li><div><code>VESBE 2025/03</code><span class="tag ok">KESİN</span></div><p>Önceki yılın pozitif noktası köprüde doğru çıkarılıyor. Belge: TEMİZ.</p></li>
+    <li><div><code>TBORG 2025/09</code><span class="tag k">KOŞULLU</span></div><p>TTM negatif olduğu için eski K6 susuyordu; FY2024 köprü noktası serinin geri kalanıyla tutarsız.</p></li>
+    <li><div><code>EREGL 2025/03</code><span class="tag k">KOŞULLU</span></div><p>Örneklem dışı. Q1'25 alımı 11,23 mlr TL, H1'25 raporunda yarıyıl 7,69 mlr TL. Çelişki şirketin kendi raporlarında.</p></li>
+    <li><div><code>ADEL 2025/09</code><span class="tag k">KOŞULLU</span></div><p>Örneklem dışı. 9A'24 kira ödemesi şirketin raporunda 6.069 bin TL; aynı yılın yarıyılı 49,4 mn TL.</p></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Statüsü değişen 255 satır</h2>
+  <p class="note">Karar ölçüsüne göre büyükten küçüğe. "Seri": köprü noktası bozuk. "Net": kalem bu şirkette brüt çıkış gibi davranmıyor. "En az düzeltilmiş FCF" teşhistir, FCF değildir.</p>
+  <div class="tools">
+    <label for="q" class="note">Şirket kodu</label>
+    <input id="q" type="search" placeholder="ör. ALCAR" autocomplete="off">
+    <span id="cnt" class="note"></span>
+  </div>
+  <div class="scroll fark"><table id="t">
+    <thead><tr><th>Kod</th><th>Dönem</th><th>V7</th><th class="n">V7 FCF</th><th class="n">Karar ölçüsü</th><th class="n">Eşik</th><th class="n">/ |FCF| %</th><th>Neden</th><th>Kalem</th><th class="n">En az düz. FCF</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>GEM'e eklenecek kural metni</h2>
+  <div class="tools"><button id="kopya" type="button">Metni kopyala</button><span id="kmsg" class="note" role="status"></span></div>
+  <pre id="gem">__GEM__</pre>
+</section>
+</div>
+
+<script>
+const ROWS = __ROWS__;
+const fmt = v => v === null || v === undefined ? '—' : v.toLocaleString('tr-TR', {minimumFractionDigits: 1, maximumFractionDigits: 1});
+const tb = document.querySelector('#t tbody'), q = document.getElementById('q'), cnt = document.getElementById('cnt');
+function esc(s){return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function draw(){
+  const f = q.value.trim().toUpperCase();
+  const rows = f ? ROWS.filter(r => r[0].includes(f)) : ROWS;
+  tb.innerHTML = rows.map(r => `<tr><td><b>${esc(r[0])}</b></td><td>${esc(r[1])}</td><td>${esc(r[2])} → <span class="st">KOŞULLU</span></td><td class="n">${fmt(r[3])}</td><td class="n">${fmt(r[4])}</td><td class="n">${fmt(r[5])}</td><td class="n">${fmt(r[6])}</td><td>${esc(r[8])}</td><td>${esc(r[7])}</td><td class="n">${fmt(r[9])}</td></tr>`).join('');
+  cnt.textContent = `${rows.length} satır`;
+}
+q.addEventListener('input', draw); draw();
+document.getElementById('kopya').addEventListener('click', () => {
+  const txt = document.getElementById('gem').textContent, msg = document.getElementById('kmsg');
+  const sel = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById('gem')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); msg.textContent = 'Metin seçildi; kopyalamak için Kopyala\'ya bas.'; };
+  try { navigator.clipboard.writeText(txt).then(() => msg.textContent = 'Kopyalandı.', sel); } catch(e) { sel(); }
+});
+</script>
