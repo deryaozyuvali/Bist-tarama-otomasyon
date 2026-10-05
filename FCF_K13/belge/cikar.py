@@ -311,10 +311,19 @@ def isle(kod, yil, ay, idx):
                 k['not_'] = (f"özdeşlik A+B+C=net değişim tuttu; XBRL {k['deger_tl'] / 1e6:.3f} mn ≠ PDF; PDF satırı kullanıldı")
                 k.update(deger_tl=a[2][j] * carp * xk, durum='PDF_OKUNDU', kaynak='PDF (CFO, özdeşlikle)', pdf_birim=bb[0],
                          pdf_sayfa=a[0], pdf_satir=a[1])
+            elif not gecerli and k['deger_tl']:
+                # CFO satırı yok/uymuyor: CFO = net değişim − yatırım − finansman; XBRL bununla tutuyorsa teyitli
+                xb = k['deger_tl'] / xk
+                for u, cu in (('TL', 1), ('bin TL', 1e3), ('mn TL', 1e6)):
+                    if any(abs(n[2][j] - y_[2][j] - f_[2][j] - xb / cu) <= 2 for n in net for y_ in yat[:2] for f_ in fin[:2]):
+                        k.update(durum='TEYITLI', kaynak='XBRL (PDF özdeşliğiyle türetildi)', pdf_birim=u,
+                                 pdf_satir='CFO = net değişim − yatırım − finansman (PDF satırları)')
+                        k['not_'] = 'PDF’te CFO satırı yok/uymuyor; özdeşlikten türetilen değer XBRL ile aynı'
+                        break
+                else:
+                    if aday: k['not_'] = 'PDF CFO adayları özdeşliği sağlamıyor: ' + ' || '.join(a[1] for a in aday[:3])
             elif len(gecerli) > 1:
                 k['not_'] = 'özdeşliği sağlayan birden çok CFO adayı: ' + ' || '.join(a[1] for a in list(gecerli.values())[:3])
-            elif aday:
-                k['not_'] = 'PDF CFO adayları özdeşliği sağlamıyor: ' + ' || '.join(a[1] for a in aday[:3])
     for k in kayit: k['tms29'] = tms29
     return kayit
 

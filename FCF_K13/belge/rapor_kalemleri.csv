@@ -818,16 +818,16 @@ BFREN,2025,3,1439870,520003,Konsolide Olmayan,YAGM,cari,,XBRL,SIFIR,,,,False,
 BFREN,2025,3,1439870,520003,Konsolide Olmayan,YAGM,onceki,,XBRL,SIFIR,,,,False,
 BFREN,2025,3,1439870,520003,Konsolide Olmayan,KIRA,cari,-8850039.0,XBRL,TEYITLI,TL,7,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları (8.850.039) (9.232.276),False,
 BFREN,2025,3,1439870,520003,Konsolide Olmayan,KIRA,onceki,-9232276.0,XBRL,TEYITLI,TL,7,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları (8.850.039) (9.232.276),False,
-BFREN,2025,6,1476400,520003,Konsolide Olmayan,CFO,cari,-67516861.0,XBRL,PDF_TUTMADI,,,,True,PDF CFO adayları özdeşliği sağlamıyor: A. İşletme faaliyetlerden kaynaklanan nakit akışları (43.833.547) (33.186.070)
-BFREN,2025,6,1476400,520003,Konsolide Olmayan,CFO,onceki,-46482505.0,XBRL,PDF_TUTMADI,,,,True,PDF CFO adayları özdeşliği sağlamıyor: A. İşletme faaliyetlerden kaynaklanan nakit akışları (43.833.547) (33.186.070)
+BFREN,2025,6,1476400,520003,Konsolide Olmayan,CFO,cari,-67516861.0,XBRL (PDF özdeşliğiyle türetildi),TEYITLI,TL,,CFO = net değişim − yatırım − finansman (PDF satırları),True,PDF’te CFO satırı yok/uymuyor; özdeşlikten türetilen değer XBRL ile aynı
+BFREN,2025,6,1476400,520003,Konsolide Olmayan,CFO,onceki,-46482505.0,XBRL (PDF özdeşliğiyle türetildi),TEYITLI,TL,,CFO = net değişim − yatırım − finansman (PDF satırları),True,PDF’te CFO satırı yok/uymuyor; özdeşlikten türetilen değer XBRL ile aynı
 BFREN,2025,6,1476400,520003,Konsolide Olmayan,MDV+MODV,cari,-2654033.0,XBRL,TEYITLI,TL,7,Maddi duran varlık alımından kaynaklanan nakit çıkışları 7 (2.654.033) (3.666.706),True,
 BFREN,2025,6,1476400,520003,Konsolide Olmayan,MDV+MODV,onceki,-3666706.0,XBRL,TEYITLI,TL,7,Maddi duran varlık alımından kaynaklanan nakit çıkışları 7 (2.654.033) (3.666.706),True,
 BFREN,2025,6,1476400,520003,Konsolide Olmayan,YAGM,cari,,XBRL,SIFIR,,,,True,
 BFREN,2025,6,1476400,520003,Konsolide Olmayan,YAGM,onceki,,XBRL,SIFIR,,,,True,
 BFREN,2025,6,1476400,520003,Konsolide Olmayan,KIRA,cari,-15370159.0,XBRL,TEYITLI,TL,7,Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları 18 (15.370.159) (36.363.616),True,
 BFREN,2025,6,1476400,520003,Konsolide Olmayan,KIRA,onceki,-36363616.0,XBRL,TEYITLI,TL,7,Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları 18 (15.370.159) (36.363.616),True,
-BFREN,2025,9,1517474,520003,Konsolide Olmayan,CFO,cari,-45250849.0,XBRL,PDF_TUTMADI,,,,True,PDF CFO adayları özdeşliği sağlamıyor: A. İşletme faaliyetlerden kaynaklanan nakit akışları (19.510.896) 174.153.219
-BFREN,2025,9,1517474,520003,Konsolide Olmayan,CFO,onceki,153045719.0,XBRL,PDF_TUTMADI,,,,True,PDF CFO adayları özdeşliği sağlamıyor: A. İşletme faaliyetlerden kaynaklanan nakit akışları (19.510.896) 174.153.219
+BFREN,2025,9,1517474,520003,Konsolide Olmayan,CFO,cari,-45250849.0,XBRL (PDF özdeşliğiyle türetildi),TEYITLI,TL,,CFO = net değişim − yatırım − finansman (PDF satırları),True,PDF’te CFO satırı yok/uymuyor; özdeşlikten türetilen değer XBRL ile aynı
+BFREN,2025,9,1517474,520003,Konsolide Olmayan,CFO,onceki,153045719.0,XBRL (PDF özdeşliğiyle türetildi),TEYITLI,TL,,CFO = net değişim − yatırım − finansman (PDF satırları),True,PDF’te CFO satırı yok/uymuyor; özdeşlikten türetilen değer XBRL ile aynı
 BFREN,2025,9,1517474,520003,Konsolide Olmayan,MDV+MODV,cari,-4452017.0,XBRL,TEYITLI,TL,7,Maddi duran varlık alımından kaynaklanan nakit çıkışları 7 (4.452.017) (10.181.760),True,
 BFREN,2025,9,1517474,520003,Konsolide Olmayan,MDV+MODV,onceki,-10412579.0,XBRL,PDF_TUTMADI,,,,True,
 BFREN,2025,9,1517474,520003,Konsolide Olmayan,YAGM,cari,,XBRL,SIFIR,,,,True,
@@ -1560,7 +1560,7 @@ DERIM,2024,12,1399580,520003,Konsolide Olmayan,YAGM,cari,,XBRL,SIFIR,,,,True,
 DERIM,2024,12,1399580,520003,Konsolide Olmayan,YAGM,onceki,,XBRL,SIFIR,,,,True,
 DERIM,2024,12,1399580,520003,Konsolide Olmayan,KIRA,cari,-1966495.0,PDF (1 satır),PDF_OKUNDU,TL,11,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları (1.966.495) (12.093.258),True,XBRL standart elemanında yok
 DERIM,2024,12,1399580,520003,Konsolide Olmayan,KIRA,onceki,-12093258.0,PDF (1 satır),PDF_OKUNDU,TL,11,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları (1.966.495) (12.093.258),True,XBRL standart elemanında yok
-DERIM,2025,3,1432382,,,*,,,,INDIRILMEDI,,,,,
+DERIM,2025,3,1432382,,,*,,,,NAKIT_AKIS_YOK,,,,,html indirilemedi
 DERIM,2025,6,1476596,520003,Konsolide Olmayan,CFO,cari,-110373627.0,XBRL,TEYITLI,TL,9,A. İşletme Faaliyetlerinde Kullanılan Nakit Akışları (110.373.627) (199.859.334),True,
 DERIM,2025,6,1476596,520003,Konsolide Olmayan,CFO,onceki,-199859334.0,XBRL,TEYITLI,TL,9,A. İşletme Faaliyetlerinde Kullanılan Nakit Akışları (110.373.627) (199.859.334),True,
 DERIM,2025,6,1476596,520003,Konsolide Olmayan,MDV+MODV,cari,-179202.0,XBRL,TEYITLI,TL,9,Nakit Çıkışları (179.202) (352.698),True,
@@ -2301,7 +2301,14 @@ FORMT,2025,6,1475949,520003,Konsolide Olmayan,YAGM,cari,,XBRL,SIFIR,,,,True,
 FORMT,2025,6,1475949,520003,Konsolide Olmayan,YAGM,onceki,,XBRL,SIFIR,,,,True,
 FORMT,2025,6,1475949,520003,Konsolide Olmayan,KIRA,cari,-1460848.0,XBRL,TEYITLI,TL,9,Finansal kiralama sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları [4] -1.460.848 -1.422.338,True,
 FORMT,2025,6,1475949,520003,Konsolide Olmayan,KIRA,onceki,-1422338.0,XBRL,TEYITLI,TL,9,Finansal kiralama sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları [4] -1.460.848 -1.422.338,True,
-FRIGO,2024,12,1398682,,,*,,,,NAKIT_AKIS_YOK,,,,,html indirilemedi
+FRIGO,2024,12,1398682,520003,Konsolide,CFO,cari,-33013252.0,XBRL,PDF_YOK,,,,,
+FRIGO,2024,12,1398682,520003,Konsolide,CFO,onceki,-120857613.0,XBRL,PDF_YOK,,,,,
+FRIGO,2024,12,1398682,520003,Konsolide,MDV+MODV,cari,-118371440.0,XBRL,PDF_YOK,,,,,
+FRIGO,2024,12,1398682,520003,Konsolide,MDV+MODV,onceki,-47384098.0,XBRL,PDF_YOK,,,,,
+FRIGO,2024,12,1398682,520003,Konsolide,YAGM,cari,,XBRL,PDF_YOK,,,,,
+FRIGO,2024,12,1398682,520003,Konsolide,YAGM,onceki,,XBRL,PDF_YOK,,,,,
+FRIGO,2024,12,1398682,520003,Konsolide,KIRA,cari,,XBRL,PDF_YOK,,,,,
+FRIGO,2024,12,1398682,520003,Konsolide,KIRA,onceki,,XBRL,PDF_YOK,,,,,
 FRIGO,2025,3,1437942,520003,Konsolide,CFO,cari,-237838399.0,XBRL,TEYITLI,TL,7,A. İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI (237.838.399) (257.268.210),True,
 FRIGO,2025,3,1437942,520003,Konsolide,CFO,onceki,-257268210.0,XBRL,TEYITLI,TL,7,A. İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI (237.838.399) (257.268.210),True,
 FRIGO,2025,3,1437942,520003,Konsolide,MDV+MODV,cari,-9046824.0,XBRL,TEYITLI,TL,7,Maddi Duran Varlık Alımından Kaynaklanan Nakit Çıkışları (9.046.824) (574.058),True,
@@ -2486,7 +2493,7 @@ GOLDA,2026,6,1647292,520003,Konsolide Olmayan,YAGM,cari,,XBRL,SIFIR,,,,True,
 GOLDA,2026,6,1647292,520003,Konsolide Olmayan,YAGM,onceki,,XBRL,SIFIR,,,,True,
 GOLDA,2026,6,1647292,520003,Konsolide Olmayan,KIRA,cari,0.0,XBRL,SIFIR,,,,True,
 GOLDA,2026,6,1647292,520003,Konsolide Olmayan,KIRA,onceki,-12431268.0,XBRL,ETIKET_UYMADI,TL,8,Kullanım Hakkı Varlıklarına İlişkin Nakit Girişleri/Çıkışları 15 -- (12.431.268),True,
-GRTHO,2024,12,1399080,,,*,,,,INDIRILMEDI,,,,,
+GRTHO,2024,12,1399080,,,*,,,,NAKIT_AKIS_YOK,,,,,html indirilemedi
 GRTHO,2025,3,1435174,520003,Konsolide,CFO,cari,69207326.0,XBRL,TEYITLI,TL,6,A İşletme Faaliyetlerinden Kaynaklanan Nakit Akışları 69.207.326 481.357.526,True,
 GRTHO,2025,3,1435174,520003,Konsolide,CFO,onceki,481357526.0,"PDF (CFO, özdeşlikle)",PDF_OKUNDU,TL,6,A İşletme Faaliyetlerinden Kaynaklanan Nakit Akışları 69.207.326 481.357.526,True,özdeşlik A+B+C=net değişim tuttu; XBRL 481.358 mn ≠ PDF; PDF satırı kullanıldı
 GRTHO,2025,3,1435174,520003,Konsolide,MDV+MODV,cari,-7322828.0,XBRL(alt kalemler PDF),TEYITLI,TL,6,Maddi Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları (-) (7.310.891) (17.339.121) + Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları (-) (11.937) (321.812),True,
@@ -2876,7 +2883,7 @@ KCAER,2026,3,1600844,520003,Konsolide,YAGM,cari,,XBRL,SIFIR,,,,True,
 KCAER,2026,3,1600844,520003,Konsolide,YAGM,onceki,,XBRL,SIFIR,,,,True,
 KCAER,2026,3,1600844,520003,Konsolide,KIRA,cari,,XBRL,SIFIR,,,,True,
 KCAER,2026,3,1600844,520003,Konsolide,KIRA,onceki,,XBRL,SIFIR,,,,True,
-KCAER,2026,6,1643859,,,*,,,,INDIRILMEDI,,,,,
+KCAER,2026,6,1643859,,,*,,,,NAKIT_AKIS_YOK,,,,,html indirilemedi
 KFEIN,2024,12,1405090,520003,Konsolide,CFO,cari,51469536.0,XBRL,TEYITLI,TL,14,A) İşletme Faaliyetlerden Nakit Akışları 51.469.536 255.594.780,False,
 KFEIN,2024,12,1405090,520003,Konsolide,CFO,onceki,255594780.0,XBRL,TEYITLI,TL,14,A) İşletme Faaliyetlerden Nakit Akışları 51.469.536 255.594.780,False,
 KFEIN,2024,12,1405090,520003,Konsolide,MDV+MODV,cari,-133765220.0,XBRL,TEYITLI,TL,14,Maddi ve maddi olm. duran varlıkların alımından kaynak. nakit çıkışları 16-17 (133.765.220) (81.745.290),False,
@@ -2949,7 +2956,7 @@ KIMMR,2025,6,1476219,520003,Konsolide Olmayan,YAGM,cari,-181672354.0,XBRL,TEYITL
 KIMMR,2025,6,1476219,520003,Konsolide Olmayan,YAGM,onceki,-53186880.0,XBRL,TEYITLI,TL,7,çıkışları 8 (181.672.354) (53.186.880),True,
 KIMMR,2025,6,1476219,520003,Konsolide Olmayan,KIRA,cari,,XBRL,SIFIR,,,,True,
 KIMMR,2025,6,1476219,520003,Konsolide Olmayan,KIRA,onceki,,XBRL,SIFIR,,,,True,
-KIMMR,2025,12,1564130,,,*,,,,INDIRILMEDI,,,,,
+KIMMR,2025,12,1564130,,,*,,,,NAKIT_AKIS_YOK,,,,,html indirilemedi
 KIMMR,2026,6,1647060,520003,Konsolide Olmayan,CFO,cari,1021493616.0,XBRL,TEYITLI,TL,8,A. ŞİRKET FAALİYETLERİNDEN NAKİT AKIŞLARI 1.021.493.616 850.774.770,True,
 KIMMR,2026,6,1647060,520003,Konsolide Olmayan,CFO,onceki,850774770.0,XBRL,TEYITLI,TL,8,A. ŞİRKET FAALİYETLERİNDEN NAKİT AKIŞLARI 1.021.493.616 850.774.770,True,
 KIMMR,2026,6,1647060,520003,Konsolide Olmayan,MDV+MODV,cari,-108824607.0,XBRL(alt kalemler PDF),TEYITLI,TL,8,Maddi duran varlıkların alımından kaynaklanan nakit çıkışları 10 (105.962.696) (29.038.371) + Maddi olmayan duran varlıkların alımından kaynaklanan nakit çıkışları 9 (2.861.911) -,True,
@@ -3142,8 +3149,8 @@ KONKA,2025,3,1432039,520003,Konsolide Olmayan,YAGM,cari,,XBRL,SIFIR,,,,True,
 KONKA,2025,3,1432039,520003,Konsolide Olmayan,YAGM,onceki,,XBRL,SIFIR,,,,True,
 KONKA,2025,3,1432039,520003,Konsolide Olmayan,KIRA,cari,,XBRL,SIFIR,,,,True,
 KONKA,2025,3,1432039,520003,Konsolide Olmayan,KIRA,onceki,,XBRL,SIFIR,,,,True,
-KONKA,2025,6,1475988,520003,Konsolide Olmayan,CFO,cari,-182873046.0,XBRL,PDF_TUTMADI,,,,True,PDF CFO adayları özdeşliği sağlamıyor: A. İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI (85.938.292) 125.043.382 || Faaliyetlerden Elde Edilen Nakit Akışları (100.081.192) 210.873.559
-KONKA,2025,6,1475988,520003,Konsolide Olmayan,CFO,onceki,76627435.0,XBRL,PDF_TUTMADI,,,,True,PDF CFO adayları özdeşliği sağlamıyor: A. İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI (85.938.292) 125.043.382 || Faaliyetlerden Elde Edilen Nakit Akışları (100.081.192) 210.873.559
+KONKA,2025,6,1475988,520003,Konsolide Olmayan,CFO,cari,-182873046.0,XBRL (PDF özdeşliğiyle türetildi),TEYITLI,TL,,CFO = net değişim − yatırım − finansman (PDF satırları),True,PDF’te CFO satırı yok/uymuyor; özdeşlikten türetilen değer XBRL ile aynı
+KONKA,2025,6,1475988,520003,Konsolide Olmayan,CFO,onceki,76627435.0,XBRL (PDF özdeşliğiyle türetildi),TEYITLI,TL,,CFO = net değişim − yatırım − finansman (PDF satırları),True,PDF’te CFO satırı yok/uymuyor; özdeşlikten türetilen değer XBRL ile aynı
 KONKA,2025,6,1475988,520003,Konsolide Olmayan,MDV+MODV,cari,-5085860.0,XBRL,PDF_TUTMADI,,,,True,
 KONKA,2025,6,1475988,520003,Konsolide Olmayan,MDV+MODV,onceki,-128220569.0,XBRL,PDF_TUTMADI,,,,True,
 KONKA,2025,6,1475988,520003,Konsolide Olmayan,YAGM,cari,,XBRL,SIFIR,,,,True,
@@ -3798,7 +3805,7 @@ MEDTR,2026,6,1650652,520003,Konsolide,YAGM,cari,,XBRL,SIFIR,,,,True,
 MEDTR,2026,6,1650652,520003,Konsolide,YAGM,onceki,,XBRL,SIFIR,,,,True,
 MEDTR,2026,6,1650652,520003,Konsolide,KIRA,cari,-3755350.0,XBRL,TEYITLI,TL,9,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları (3.755.350) --,True,
 MEDTR,2026,6,1650652,520003,Konsolide,KIRA,onceki,0.0,XBRL,SIFIR,,,,True,
-MEGAP,2024,12,1397704,,,*,,,,INDIRILMEDI,,,,,
+MEGAP,2024,12,1397704,,,*,,,,NAKIT_AKIS_YOK,,,,,html indirilemedi
 MEGAP,2025,3,1438164,520003,Konsolide,CFO,cari,-14408173.0,XBRL,TEYITLI,TL,7,A. ESAS FAALİYETLERDEN NAKİT AKIŞLARI -14.408.173 133.942.214,True,
 MEGAP,2025,3,1438164,520003,Konsolide,CFO,onceki,133942214.0,XBRL,TEYITLI,TL,7,A. ESAS FAALİYETLERDEN NAKİT AKIŞLARI -14.408.173 133.942.214,True,
 MEGAP,2025,3,1438164,520003,Konsolide,MDV+MODV,cari,,XBRL,SIFIR,,,,True,
@@ -3823,7 +3830,7 @@ MEGAP,2025,9,1515161,520003,Konsolide,YAGM,cari,,XBRL,SIFIR,,,,True,
 MEGAP,2025,9,1515161,520003,Konsolide,YAGM,onceki,,XBRL,SIFIR,,,,True,
 MEGAP,2025,9,1515161,520003,Konsolide,KIRA,cari,-1440000.0,XBRL,TEYITLI,TL,6,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları 20 -1.440.000 -3.307.728,True,
 MEGAP,2025,9,1515161,520003,Konsolide,KIRA,onceki,-3307728.0,XBRL,TEYITLI,TL,6,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları 20 -1.440.000 -3.307.728,True,
-MEGAP,2025,12,1593957,,,*,,,,NAKIT_AKIS_YOK,,,,,html indirilemedi
+MEGAP,2025,12,1593957,,,*,,,,INDIRILMEDI,,,,,
 MEGAP,2026,3,1614139,520003,Konsolide,CFO,cari,-6462265.0,XBRL,TEYITLI,TL,7,A. ESAS FAALİYETLERDEN NAKİT AKIŞLARI -6.462.265 -17.131.318,True,
 MEGAP,2026,3,1614139,520003,Konsolide,CFO,onceki,-17131318.0,XBRL,TEYITLI,TL,7,A. ESAS FAALİYETLERDEN NAKİT AKIŞLARI -6.462.265 -17.131.318,True,
 MEGAP,2026,3,1614139,520003,Konsolide,MDV+MODV,cari,0.0,PDF (1 satır),PDF_OKUNDU,TL,7,Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları 14 - --,True,XBRL standart elemanında yok
@@ -4262,7 +4269,7 @@ ONCSM,2026,6,1652780,520003,Konsolide,YAGM,cari,,XBRL,SIFIR,,,,True,
 ONCSM,2026,6,1652780,520003,Konsolide,YAGM,onceki,,XBRL,SIFIR,,,,True,
 ONCSM,2026,6,1652780,520003,Konsolide,KIRA,cari,-3200000.0,XBRL,TEYITLI,TL,10,Operasyonel kiralama işlemlerinden kaynaklanan nakit çıkışları 13 (3.200.000) (454.326),True,
 ONCSM,2026,6,1652780,520003,Konsolide,KIRA,onceki,-454326.0,XBRL,TEYITLI,TL,10,Operasyonel kiralama işlemlerinden kaynaklanan nakit çıkışları 13 (3.200.000) (454.326),True,
-ONRYT,2024,12,1415200,,,*,,,,INDIRILMEDI,,,,,
+ONRYT,2024,12,1415200,,,*,,,,NAKIT_AKIS_YOK,,,,,html indirilemedi
 ONRYT,2025,3,1432334,520003,Konsolide Olmayan,CFO,cari,111172494.0,XBRL,TEYITLI,TL,5,A. İşletme Faaliyetlerinden Kaynaklanan Nakit Akışları 111.172.494 52.678.845,True,
 ONRYT,2025,3,1432334,520003,Konsolide Olmayan,CFO,onceki,52678845.0,XBRL,TEYITLI,TL,5,A. İşletme Faaliyetlerinden Kaynaklanan Nakit Akışları 111.172.494 52.678.845,True,
 ONRYT,2025,3,1432334,520003,Konsolide Olmayan,MDV+MODV,cari,-49776182.0,PDF (1 satır),PDF_OKUNDU,TL,5,Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları -49.776.182 -23.279.199,True,XBRL standart elemanında yok

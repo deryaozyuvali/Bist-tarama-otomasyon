@@ -143,5 +143,97 @@
  "TLMAN|2025|9|MDV+MODV|onceki": {
   "deger": -537323300,
   "not": "aynı satır karşılaştırmalı"
+ },
+ "AFYON|2024|12|MDV+MODV|cari": {
+  "deger": -306225183,
+  "not": "XBRL avans değişimi dahil toplam; belgedeki 'Maddi ve maddi olmayan duran varlıkların alımından kaynaklanan nakit çıkışları' satırı"
+ },
+ "AFYON|2024|12|MDV+MODV|onceki": {
+  "deger": -265206328,
+  "not": "aynı satır karşılaştırmalı"
+ },
+ "AFYON|2025|9|MDV+MODV|cari": {
+  "deger": -211779467,
+  "not": "belgedeki alım satırı"
+ },
+ "AFYON|2025|9|MDV+MODV|onceki": {
+  "deger": -138266890,
+  "not": "belgedeki alım satırı (XBRL avans değişimi -20.447.719 dahil)"
+ },
+ "BFREN|2025|9|MDV+MODV|*": {
+  "durum": "TEYITLI",
+  "not": "belgede MDV (4.452.017)/(10.181.760) + MODV -/(230.819) ('satışından ... çıkışları' yazım hatası) = XBRL"
+ },
+ "GENTS|2025|12|MDV+MODV|*": {
+  "durum": "TEYITLI",
+  "not": "belgede 'Maddi ve Maddi Olmayan Varlıkların Alımından...' (253.547.343)/(370.304.418) = XBRL"
+ },
+ "BRKO|2025|9|MDV+MODV|cari": {
+  "deger": -6099476,
+  "not": "belgede 'Maddi ve Maddi Olmayan Duran Varlıkların Alışından...' (6.099.476); XBRL -7.633.000 farklı"
+ },
+ "BRKO|2025|9|MDV+MODV|onceki": {
+  "deger": 0,
+  "not": "belgede '--'"
+ },
+ "EMKEL|2025|3|MDV+MODV|cari": {
+  "deger": -1319583,
+  "not": "belgede (1.319.583); XBRL -2.163.000 farklı"
+ },
+ "EMKEL|2025|3|MDV+MODV|onceki": {
+  "deger": 0,
+  "not": "belgede '-'"
+ },
+ "KUVVA|2026|6|MDV+MODV|cari": {
+  "deger": -129271541,
+  "not": "belgede 'Maddi ve Maddi Olmayan Duran Varlık Alımından Nakit Çıkışları' (129.271.541); XBRL -130.663.000 farklı"
+ },
+ "KUVVA|2026|6|MDV+MODV|onceki": {
+  "deger": -122660737,
+  "not": "belgedeki satır (= XBRL)"
+ },
+ "PLTUR|2024|12|MDV+MODV|cari": {
+  "deger": -7952201,
+  "not": "PLTUR araç kiralama: XBRL operasyonel kiralama filo alımlarını (işletme faaliyetlerinde, CFO'da düşülmüş) de içeriyor; çift sayım olmaması için yatırım bölümündeki 'Maddi ve Maddi Olmayan Duran Varlık Alımları' satırı"
+ },
+ "PLTUR|2024|12|MDV+MODV|onceki": {
+  "deger": -6500004,
+  "not": "aynı satır karşılaştırmalı"
+ },
+ "PLTUR|2025|3|MDV+MODV|cari": {
+  "deger": -1366043,
+  "not": "yatırım bölümü MDV alım satırı (filo alımları CFO içinde)"
+ },
+ "PLTUR|2025|3|MDV+MODV|onceki": {
+  "deger": -1250845,
+  "not": "aynı satır karşılaştırmalı"
+ },
+ "PLTUR|2025|9|MDV+MODV|cari": {
+  "deger": -30256998,
+  "not": "yatırım bölümü MDV alım satırı (filo alımları CFO içinde)"
+ },
+ "PLTUR|2025|9|MDV+MODV|onceki": {
+  "deger": -7550097,
+  "not": "aynı satır karşılaştırmalı"
+ },
+ "PLTUR|2024|12|KIRA|*": {
+  "deger": 0,
+  "not": "belgenin finansman bölümünde kira ödemesi satırı yok; 'Operasyonel Kiralamada Kullanılan Varlık Alımları/Satışları' filo alım-satımı (kira ödemesi değil)"
+ },
+ "PLTUR|2025|3|KIRA|*": {
+  "deger": 0,
+  "not": "belgenin finansman bölümünde kira ödemesi satırı yok; 'Operasyonel Kiralamada Kullanılan Varlık Alımları/Satışları' filo alım-satımı (kira ödemesi değil)"
+ },
+ "PLTUR|2025|9|KIRA|*": {
+  "deger": 0,
+  "not": "belgenin finansman bölümünde kira ödemesi satırı yok; 'Operasyonel Kiralamada Kullanılan Varlık Alımları/Satışları' filo alım-satımı (kira ödemesi değil)"
+ },
+ "EGEPO|2024|12|KIRA|cari": {
+  "deger": -6596206,
+  "not": "finansman bölümündeki 'Kiralama borçları' satırı (6.596.206); rapor TL (2025 raporlarında aynı satır XBRL kira ile teyitli)"
+ },
+ "EGEPO|2024|12|KIRA|onceki": {
+  "deger": -10409958,
+  "not": "aynı satır karşılaştırmalı"
  }
 }
