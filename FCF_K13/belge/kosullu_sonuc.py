@@ -5,6 +5,8 @@ Sonuç:
   KESİN_ONERI_YAKIN  bileşenler V7 ile en fazla %3 farklı (TMS 29 yeniden ifade ayrıntısı düzeyinde; V7 kabul edilebilir)
   BELGE_DEGERI  belge değerleri güvenilir (TEYITLI / PDF_OKUNDU / İZAHNAME) ve en az bir bileşen V7'den farklı →
                 belge değeri önerilir; fark nedeni: EVO_NOMINAL (V7 = belgenin TMS29 çevrimsiz hali) ya da FARKLI
+  YEDEK_FARKLI  belge değeri V7'den farklı ama farklı bileşen orijinal rapor yerine sonraki raporun karşılaştırmalı
+                sütunundan (yedek) kuruldu: fark yeniden düzenlemeden olabilir → orijinal rapor (KAP) beklenir
   ELLE          belge değerlerinden en az biri düşük güvenli / okunamadı ve V7 ile örtüşme tam değil
   BELGE_YOK     gereken raporlar indirilemedi (KAP erişimi) ya da Evo havuzunda yok"""
 import pandas as pd
@@ -30,7 +32,12 @@ for _, x in d.iterrows():
     if st == 'BELGE_YOK': s = 'BELGE_YOK'
     elif all(k == 'AYNI' for k in kar.values()): s = 'KESİN_ONERI'
     elif all(k in ('AYNI', 'YAKIN') for k in kar.values()): s = 'KESİN_ONERI_YAKIN'
-    elif st in ('TEYITLI', 'PDF_OKUNDU', 'IZAHNAME', 'XBRL_ESAS') and 'YOK' not in kar.values(): s = 'BELGE_DEGERI'
+    elif st in ('TEYITLI', 'PDF_OKUNDU', 'IZAHNAME', 'XBRL_ESAS') and 'YOK' not in kar.values():
+        # farklı bileşen yedek sütundan (sonraki raporun karşılaştırmalı sütunu) kurulduysa fark şirketin o dönemi
+        # sonradan yeniden düzenlemesinden gelebilir → orijinal rapor görülmeden belge değeri önerilmez
+        yedek = any('yedek:' in str(x[f'{k} kanıt']) for n, k in (('CFO', 'CFO'), ('CAPEX', 'MDV+MODV'), ('CAPEX', 'YAGM'), ('KIRA', 'KIRA'))
+                    if kar[n] not in ('AYNI', 'YAKIN'))
+        s = 'YEDEK_FARKLI' if yedek else 'BELGE_DEGERI'
     else: s = 'ELLE'
     fark = '; '.join(f'{n} {k}' for n, k in kar.items() if k not in ('AYNI',))
     out.append(dict(Sonuç=s, **{f'{n} kıyas': k for n, k in kar.items()}, **{'Fark özeti': fark}))

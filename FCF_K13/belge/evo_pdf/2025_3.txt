@@ -21,3 +21,6 @@ ARTMS|Artemis%20Hal%C4%B1-31.03.2025-Mali%20Tablo%20Dipnotlar%C4%B1.pdf
 CATES|%C3%87ates%202025%20Y%C4%B1l%C4%B1%201.%20%C3%87eyrek%20Finansal%20Rapor%20-%20TR.pdf
 GIPTA|31.03.2025%20Ba%C4%9F%C4%B1ms%C4%B1z%20Denetim%20Raporu.pdf
 NTGAZ|Naturelgaz%20SPK%20-31.03.2025.pdf
+IZFAS|rev_%C4%B0zmir%20F%C4%B1r%C3%A7aFinansallar_Dipnotlar.pdf
+DGNMO|Do%C4%9Fanlar%20Mobilya%20Grubu%20SPK%2031%20Mart%202025.pdf
+MANAS|Manas%20Enerji%20Y%C3%B6netimi%20San.%20ve%20Tic.%20A.%C5%9E.%20%2031.03.2025%20Finansal%20Tablolar%20ve%20Dipnotlar.pdf

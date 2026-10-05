@@ -124,6 +124,18 @@ def al(kod, y, m, kalem, sut):
         return None, 'ELLE', kanit + f' · PDF satırı otomatik okunamadı ({r.not_}): {r.pdf_satir}'
     return v, 'ELLE', kanit + f" · {r.durum}{'' if pd.isna(r.not_) else ' ' + str(r.not_)}"
 
+def al_yedek(kod, y, m, kalem, sut):
+    """al() + kaynak rapor tarihi. Rapor yoksa aynı dönemin değeri başka raporun sütunundan alınır:
+    cari (y, m) → (y+1, m) raporunun karşılaştırmalı sütunu; onceki (y, m) → (y−1, m) raporunun cari sütunu.
+    TMS 29 çevrimi kaynak raporun tarihiyle yapılır (karşılaştırmalı sütun o raporun satın alma gücündedir)."""
+    r = al(kod, y, m, kalem, sut)
+    if r[1] != 'BELGE_YOK': return r + ((y, m),)
+    yy, ss = (y + 1, 'onceki') if sut == 'cari' else (y - 1, 'cari')
+    if (yy, m) not in F: return r + ((y, m),)
+    r2 = al(kod, yy, m, kalem, ss)
+    if r2[1] == 'BELGE_YOK': return r + ((y, m),)
+    return (r2[0], r2[1], f'{r[2]} → yedek: {y}/{m:02d} değeri {yy}/{m:02d} raporunun {ss} sütunundan · {r2[2]}', (yy, m))
+
 SIRA = {'TEYITLI': 0, 'PDF_OKUNDU': 1, 'IZAHNAME': 1, 'XBRL_ESAS': 1, 'ELLE': 2, 'BELGE_YOK': 3}
 
 # Halka arz izahnamesi (izahname_oku.py): KAP'ta finansal rapor bulunmayan dönemler için. Tüm sütunlar tek
@@ -190,10 +202,10 @@ for r in csv.DictReader(open(SATIRLAR)):
     genel = 'TEYITLI'
     for kalem in ('CFO', 'MDV+MODV', 'YAGM', 'KIRA'):
         if m == 12:
-            parca = [(1, al(kod, y, 12, kalem, 'cari'))]
+            parca = [(1, al_yedek(kod, y, 12, kalem, 'cari'))]
         else:
-            parca = [(1, al(kod, y, m, kalem, 'cari')), (1, al(kod, y - 1, 12, kalem, 'cari')),
-                     (-1, al(kod, y, m, kalem, 'onceki'))]
+            parca = [(1, al_yedek(kod, y, m, kalem, 'cari')), (1, al_yedek(kod, y - 1, 12, kalem, 'cari')),
+                     (-1, al_yedek(kod, y, m, kalem, 'onceki'))]
         st = max((p[1][1] for p in parca), key=SIRA.get)
         vals = [p[1][0] for p in parca]
         ttm = None if any(v is None for v in vals) else sum(s * v for (s, _), v in zip(parca, vals))
@@ -210,7 +222,7 @@ for r in csv.DictReader(open(SATIRLAR)):
         if MOD == 'KOSULLU':
             # Evo bazı şirketlerde her dönemi kendi raporundaki (çevrilmemiş) haliyle saklayıp TTM'i karışık kuruyor;
             # bu farkı ayırt etmek için belge TTM'inin çevrimsiz (nominal) hali de verilir
-            don = [(y, 12)] if m == 12 else [(y, m), (y - 1, 12), (y, m)]
+            don = [p[1][3] if len(p[1]) > 3 else (y, m) for p in parca]
             satir[f'{kalem} TTM nominal'] = (None if st == 'IZAHNAME' or any(v is None for v in vals) else
                                              round(sum(s * v / _kat(kod, *d) for (s, _), v, d in zip(parca, vals, don)), 3))
         satir[f'{kalem} statü'] = st

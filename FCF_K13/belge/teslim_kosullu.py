@@ -18,6 +18,11 @@ okubeni = pd.DataFrame([
                'Fark nedeni EVO_NOMINAL: V7, belgenin TMS 29 çevrimsiz (nominal) haliyle tutuyor — Evo bu şirkette dönemleri '
                'kendi raporundaki haliyle saklayıp TTM’i karışık kurmuş. FARKLI: Evo’da başka bir değer (ör. OBAMS 2025/06 CFO '
                'Evo 1.618,7 mn, belge 296,3 mn; SASA/KRDM/EKOS kira Evo’da yok).'),
+    ('Yedek kaynak', 'Bir rapor yoksa aynı dönemin değeri başka raporun sütunundan alınır: dönem değeri bir yıl sonraki '
+               'aynı dönem raporunun karşılaştırmalı sütunundan, önceki yıl sonu cari yıl sonu raporunun karşılaştırmalı '
+               'sütunundan (TMS 29 çevrimi kaynak raporun tarihiyle). Kanıtta "yedek:" olarak yazılır.'),
+    ('Sonuç: YEDEK_FARKLI', 'Belge V7’den farklı, ama farklı bileşen yedek sütundan kuruldu. Şirket o dönemi sonraki '
+               'raporda yeniden düzenlemiş olabilir (ör. BVSAN 2024 CFO) → orijinal rapor görülmeden belge değeri önerilmez.'),
     ('Sonuç: ELLE', 'Belge değerlerinden en az biri düşük güvenli/okunamadı ve V7 ile tam örtüşme yok.'),
     ('Sonuç: BELGE_YOK', 'Gereken rapor(lar) KAP’tan indirilemedi (erişim engeli) ve Evo havuzunda yok — KAP açılınca tamamlanacak.'),
     ('Tutarlar', 'mn TL, Haziran 2026 satın alma gücü (TMS 29 uygulayanlar); bileşen işaretleri belgedeki gibi.'),
@@ -40,7 +45,7 @@ kolon = ['Kod', 'Tip', 'Dönem', 'Sonuç', 'Fark özeti', 'Açıklama', 'Satır 
 with pd.ExcelWriter('KOSULLU_belge_kontrol.xlsx') as w:
     okubeni.to_excel(w, sheet_name='OKUBENI', index=False)
     ozet.to_excel(w, sheet_name='OZET', index=False)
-    for s in ('BELGE_DEGERI', 'KESİN_ONERI', 'KESİN_ONERI_YAKIN', 'ELLE', 'BELGE_YOK'):
+    for s in ('BELGE_DEGERI', 'KESİN_ONERI', 'KESİN_ONERI_YAKIN', 'YEDEK_FARKLI', 'ELLE', 'BELGE_YOK'):
         R[R['Sonuç'] == s][[k for k in kolon if k in R]].to_excel(w, sheet_name=s[:31], index=False)
     R[[k for k in kolon if k in R]].to_excel(w, sheet_name='TUMU', index=False)
 print(ozet.to_string(index=False))

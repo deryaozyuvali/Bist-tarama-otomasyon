@@ -601,6 +601,30 @@ AYGAZ,2025,12,1555003,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,bin TL,,
 AYGAZ,2025,12,1555003,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,bin TL,,,True,nakit akış tablosunda kalem satırı yok → 0
 AYGAZ,2025,12,1555003,PDF,,KIRA,cari,-66796000.0,PDF (Evo havuzu),PDF_OKUNDU,bin TL,14,Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları 6 (66.796) (141.352),True,1 satır
 AYGAZ,2025,12,1555003,PDF,,KIRA,onceki,-141352000.0,PDF (Evo havuzu),PDF_OKUNDU,bin TL,14,Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları 6 (66.796) (141.352),True,1 satır
+KATMR,2025,12,1557851,PDF,,CFO,cari,-1313583537.0,PDF (Evo havuzu),PDF_OKUNDU,TL,12,A. ESAS FAALİYETLERDEN NAKİT AKIŞLARI (1.313.583.537) 998.996.328,True,özdeşlik A+B+C(+etki)=net değişim tuttu
+KATMR,2025,12,1557851,PDF,,CFO,onceki,998996328.0,PDF (Evo havuzu),PDF_OKUNDU,TL,12,A. ESAS FAALİYETLERDEN NAKİT AKIŞLARI (1.313.583.537) 998.996.328,True,özdeşlik A+B+C(+etki)=net değişim tuttu
+KATMR,2025,12,1557851,PDF,,MDV+MODV,cari,-86218454.0,PDF (Evo havuzu),PDF_OKUNDU,TL,12,"Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları 13,16 (86.218.454) (274.665.217)",True,1 satır
+KATMR,2025,12,1557851,PDF,,MDV+MODV,onceki,-274665217.0,PDF (Evo havuzu),PDF_OKUNDU,TL,12,"Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları 13,16 (86.218.454) (274.665.217)",True,1 satır
+KATMR,2025,12,1557851,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+KATMR,2025,12,1557851,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+KATMR,2025,12,1557851,PDF,,KIRA,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+KATMR,2025,12,1557851,PDF,,KIRA,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+PINSU,2025,12,1557998,PDF,,CFO,cari,,PDF (Evo havuzu),PDF_TUTMADI,TL,,İŞLETME FAALİYETLERİNDEN ELDE EDİLEN NAKİT AKIŞLARI 358.846.965 368.713.037 || Faaliyetlerden Elde Edilen Nakit Akışları 366.379.395 378.166.619,False,özdeşliği sağlayan tek CFO adayı yok
+PINSU,2025,12,1557998,PDF,,CFO,onceki,,PDF (Evo havuzu),PDF_TUTMADI,TL,,İŞLETME FAALİYETLERİNDEN ELDE EDİLEN NAKİT AKIŞLARI 358.846.965 368.713.037 || Faaliyetlerden Elde Edilen Nakit Akışları 366.379.395 378.166.619,False,özdeşliği sağlayan tek CFO adayı yok
+PINSU,2025,12,1557998,PDF,,MDV+MODV,cari,-112285506.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,Kaynaklanan Nakit Çıkışları (112.285.506) (133.795.541),False,1 satır
+PINSU,2025,12,1557998,PDF,,MDV+MODV,onceki,-133795541.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,Kaynaklanan Nakit Çıkışları (112.285.506) (133.795.541),False,1 satır
+PINSU,2025,12,1557998,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,False,nakit akış tablosunda kalem satırı yok → 0
+PINSU,2025,12,1557998,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,False,nakit akış tablosunda kalem satırı yok → 0
+PINSU,2025,12,1557998,PDF,,KIRA,cari,-116887887.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları (116.887.887) (88.060.005),False,1 satır
+PINSU,2025,12,1557998,PDF,,KIRA,onceki,-88060005.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları (116.887.887) (88.060.005),False,1 satır
+EGPRO,2025,12,1561128,PDF,,CFO,cari,,PDF (Evo havuzu),PDF_TUTMADI,TL,,,True,özdeşliği sağlayan tek CFO adayı yok
+EGPRO,2025,12,1561128,PDF,,CFO,onceki,,PDF (Evo havuzu),PDF_TUTMADI,TL,,,True,özdeşliği sağlayan tek CFO adayı yok
+EGPRO,2025,12,1561128,PDF,,MDV+MODV,cari,-350755997.0,PDF (Evo havuzu),PDF_OKUNDU,TL,15,Maddi ve maddi olmayan duran varlık alımından kaynaklanan nakit çıkışları (350.755.997) (451.224.801),True,1 satır
+EGPRO,2025,12,1561128,PDF,,MDV+MODV,onceki,-451224801.0,PDF (Evo havuzu),PDF_OKUNDU,TL,15,Maddi ve maddi olmayan duran varlık alımından kaynaklanan nakit çıkışları (350.755.997) (451.224.801),True,1 satır
+EGPRO,2025,12,1561128,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+EGPRO,2025,12,1561128,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+EGPRO,2025,12,1561128,PDF,,KIRA,cari,-86696137.0,PDF (Evo havuzu),PDF_OKUNDU,TL,15,Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları (86.696.137) (87.671.288),True,1 satır
+EGPRO,2025,12,1561128,PDF,,KIRA,onceki,-87671288.0,PDF (Evo havuzu),PDF_OKUNDU,TL,15,Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları (86.696.137) (87.671.288),True,1 satır
 HUNER,2025,3,1442059,PDF,,CFO,cari,132295234.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,Faaliyetlerden Kaynaklanan Net Nakit Akışı 132.295.234 23.235.475,False,özdeşlik A+B+C(+etki)=net değişim tuttu
 HUNER,2025,3,1442059,PDF,,CFO,onceki,23235475.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,Faaliyetlerden Kaynaklanan Net Nakit Akışı 132.295.234 23.235.475,False,özdeşlik A+B+C(+etki)=net değişim tuttu
 HUNER,2025,3,1442059,PDF,,MDV+MODV,cari,,PDF (Evo havuzu),PDF_EK_SATIR,TL,7,(200.923.649) (247.536.092),False,1 sütun
@@ -785,6 +809,23 @@ NTGAZ,2025,3,1431062,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True
 NTGAZ,2025,3,1431062,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
 NTGAZ,2025,3,1431062,PDF,,KIRA,cari,-31289705.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,Giriş/Çıkışları 12 (31.289.705) (24.113.546),True,1 satır
 NTGAZ,2025,3,1431062,PDF,,KIRA,onceki,-24113546.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,Giriş/Çıkışları 12 (31.289.705) (24.113.546),True,1 satır
+IZFAS,2025,3,1442140,,,*,,,,NAKIT_AKIS_YOK,,,,,PDF’te nakit akış sayfası bulunamadı
+DGNMO,2025,3,1437880,PDF,,CFO,cari,242675634.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,A. İŞLETME FAALİYETLERDEN NAKİT AKIŞLARI 242.675.634 487.402.105,True,özdeşlik A+B+C(+etki)=net değişim tuttu
+DGNMO,2025,3,1437880,PDF,,CFO,onceki,487402105.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,A. İŞLETME FAALİYETLERDEN NAKİT AKIŞLARI 242.675.634 487.402.105,True,özdeşlik A+B+C(+etki)=net değişim tuttu
+DGNMO,2025,3,1437880,PDF,,MDV+MODV,cari,-320136985.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,Maddi Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları 9-10 (290.023.012) (220.501.485) || Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları (30.113.973) (5.003.808),True,2 satır
+DGNMO,2025,3,1437880,PDF,,MDV+MODV,onceki,-225505293.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,Maddi Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları 9-10 (290.023.012) (220.501.485) || Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları (30.113.973) (5.003.808),True,2 satır
+DGNMO,2025,3,1437880,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+DGNMO,2025,3,1437880,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+DGNMO,2025,3,1437880,PDF,,KIRA,cari,-59904125.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışlar (59.904.125) (23.680.603),True,1 satır
+DGNMO,2025,3,1437880,PDF,,KIRA,onceki,-23680603.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışlar (59.904.125) (23.680.603),True,1 satır
+MANAS,2025,3,1431903,PDF,,CFO,cari,52886987.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,İşletme Faaliyetlerinden Nakit Akışları 52.886.987 2.311.463,True,özdeşlik A+B+C(+etki)=net değişim tuttu
+MANAS,2025,3,1431903,PDF,,CFO,onceki,2311463.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,İşletme Faaliyetlerinden Nakit Akışları 52.886.987 2.311.463,True,özdeşlik A+B+C(+etki)=net değişim tuttu
+MANAS,2025,3,1431903,PDF,,MDV+MODV,cari,-28043868.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,- Maddi Duran Varlık Alımından Kaynaklanan Nakit Çıkışları 14 (2.846.199) (15.459.401) || - Maddi Olmayan Duran Varlık Alımından Kaynaklanan Nakit Çıkışları 15 (25.197.669) (20.028.881),True,2 satır
+MANAS,2025,3,1431903,PDF,,MDV+MODV,onceki,-35488282.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,- Maddi Duran Varlık Alımından Kaynaklanan Nakit Çıkışları 14 (2.846.199) (15.459.401) || - Maddi Olmayan Duran Varlık Alımından Kaynaklanan Nakit Çıkışları 15 (25.197.669) (20.028.881),True,2 satır
+MANAS,2025,3,1431903,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+MANAS,2025,3,1431903,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+MANAS,2025,3,1431903,PDF,,KIRA,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+MANAS,2025,3,1431903,PDF,,KIRA,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
 GEREL,2025,6,1481066,PDF,,CFO,cari,-185145994.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,A. İşletme Faaliyetlerinden Nakit Akışları -185.145.994 -520.975.854,True,özdeşlik A+B+C(+etki)=net değişim tuttu
 GEREL,2025,6,1481066,PDF,,CFO,onceki,-520975854.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,A. İşletme Faaliyetlerinden Nakit Akışları -185.145.994 -520.975.854,True,özdeşlik A+B+C(+etki)=net değişim tuttu
 GEREL,2025,6,1481066,PDF,,MDV+MODV,cari,-22759196.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,• Maddi duran varlık alımından kaynaklanan nakit çıkışları -21.663.445 -12.902.989 || • Maddi olmayan duran varlık alımından kaynaklanan nakit çıkışları -1.095.751 -10.931.434,True,2 satır
@@ -1035,6 +1076,39 @@ PSDTC,2025,6,1471375,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,Fa
 PSDTC,2025,6,1471375,PDF,,KIRA,cari,-850584.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları (850.584) (549.023),False,1 satır
 PSDTC,2025,6,1471375,PDF,,KIRA,onceki,-549023.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları (850.584) (549.023),False,1 satır
 MARBL,2025,6,1480041,,,*,,,,PDF_METIN_YOK,,,,,taranmış PDF (metin yok)
+QUAGR,2025,6,1480835,PDF,,CFO,cari,491628030.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,İşletme faaliyetlerinden nakit akışları 491.628.030 (1.082.312.440),True,özdeşlik A+B+C(+etki)=net değişim tuttu
+QUAGR,2025,6,1480835,PDF,,CFO,onceki,-1082312440.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,İşletme faaliyetlerinden nakit akışları 491.628.030 (1.082.312.440),True,özdeşlik A+B+C(+etki)=net değişim tuttu
+QUAGR,2025,6,1480835,PDF,,MDV+MODV,cari,-66439378.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,nakit çıkışları 9 (66.439.378) (286.712.302),True,1 satır
+QUAGR,2025,6,1480835,PDF,,MDV+MODV,onceki,-286712302.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,nakit çıkışları 9 (66.439.378) (286.712.302),True,1 satır
+QUAGR,2025,6,1480835,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+QUAGR,2025,6,1480835,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+QUAGR,2025,6,1480835,PDF,,KIRA,cari,-129629704.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,nakit çıkışları (129.629.704) (111.258.842),True,1 satır
+QUAGR,2025,6,1480835,PDF,,KIRA,onceki,-111258842.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,nakit çıkışları (129.629.704) (111.258.842),True,1 satır
+TCKRC,2025,6,1480682,PDF,,CFO,cari,109638363.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,İşletme Faaliyetlerinden Kaynaklanan Nakit Akışları 109.638.363 (90.926.416),True,özdeşlik A+B+C(+etki)=net değişim tuttu
+TCKRC,2025,6,1480682,PDF,,CFO,onceki,-90926416.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,İşletme Faaliyetlerinden Kaynaklanan Nakit Akışları 109.638.363 (90.926.416),True,özdeşlik A+B+C(+etki)=net değişim tuttu
+TCKRC,2025,6,1480682,PDF,,MDV+MODV,cari,-482763965.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,Maddi Duran Varlık Alımından Kaynaklanan Nakit Çıkışları 14 (482.763.965) (124.201.526),True,1 satır
+TCKRC,2025,6,1480682,PDF,,MDV+MODV,onceki,-124201526.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,Maddi Duran Varlık Alımından Kaynaklanan Nakit Çıkışları 14 (482.763.965) (124.201.526),True,1 satır
+TCKRC,2025,6,1480682,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+TCKRC,2025,6,1480682,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+TCKRC,2025,6,1480682,PDF,,KIRA,cari,0.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,Kiralama Yükümlülüklerine İlişkin Nakit Çıkışları - (765.987),True,1 satır
+TCKRC,2025,6,1480682,PDF,,KIRA,onceki,-765987.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,Kiralama Yükümlülüklerine İlişkin Nakit Çıkışları - (765.987),True,1 satır
+BESLR,2025,6,1479516,,,*,,,,NAKIT_AKIS_YOK,,,,,PDF’te nakit akış sayfası bulunamadı
+SONME,2025,6,1477600,PDF,,CFO,cari,,PDF (Evo havuzu),PDF_TUTMADI,TL,,2025 2024 || Dönem Karı (Zararı) (39.988.249) 5.721.996 || Faaliyetlerden Elde Edilen Nakit Akışları (20.329.547) 17.060.541,True,özdeşliği sağlayan tek CFO adayı yok
+SONME,2025,6,1477600,PDF,,CFO,onceki,,PDF (Evo havuzu),PDF_TUTMADI,TL,,2025 2024 || Dönem Karı (Zararı) (39.988.249) 5.721.996 || Faaliyetlerden Elde Edilen Nakit Akışları (20.329.547) 17.060.541,True,özdeşliği sağlayan tek CFO adayı yok
+SONME,2025,6,1477600,PDF,,MDV+MODV,cari,-114760.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,Maddi Duran Varlık Alımından Kaynaklanan Nakit Çıkışları (114.760) -,True,1 satır
+SONME,2025,6,1477600,PDF,,MDV+MODV,onceki,0.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,Maddi Duran Varlık Alımından Kaynaklanan Nakit Çıkışları (114.760) -,True,1 satır
+SONME,2025,6,1477600,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+SONME,2025,6,1477600,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+SONME,2025,6,1477600,PDF,,KIRA,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+SONME,2025,6,1477600,PDF,,KIRA,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+DERHL,2025,6,1475031,PDF,,CFO,cari,-39941691.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,A. İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI (39.941.691) (259.134.416),True,özdeşlik A+B+C(+etki)=net değişim tuttu
+DERHL,2025,6,1475031,PDF,,CFO,onceki,-259134416.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,A. İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI (39.941.691) (259.134.416),True,özdeşlik A+B+C(+etki)=net değişim tuttu
+DERHL,2025,6,1475031,PDF,,MDV+MODV,cari,-40373293.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları (40.373.293) (22.552.957),True,1 satır
+DERHL,2025,6,1475031,PDF,,MDV+MODV,onceki,-22552957.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları (40.373.293) (22.552.957),True,1 satır
+DERHL,2025,6,1475031,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+DERHL,2025,6,1475031,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+DERHL,2025,6,1475031,PDF,,KIRA,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+DERHL,2025,6,1475031,PDF,,KIRA,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
 HUNER,2025,9,1515164,PDF,,CFO,cari,635108594.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,Faaliyetlerden Kaynaklanan Net Nakit Akışı 635.108.594 385.062.838,False,özdeşlik A+B+C(+etki)=net değişim tuttu
 HUNER,2025,9,1515164,PDF,,CFO,onceki,385062838.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,Faaliyetlerden Kaynaklanan Net Nakit Akışı 635.108.594 385.062.838,False,özdeşlik A+B+C(+etki)=net değişim tuttu
 HUNER,2025,9,1515164,PDF,,MDV+MODV,cari,-480828141.0,PDF (Evo havuzu),PDF_OKUNDU,TL,7,12. (480.828.141) (459.615.801),False,1 satır
@@ -1517,6 +1591,14 @@ NATEN,2026,3,1605839,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True
 NATEN,2026,3,1605839,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
 NATEN,2026,3,1605839,PDF,,KIRA,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
 NATEN,2026,3,1605839,PDF,,KIRA,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+HKTM,2026,3,1602674,PDF,,CFO,cari,5295768.0,PDF (Evo havuzu),PDF_ADAY,TL,7,A. İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI 5.295.768 286.526.167,True,tek CFO adayı; B/C/net satırları okunamadığından özdeşlik kontrol edilemedi
+HKTM,2026,3,1602674,PDF,,CFO,onceki,286526167.0,PDF (Evo havuzu),PDF_ADAY,TL,7,A. İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI 5.295.768 286.526.167,True,tek CFO adayı; B/C/net satırları okunamadığından özdeşlik kontrol edilemedi
+HKTM,2026,3,1602674,PDF,,MDV+MODV,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+HKTM,2026,3,1602674,PDF,,MDV+MODV,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+HKTM,2026,3,1602674,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+HKTM,2026,3,1602674,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+HKTM,2026,3,1602674,PDF,,KIRA,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+HKTM,2026,3,1602674,PDF,,KIRA,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
 KARTN,2026,6,1638885,PDF,,CFO,cari,-460186341.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI (460.186.341) (576.589.261),False,özdeşlik A+B+C(+etki)=net değişim tuttu
 KARTN,2026,6,1638885,PDF,,CFO,onceki,-576589261.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI (460.186.341) (576.589.261),False,özdeşlik A+B+C(+etki)=net değişim tuttu
 KARTN,2026,6,1638885,PDF,,MDV+MODV,cari,-54822055.0,PDF (Evo havuzu),PDF_OKUNDU,TL,8,Maddi ve maddi olmayan duran varlıkların alımından kaynaklanan nakit çıkışları (54.822.055) (47.265.782),False,1 satır
@@ -1782,3 +1864,28 @@ EGEEN,2026,6,1653244,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,bin TL,,,
 EGEEN,2026,6,1653244,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,bin TL,,,True,nakit akış tablosunda kalem satırı yok → 0
 EGEEN,2026,6,1653244,PDF,,KIRA,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,bin TL,,,True,nakit akış tablosunda kalem satırı yok → 0
 EGEEN,2026,6,1653244,PDF,,KIRA,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,bin TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+CWENE,2026,6,1638962,PDF,,CFO,cari,61738479.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,A.İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI 61.738.479 96.693.397,True,özdeşlik A+B+C(+etki)=net değişim tuttu
+CWENE,2026,6,1638962,PDF,,CFO,onceki,96693397.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,A.İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI 61.738.479 96.693.397,True,özdeşlik A+B+C(+etki)=net değişim tuttu
+CWENE,2026,6,1638962,PDF,,MDV+MODV,cari,-1877404861.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,Çıkışları 10-11-12 (1.877.404.861) (5.178.345.452),True,1 satır
+CWENE,2026,6,1638962,PDF,,MDV+MODV,onceki,-5178345452.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,Çıkışları 10-11-12 (1.877.404.861) (5.178.345.452),True,1 satır
+CWENE,2026,6,1638962,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+CWENE,2026,6,1638962,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+CWENE,2026,6,1638962,PDF,,KIRA,cari,-39529000.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları 10 (39.529.000) (48.448.334),True,1 satır
+CWENE,2026,6,1638962,PDF,,KIRA,onceki,-48448334.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları 10 (39.529.000) (48.448.334),True,1 satır
+PSDTC,2026,6,1639711,PDF,,CFO,cari,,PDF (Evo havuzu),PDF_TUTMADI,TL,,İşletme faaliyetlerinde kullanılan net nakit (6.837.669) (108.507.379),False,özdeşliği sağlayan tek CFO adayı yok
+PSDTC,2026,6,1639711,PDF,,CFO,onceki,,PDF (Evo havuzu),PDF_TUTMADI,TL,,İşletme faaliyetlerinde kullanılan net nakit (6.837.669) (108.507.379),False,özdeşliği sağlayan tek CFO adayı yok
+PSDTC,2026,6,1639711,PDF,,MDV+MODV,cari,-284132.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,Maddi ve maddi olmayan duran varlık alımlarından kaynaklanan nakit çıkışları (284.132) (159.823),False,1 satır
+PSDTC,2026,6,1639711,PDF,,MDV+MODV,onceki,-159823.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,Maddi ve maddi olmayan duran varlık alımlarından kaynaklanan nakit çıkışları (284.132) (159.823),False,1 satır
+PSDTC,2026,6,1639711,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,False,nakit akış tablosunda kalem satırı yok → 0
+PSDTC,2026,6,1639711,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,TL,,,False,nakit akış tablosunda kalem satırı yok → 0
+PSDTC,2026,6,1639711,PDF,,KIRA,cari,-1251425.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları (1.251.425) (1.123.712),False,1 satır
+PSDTC,2026,6,1639711,PDF,,KIRA,onceki,-1123712.0,PDF (Evo havuzu),PDF_OKUNDU,TL,9,Kira sözleşmelerinden kaynaklanan borç ödemelerine ilişkin nakit çıkışları (1.251.425) (1.123.712),False,1 satır
+AEFES,2026,6,1648261,PDF,,CFO,cari,12143061000.0,PDF (Evo havuzu),PDF_OKUNDU,bin TL,8,İŞLETME FAALİYETLERDEN NAKİT AKIŞLARI 12.143.061 9.541.135,True,özdeşlik A+B+C(+etki)=net değişim tuttu
+AEFES,2026,6,1648261,PDF,,CFO,onceki,9541135000.0,PDF (Evo havuzu),PDF_OKUNDU,bin TL,8,İŞLETME FAALİYETLERDEN NAKİT AKIŞLARI 12.143.061 9.541.135,True,özdeşlik A+B+C(+etki)=net değişim tuttu
+AEFES,2026,6,1648261,PDF,,MDV+MODV,cari,-10130106000.0,PDF (Evo havuzu),PDF_OKUNDU,bin TL,8,"Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları 12,13 (10.130.106) (12.686.874)",True,1 satır
+AEFES,2026,6,1648261,PDF,,MDV+MODV,onceki,-12686874000.0,PDF (Evo havuzu),PDF_OKUNDU,bin TL,8,"Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları 12,13 (10.130.106) (12.686.874)",True,1 satır
+AEFES,2026,6,1648261,PDF,,YAGM,cari,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,bin TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+AEFES,2026,6,1648261,PDF,,YAGM,onceki,0.0,PDF (Evo havuzu),PDF_SATIR_YOK,bin TL,,,True,nakit akış tablosunda kalem satırı yok → 0
+AEFES,2026,6,1648261,PDF,,KIRA,cari,-1117085000.0,PDF (Evo havuzu),PDF_OKUNDU,bin TL,8,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları 7b (1.117.085) (860.467),True,1 satır
+AEFES,2026,6,1648261,PDF,,KIRA,onceki,-860467000.0,PDF (Evo havuzu),PDF_OKUNDU,bin TL,8,Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları 7b (1.117.085) (860.467),True,1 satır
+DYOBY,2026,6,1649710,,,*,,,,NAKIT_AKIS_YOK,,,,,PDF’te nakit akış sayfası bulunamadı

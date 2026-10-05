@@ -2,6 +2,7 @@
 Çıktı: kosullu_satirlar.csv, rapor_bildirim_haritasi.json'a eklenen anahtarlar (mevcut eşlemeler korunur)."""
 import json, csv, collections
 import pandas as pd
+DONEM = {(2024, 12), (2025, 3), (2025, 6), (2025, 9), (2025, 12), (2026, 3), (2026, 6)}
 AY = {('3 Aylık', 1): 3, ('6 Aylık', 2): 6, ('9 Aylık', 3): 9, ('Yıllık', 4): 12}
 K = pd.read_excel('../FCF_V8_aday_K13.xlsx', sheet_name='KARAR', keep_default_na=False)
 K = K[K['Önerilen statü'] == 'KOŞULLU']
@@ -17,6 +18,8 @@ gerek, eklenen, yok = set(), 0, []
 for r in K.itertuples():
     y, m = map(int, r.Dönem.split('/'))
     gerek |= {(r.Kod, y, m), (r.Kod, y - 1, 12)}
+    # yedek kaynaklar (karşılaştırmalı sütun): sonraki yılın aynı dönemi, cari yıl sonu, önceki yılın aynı dönemi
+    gerek |= {(r.Kod, yy, mm) for yy, mm in ((y + 1, m), (y, 12), (y - 1, m)) if (yy, mm) in DONEM}
 for kod, y, m in sorted(gerek):
     a = f'{kod}|{y}|{m}'
     if a in H: continue
