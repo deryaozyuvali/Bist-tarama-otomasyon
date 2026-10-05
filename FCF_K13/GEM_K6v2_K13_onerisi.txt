@@ -1,0 +1,153 @@
+⚙️ GEM FCF v2.2 ADAYI — KONTROL 6 (v2) + KONTROL 13 (YENİ) — SERİ TUTARLILIĞI
+(V7 üzerinde paralel çalıştırıldı; Kademe-2 kilidi: pozitif + negatif + sınır + diff-set + örneklem dışı)
+
+⸻
+
+6. İŞARET DENETİMİ (v2) — mevcut 6. maddenin YERİNE
+
+    Capex, alım ve kira anaparası ekonomik olarak ÇIKIŞTIR. İşaret
+    denetimi TTM düzeyinde YAPILMAZ; kaynak YTD noktaları düzeyinde
+    yapılır ve karar Kontrol 13'e devredilir.
+
+    ⛔ "Pozitif TTM → satır kullanılmaz → statü KESİN kalır" uygulaması
+       kaldırılmıştır. TTM işareti, kaynak sorununun ne varlığını ne
+       yokluğunu gösterir:
+       • TBORG 2025/09 kira: TTM −90,2 (negatif, eski K6 sessiz) ama
+         köprü noktası FY2024 bozuk.
+       • CANTE, ODAS 2025/06–2026/06 capex: TTM pozitif → 0 → KESİN;
+         belgeyle YANLIŞ (FCF binlerce mn TL sapmalı).
+    ⛔ Mutlak değer, işaret çevirme, 0 ikamesi ile düzeltme YAPILMAZ.
+    TTM pozitif çıkan kalem formülde 0 alınır (çıkış negatif olamaz),
+    ancak statüyü Kontrol 13 belirler.
+
+⸻
+
+13. SERİ TUTARLILIĞI — K11'İN ALT-KALEM TETİKLEYİCİSİ (YENİ)
+
+    Kapsam: MDV+MODV alımı · YAGM alımı · kira anaparası.
+    Veri: FCF'in kullandığı Evo YTD noktaları (aynı vintage).
+    Bu kontrol HİÇBİR RAKAMI DEĞİŞTİRMEZ; yalnız statü belirler.
+
+    Temel gözlem: TTM = YTD_cari + (FY_önceki − YTD_önceki).
+    TTM'e yalnız ÜÇ köprü noktası girer; önceki yıl noktaları yalnız
+    FARK olarak girer. Ara YTD noktaları TTM'e GİRMEZ.
+
+    ADIM 1 — Seri kısıtı (S2): Brüt çıkış kaleminde yıl içi kümülatif
+    çıkış küçülmez:  YTD_q ≤ YTD_(q−1)   (0 / boş kayıt atlanır)
+
+    ADIM 2 — Nokta ataması: Her şirket-kalem-yıl serisinde S2'yi
+    sağlayan EN UZUN alt dizi bulunur; dışında kalan noktalar ŞÜPHELİ.
+      • Eşit uzunlukta birden çok açıklama varsa: tutulan noktalardaki
+        pozitif tutar toplamı en küçük olanlar kalır (pozitif YTD brüt
+        çıkışta olağandışıdır — kısıt değil, eşitlik bozucu).
+      • Tek açıklama kalırsa atama KESİN; birden çok kalırsa OLASI.
+      • Noktaların yarısı ya da fazlası atılıyorsa atama ZAYIF: seri
+        hangi noktanın bozuk olduğunu söyleyemez.
+    ADIM 3 — Cari işaret (S1): YTD_cari > 0 ise cari nokta ŞÜPHELİ.
+      ⛔ YTD_önceki veya FY_önceki'nin işareti tek başına şüphe DEĞİLDİR
+         (yalnız fark olarak girer). Vaka: VESBE 2025/03.
+    ADIM 4 — Net davranış: Kalem şirkette 2024–2026 herhangi bir YTD'de
+    pozitifse kalem o şirkette brüt çıkış gibi davranmıyordur (net sunum
+    veya başka içerik). Ölçü: en büyük pozitif YTD.
+      ⛔ ADIM 2'de KESİN atanmış tekil bozuk nokta net davranış sayılmaz
+         (ALCAR 2025/06: tek nokta yanlış eşleme, kalem net değil).
+
+    ADIM 5 — Etki (alt sınır): Şüpheli köprü noktası, tutarlı
+    komşularının izin verdiği aralığa kırpılır; TTM yeniden kurulur.
+    |V7 kullanılan − yeniden kurulan| = etki alt sınırı.
+    ⛔ Bu rakam FCF'e YAZILMAZ; tahmin değildir. Yalnız "hata en az
+       bu kadardır" der. Raporda "En az düzeltilmiş FCF (TEŞHİS)"
+       sütununda gösterilir, FCF DENMEZ.
+    Karar ölçüsü: atama KESİN/OLASI ise etki alt sınırı; atama ZAYIF
+    ise MAX(alt sınır ; köprünün kapsadığı aralıktaki tutarsızlık —
+    cari yıl başından YTD_cari'ye, önceki yıl YTD_önceki'den FY'ye
+    pozitif örtük çeyrekler toplamı). Atama yapılamıyorsa hata o
+    tutarsızlık kadar olabilir (TBORG 2025/03: alt sınır 77,0;
+    tutarsızlık 316,2).
+
+    ADIM 6 — Karar:
+      Eşik = MAX( 1 mn TL ; %5 × |FCF| )
+      • Köprü noktası şüpheli VE karar ölçüsü ≥ eşik    → KOŞULLU
+      • Net davranış VE en büyük pozitif YTD ≥ eşik      → KOŞULLU
+                                     (şirket bazında tek dipnot kapatır)
+      • Diğer anomaliler                                 → statü korunur,
+                                                           not düşülür
+      • Hiçbir köprü noktası şüpheli değilse ara noktalardaki gerileme
+        FCF'i ETKİLEMEZ → statü korunur.
+
+    KOŞULLU KAPANIŞI: Şüpheli noktanın (i) özgün raporu ve (ii) bir
+    yıl sonraki raporun karşılaştırmalı sütunu okunur. Hangi değerin
+    doğru olduğu belgeyle belirlenirse belge rakamıyla TTM kurulur →
+    TÜRETİLMİŞ (kaynak yazılır). Şirketin kendi raporları çelişiyorsa
+    (NTHOL, EREGL, ADEL) → KOŞULLU kalır.
+
+    Doğrulama (Kademe-2):
+      Pozitif vaka: ALCAR 2026/06 → 2025/06 noktası (+1.357,2) tek
+        nokta bozuk; etki 1.372,5; en az düzeltilmiş capex 66,6
+        (belge: ≈59,6); en az düzeltilmiş FCF +689,5 (belge ≈+696)
+        → KOŞULLU. NTHOL 2025/12 → FY2025 bozuk,
+        etki 4.488,5 → KOŞULLU.
+      Negatif vaka: ALCAR 2025/12 → aynı seride ama köprüye girmiyor
+        → KESİN kalır (belge: doğru). VESBE 2025/03 → önceki yıl
+        pozitif noktası köprüde doğru çıkarılıyor → KESİN (belge:
+        TEMİZ). TKFEN 2025/06 YAGM → etki 0 → değişmez (belge: doğru).
+      Sınır vaka: TEKTU 2025/06 (etki 2,4 ≥ eşik 1,1 → KOŞULLU,
+        belge: HATA). PCILT 2025/09 (zayıf atama; FCF zaten NULL).
+        TOASO 2026/06 (etki 0,45; |FCF|'in %0,001'i → not).
+      Örneklem dışı (tasarımda kullanılmadı, belgeyle): ADEL 2025/09
+        kira → 9A'24 noktası şirketin kendi raporunda (6.069 bin TL)
+        H1'24'ün altında → atama doğru. EREGL 2025/03 → Q1'25 alımı
+        (11,23 mlr TL; Q1'26 karşılaştırmalısında da aynı) H1'25
+        raporundaki yarıyıl alımının (7,69 mlr TL) üstünde → kümülatif
+        alım şirketin kendi raporlarında geriliyor → atama doğru.
+
+    Ölçüm (DiffSet belgeli örneklemi, V7 statüsü KESİN/TÜRETİLMİŞ):
+                        Yakalandı  Sessiz hata  Yanlış alarm
+      P0 (V7 mevcut)        0          35             0
+      P1 (pozitif→KOŞ.)    29           6            16
+      P2 (pozitif→not)     11          24             0
+      K13 (bu kural)       31           4            13
+      Kalan 4 sessiz hata: KOPOL ×3 (gömülü kira, seri yok — BS #4),
+      TOASO 2026/06 (hata |FCF|'in %0,001'i).
+      Yanlış alarm şirket bazında: K13 4 şirket · P1 5 şirket.
+      Bunlardan RTALB ×3 "TEMİZ" etiketi belgeyle değil "tetik yok"
+      ile verilmiştir; DiffSet aynı şirkette H1'25 noktasının sonraki
+      raporlarla çeliştiğini not eder. ODAS ×2, CANTE ×2 aynı şirket-
+      kalemde belgeli HATA olan şirketlerdedir (ek dipnot maliyeti yok).
+      Gerçek ek maliyet: KARTN (6 satır, tek dipnot).
+      ⚠️ Örneklem kuralın tasarımında da kullanıldı (örneklem içi).
+         Örneklem dışı kanıt: ADEL, EREGL (2/2).
+
+    Evren etkisi (V7, 3.048 satır): 255 FCF satırı (99 şirket)
+    KOŞULLU'ya geçer (219 KESİN, 36 TÜRETİLMİŞ). KOŞULLU oranı
+    %5,6 → %14,0 (sayısal satırlarda %18,5). Kademe-2 radarı: 537
+    satırın 348'i, 275 gerileme satırının 223'ü mekanik olarak
+    temize çıkar.
+    Oran %20'yi aşarsa eşik yeniden kalibre edilir.
+
+    Elenen testler (tekrar önerilmesin):
+    ✗ TTM işareti (eski K6) — TBORG 2025/09 negatif TTM'de bozuk köprü
+    ✗ "Kaynak pozitif → KOŞULLU" (P1) — VESBE: pozitif önceki yıl
+      noktası köprüde doğru çıkarılıyor
+    ✗ |YTD_önceki|'nin %5'i eşiği — GSDDE %5,03 geçiyor, SASA %2,1
+      (352 mn) kaçıyor; eşik FCF'e bağlanmalı
+    ✗ Ara noktalarda gerileme tek başına — ALCAR 2025/12 yanlış
+      alarm; köprü noktası şüpheli değilse FCF etkilenmez
+    ✗ Evo değerini cari raporun karşılaştırmalısıyla kıyaslamak —
+      Evo eski noktayı sonraki raporun karşılaştırmalısından alabiliyor
+      (ALCAR); kıyas ÖZGÜN raporla yapılır
+
+⸻
+
+📌 BİLİNEN SINIRLAMALAR KAYDINA EKLENECEK
+
+4. GÖMÜLÜ KİRA (seri yok) — K13 göremez. Kira ayrı satırda değilse
+   (KOPOL: finansman "borç ödemeleri" içinde) seri kurulamaz. Alanı
+   KIRA_DOGRULAMA_KUYRUGU (805) ve K10'dur.
+5. İÇERİK UYUŞMAZLIĞI — KARTN: kira satırındaki pozitif tutar raporda
+   gerçekten kira satırında ama kira borcu büyüklüğüyle uyuşmuyor.
+   K13 net-davranış bayrağı yakalar (KOŞULLU); dipnot kapatır.
+6. CFO TARAFI — K13 yalnız alt kalemleri kapsar. CFO'nun sunum
+   değişikliği (ATATP) K11(a)–(c) ile kalır.
+7. PDF KAYNAKLI TÜRETİLMİŞ BİLEŞENLER — V7'nin köprüsü belgeden
+   kurulan bileşenlerinde Evo serisi eksik; K13 uygulanmaz (18 satır).

@@ -1,0 +1,11 @@
+K13 paketini yeniden üretmek (Python 3 + pandas + openpyxl):
+
+  python3 seri_motoru.py <V7.xlsx> x          # seri analizi → seri_kalem.pkl, seri_analiz.pkl
+  python3 dogrula.py <DiffSet.xlsx>           # belgeli örneklem eşleşmesi → dogrulama.pkl
+  python3 karar.py <V7.xlsx> <DiffSet.xlsx> x 0.03
+  python3 karar.py <V7.xlsx> <DiffSet.xlsx> x 0.05   # seçilen eşik
+  python3 karar.py <V7.xlsx> <DiffSet.xlsx> x 0.10
+  python3 teslim.py                           # → FCF_V8_aday_K13.xlsx
+
+Girdi: FCF_TTM_2025-03_2026-06_v7_nihai.xlsx (SHA-256 b1745853…), K6_K11_Kademe2_DiffSet.xlsx.
+Hiçbir FCF rakamı değiştirilmez; yalnız statü önerilir. Aynı girdi → aynı çıktı.
