@@ -235,5 +235,161 @@
  "EGEPO|2024|12|KIRA|onceki": {
   "deger": -10409958,
   "not": "aynı satır karşılaştırmalı"
+ },
+ "PLTUR|2024|12|CFO|cari": {
+  "deger": 125675677,
+  "not": "belgedeki \"İşletme faaliyetlerinden sağlanan / (kullanılan) net nakit\" satırı; A+B+C = net değişim özdeşliği sağlanıyor"
+ },
+ "PLTUR|2024|12|CFO|onceki": {
+  "deger": 553154019,
+  "not": "belgedeki \"İşletme faaliyetlerinden sağlanan / (kullanılan) net nakit\" satırı; A+B+C = net değişim özdeşliği sağlanıyor"
+ },
+ "PLTUR|2025|3|CFO|cari": {
+  "deger": -44215889,
+  "not": "belgedeki \"İşletme faaliyetlerinden sağlanan / (kullanılan) net nakit\" satırı; A+B+C = net değişim özdeşliği sağlanıyor"
+ },
+ "PLTUR|2025|3|CFO|onceki": {
+  "deger": 204604336,
+  "not": "belgedeki \"İşletme faaliyetlerinden sağlanan / (kullanılan) net nakit\" satırı; A+B+C = net değişim özdeşliği sağlanıyor"
+ },
+ "PLTUR|2025|9|CFO|cari": {
+  "deger": 158607540,
+  "not": "belgedeki \"İşletme faaliyetlerinden sağlanan / (kullanılan) net nakit\" satırı; A+B+C = net değişim özdeşliği sağlanıyor"
+ },
+ "PLTUR|2025|9|CFO|onceki": {
+  "deger": 215512308,
+  "not": "belgedeki \"İşletme faaliyetlerinden sağlanan / (kullanılan) net nakit\" satırı; A+B+C = net değişim özdeşliği sağlanıyor"
+ },
+ "COSMO|2025|3|CFO|cari": {
+  "deger": 9358782,
+  "not": "belgede CFO toplam satırı yok: \"Faaliyetlerden elde edilen nakit\" + ödenen vergi; A+B+C = net değişim özdeşliği sağlanıyor"
+ },
+ "COSMO|2025|3|CFO|onceki": {
+  "deger": -3756002,
+  "not": "belgede CFO toplam satırı yok: \"Faaliyetlerden elde edilen nakit\" + ödenen vergi; A+B+C = net değişim özdeşliği sağlanıyor"
+ },
+ "COSMO|2025|6|CFO|cari": {
+  "deger": 69626129,
+  "not": "belgede CFO toplam satırı yok: \"Faaliyetlerden elde edilen nakit\" + ödenen vergi; A+B+C = net değişim özdeşliği sağlanıyor"
+ },
+ "COSMO|2025|6|CFO|onceki": {
+  "deger": -9752494,
+  "not": "belgede CFO toplam satırı yok: \"Faaliyetlerden elde edilen nakit\" + ödenen vergi; A+B+C = net değişim özdeşliği sağlanıyor"
+ },
+ "COSMO|2025|9|CFO|cari": {
+  "deger": 76592330,
+  "not": "belgede CFO toplam satırı yok: \"Faaliyetlerden elde edilen nakit\" + ödenen vergi; A+B+C = net değişim özdeşliği sağlanıyor"
+ },
+ "COSMO|2025|9|CFO|onceki": {
+  "deger": -6132376,
+  "not": "belgede CFO toplam satırı yok: \"Faaliyetlerden elde edilen nakit\" + ödenen vergi; A+B+C = net değişim özdeşliği sağlanıyor"
+ },
+ "EMNIS|2025|6|CFO|onceki": {
+  "deger": 11390323,
+  "not": "belgedeki işletme faaliyetleri net nakit satırının karşılaştırmalı sütunu; özdeşlik sağlanıyor"
+ },
+ "MMCAS|2025|6|CFO|onceki": {
+  "deger": 369353,
+  "not": "belgedeki CFO karşılaştırmalı sütunu; özdeşlik sağlanıyor"
+ },
+ "TLMAN|2024|12|CFO|*": {
+  "durum": "TEYITLI",
+  "not": "belgede CFO satırı yok; net değişim − yatırım − finansman bileşen toplamlarından 644.294.330 (önceki −256.216.565) = XBRL"
+ },
+ "AGROT|2025|6|MDV+MODV|onceki": {
+  "durum": "TEYITLI",
+  "not": "PDF yazı tipi kaydırılmış (metin +29 karakter); çözülünce yatırım bölümü: MDV değişimi (12.400.399) + MODV değişimi (1.386.403) = 13.786.802 = XBRL"
+ },
+ "AGROT|2026|6|KIRA|cari": {
+  "durum": "TEYITLI",
+  "not": "belgede iki satır: kısa vadeli (1.367.333) + uzun vadeli (40.535.587) operasyonel kiralama nakit çıkışları = 41.902.920 = XBRL"
+ },
+ "AKHAN|2026|6|KIRA|cari": {
+  "durum": "TEYITLI",
+  "not": "belgede iki satır: kısa vadeli 37.392.771 + uzun vadeli 73.219.179 kiralama nakit girişleri/çıkışları = 110.611.950 = XBRL (pozitif, belgedeki gibi)"
+ },
+ "AKYHO|2025|3|YAGM|cari": {
+  "deger": 0,
+  "not": "YAGM satırı belgede tutarsız (boş); alttaki (7.325.377) temettü ödemesi. B toplamı: −10.000.063 − 7.325.377 + 25.557.871 = 8.232.431 → YAGM 0"
+ },
+ "AKYHO|2025|3|YAGM|onceki": {
+  "deger": 0,
+  "not": "YAGM satırı belgede tutarsız (boş); alttaki (7.325.377) temettü ödemesi. B toplamı: −10.000.063 − 7.325.377 + 25.557.871 = 8.232.431 → YAGM 0"
+ },
+ "ARSAN|2025|3|KIRA|cari": {
+  "deger": -800912,
+  "not": "finansal kiralama borç ödemeleri (800.912) cari sütunda (sütun hizası); C cari: −4.565.972 − 800.912 = −5.366.884 ✓"
+ },
+ "ARSAN|2025|3|KIRA|onceki": {
+  "deger": 0,
+  "not": "önceki sütun boş; C önceki: −57.194.483 + 89.171.169 − 2.188.195 = 29.788.491 ✓"
+ },
+ "ATEKS|2025|9|KIRA|onceki": {
+  "deger": 0,
+  "not": "belgede kira satırı yok; XBRL 24.736.056, kredi geri ödeme alt kalemlerinin toplamla farkı (−403.592.305 − 656.530 vs −379.512.779) → kira değil"
+ },
+ "AVHOL|2025|3|YAGM|*": {
+  "deger": 0,
+  "not": "YAGM alım satırı cari \"--\", önceki boş"
+ },
+ "AVHOL|2025|6|YAGM|cari": {
+  "deger": 0,
+  "not": "YAGM alım satırı cari \"--\""
+ },
+ "AVHOL|2025|6|YAGM|onceki": {
+  "deger": 0,
+  "not": "önceki sütunda +45.934.987 (çıkış satırında pozitif = giriş; B önceki toplamıyla tutarlı); alım değil, FY2024 raporunda satır 0 → alım 0"
+ },
+ "BALAT|2025|6|MDV+MODV|onceki": {
+  "durum": "TEYITLI",
+  "not": "belgede önceki sütunda satış satırı (4.993.150) negatif, alım satırı 9.971.858 pozitif → etiketler yer değişmiş; alım = (4.993.150) = XBRL"
+ },
+ "BERA|2025|3|MDV+MODV|cari": {
+  "deger": 69533598,
+  "not": "belgede alım ve satış tek net satır (\"Alım ve Satışından Kaynaklanan Nakit Girişleri/Çıkışları\"); alım ayrıştırılamıyor → net satır alındı"
+ },
+ "BERA|2025|3|MDV+MODV|onceki": {
+  "deger": -337472719,
+  "not": "belgede alım ve satış tek net satır (\"Alım ve Satışından Kaynaklanan Nakit Girişleri/Çıkışları\"); alım ayrıştırılamıyor → net satır alındı"
+ },
+ "DUNYH|2025|12|MDV+MODV|cari": {
+  "deger": -20160,
+  "not": "belgede MDV alım (20.160); XBRL 20.162 (2 TL yuvarlama)"
+ },
+ "KONKA|2024|12|MDV+MODV|cari": {
+  "deger": -188768932,
+  "not": "belgede alım+satış net satırlar: MDV (188.362.960)+MODV (405.972); önceki (38.541.619)+(864.091)"
+ },
+ "KONKA|2024|12|MDV+MODV|onceki": {
+  "deger": -39405710,
+  "not": "belgede alım+satış net satırlar: MDV (188.362.960)+MODV (405.972); önceki (38.541.619)+(864.091)"
+ },
+ "KONKA|2025|3|MDV+MODV|cari": {
+  "deger": -3525181,
+  "not": "belgede alım+satış net satırlar: MDV (3.525.181), MODV --; önceki (20.637.014)+(164.032)"
+ },
+ "KONKA|2025|3|MDV+MODV|onceki": {
+  "deger": -20801046,
+  "not": "belgede alım+satış net satırlar: MDV (3.525.181), MODV --; önceki (20.637.014)+(164.032)"
+ },
+ "KONKA|2025|12|MDV+MODV|cari": {
+  "deger": -62110322,
+  "not": "belgede alım+satış net satırlar: MDV (60.948.291)+MODV (1.162.031); önceki (246.552.663)+(531.387); kullanım hakkı satırı hariç"
+ },
+ "KONKA|2025|12|MDV+MODV|onceki": {
+  "deger": -247084050,
+  "not": "belgede alım+satış net satırlar: MDV (60.948.291)+MODV (1.162.031); önceki (246.552.663)+(531.387); kullanım hakkı satırı hariç"
+ },
+ "KONKA|2025|6|MDV+MODV|*": {
+  "durum": "TEYITLI",
+  "not": "belgedeki MDV + MODV alım-satış net satırlarının toplamı = XBRL (şirket alım ve satışı tek satırda veriyor)"
+ },
+ "KONKA|2026|3|MDV+MODV|*": {
+  "durum": "TEYITLI",
+  "not": "belgedeki MDV + MODV alım-satış net satırlarının toplamı = XBRL (şirket alım ve satışı tek satırda veriyor)"
+ },
+ "KONKA|2026|6|MDV+MODV|*": {
+  "durum": "TEYITLI",
+  "not": "belgedeki MDV + MODV alım-satış net satırlarının toplamı = XBRL (şirket alım ve satışı tek satırda veriyor)"
  }
 }

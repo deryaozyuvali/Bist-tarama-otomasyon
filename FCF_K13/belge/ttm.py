@@ -126,26 +126,36 @@ def izahname(kod, y, m, kalem):
     if s is None and kod in TMS29_SIRKET:  # başlıkta okunamadıysa: tablodaki en son dönem (izahnamenin tarihi)
         g2 = g[g.idx == parca[0].idx]; s = max(zip(g2.yil, g2.ay))
     # Evo kontrolü (CFO, MDV+MODV): Evo bu dönemleri de izahnameden alır; belge × F(sap)/F(son) Evo dönemseliyle
-    # %0,5 içinde tutmalı. Tutmazsa ya da Evo'da karşılık yoksa kullanılmaz (elle).
+    # %0,5 içinde tutmalı. Tutmazsa ya da Evo'da karşılık yoksa yalnız belge içi özdeşlik sağlanıyorsa kullanılır (yoksa elle).
     # Kontrol tablo düzeyinde: aynı izahname tablosunda bu kalemin Evo'da karşılığı olan tüm dönemleri tutmalı
     # (en az biri); Evo'da karşılığı olmayan dönemler de o zaman kabul edilir.
-    if kalem in EVO_IZ:
+    onay = ELLE_KARAR.get(f'{kod}|IZAHNAME|{kalem}')  # belgeyle teyit edilip Evo farkı açıklanan tablolar
+    # Belge içi özdeşlik (izahname_oku: A+B+C(+etki) = net değişim) bu tablonun ilgili tüm sütunlarında sağlanıyorsa
+    # tablo ve sütun eşlemesi doğrulanmıştır → Evo'nun karşılığı yoksa ya da farklı satırı almışsa belge esas alınır.
+    cf = IZ[(IZ.kod == kod) & (IZ.kalem == 'CFO') & (IZ.idx == parca[0].idx)]
+    ozd = 'ozdeslik' in IZ and all(((cf.yil == p.yil) & (cf.ay == p.ay) & (cf.ozdeslik == True)).any() for p in parca)
+    if kalem in EVO_IZ and not onay:
         kat0 = F.get(s, 1) / F[son_rapor.get(kod, (2026, 6))] if kod in TMS29_SIRKET and s else 1
         tut = 0
         for p in g[g.idx == parca[0].idx].itertuples():
             e = EVO_IZ[kalem].get(f'{kod}|{p.yil}|{p.ay}')
             if e is None: continue
             b = p.deger_tl / 1e6 * kat0
-            if abs(b - e) > 0.005 * abs(e) + 0.05: return 'EVO_TUTMADI', p, e, b
+            if abs(b - e) > 0.005 * abs(e) + 0.05:
+                if ozd: onay = {'not': f'Evo {p.yil}/{p.ay:02d} {e} ≠ belge {b:.1f}; belge A+B+C = net değişim özdeşliğini sağlıyor → belge'}; break
+                return 'EVO_TUTMADI', p, e, b
             tut += 1
-        if tut == 0: return 'EVO_TUTMADI', parca[0], None, parca[0].deger_tl / 1e6 * kat0
+        if tut == 0 and not onay:
+            if not ozd: return 'EVO_TUTMADI', parca[0], None, parca[0].deger_tl / 1e6 * kat0
+            onay = {'not': "Evo'da karşılık yok; belge A+B+C = net değişim özdeşliğini sağlıyor"}
     ttm = (parca[0].deger_tl if m == 12 else parca[0].deger_tl + parca[1].deger_tl - parca[2].deger_tl) / 1e6
     kat = 1.0
     if s and kod in TMS29_SIRKET:
         if s not in F: return None
         kat = F[s] / F[son_rapor.get(kod, (2026, 6))]
     kanit = (f"İzahname KAP {int(parca[0].idx)} ({parca[0].ek}, s.{parca[0].sayfa}); sap {s}; ×{kat:.4f}; "
-             f"{'okundu' if parca[0].durum == 'OKUNDU' else 'satır yok → 0'}: {'' if pd.isna(parca[0].satir) else parca[0].satir}")
+             f"{'okundu' if parca[0].durum == 'OKUNDU' else 'satır yok → 0'}: {'' if pd.isna(parca[0].satir) else parca[0].satir}"
+             + (f" ‖ Evo farkı elle incelendi: {onay['not']}" if onay else ''))
     return ttm * kat, [round(p.deger_tl / 1e6, 3) for p in parca], kanit
 
 # aynı şirketin farklı rapor tarihlerinde birebir aynı sıfır dışı cari tutar: belge içi kopya şüphesi

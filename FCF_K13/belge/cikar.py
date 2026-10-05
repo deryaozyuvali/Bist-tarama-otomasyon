@@ -110,7 +110,7 @@ def pdf_ara(sayfalar, v, kalem=None):
                 x = _say(tok)
                 if x is None or x == 0: continue
                 x = abs(x)
-                for birim, k, tol in (('TL', 1, 1), ('bin TL', 1e3, 1), ('mn TL', 1e6, 0.051)):
+                for birim, k, tol in (('TL', 1, 5 if a >= 1e5 else 1), ('bin TL', 1e3, 1), ('mn TL', 1e6, 0.051)):
                     if a >= k * 0.5 and abs(x - a / k) <= tol and (k == 1 or x >= 10):
                         bul = birim; break
                 if bul: break
@@ -136,8 +136,13 @@ def _alanlar(satir):
     parca = [p.strip() for p in re.split(r'\s{2,}', satir.strip()) if p.strip()]
     if not parca: return '', [], False
     etiket, vals = parca[0], []
-    for p in parca[1:]:
+    ayri = []
+    for p in parca[1:]:  # tek boşlukla yapışmış sütunlar: '(5.033.296) (3.812.913.629)'
+        ayri += p.split(' ') if re.fullmatch(r'(?:\(?-?\d{1,3}(?:[.,]\d{3})+\)?\s)+\(?-?\d{1,3}(?:[.,]\d{3})+\)?', p) else [p]
+    for p in ayri:
         if p in BOS: vals.append(0.0); continue
+        if p.lower() in ('not', 'notlar', 'dipnot', 'dipnotlar') and not vals: continue
+        if re.fullmatch(r'\(?[A-F](?:\s*\+\s*[A-F])+\)?', p) and not vals: continue  # '(A+B+C)' etiket eki  # sütun başlığı satırla aynı hizada
         if re.fullmatch(r'\d{1,2}(?:\s*[,\-\.]\s*\d{1,2})*[a-zA-Z]?', p) and not vals: continue  # dipnot no
         x = _say(p.replace(' ', ''))
         if x is None: return etiket, [], False
@@ -277,6 +282,7 @@ def isle(kod, yil, ay, idx):
     if sayfalar and cfo and any(k['durum'] == 'PDF_TUTMADI' for k in cfo):
         bb0 = [k['pdf_birim'] for k in kayit if k['durum'] == 'TEYITLI' and k.get('pdf_birim')]
         rx = re.compile(r'(işletme|esas) faaliyetler\w*\s+(elde edilen |sağlanan |kaynaklanan |kullanılan )?(net )?nakit ak'
+                        r'|(işletme|esas) faaliyetler\w*\s+.{0,35}net nakit'
                         r'|^a[.)]?\s*(işletme|esas) faaliyet\w*.{0,40}nakit|^faaliyetlerden (elde edilen|kaynaklanan) (net )?nakit')
         def satirlar(desen):
             r = []
