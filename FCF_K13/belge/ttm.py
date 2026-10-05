@@ -15,7 +15,9 @@ import pandas as pd
 
 # MOD=KOSULLU: aynı hesap KOŞULLU satırlar için (kosullu_satirlar.csv → kosullu_ttm.csv; V7 değerleriyle kıyas)
 MOD = os.environ.get('MOD', 'NULL')
-SATIRLAR, CIKTI = ('kosullu_satirlar.csv', 'kosullu_ttm.csv') if MOD == 'KOSULLU' else ('null_satirlar.csv', 'null_ttm.csv')
+# MOD=HOLDING: tüm holding satırları (FCF_HLD temettü okumasının V7'ye karşı doğrulaması; holding_satirlar.csv)
+SATIRLAR, CIKTI = {'KOSULLU': ('kosullu_satirlar.csv', 'kosullu_ttm.csv'),
+                   'HOLDING': ('holding_satirlar.csv', 'holding_ttm.csv')}.get(MOD, ('null_satirlar.csv', 'null_ttm.csv'))
 
 K = pd.read_csv('rapor_kalemleri.csv', dtype={'pdf_sayfa': str})
 # KAP sayfası geçici olarak indirilemeyen raporlar (504): aynı bildirimin önceki başarılı çıkarımı kullanılır
@@ -111,7 +113,7 @@ def al(kod, y, m, kalem, sut):
             return v, 'ELLE', kanit + f" · {t['kaynak']}: {k}"
     if r.durum == 'PDF_SATIR_YOK':
         # XBRL'siz PDF: kalem satırı yok → 0. Testte (XBRL'e karşı) YAGM %99, kira %97 doğru; MDV+MODV yalnız %45 → elle
-        if kalem in ('YAGM', 'KIRA'): return 0.0, 'PDF_OKUNDU', kanit + ' · Evo PDF: nakit akışta kalem satırı yok → 0'
+        if kalem in ('YAGM', 'KIRA', 'TEMETTU'): return 0.0, 'PDF_OKUNDU', kanit + ' · Evo PDF: nakit akışta kalem satırı yok → 0'
         return 0.0, 'ELLE', kanit + ' · Evo PDF: MDV+MODV satırı bulunamadı (etiket okunamamış olabilir)'
     if r.durum == 'PDF_ADAY':
         return v, 'ELLE', kanit + f' · Evo PDF: tek CFO adayı, özdeşlik kurulamadı (düşük güven): {r.pdf_satir}'
@@ -200,7 +202,7 @@ for r in csv.DictReader(open(SATIRLAR)):
     kod = r['Kod']; y, m = map(int, r['Dönem'].split('/'))
     satir = {'Kod': kod, 'Tip': r['Tip'], 'Dönem': r['Dönem']}
     genel = 'TEYITLI'
-    for kalem in ('CFO', 'MDV+MODV', 'YAGM', 'KIRA'):
+    for kalem in ('CFO', 'MDV+MODV', 'YAGM', 'KIRA') + (('TEMETTU',) if r['Tip'] == 'Holding' else ()):
         if m == 12:
             parca = [(1, al_yedek(kod, y, 12, kalem, 'cari'))]
         else:
@@ -228,14 +230,18 @@ for r in csv.DictReader(open(SATIRLAR)):
         satir[f'{kalem} statü'] = st
         satir[f'{kalem} bileşen'] = ' | '.join('—' if v is None else f'{v:.3f}' for v in vals)
         satir[f'{kalem} kanıt'] = ' ‖ '.join(p[1][2] for p in parca)
-        genel = max(genel, st, key=SIRA.get)
+        if kalem != 'TEMETTU': genel = max(genel, st, key=SIRA.get)  # temettü yalnız FCF_HLD'yi etkiler
     satir['Satır statü'] = genel
     out.append(satir)
 D = pd.DataFrame(out)
 V7 = pd.read_excel('../FCF_V8_aday_K13.xlsx', sheet_name='KARAR', keep_default_na=False, na_values=[''])
-V7 = V7[(V7['Önerilen statü'] == 'KOŞULLU') if MOD == 'KOSULLU' else (V7['V7 statü'] == 'NULL')][['Kod', 'Dönem', 'CFO_TTM', 'CAPEX_STD', '|Kira anapara|']]
+V7 = V7[(V7['Önerilen statü'] == 'KOŞULLU') if MOD == 'KOSULLU' else (V7.Tip == 'Holding') if MOD == 'HOLDING' else (V7['V7 statü'] == 'NULL')][['Kod', 'Dönem', 'CFO_TTM', 'CAPEX_STD', '|Kira anapara|']]
 V7.columns = ['Kod', 'Dönem', 'V7 CFO_TTM (Evo)', 'V7 CAPEX_STD (Evo)', 'V7 |Kira| (Evo)']
 D = D.merge(V7, on=['Kod', 'Dönem'], how='left')
+_H = pd.read_excel('../girdi/FCF_TTM_2025-03_2026-06_v7_nihai.xlsx', sheet_name='FCF_TTM')
+_H = _H[['Kod', 'Dönem', 'FCF türü', 'Alınan temettü (CFO dışı)', 'FCF_HLD (②) · TTM (mn TL)']]
+_H.columns = ['Kod', 'Dönem', 'V7 FCF türü', 'V7 Alınan temettü (Evo)', 'V7 FCF_HLD (Evo)']
+D = D.merge(_H, on=['Kod', 'Dönem'], how='left')
 D['CFO fark (belge−Evo)'] = (D['CFO TTM'] - D['V7 CFO_TTM (Evo)']).round(3)
 
 # V7 formülü (KARAR'daki 2.262 FCF_STD satırının 2.261'inde birebir): FCF_STD = CFO − CAPEX_STD − |Kira|,
@@ -248,9 +254,13 @@ D['CAPEX_STD (belge)'] = [None if pd.isna(a) or pd.isna(b) else round(cikis(a) +
 D['|Kira| (belge)'] = [None if pd.isna(v) else round(cikis(v), 3) for v in D['KIRA TTM']]
 D['K6 dışlanan (belge)'] = ['; '.join(f'{k} TTM {D.at[i, k + " TTM"]:+.3f} (pozitif) → 0' for k in ('MDV+MODV', 'YAGM', 'KIRA')
                                       if not pd.isna(D.at[i, k + ' TTM']) and D.at[i, k + ' TTM'] > 0) for i in D.index]
+# FCF_HLD (V7 Notlar ②): CFO + Alınan temettüler (yatırım bölümü, CFO dışı) − CAPEX_STD − |Kira|; yalnız holding satırları
+D['FCF_HLD (belge)'] = [round(c + max(t, 0) - x - k, 3) if tip == 'Holding' and not any(pd.isna(v) for v in (c, t, x, k)) else None
+                        for tip, c, t, x, k in zip(D['Tip'], D['CFO TTM'], D.get('TEMETTU TTM', pd.Series(index=D.index, dtype=float)),
+                                                   D['CAPEX_STD (belge)'], D['|Kira| (belge)'])]
 D['FCF_STD (belge)'] = [round(c - x - k, 3) if t == 'Standart' and not any(pd.isna(v) for v in (c, x, k)) else None
                         for t, c, x, k in zip(D['Tip'], D['CFO TTM'], D['CAPEX_STD (belge)'], D['|Kira| (belge)'])]
 D.to_csv(CIKTI, index=False)
 print(D['Satır statü'].value_counts().to_dict())
-for k in ('CFO', 'MDV+MODV', 'YAGM', 'KIRA'):
+for k in ('CFO', 'MDV+MODV', 'YAGM', 'KIRA', 'TEMETTU'):
     print(k, D[f'{k} statü'].value_counts().to_dict())

@@ -11,7 +11,7 @@ Kurallar:
              sütun/işaret belirsizliği → PDF_EK_SATIR (elle); alım+satış tek net satır → NET_SATIR.
   birim    : nakit akış sayfasının başlığından (TL / bin TL / milyon TL)."""
 import csv, glob, json, os, re, subprocess, sys, tempfile
-from cikar import _alanlar, kucuk, nakit_sayfalari, pdf_etiket_satirlari, NET_SATIR
+from cikar import _alanlar, kucuk, nakit_sayfalari, pdf_etiket_satirlari, yatirim_bolumu, NET_SATIR
 
 OB = os.environ.get('ONBELLEK', 'onbellek')
 TABAN = 'https://storage.fintables.com/media/uploads/kap-attachments/'
@@ -126,8 +126,8 @@ def isle(kod, y, m, idx, metin_yolu):
         else:
             ekle('CFO', sut, None, 'PDF_TUTMADI', ' || '.join(a[1] for a in aday[:3]),
                  'özdeşliği sağlayan tek CFO adayı yok' + (f' ({len(gecerli)} aday)' if gecerli else ''))
-    for kalem in ('MDV+MODV', 'YAGM', 'KIRA'):
-        ek = pdf_etiket_satirlari(sayfalar, kalem)
+    for kalem in ('MDV+MODV', 'YAGM', 'KIRA', 'TEMETTU'):
+        ek = pdf_etiket_satirlari(yatirim_bolumu(sayfalar) if kalem == 'TEMETTU' else sayfalar, kalem)
         if kalem == 'MDV+MODV':
             nt = [' '.join(l.split())[:140] for _, p in sayfalar for l in p.split('\n') if NET_SATIR.search(kucuk(l))]
         else: nt = []

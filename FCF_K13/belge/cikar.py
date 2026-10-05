@@ -22,18 +22,36 @@ ELEMAN = {
     'MODV': ['ifrs-full_PurchaseOfIntangibleAssetsClassifiedAsInvesting'],
     'YAGM': ['kap-fr_CashOutflowsFromAcquitionOfInvestmentsProperty'],
     'KIRA': ['kap-fr_PaymentsOfLeaseLiabilities'],
+    # holding formülü ② (FCF_HLD) için: yalnız YATIRIM bölümündeki alınan temettüler (CFO içindeki ayrı eleman, eklenmez)
+    'TEMETTU': ['ifrs-full_DividendsReceivedClassifiedAsInvestingActivities'],
 }
 PDF_ETIKET = {
     'KIRA': r'kira|kiralama|leasing|lease',
     'MDV+MODV': r'maddi.*(alım|alın|\balış|edinim|satın al|ilave|harcama|değişim|yatırım|çıkış)|duran varl\w*\s+(alım|alın|alış|edinim)|purchase of property',
     'YAGM': r'ya\w{0,3}r?ıı?m amaçlı gayrimenkul.*(alım|alın|edinim|ilave|çıkış|harcama|değişim)|yatrıım amaçlı gayrimenkul.*(alım|alın)',
+    'TEMETTU': r'temettü|kar pay|kâr pay|dividend',
 }
 # etiket bu kalıplardan birini taşıyorsa kalem satırı sayılmaz (düzeltme, satış, bilanço/dipnot satırları)
 PDF_DISLA = {
     'KIRA': r'alacak|gelir|alınan kira|kira geliri|faiz|tfrs|standard|taksonomi|amortisman|kullanım hakkı|ilişkin düzeltme|ile ilgili düzeltme|karşılık',
     'MDV+MODV': r'satış|satın?ılması|elden çıkar|amortisman|itfa|değer düşüklüğü|değer artış|kazanç|kayıp|avans|düzeltme|yeniden değerleme|gerçeğe uygun',
     'YAGM': r'satış|satım|elden çıkar|gerçeğe uygun|değer artış|kazanç|kayıp|düzeltme|kira',
+    'TEMETTU': r'ödenen|ödeme|düzeltme|gideri|dağıtılan|avans|katılım|çıkış',  # katılım kar payı = faiz benzeri getiri
 }
+
+def yatirim_bolumu(sayfalar):
+    """Nakit akış sayfalarından yalnız yatırım faaliyetleri bölümünün satırları (başlıktan finansman başlığına kadar).
+    Alınan temettü hem işletme hem yatırım bölümünde olabilir; FCF_HLD yalnız yatırımdakini ekler (V7 çifte sayım kilidi)."""
+    out, ici = [], False
+    for no, p in sayfalar:
+        tut = []
+        for satir in p.split('\n'):
+            k = kucuk(' '.join(satir.split()))
+            if re.match(r'^(b[.)]?\s*)?yatırım faaliyetler', k): ici = True
+            elif re.match(r'^(c[.)]?\s*)?finansman faaliyetler', k) or re.match(r'^(a[.)]?\s*)?(işletme|esas) faaliyetler', k): ici = False
+            if ici: tut.append(satir)
+        if tut: out.append((no, '\n'.join(tut)))
+    return out
 
 def _tarih(s):
     d, m, y = s.split('.')
@@ -163,12 +181,15 @@ def pdf_etiket_satirlari(sayfalar, kalem):
             if not vals:
                 onceki_etiket = etiket if len(etiket) < 140 else ''
                 continue
+            # temettü: önceki satır ayrı bir kalemse (büyük harfle başlayan yeni etiket) birleştirilmez — tutarı
+            # okunamayan (ör. '6' TL) 'Alınan temettüler' satırı alttaki 'Maddi duran varlık…' satırına yapışmasın
+            if kalem == 'TEMETTU' and etiket[:1].isupper(): onceki_etiket = ''
             tam = kucuk((onceki_etiket + ' ' + etiket).strip())
             onceki_etiket = ''
             if not (rx.search(tam) and not dx.search(tam) and len(tam) < 220): continue
             if not re.search(r'[çğışöüÇĞİŞÖÜ]', tam) and re.search(r'\b(cash|lease|payments?|purchase|outflows?)\b', tam):
                 continue  # iki dilli raporun İngilizce tekrarı
-            if 'giriş' in tam and 'çıkış' not in tam: continue  # yalnız giriş satırı (yeni kiralama/satış)
+            if kalem != 'TEMETTU' and 'giriş' in tam and 'çıkış' not in tam: continue  # temettü zaten giriştir  # yalnız giriş satırı (yeni kiralama/satış)
             sorun = []
             if len(vals) != 2: sorun.append(f'{len(vals)} sütun')
             if 'çıkış' in tam and 'giriş' not in tam and any(v > 0 for v in vals[-2:]): sorun.append('çıkış satırında pozitif (işaret?)')
@@ -222,7 +243,7 @@ def isle(kod, yil, ay, idx):
                     for no in (b[1], b[1] + 1):
                         if no not in var and no <= len(tum): sec.append(tum[no - 1]); var.add(no)
             sayfalar += sec
-    for kalem in ('CFO', 'MDV+MODV', 'YAGM', 'KIRA'):
+    for kalem in ('CFO', 'MDV+MODV', 'YAGM', 'KIRA', 'TEMETTU'):
         for sut, i in (('cari', ci), ('onceki', oi)):
             v = deger(T['satirlar'], ELEMAN[kalem], i)
             kaynak = 'XBRL'
@@ -250,7 +271,7 @@ def isle(kod, yil, ay, idx):
                               pdf_birim=bul[0] if bul else '', pdf_sayfa=bul[1] if bul else '',
                               pdf_satir=bul[2] if bul else '', not_=''))
         if kalem != 'CFO' and sayfalar:
-            ek = pdf_etiket_satirlari(sayfalar, kalem)
+            ek = pdf_etiket_satirlari(yatirim_bolumu(sayfalar) if kalem == 'TEMETTU' else sayfalar, kalem)
             sifir = all(k['deger_tl'] in (None, 0) for k in kayit if k['kalem'] == kalem)
             if sifir and ek:
                 # XBRL bu kalemi standart elemana bağlamamış ama PDF'te satır var: tutar PDF'ten okunur.

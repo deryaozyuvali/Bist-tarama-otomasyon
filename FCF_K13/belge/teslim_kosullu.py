@@ -25,6 +25,9 @@ okubeni = pd.DataFrame([
                'raporda yeniden düzenlemiş olabilir (ör. BVSAN 2024 CFO) → orijinal rapor görülmeden belge değeri önerilmez.'),
     ('Sonuç: ELLE', 'Belge değerlerinden en az biri düşük güvenli/okunamadı ve V7 ile tam örtüşme yok.'),
     ('Sonuç: BELGE_YOK', 'Gereken rapor(lar) KAP’tan indirilemedi (erişim engeli) ve Evo havuzunda yok — KAP açılınca tamamlanacak.'),
+    ('Holding', 'V7’de FCF türü FCF_HLD olan satırlarda dördüncü bileşen: yatırım bölümündeki alınan temettüler. FCF_HLD = CFO + '
+                'temettü − CAPEX_STD − |Kira| (V7 Notlar ②). Temettü XBRL yatırım elemanından (PDF’te teyit) ya da PDF yatırım '
+                'bölümü satırından; işletme bölümündeki “Alınan temettüler” eklenmez (V7 çifte sayım kilidi).'),
     ('Tutarlar', 'mn TL, Haziran 2026 satın alma gücü (TMS 29 uygulayanlar); bileşen işaretleri belgedeki gibi.'),
 ], columns=['Başlık', 'Açıklama'])
 # elle kalan satırların gerekçesi (belgeden incelendi)
@@ -39,7 +42,8 @@ R['Açıklama'] = [ACIKLAMA.get(k, '') if s == 'ELLE' else '' for k, s in zip(R.
 ozet = R['Sonuç'].value_counts().rename_axis('Sonuç').reset_index(name='Satır')
 kolon = ['Kod', 'Tip', 'Dönem', 'Sonuç', 'Fark özeti', 'Açıklama', 'Satır statü',
          'CFO TTM', 'V7 CFO_TTM (Evo)', 'CFO TTM nominal', 'CAPEX_STD (belge)', 'V7 CAPEX_STD (Evo)',
-         '|Kira| (belge)', 'V7 |Kira| (Evo)', 'FCF_STD (belge)',
+         '|Kira| (belge)', 'V7 |Kira| (Evo)', 'FCF_STD (belge)', 'V7 FCF türü', 'TEMETTU (belge)', 'V7 temettü',
+         'FCF_HLD (belge)', 'V7 FCF_HLD (Evo)', 'TEMETTU kıyas', 'TEMETTU statü', 'TEMETTU bileşen', 'TEMETTU kanıt',
          'CFO statü', 'CFO bileşen', 'CFO kanıt', 'MDV+MODV statü', 'MDV+MODV bileşen', 'MDV+MODV kanıt',
          'YAGM statü', 'YAGM bileşen', 'YAGM kanıt', 'KIRA statü', 'KIRA bileşen', 'KIRA kanıt', 'K6 dışlanan (belge)']
 with pd.ExcelWriter('KOSULLU_belge_kontrol.xlsx') as w:

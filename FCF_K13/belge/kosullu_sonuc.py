@@ -19,10 +19,14 @@ d['KIRA nominal'] = [cik(v) for v in d['KIRA TTM nominal']]
 BIL = [('CFO', 'CFO TTM', 'CFO TTM nominal', 'V7 CFO_TTM (Evo)'),
        ('CAPEX', 'CAPEX_STD (belge)', 'CAPEX nominal', 'V7 CAPEX_STD (Evo)'),
        ('KIRA', '|Kira| (belge)', 'KIRA nominal', 'V7 |Kira| (Evo)')]
+# holding (V7 FCF türü FCF_HLD): yatırım bölümündeki alınan temettü de karşılaştırılır (V7'de boş = 0)
+d['TEMETTU (belge)'] = [None if pd.isna(v) else max(v, 0.0) for v in d.get('TEMETTU TTM', pd.Series(index=d.index, dtype=float))]
+d['TEMETTU nominal'] = [None if pd.isna(v) else max(v, 0.0) for v in d.get('TEMETTU TTM nominal', pd.Series(index=d.index, dtype=float))]
+d['V7 temettü'] = [(0.0 if pd.isna(v) else v) if t == 'FCF_HLD' else None for t, v in zip(d['V7 FCF türü'], d['V7 Alınan temettü (Evo)'])]
 out = []
 for _, x in d.iterrows():
     kar = {}
-    for n, c, cn, v in BIL:
+    for n, c, cn, v in BIL + ([('TEMETTU', 'TEMETTU (belge)', 'TEMETTU nominal', 'V7 temettü')] if x['V7 FCF türü'] == 'FCF_HLD' else []):
         if pd.isna(x[c]) or pd.isna(x[v]): kar[n] = 'YOK'
         elif es(x[c], x[v]): kar[n] = 'AYNI'
         elif es(x[cn], x[v]): kar[n] = 'EVO_NOMINAL'
@@ -35,8 +39,8 @@ for _, x in d.iterrows():
     elif st in ('TEYITLI', 'PDF_OKUNDU', 'IZAHNAME', 'XBRL_ESAS') and 'YOK' not in kar.values():
         # farklı bileşen yedek sütundan (sonraki raporun karşılaştırmalı sütunu) kurulduysa fark şirketin o dönemi
         # sonradan yeniden düzenlemesinden gelebilir → orijinal rapor görülmeden belge değeri önerilmez
-        yedek = any('yedek:' in str(x[f'{k} kanıt']) for n, k in (('CFO', 'CFO'), ('CAPEX', 'MDV+MODV'), ('CAPEX', 'YAGM'), ('KIRA', 'KIRA'))
-                    if kar[n] not in ('AYNI', 'YAKIN'))
+        yedek = any('yedek:' in str(x[f'{k} kanıt']) for n, k in (('CFO', 'CFO'), ('CAPEX', 'MDV+MODV'), ('CAPEX', 'YAGM'), ('KIRA', 'KIRA'), ('TEMETTU', 'TEMETTU'))
+                    if n in kar and kar[n] not in ('AYNI', 'YAKIN'))
         s = 'YEDEK_FARKLI' if yedek else 'BELGE_DEGERI'
     else: s = 'ELLE'
     fark = '; '.join(f'{n} {k}' for n, k in kar.items() if k not in ('AYNI',))
@@ -45,4 +49,4 @@ R = pd.concat([d[['Kod', 'Tip', 'Dönem', 'Satır statü']], pd.DataFrame(out, i
                d[[c for c in d.columns if c not in ('Kod', 'Tip', 'Dönem', 'Satır statü')]]], axis=1)
 R.to_csv('kosullu_sonuc.csv', index=False)
 print(R['Sonuç'].value_counts().to_dict())
-for n, *_ in BIL: print(n, R[f'{n} kıyas'].value_counts().to_dict())
+for n in ('CFO', 'CAPEX', 'KIRA', 'TEMETTU'): print(n, R[f'{n} kıyas'].value_counts().to_dict())

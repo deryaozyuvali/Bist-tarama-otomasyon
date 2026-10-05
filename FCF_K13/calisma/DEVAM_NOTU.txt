@@ -60,3 +60,13 @@ Eski/geçersiz kod, 30 satır ÇIKAR: KOZAL→TRALT, KOZAA→TRMET, IPEKE→TREN
 MARKA YATIRIM HOLDİNG; Evo USHOL = US Yatırım Holding), SNKRN (hiçbir kaynakta yok). TRALT/TRENJ/TRMET ayrı şirketler (grup zinciri), tekrar değil.
 INTET/NETGL/ROYAL: KAP listesinde yok ama Evo'da 6 aylık raporlayan gerçek şirketler — kod sorunu değil.
 Tarama listeleri (xutum_tarama_v2.py, xutum_tarama_haftalik_son.py): KOZAL/KOZAA/IPEKE/SNKRN/MARKA var, USHOL yok — kullanıcıya soruldu.
+
+--- 8. tur: V7 dosyası geldi (girdi/FCF_TTM_2025-03_2026-06_v7_nihai.xlsx, SHA-256 b1745853… doğru) → FCF_HLD ---
+FCF_HLD = CFO + Alınan temettüler (YATIRIM bölümü) − CAPEX_STD − |Kira| (V7 Notlar ②). cikar.py/cikar_pdf.py yeni kalem TEMETTU:
+XBRL ifrs-full_DividendsReceivedClassifiedAsInvestingActivities (PDF teyit); XBRL boşsa yatirim_bolumu() satırları (giriş satırı
+atılmaz; katılım kar payı/ödeme/çıkış dışlanır; büyük harfle başlayan alt satıra etiket yapıştırılmaz). Diğer kalemler değişmedi (0 fark).
+Doğrulama MOD=HOLDING (holding_satirlar.csv → holding_ttm.csv): belgeli 93 satırın 70'i V7 ile aynı; ECZYT 2026/06, KLRHO 2025/12
+V7 notundaki köprüyle aynı; diğerleri V7 VERİ YETERSİZ / Evo'da kayıt yok (BLCYT, PAHOL) / BLCYT TMS29 bazı. ARSAN 2025/09: şirket
+temettüyü 2025'te yatırıma, 2024'te işletmeye koymuş (sunum değişikliği, TTM karışık).
+NULL: FCF_HLD 63 satır, FCF_STD 441. KOŞULLU: holding temettü kıyası 5 AYNI, 1 EVO_NOMINAL (BLCYT), 11 belge yok.
+K13'ü yeniden üretmek (kod değişikliği dahil) için hâlâ K6_K11_Kademe2_DiffSet.xlsx gerekli.

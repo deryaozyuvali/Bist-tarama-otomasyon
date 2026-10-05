@@ -89,6 +89,7 @@ ozet = pd.DataFrame([
     ('ELLE BAKILACAK', int(st.get('ELLE', 0))),
     ('BELGE YOK', int(st.get('BELGE_YOK', 0))),
     ('FCF_STD hesaplanan (Standart, tüm bileşen var)', int(D['FCF_STD (belge)'].notna().sum())),
+    ('FCF_HLD hesaplanan (Holding, tüm bileşen var)', int(D['FCF_HLD (belge)'].notna().sum())),
     ('CFO belge vs V7 Evo: kıyaslanabilir / |fark|<%0,5', ''),
     ('Elle okunmuş kayıtlarla kıyas: nokta sayısı', len(DG)),
     ('  → AYNI', int((DG['Sonuç'] == 'AYNI').sum())),
@@ -117,7 +118,10 @@ oku = pd.DataFrame([
                'Varsayılan: şirket TMS 29 uygular; istisna yalnız hiçbir rapor başlığında “satın alma gücü esasına göre” yoksa VE '
                'Evo rakamı çevrilmemiş hâliyle örtüşüyorsa (A1YEN, ALCTL, BESTE, KOPOL, KORDS, NETAS, ODINE, SEKUR).'),
     ('FCF', 'FCF_STD = CFO − CAPEX_STD − |Kira|, CAPEX_STD = |MDV+MODV| + |YAGM|, pozitif TTM kalem 0 (K6) — KARAR’daki 2.262 '
-            'FCF_STD satırının 2.261’inde birebir tutan V7 formülü. Holding (FCF_HLD) tanımı türetilemedi → yalnız bileşenler.'),
+            'FCF_STD satırının 2.261’inde birebir tutan V7 formülü. Holding: FCF_HLD = CFO + Alınan temettüler (yalnız YATIRIM '
+            'bölümündeki; XBRL DividendsReceivedClassifiedAsInvestingActivities, yoksa PDF yatırım bölümü satırı) − CAPEX_STD − |Kira| '
+            '(V7 Notlar ②). Doğrulama (HOLDING_TEMETTU): 264 holding satırından belgesi olan 93’ünde temettü TTM 70’inde V7 ile '
+            'aynı; kalanlarda V7 VERİ YETERSİZ / Evo’da kayıt yok / TMS 29 bazı farkı.'),
     ('Tutarlar', 'mn TL, Haz 2026 satın alma gücü (TMS 29 uygulayanlar), işaret belgedeki gibi (çıkış negatif).'),
     ('Yeniden üretim', 'belge/: kap_liste.py → kap_indir.py (indirilecek.txt) → cikar.py → ttm.py → teslim_belge.py'),
 ], columns=['Başlık', 'Açıklama'])
@@ -128,10 +132,17 @@ def temiz(df):
     return df.apply(lambda c: c.map(lambda v: ILLEGAL_CHARACTERS_RE.sub(' ', v) if isinstance(v, str) else v))
 D, EL_DF, by, DG, K = temiz(D), temiz(EL_DF), temiz(by), temiz(DG), temiz(K)
 
+# holding temettü doğrulaması (ttm.py MOD=HOLDING → holding_ttm.csv): belge temettü TTM vs V7 'Alınan temettü (CFO dışı)'
+HT = pd.read_csv('holding_ttm.csv')
+HT = HT[HT['TEMETTU TTM'].notna()][['Kod', 'Dönem', 'TEMETTU statü', 'TEMETTU TTM', 'V7 Alınan temettü (Evo)', 'V7 FCF_HLD (Evo)',
+                                    'FCF_HLD (belge)', 'TEMETTU bileşen', 'TEMETTU kanıt']]
+_v = HT['V7 Alınan temettü (Evo)'].fillna(0)
+HT.insert(2, 'Sonuç', ['AYNI' if abs(max(b, 0) - v) <= 0.005 * abs(v) + 0.05 else 'FARKLI' for b, v in zip(HT['TEMETTU TTM'], _v)])
+HT = temiz(HT)
 with pd.ExcelWriter('NULL_belge_okuma.xlsx') as w:
     oku.to_excel(w, sheet_name='OKUBENI', index=False)
     ozet.to_excel(w, sheet_name='OZET', index=False)
-    on = ['Kod', 'Tip', 'Dönem', 'Satır statü', 'FCF_STD (belge)', 'CFO TTM', 'CAPEX_STD (belge)', '|Kira| (belge)',
+    on = ['Kod', 'Tip', 'Dönem', 'Satır statü', 'FCF_STD (belge)', 'FCF_HLD (belge)', 'TEMETTU TTM', 'CFO TTM', 'CAPEX_STD (belge)', '|Kira| (belge)',
           'K6 dışlanan (belge)', 'V7 CFO_TTM (Evo)', 'V7 CAPEX_STD (Evo)', 'V7 |Kira| (Evo)', 'CFO fark (belge−Evo)']
     D[on + [c for c in D.columns if c not in on]].to_excel(w, sheet_name='NULL_BELGE', index=False)
     EL_DF.to_excel(w, sheet_name='ELLE', index=False)
@@ -141,6 +152,7 @@ with pd.ExcelWriter('NULL_belge_okuma.xlsx') as w:
     pd.read_csv('bimas_testi.csv').to_excel(w, sheet_name='TMS29_BIMAS_TESTI', index=False)
     pd.read_csv('TUPRS_testi.csv').to_excel(w, sheet_name='TMS29_TUPRS_TESTI', index=False)
     K.to_excel(w, sheet_name='RAPOR_KALEMLERI', index=False)
+    HT.to_excel(w, sheet_name='HOLDING_TEMETTU', index=False)
 print(ozet.to_string(index=False))
 print(DG['Sonuç'].value_counts().to_dict())
 print(DG[~DG['Sonuç'].isin(['AYNI'])].to_string(index=False))
