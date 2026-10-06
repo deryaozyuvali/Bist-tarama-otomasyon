@@ -50,7 +50,7 @@ Okuma kılavuzu: `OKUBENI`, `TANIM`, `SOZLUK`, `SIRKET_KURALLARI`.
 
 ### SIRKET
 `sirket_id` (kalıcı; KAP üye kimliği), `guncel_kod`, `kod_gecmisi` (eski kod → yeni kod, tarih), `unvan`,
-`ekonomik_tip` (Standart / Holding / Finansal-kapsam dışı), `hesap_yili_sonu` (12, 6, 8…), `tms29` (E/H + başlangıç dönemi),
+`ekonomik_tip` (Standart / Holding / Finansal-kapsam dışı) + `tip_gecmisi` (tip, geçerlilik başlangıcı, gerekçe; tip kilitli ama analizde değişim sinyali kontrol edilir), `hesap_yili_sonu` (12, 6, 8…), `tms29` (E/H + başlangıç dönemi),
 `fonksiyonel_para`, `konsolide_mi`, `site_url`, `durum` (aktif / kodu değişti / işlem görmüyor).
 
 ### RAPOR (belge kütüğü — her finansal rapor bir satır)
@@ -86,7 +86,8 @@ Dönem sonu TÜFE (resmî seri). Çevrim katsayısı = endeks(baz) / endeks(rapo
 `fcf_turu` (ekonomik tipe göre), `kullanilabilirlik`, `kullanilabilirlik_nedeni`, `evo_karsilastirma` (V7/Evo değeri ve fark).
 
 ### SERI (üretilir — yön ve değişim)
-Şirket × dönem: aynı baz tarihinde FCF TTM; önceki çeyreğe ve önceki yıla göre değişim (reel); işaret değişimi;
+Seri/desen KURALI yok: "son 3 dönem pozitif" gibi sorular bu sayfadan sorgulanır (çeyreklik, TTM ve yıllık görünüm).
+Şirket × dönem: aynı baz tarihinde FCF TTM, çeyreklik FCF (YTD farkı) ve yıl sonunda yıllık FCF; önceki çeyreğe ve önceki yıla göre değişim (reel); işaret değişimi;
 **seri kırığı** işaretleri (yeniden düzenleme, sunum değişikliği, TMS 29 başlangıcı, konsolidasyon değişikliği, kod değişikliği).
 Kırık varsa o noktadan önceki ve sonraki değişim hesaplanmaz ya da "kırık" diye etiketlenir.
 

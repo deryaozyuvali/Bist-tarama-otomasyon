@@ -1,0 +1,124 @@
+GEM v6.1 → v6.2 FCF DEĞİŞİKLİK ÖNERİSİ (kullanıcı kararları 06.10.2026)
+Kaynak metin: girdi/GEM-KURALLARI-GUNCEL.txt (satır no'ları ona göre).
+Kapsam: GEM şirket analizi talimatıdır; evrenin toplu FCF hesabı da GEM tanımlarıyla yapılır.
+FCF tanımları (①②③, CAPEX_STD, girmeyenler, çifte sayım) DEĞİŞMEZ.
+
+Bölümler:
+  A. Kontrol 14 — Evo–belge çapraz kontrolü (yeni)
+  B. Eksik kalem belgeden doldurulur (K7/K10 değişikliği) + BELGE kaynağı
+  C. Analizde FCF tablosu (çeyreklik + TTM) — seri kuralı YAZILMAZ
+  D. Şirket tipi: kilitli ama her analizde kontrol
+  E. Teknik tutarlılık düzeltmeleri
+
+═══ A. KONTROL 14 ═══
+Yer: "ZORUNLU ÇAPRAZ KONTROLLER" listesinin sonuna, Kontrol 12'den sonra.
+Numara: 14 (13 seri tutarlılığı önerisine ayrıldı — GEM_K6v2_K13_onerisi.txt).
+
+14. EVO–BELGE ÇAPRAZ KONTROLÜ (FCF bileşenleri — her analizde ZORUNLU):
+    Evo'dan çekilen FCF bileşenleri en güncel finansal raporun nakit
+    akış tablosuyla karşılaştırılır. Rapor zaten dipnot okuması için
+    açıktır; ek belge aranmaz.
+    (a) Karşılaştırma DÖNEMSEL (YTD) bazda yapılır, TTM ile değil.
+        Raporun cari sütunu ile Evo'nun aynı dönem dönemsel değeri
+        katsayısız birebir tutmalıdır (ikisi de raporun parasıdır).
+    (b) Kalemler: CFO · MDV+MODV alımı · YAGM alımı · kira anapara
+        ödemesi · Alınan Temettüler (yatırım bölümü; yalnız ②).
+    (c) Tolerans: yuvarlama (≈ %0,1). Üstü hata sayılır.
+    (d) Fark varsa önce bilinen hata tiplerine bak:
+        ✗ satış satırı alım olarak alınmış (vaka: BRLSM, DENGE)
+        ✗ alım/satış ters (MEGMT)
+        ✗ verilen avans capex ile netleşmiş (CIMSA)
+        ✗ kullanım hakkı alımı capex'e katılmış (ARZUM, HUNER)
+        ✗ CFO yanlış satırdan (HKTM, SNICA)
+        ✗ yatırım toplamı alım satırına yazılmış (Kontrol 8)
+    (e) Belgenin kendi tutarlılığı: İşletme + Yatırım + Finansman
+        (+ kur farkı etkisi) = nakit değişimi. Tutmuyorsa belge
+        rakamı da tek başına güvenilmez; not düşülür.
+    (f) TTM'in diğer iki parçası (önceki FY, önceki YTD): master
+        dosyada belgeyle doğrulanmış kayıt varsa o kullanılır. Yoksa
+        güncel raporun karşılaştırmalı sütunu Evo ile kıyaslanır;
+        fark varsa geçmiş yeniden düzenlenmiş olabilir → Kontrol 11:
+        TTM'in üç parçası aynı esasta mı, kontrol edilir.
+    (f2) ESKİ RAPORLAR VE TMS 29: Belgeye Evo'da rakam olsa da olmasa
+        da bakılır. Evo geçmiş dönemleri en güncel satın alma gücüne
+        çevirir; belge ise kendi tarihinin parasıyladır. Eski bir
+        rapor rakamı Evo'dan farklıysa sırayla şunlar kontrol edilir:
+        1. TMS 29: belge rakamı × endeks(güncel)/endeks(rapor tarihi)
+           Evo'yu tutuyor mu? Tutuyorsa fark gerçek değildir.
+        2. Yeniden düzenleme: sonraki raporun karşılaştırmalı sütunu
+           ilk rapordan farklı mı? (Kontrol 11)
+        3. Evo eşleme hatası: (d) listesindeki tipler.
+        4. Belge iç tutarsızlığı: (e) özdeşliği.
+        Hiçbiri açıklamıyorsa rakam KOŞULLU kalır, iki değer yazılır.
+    (g) Fark bulunursa BELGE ESASTIR. FCF belge rakamıyla hesaplanır,
+        kaynak "belge (rapor, sayfa)" yazılır. Fark master dosyaya
+        karar kaydı olarak işlenir; toplu taramada aynı hata tekrar
+        oluşmaz.
+    ⛔ Evo ile belge farklıyken Evo rakamıyla FCF yazılmaz.
+    ⛔ Fark "küçük" diye kontrol atlanmaz; yön ve P/FCF hükmünü
+       çeviren hata küçük görünebilir.
+
+═══ B. EKSİK KALEM BELGEDEN DOLDURULUR ═══
+Değişen yerler: Kontrol 7(B) (s.303+), Kontrol 10 (s.354+), FCF STATÜSÜ (s.272+).
+Kontrol 7(B)'ye eklenir:
+    Şirket analizinde rapor açıktır: Evo'da 1–3 kayıtlı ya da hiç
+    kaydı olmayan kalem, ilgili raporların nakit akış tablosundan
+    okunur ve TTM = YTD_cari + FY_önceki − YTD_önceki ile kurulur
+    (parçalar Kontrol 14 (f2) ile aynı baza çevrilir). Okunabildiyse
+    FCF hesaplanır; NULL yalnız belge de bulunamazsa kalır.
+    ⛔ Kalem raporda yoksa (satır hiç yok) 0'dır; okunamıyorsa NULL'dır.
+       İkisi karıştırılmaz.
+FCF STATÜSÜ'ne eklenir (rakamın KAYNAĞI, statüden ayrı yazılır):
+    EVO    → Evo değeri, Kontrol 14 ile belgeyle tuttu
+    BELGE  → rapordan okundu (rapor, sayfa yazılır)
+    TÜRETİLMİŞ tanımı değişmez (artık/köprü ile üretilen).
+    Statü listesi gerçekte kullanılanlarla tamamlanır:
+    KESİN · TÜRETİLMİŞ · KOŞULLU · NULL (rakam yok, nedeni yazılır).
+
+═══ C. ANALİZDE FCF TABLOSU ═══
+Seri/desen kuralı ("son 3 dönem pozitif" vb.) kural setine YAZILMAZ;
+bu sorular kullanıcı istediğinde veriden sorgulanır. Kural setinin
+görevi verinin bu sorgulara uygun ve doğru olmasıdır.
+FCF bloğuna eklenir:
+    Her analizde FCF iki ayrı tabloda gösterilir (asla aynı sütunda değil):
+      • ÇEYREKLİK FCF: son 5 çeyrek, her biri yalnız o çeyreğin akışı
+        (çeyrek = YTD_t − YTD_t-1, aynı mali yıl içinde; parçalar aynı
+        bazda)
+      • TTM FCF: aynı 5 dönem için son 12 ay
+    Her satırda tanım (STD/HLD), statü ve kaynak (EVO/BELGE) yazılır.
+    P/FCF ve FCF Yield analiz anındaki piyasa değeri ile son TTM FCF'ten
+    hesaplanır; piyasa değerinin tarihi yazılır.
+
+═══ D. ŞİRKET TİPİ ═══
+s.200 "Tip analizin başında belirlenir" maddesine eklenir:
+    Tip master dosyada şirket bazında kayıtlıdır ve varsayılan olarak
+    o kullanılır (her analizde sıfırdan belirlenmez). Ancak her
+    analizde şu değişim sinyalleri kontrol edilir:
+      • ①/② göstergesi kayıtlı tiple çelişiyor (BS#2)
+      • dönemde önemli iştirak/bağlı ortaklık alımı, satışı veya
+        konsolidasyon değişikliği
+      • esas faaliyet, unvan veya birleşme değişikliği
+    Sinyal varsa tip yeniden değerlendirilir. Tip değiştiyse değişiklik
+    TARİHİ master'a yazılır; o tarihten önceki dönemler eski tiple
+    kalır ve seride "tip değişikliği" notu düşülür.
+
+═══ E. TEKNİK TUTARLILIK DÜZELTMELERİ ═══
+(Kullanıcı kararı gerektirmez; metnin kendi içindeki çelişkileri giderir.)
+E1. Kontrol 9 ENJSA örneği (s.345): "+5.917" → "+4.327,8 (CFO 46.966,7
+    − capex 4.042,5 − imtiyaz 37.008,3 − kira 1.588,1)". Eski rakam
+    kirayı düşmüyordu; formül ① ile çelişiyordu.
+E2. Kontrol 11(a) (s.374) "Fark > %25 ise köprüle" → "RECONCILE
+    kuralı uygulanır (>%10)". Aynı karşılaştırma için tek eşik.
+E3. Bilinen Sınırlamalar #3'ün "UYGULAMA" kısmı (s.433+) Kontrol 10'un
+    altına taşınır; BS#3'te yalnız gözlem kalır. (Sınırlamalar
+    "formülü etkilemez" diyor; bu kısım etkiliyordu.)
+E4. Kontrol 10 temettü istisnası: Alınan temettü yılda 1–2 çeyrekte
+    gelir; 1–3 kayıt temettü için eksiklik sayılmaz, BS#3 testi
+    uygulanır.
+E5. Kontrol 6 ile "NULL asla 0 sayılmaz" ayrımı: pozitif işaretli
+    satırın dışlanması bir "0 sayma" değil, anomali dışlamasıdır;
+    Kontrol 14 ile belgeden doğru rakam okunabiliyorsa o kullanılır.
+E6. Mükerrer satır sorgusu (s.479): "AND satir_no < satir_no('Finansman
+    Faaliyetlerinden Nakit Akışları')" şartı eklenir.
+E7. Bölüm F "FCF üç dönem üst üste negatif" (s.809): "son üç çeyreğin
+    TTM FCF'i negatif" olarak netleşir.
