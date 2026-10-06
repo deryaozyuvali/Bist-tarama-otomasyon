@@ -1,0 +1,36 @@
+GEM v6.1 → FCF v2.1 EKİ (öneri, kullanıcı onayı 06.10.2026)
+Yer: "ZORUNLU ÇAPRAZ KONTROLLER" listesinin sonuna, Kontrol 12'den sonra.
+Numara: 14 (13 numarası seri tutarlılığı önerisine ayrıldı — GEM_K6v2_K13_onerisi.txt).
+
+14. EVO–BELGE ÇAPRAZ KONTROLÜ (FCF bileşenleri — her analizde ZORUNLU):
+    Evo'dan çekilen FCF bileşenleri en güncel finansal raporun nakit
+    akış tablosuyla karşılaştırılır. Rapor zaten dipnot okuması için
+    açıktır; ek belge aranmaz.
+    (a) Karşılaştırma DÖNEMSEL (YTD) bazda yapılır, TTM ile değil.
+        Raporun cari sütunu ile Evo'nun aynı dönem dönemsel değeri
+        katsayısız birebir tutmalıdır (ikisi de raporun parasıdır).
+    (b) Kalemler: CFO · MDV+MODV alımı · YAGM alımı · kira anapara
+        ödemesi · Alınan Temettüler (yatırım bölümü; yalnız ②).
+    (c) Tolerans: yuvarlama (≈ %0,1). Üstü hata sayılır.
+    (d) Fark varsa önce bilinen hata tiplerine bak:
+        ✗ satış satırı alım olarak alınmış (vaka: BRLSM, DENGE)
+        ✗ alım/satış ters (MEGMT)
+        ✗ verilen avans capex ile netleşmiş (CIMSA)
+        ✗ kullanım hakkı alımı capex'e katılmış (ARZUM, HUNER)
+        ✗ CFO yanlış satırdan (HKTM, SNICA)
+        ✗ yatırım toplamı alım satırına yazılmış (Kontrol 8)
+    (e) Belgenin kendi tutarlılığı: İşletme + Yatırım + Finansman
+        (+ kur farkı etkisi) = nakit değişimi. Tutmuyorsa belge
+        rakamı da tek başına güvenilmez; not düşülür.
+    (f) TTM'in diğer iki parçası (önceki FY, önceki YTD): master
+        dosyada belgeyle doğrulanmış kayıt varsa o kullanılır. Yoksa
+        güncel raporun karşılaştırmalı sütunu Evo ile kıyaslanır;
+        fark varsa geçmiş yeniden düzenlenmiş olabilir → Kontrol 11:
+        TTM'in üç parçası aynı esasta mı, kontrol edilir.
+    (g) Fark bulunursa BELGE ESASTIR. FCF belge rakamıyla hesaplanır,
+        kaynak "belge (rapor, sayfa)" yazılır. Fark master dosyaya
+        karar kaydı olarak işlenir; toplu taramada aynı hata tekrar
+        oluşmaz.
+    ⛔ Evo ile belge farklıyken Evo rakamıyla FCF yazılmaz.
+    ⛔ Fark "küçük" diye kontrol atlanmaz; yön ve P/FCF hükmünü
+       çeviren hata küçük görünebilir.
