@@ -68,6 +68,8 @@ N['Statü'] = N['Statü'].fillna('NULL')  # pandas 'NULL' metnini NaN okur
 nul = pd.read_csv('belge/null_ttm.csv', keep_default_na=False)
 kos = pd.read_csv('belge/kosullu_sonuc.csv', keep_default_na=False)
 hol = pd.read_csv('belge/holding_ttm.csv', keep_default_na=False)
+k6t = pd.read_csv('belge/k6_ttm.csv', keep_default_na=False)
+K6I = k6t.set_index(['Kod', 'Dönem'])
 NUL, KOS = nul.set_index(['Kod', 'Dönem']), kos.set_index(['Kod', 'Dönem'])
 ACIK = ast_dict('belge/teslim_kosullu.py', 'ACIKLAMA'); NOTD = ast_dict('belge/teslim_kosullu.py', 'NOT')
 ESKI_KOD = ast_dict('belge/nihai.py', 'ESKI_KOD')
@@ -79,7 +81,7 @@ B = B[B['Bileşen'].isin(['MDV+MODV alımı', 'YAGM alımı'])].pivot_table(inde
 def kul(x):
     x = sayi(x); return None if x is None else (-x if x < 0 else 0.0)  # K6: pozitif TTM alım/kira satırı kullanılmaz
 BEL = {}
-for d in (nul, kos):
+for d in (nul, kos, k6t):
     for _, r in d.iterrows(): BEL[(r['Kod'], r['Dönem'])] = (kul(r['MDV+MODV TTM']), kul(r['YAGM TTM']))
 mdv, yagm = [], []
 for _, r in N.iterrows():
@@ -98,6 +100,8 @@ N['MDV+MODV'] = mdv; N['YAGM'] = yagm
 # GEM v6.2 kodları
 def null_kodu(kod, don, st):
     if st != 'NULL': return None, None
+    if (kod, don) in K6I.index and (kod, don) not in NUL.index:
+        return ('NULL_BELGE_YOK' if K6I.loc[(kod, don)]['Satır statü'] == 'BELGE_YOK' else 'NULL_OKUNAMADI'), ''
     if (kod, don) not in NUL.index: return 'NULL_BELGE_YOK', ''
     b = NUL.loc[(kod, don)]
     if b['Satır statü'] not in ('BELGE_YOK',): return 'NULL_OKUNAMADI', ''
@@ -108,7 +112,12 @@ def null_kodu(kod, don, st):
     return 'NULL_BELGE_YOK', ''
 
 KIYAS = {'CFO': 'CFO kıyas', 'CAPEX': 'CAPEX kıyas', 'KIRA': 'KIRA kıyas'}
-def fark_kodu(kod, don):
+def fark_kodu(kod, don, kaynak='', statu='', aciklama=''):
+    if (kod, don) in K6I.index and (kod, don) not in KOS.index:
+        if 'teyit' in str(kaynak): return 'TMS29_KATSAYI_ACIKLIYOR (K6/K7 belgeyle teyit)'
+        if 'BELGE' in str(kaynak) or 'KARMA' in str(kaynak): return 'EVO_ESLEME_HATASI (K6/K7)'
+        if 'maddi işaret' in str(aciklama): return 'ISARET_ANOMALISI_COZULEMEDI (K6)'
+        return None
     if (kod, don) not in KOS.index: return None
     b = KOS.loc[(kod, don)]
     if b['Sonuç'] == 'BELGE_YOK': return 'BELGE_YOK'
@@ -126,7 +135,7 @@ def fark_kodu(kod, don):
     return 'TMS29_KATSAYI_ACIKLIYOR' if kat else 'BIREBIR'
 
 N['NULL kodu'], N['NULL notu'] = zip(*[null_kodu(k, d, s) for k, d, s in zip(N.Kod, N['Dönem'], N['Statü'])])
-N['Evo–belge kodu (14g)'] = [fark_kodu(k, d) for k, d in zip(N.Kod, N['Dönem'])]
+N['Evo–belge kodu (14g)'] = [fark_kodu(k, d, s, st, a) for k, d, s, st, a in zip(N.Kod, N['Dönem'], N['Kaynak'], N['Statü'], N['Açıklama'])]
 def aciklama(r):
     a = r['Açıklama'] if isinstance(r['Açıklama'], str) else ''
     n = NOTD.get(f"{r['Kod']}|{r['Dönem']}")
@@ -137,7 +146,7 @@ N['Açıklama2'] = N.apply(aciklama, axis=1)
 # =============== FCF sayfası ===============
 FC = ['Anahtar', 'Kod', 'Tip', 'Sektör', 'Dönem', 'CFO_TTM', '|MDV+MODV alımı|', '|YAGM alımı|', 'CAPEX_STD', '|Kira anapara|',
       'Alınan temettü (CFO dışı)', 'FCF_STD (①)', 'FCF_HLD (②)', 'FCF türü', 'FCF · TTM (mn TL)', 'Statü', 'Kaynak', 'NULL kodu',
-      'Evo–belge kodu (14g)', 'Açıklama', 'V7 FCF', 'V7 statü', "V7'ye göre değişti"]
+      'Evo–belge kodu (14g)', 'Açıklama', 'V7 FCF', 'V7 statü', "V7'ye göre değişti", 'Belge FCF (çözülmemiş çatışma)']
 wf = wb.active; wf.title = 'FCF'
 for j, c in enumerate(FC, 1):
     x = wf.cell(1, j, c); x.font = FH; x.fill = HDR; x.alignment = Alignment(wrap_text=True, vertical='center')
@@ -152,20 +161,21 @@ for i, (_, r) in enumerate(N.iterrows(), 2):
             12: f'=IF(OR(F{i}="",I{i}="",J{i}=""),"",F{i}-I{i}-J{i})', 13: f'=IF(OR(L{i}="",N{i}<>"FCF_HLD"),"",L{i}+N(K{i}))',
             14: v('FCF türü'), 15: f'=IF(L{i}="","",IF(N{i}="FCF_HLD",M{i},L{i}))', 16: v('Statü'), 17: v('Kaynak'),
             18: v('NULL kodu'), 19: v('Evo–belge kodu (14g)'), 20: v('Açıklama2'), 21: v('V7 FCF'), 22: v('V7 statü'),
-            23: v("V7'ye göre değişti")}
+            23: v("V7'ye göre değişti"), 24: v('Belge FCF (çözülmemiş)') if 'Belge FCF (çözülmemiş)' in r else None}
     for j, x in vals.items():
         c = wf.cell(i, j, x); c.font = FBL if j in (6, 7, 8, 10, 11) else F_
-        if j in (6, 7, 8, 9, 10, 11, 12, 13, 15, 21): c.number_format = NUM
+        if j in (6, 7, 8, 9, 10, 11, 12, 13, 15, 21, 24): c.number_format = NUM
 nF = len(N) + 1
-wf.freeze_panes = 'F2'; wf.auto_filter.ref = f'A1:W{nF}'; wf.column_dimensions['A'].hidden = True
-for j, w in enumerate([14, 8, 10, 22, 9] + [12] * 8 + [10, 13, 11, 22, 17, 30, 70, 11, 11, 14], 1): wf.column_dimensions[L(j)].width = w
+wf.freeze_panes = 'F2'; wf.auto_filter.ref = f'A1:X{nF}'; wf.column_dimensions['A'].hidden = True
+for j, w in enumerate([14, 8, 10, 22, 9] + [12] * 8 + [10, 13, 11, 22, 17, 30, 70, 11, 11, 14, 14], 1): wf.column_dimensions[L(j)].width = w
 wf.row_dimensions[1].height = 45
 
 # =============== BELGE_TTM (TTM parçaları) ===============
 KAL = ['CFO', 'MDV+MODV', 'YAGM', 'KIRA', 'TEMETTU']
 bt = []
 kullanilan = {(r['Kod'], r['Dönem']) for _, r in N.iterrows() if 'BELGE' in str(r['Kaynak']) or 'teyitli' in str(r['Kaynak'])}
-for grup, d in (('NULL', nul), ('KOŞULLU', kos), ('HOLDING (temettü)', hol)):
+K6SET = set(K6I.index)
+for grup, d in (('NULL', nul), ('KOŞULLU', kos), ('HOLDING (temettü)', hol), ('K6/K7', k6t)):
     for _, r in d.iterrows():
         for k in KAL:
             if k + ' bileşen' not in r or (grup.startswith('HOLDING') and k != 'TEMETTU'): continue
@@ -313,6 +323,8 @@ for i, (_, r) in enumerate(FD.iterrows(), 2):
         x = NC.loc[(kod, don)]
         if ecfo is None or abs(x['CFO_TTM'] - ecfo) > max(0.005 * abs(x['CFO_TTM']), 0.5):
             ncfo, kay = x['CFO_TTM'], 'FCF sayfası (' + str(x['Kaynak']) + ')'
+    if (kod, don) in KOS.index and KOS.loc[(kod, don)]['Sonuç'] == 'ELLE' and KOS.loc[(kod, don)]['CFO kıyas'] == 'FARKLI':
+        ncfo, kay = None, 'NULL_CATISMA: Evo ≠ belge, açıklanamadı (GEM v6.2 A3) → M1 NULL'
     vals = {'Anahtar': f'{kod}|{don}', 'Kod': kod, 'Ünvan': v('Ünvan'), 'Dönem': don, 'Dosya etiketi': v('Dosya etiketi'),
             'Kapsam': v('Kapsam'), 'Kritik Eksik #': v('Kritik Eksik #'), 'Puan Durumu': v('Puan Durumu'), 'CFO TTM (mn TL)': ncfo,
             'CFO kaynağı': kay, 'Net kâr TTM (mn TL)': None if pd.isna(r['net_total_cur']) else r['net_total_cur'] / 1e6,
@@ -377,6 +389,8 @@ KOD_L = [
     ('Kaynak', 'EVO', 'V7 (Evo) rakamı; seri kontrolü temiz, belgeyle tek tek karşılaştırılmadı.'),
     ('Kaynak', 'EVO (belgeyle teyitli)', 'Belge aynı rakamı verdi.'), ('Kaynak', 'BELGE', 'Rakam şirket raporundan (BELGE_TTM / RAPOR_KALEM).'),
     ('Kaynak', 'BELGE (izahname)', 'Halka arz izahnamesindeki finansal tablolardan.'),
+    ('Kaynak', 'KARMA', 'Bileşenler farklı kaynaklardan (ör. temettü Evo, diğerleri belge); parantez içinde yazılı.'),
+    ('Evo–belge (14g)', 'ISARET_ANOMALISI_COZULEMEDI (K6)', 'Pozitif alım/kira satırı dışlandı, belge çözemedi ve maddi (> |FCF|×%10) → KOŞULLU.'),
     ('NULL kodu', 'NULL_GECMIS_YOK', 'TTM için gerekli önceki yıl raporu yok (yeni halka arz vb.).'),
     ('NULL kodu', 'NULL_BELGE_YOK', 'Rapor bulunamadı (mali yılı takvim dışı şirketler dahil; Açıklama\'da).'),
     ('NULL kodu', 'NULL_OKUNAMADI', 'Rapor var, bileşen güvenle okunamadı.'), ('NULL kodu', 'NULL_CATISMA', 'Evo ≠ belge, açıklanamadı (Funnel girdileri).'),

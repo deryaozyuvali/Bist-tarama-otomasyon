@@ -2,6 +2,7 @@
 Girdi: ../girdi/FCF_TTM_2025-03_2026-06_v7_nihai.xlsx, null_ttm.csv, kosullu_sonuc.csv, teslim_kosullu.ACIKLAMA
 Çıktı: ../FCF_TTM_nihai_belgeli.xlsx
 Tutarlar mn TL, Haziran 2026 satın alma gücü (V7/Evo esası; belge tutarları TMS 29 katsayısıyla aynı baza çevrildi)."""
+import re
 import pandas as pd
 
 V7 = '../girdi/FCF_TTM_2025-03_2026-06_v7_nihai.xlsx'
@@ -26,6 +27,9 @@ def sayi(x):
 v = pd.read_excel(V7, sheet_name='FCF_TTM')
 nul = pd.read_csv('null_ttm.csv', keep_default_na=False).set_index(['Kod', 'Dönem'])
 kos = pd.read_csv('kosullu_sonuc.csv', keep_default_na=False).set_index(['Kod', 'Dönem'])
+import os
+k6 = (pd.read_csv('k6_ttm.csv', keep_default_na=False).set_index(['Kod', 'Dönem']) if os.path.exists('k6_ttm.csv')
+      else pd.DataFrame(columns=['Kod', 'Dönem']).set_index(['Kod', 'Dönem']))
 KALEMLER = ['CFO', 'MDV+MODV', 'YAGM', 'KIRA', 'TEMETTU']
 
 
@@ -71,6 +75,8 @@ for _, r in v.iterrows():
                 if d['tem'] is not None:
                     o['tem'] = d['tem']
             o['kaynak'] = 'EVO (belgeyle teyitli)' if sonuc == 'KESİN_ONERI' else 'BELGE'
+            if tur == 'FCF_HLD' and d['tem'] is None and o['tem'] is not None and sonuc != 'KESİN_ONERI':
+                o['kaynak'] = 'KARMA (temettü: EVO; diğerleri: BELGE)'
             if k9:
                 o['statu'] = 'KOŞULLU'
                 o['aciklama'] = (('Evo rakamı belgeyle uyuşmadı, belge rakamı yazıldı (' + b['Fark özeti'] + '). '
@@ -101,6 +107,8 @@ for _, r in v.iterrows():
                 o['tem'] = d['tem']
             o['statu'] = 'KESİN'
             o['kaynak'] = 'BELGE (izahname)' if b['Satır statü'] == 'IZAHNAME' else 'BELGE'
+            if tur == 'FCF_HLD' and d['tem'] is None and o['tem'] is not None:
+                o['kaynak'] = 'KARMA (temettü: EVO; diğerleri: BELGE)'
             o['aciklama'] = 'V7\'de NULL idi; belgeden dolduruldu (' + b['Satır statü'] + ')'
         else:
             o['statu'] = 'NULL'
@@ -108,6 +116,39 @@ for _, r in v.iterrows():
                              else 'Bileşen okunamadı/elle gerekli (' + b['Satır statü'] + ')')
             o['aciklama'] += '; V7 nedeni: ' + (r['NULL nedeni'] if isinstance(r['NULL nedeni'], str) else '')
         kanitlar.append(dict(Kod=kod, Dönem=don, Grup='NULL', Sonuç=b['Satır statü'], Kanıt=kanit(b)))
+    elif (kod, don) in k6.index:  # GEM v6.2: Kontrol 6 işaret anomalisi / Kontrol 7 ihmal eşiği / 0/4 tablo yok
+        b = k6.loc[(kod, don)]
+        d = belge_degerleri(b)
+        neden = ('K6: ' + r['K6 dışlanan satır'] if isinstance(r['K6 dışlanan satır'], str) else
+                 'K7: ' + r['K7 notu'] if isinstance(r['K7 notu'], str) and 'ihmal' in r['K7 notu'] else 'K7: capex 0/4, tablo Evo\'da kayıtlı değil')
+        if d['fcf'] is None and tur == 'FCF_HLD' and d['std'] is not None and o['tem'] is not None:
+            d['hld'] = d['std'] + o['tem']; d['fcf'] = d['hld']; karma = True
+        else:
+            karma = False
+        kanitlar.append(dict(Kod=kod, Dönem=don, Grup='K6/K7', Sonuç=b['Satır statü'], Kanıt=kanit(b)))
+        if d['fcf'] is not None:
+            ayni = v7_fcf is not None and abs(d['fcf'] - v7_fcf) <= max(0.005 * abs(v7_fcf), 0.5)
+            o.update({x: d[x] for x in ('cfo', 'capex', 'kira', 'std', 'hld', 'fcf')})
+            if d['tem'] is not None: o['tem'] = d['tem']
+            o['kaynak'] = 'KARMA (temettü: EVO; diğerleri: BELGE)' if karma else 'EVO (belgeyle teyitli)' if ayni else 'BELGE'
+            o['statu'] = 'KESİN' if v7_st in ('KESİN', 'TÜRETİLMİŞ') and not k9 else v7_st
+            o['aciklama'] = (neden + (' → belge V7 rakamını teyit etti' if ayni else ' → Evo rakamı belgeyle uyuşmadı; belge rakamı (V7 '
+                             + (f'{v7_fcf:,.1f}' if v7_fcf is not None else '—') + ')'))
+            o['k6'] = 'COZULDU'
+        else:
+            m_ = re.search(r'TTM \+([\d.]+)', neden)
+            tutar = float(m_.group(1)) if m_ else None
+            if neden.startswith('K6') and tutar is not None and v7_fcf is not None:
+                maddi = tutar > 0.10 * abs(v7_fcf) or tutar >= abs(v7_fcf)
+                o['statu'] = 'KOŞULLU' if maddi else v7_st
+                o['aciklama'] = neden + ('; belge bulunamadı/okunamadı → maddi işaret anomalisi (> |FCF|×%10) → KOŞULLU' if maddi
+                                         else '; belge bulunamadı/okunamadı; anomali maddi değil → statü korunur, not')
+                o['k6'] = 'MADDI' if maddi else 'MADDI_DEGIL'
+            else:  # K7 ihmal / 0/4 tablo yok: belge yoksa NULL
+                o.update(cfo=o['cfo'], capex=None, std=None, hld=None, fcf=None)
+                o['statu'] = 'NULL'
+                o['aciklama'] = neden + '; belge eksik çeyrekleri doğrulayamadı → NULL (GEM v6.2 Kontrol 7)'
+                o['k6'] = 'NULL'
     else:
         if v7_st == 'KOŞULLU':
             o['aciklama'] = r['KOŞULLU nedeni'] if isinstance(r['KOŞULLU nedeni'], str) else ''
