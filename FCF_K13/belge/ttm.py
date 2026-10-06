@@ -84,6 +84,15 @@ EVO_METIN = json.load(open('evo_metin_teyit.json')) if os.path.exists('evo_metin
 def _kat(kod, y, m):
     return F[(y, m)] / F[son_rapor.get(kod, (2026, 6))] if kod in TMS29_SIRKET else 1.0
 
+# Aynı raporun ikinci kopyası (Evo havuzu / şirket sitesi PDF'i, XBRL'siz okunmuş): KAP PDF'i okunamadığında ya da
+# XBRL tutarı KAP PDF'inde bulunamadığında XBRL değeri bu kopyanın satırıyla karşılaştırılır.
+ALT = {}
+for _f, _ad in (('rapor_kalemleri_evo.csv', 'Evo PDF'), ('rapor_kalemleri_site.csv', 'Şirket sitesi PDF')):
+    if os.path.exists(_f):
+        for _r in pd.read_csv(_f).itertuples():
+            if _r.durum == 'PDF_OKUNDU' and pd.notna(_r.deger_tl):
+                ALT.setdefault((_r.kod, int(_r.yil), int(_r.ay), _r.kalem, _r.sutun), (_r.deger_tl, _ad, str(_r.pdf_satir)[:120]))
+
 def al(kod, y, m, kalem, sut):
     """→ (değer mn TL | None, statü, kanıt)"""
     if not H.get(f'{kod}|{y}|{m}'): return None, 'BELGE_YOK', f'{y}/{m:02d} raporu KAP’ta yok'
@@ -110,6 +119,14 @@ def al(kod, y, m, kalem, sut):
         if 'deger' in ek:
             return ek['deger'] / 1e6 * _kat(kod, y, m), 'PDF_OKUNDU', kanit + f" · elle karar (PDF): {ek['not']}"
         return (v or 0.0), ek.get('durum', 'TEYITLI'), kanit + f" · elle karar: {ek['not']}"
+    alt = ALT.get((kod, y, m, kalem, sut))
+    if alt and r.durum in ('PDF_YOK', 'PDF_TUTMADI', 'ETIKET_UYMADI') and not (ELLE_KARAR.get(f'{kod}|{y}|{m}|{kalem}|{sut}') or ELLE_KARAR.get(f'{kod}|{y}|{m}|{kalem}|*')):
+        k_ = _kat(kod, y, m); a = alt[0]
+        if pd.notna(r.deger_tl) and abs(a - r.deger_tl) <= max(0.001 * abs(r.deger_tl), 2000):
+            return r.deger_tl / 1e6 * k_, 'TEYITLI', kanit + f' · XBRL = {alt[1]} satırı (aynı rapor): {alt[2]}'
+        # uyuşmazlıkta ikinci kopya kullanılmaz (XBRL'siz okuma alt satır/birim/sütun karıştırabiliyor; ARZUM, CIMSA, TUREX
+        # testinde yanlış) → aşağıdaki normal akış (ELLE) sürer, ikinci kopyanın değeri kanıta yazılır
+        kanit += f" · {alt[1]} (aynı rapor) satırı farklı: {a / 1e6:.3f} mn ({alt[2][:80]})"
     if r.durum == 'PDF_YOK' and str(int(r.idx)) in EVO_METIN:
         # taranmış PDF: Evo belge havuzundaki OCR metninden elle kontrol (evo_metin_teyit.json)
         t = EVO_METIN[str(int(r.idx))]

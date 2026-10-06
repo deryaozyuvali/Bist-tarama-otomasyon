@@ -105,3 +105,11 @@ basılmış, özdeşlik çıkışla tutuyor → BELGE_DEGERI (V7 basılı işare
 2025/03 kira (26.859.923) KAP PDF; 2025/09 kira +5,6 C toplamıyla tutuyor → MARBL KESİN. MERCN 2025/06 MDV (dipnot "13 14") ve YAGM +50 mn
 (B toplamı tutuyor) → KESİN. Kalan: GOKNR 2025/06-09 (net satır + bölüm içi enflasyon etkisi; açıklama teslim_kosullu ACIKLAMA'da).
 KOŞULLU: KESİN 113, YAKIN 6, BELGE_DEGERI 77, ELLE 11, YEDEK_FARKLI 2, BELGE_YOK 196.
+
+--- 14. tur: KAP açıldı (06.10 06:07 UTC) ---
+kap_yavas.py (6 sn bekleme, 3 hatada durur) ile 689 bildirim hatasız indi. Sorun: ~5 MB sayfalar bazen yarıda kesiliyor (curl 18) ve
+eski kap_indir.curl yalnız http 200'e bakıyordu → ek listesi / nakit akış tablosu eksik json'lar. Düzeltme: curl çıkış kodu 0 şartı;
+kap_ek_tamamla.py (ek yoksa 4 deneme) ile 166+45 bildirimin ekleri, 96 NAKIT_AKIS_YOK bildirim yeniden indirildi.
+ttm.py ALT: KAP PDF'i okunamazsa/XBRL PDF'te bulunmazsa aynı raporun Evo/site PDF satırı XBRL ile birebir ise TEYITLI; uyuşmazsa
+KULLANILMAZ (XBRL'siz okuma ARZUM/CIMSA/TUREX/PLTUR'da alt satır/birim karıştırdı) → ELLE, kanıta not.
+KOŞULLU: KESİN 224, YAKIN 17, BELGE_DEGERI 108, ELLE 37, BELGE_YOK 19 (YEDEK_FARKLI kalmadı). NULL: TEYITLI 333, BELGE_YOK 223, ELLE 8.
