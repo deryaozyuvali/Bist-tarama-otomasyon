@@ -11,6 +11,12 @@ Temel Analiz Kuralların (Bunu Asla Unutma):
 
 Tablo Okuma Disiplini: Excel veya CSV dosyalarından veri çekerken asla satır ve sütunları kaydırma! Rakamları almadan önce “Dönem” ile “Bilanço Kalemi” kesişimini iki kez kontrol et. TTM tabloları ile Çeyreklik tabloları birbirine karıştırma — hangisini kullandığını her zaman açıkça belirt.
 
+Evo–Belge Çapraz Kontrol Kuralı (TÜM RAKAMLAR): Analizde kullanılan her Evo rakamı (gelir tablosu, bilanço, nakit akış, Funnel girdileri, FCF bileşenleri) şirketin finansal raporuyla karşılaştırılır. Evo'da rakam olsa da olmasa da belgeye bakılır.
+* Akış kalemleri DÖNEMSEL (YTD) bazda, raporun cari sütunuyla; bilanço kalemleri dönem sonu sütunuyla karşılaştırılır. En güncel rapor ile Evo'nun aynı dönem değeri katsayısız birebir tutmalıdır (tolerans: yuvarlama, ≈ %0,1).
+* TTM ve geçmiş dönem rakamları, onları oluşturan raporlardan kontrol edilir. Fark varsa sırayla: TMS 29 (eski rapor kendi tarihinin parasıdır), yeniden düzenleme (karşılaştırmalı sütun ilk rapordan farklı mı), Evo eşleme hatası (yanlış satır, ters işaret, netleştirme), belgenin kendi iç tutarsızlığı.
+* Fark bulunursa BELGE ESASTIR; analizde belge rakamı kullanılır, kaynağı (rapor, sayfa) yazılır. Hiçbir neden farkı açıklamıyorsa iki rakam da gösterilir ve o rakama dayalı yorum koşullu yapılır.
+* FCF bileşenleri için ayrıntılı uygulama: FCF Kontrol 14.
+
 TMS 29 Uyarıları: Tüm tabloları enflasyon muhasebesi (TMS 29) uygulanmış olarak değerlendir ve ciroların “reel” olarak büyüyüp büyümediğine bak.
 
 Nakit Kraldır: Net Kâr manşetlerine asla güvenme. İFNA ile çapraz kontrol et. Kasa para basmıyorsa o kâr makyajlıdır.
@@ -119,6 +125,7 @@ CEO açıklaması, operasyonel detaylar, guidance dahil baştan sona oku.
 
 ADIM 4 — SQL Finansal Veriler:
 Gelir tablosu, bilanço ve nakit akış tablolarını çeyreklik ve TTM bazında sorgula.
+Sorgulanan rakamlar Evo–Belge Çapraz Kontrol Kuralı ile finansal raporla karşılaştırılır.
 Nakit akış tablosunda yatırım bölümünün TAMAMI satır satır çekilir — sadece capex satırı değil. Kontrol 9 bu listeye dayanır.
 
 ADIM 5 — KAP Özel Durum Bildirimleri:
@@ -445,6 +452,7 @@ ZORUNLU ÇAPRAZ KONTROLLER
 
 13. (Ayrılmış numara — seri tutarlılığı önerisi; kurala yazılmadı.)
 14. EVO–BELGE ÇAPRAZ KONTROLÜ (FCF bileşenleri — her analizde ZORUNLU):
+    Genel Evo–Belge Çapraz Kontrol Kuralı'nın FCF uygulamasıdır.
     Evo'dan çekilen FCF bileşenleri finansal raporun nakit akış
     tablosuyla karşılaştırılır. Evo'da rakam olsa da olmasa da belgeye
     bakılır. Rapor zaten dipnot okuması için açıktır.
@@ -647,6 +655,8 @@ T2	Prior same-quarter Evo değeri, cari filing’in restated comparative değeri
 T3	Aynı sorgu içinde aynı kalem için veri kaynağı çatışması
 T4	NULL / eksik / mükerrer veri problemi
 T5	Şirket TTM penceresi içinde sunum/sınıflandırma değiştirmiş (bkz. FCF Kontrol 11)
+
+Şirket analizinde Funnel girdileri ayrıca Evo–Belge Çapraz Kontrol Kuralı'ndan geçer; fark çıkarsa T2/T4 tetiklenmiş sayılır ve belge rakamı kullanılır.
 
 Doğrulama yapılamıyorsa: Evo verisi olduğu gibi kullanılır, audit bloğunda “doğrulanamadı” işaretlenir, skor koşullu sayılır.
 
