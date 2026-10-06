@@ -196,7 +196,7 @@ ANALİZDE FCF TABLOSU: Her analizde FCF iki ayrı tabloda gösterilir:
        birbirinden çıkarılmaz; önce Kontrol 14 (g) ile aynı baza
        getirilir.
   • TTM FCF — aynı 5 dönem için son 12 ay
-Her satırda tanım (STD/HLD), statü ve kaynak (EVO/BELGE) yazılır.
+Her satırda tanım (STD/HLD), statü ve kaynak (EVO/BELGE/KARMA) yazılır.
 P/FCF ve FCF Yield analiz anındaki piyasa değeri ve son TTM FCF ile
 hesaplanır. Yanına iki tarih yazılır: piyasa değerinin tarihi ve
 finansal rakamların satın alma gücü (baz) tarihi. Aradaki fiyat
@@ -319,7 +319,9 @@ FCF STATÜSÜ (dört değerli):
 KESİN      → tüm kontroller temiz, rakam kullanılır
 TÜRETİLMİŞ → bir bileşen artık/köprü yöntemiyle üretildi, kaynağı
 yazılır, rakam kullanılır ama etiketlenir
-KOŞULLU    → Kontrol 9/10/11’den biri tetiklendi ve çözülemedi.
+KOŞULLU    → FCF'in doğruluğunu maddi biçimde etkileyebilecek bir kontrol
+anomalisi tetiklendi ve belge/uzlaştırma ile çözülemedi (özellikle
+Kontrol 6, 9, 10, 11 ve 14 kapsamındaki çözülemeyen vakalar).
 Rakam gösterilir ama karnede FCF’ye dayalı yorum
 yapılmaz; şirket ayrı bölümde listelenir.
 NULL       → rakam yok; nedeni kodla yazılır. NULL asla 0 sayılmaz.
@@ -371,17 +373,23 @@ ZORUNLU ÇAPRAZ KONTROLLER
 7. VERİ EKSİKLİĞİ — CAPEX NULL AYRIMI:
     Karar try_ttm’in NULL olmasına değil, TTM penceresindeki DÖRT
     ÇEYREĞİN try_ceyreklik KAYIT SAYISINA bakılarak verilir.
+    KARAR AĞACI (sırayla uygulanır; tek otorite bu kontroldür):
     (A) 0/4 kayıt → Evo'da bu kalem için kayıt yok:
     • O dönemlerin nakit akış tablosu Evo'da kayıtlı (CFO 4/4) ise
-      kalem tabloda yer almıyor → ekonomik 0, FCF hesaplanır,
-      “capex satırı yok” notu düşülür.
+      kalem tabloda isimli satır olarak yer almıyor → bu bileşen 0,
+      FCF hesaplanır, “capex satırı yok” notu düşülür.
+      Bu 0 kabulü yalnız ilgili isimli CAPEX bileşeni içindir; yatırım
+      bölümündeki başka/“Diğer” satırlar Kontrol 9 kapsamında ayrıca
+      taranır (“YAGM 0” ≠ “gayrimenkule hiç yatırım yapılmadı”).
     • Tablo da kayıtlı değilse → BELGE YOLU; belge kalemin bulunmadığını
       doğrularsa 0, belge yoksa NULL.
-    (B) 1–3 kayıt → veri kısmi → FCF = NULL
-    → İstisna: Kontrol 9’un artık yöntemiyle türetilebiliyorsa
-    hesaplanır ama statü TÜRETİLMİŞ olur, kaynağı yazılır
+    (B) 1–3 kayıt → veri kısmi:
+      1. BELGE YOLU → belge çözerse rakam BELGE kaynağıyla kullanılır;
+      2. belge çözmezse, doğrulanabilir köprü / Kontrol 9 artık yöntemi
+         varsa → TÜRETİLMİŞ (kaynağı yazılır);
+      3. o da yoksa → FCF = NULL.
     (C) 4/4 kayıt → try_ttm kullanılır
-    (B) ve (A) için BELGE YOLU: Şirket analizinde rapor açıktır. Evo'da
+    BELGE YOLU (A ve B için): Şirket analizinde rapor açıktır. Evo'da
     eksik kalan kalem ilgili raporların nakit akış tablosundan okunur
     ve TTM = YTD_cari + FY_önceki − YTD_önceki ile kurulur (parçalar
     Kontrol 14 (g) ile aynı baza çevrilir). Okunabildiyse FCF
@@ -441,7 +449,8 @@ ZORUNLU ÇAPRAZ KONTROLLER
     temettü) için TTM penceresindeki çeyreklik kayıt sayısı sayılır.
     4/4 → temiz
     1–3 → Kontrol 7(B) devreye girer, FCF = NULL veya TÜRETİLMİŞ
-    0/4 → kalem yok, capex tarafında 0 kabul edilir
+    0/4 → Kontrol 7(A) uygulanır: nakit akış tablosunun TTM penceresinde
+    4/4 mevcutluğu doğrulanmadan ekonomik 0 kabul edilmez.
     ⛔ try_ttm IS NULL tek başına “kalem yok” anlamına GELMEZ.
     Kayıt sayısı sayılmadan karar verilmez. Dönem verisi olup TTM'i
     NULL olan kalem (gerekli önceki yıl penceresi yok) NULL_GECMIS_YOK
@@ -515,17 +524,20 @@ ZORUNLU ÇAPRAZ KONTROLLER
         ✗ CFO yanlış satırdan (HKTM, SNICA)
         ✗ yatırım toplamı alım satırına yazılmış (Kontrol 8)
     (e) Belgenin kendi tutarlılığı: İşletme + Yatırım + Finansman
-        (+ kur farkı etkisi + tabloda ayrıca gösterilen diğer nakit
-        mutabakat etkileri, ör. parasal kayıp/kazanç, beklenen zarar
-        karşılığı) = nakit değişimi. Tutmuyorsa belge
+        + kur çevrim etkisi + nakit ve nakit benzerlerindeki değişim
+        mutabakatında şirketin ayrıca gösterdiği diğer etkiler = nakit
+        değişimi (raporun kendi mutabakat şeması izlenir; sabit kalem
+        listesi eklenmez). Tutmuyorsa belge
         rakamı da tek başına güvenilmez; not düşülür.
     (f) TTM'in diğer iki parçası (önceki FY, önceki YTD): master FCF
         dosyasında belgeyle doğrulanmış kayıt varsa o kullanılır. Yoksa
         güncel raporun karşılaştırmalı sütunu ve ilgili eski rapor Evo
         ile kıyaslanır.
-    (g) ESKİ RAPORLAR VE TMS 29: Evo geçmiş dönemleri şirketin en güncel
-        döneminin satın alma gücüne taşır; eski PDF kendi rapor tarihinin
-        parasıyladır. İkisi doğrudan eşit olmak zorunda değildir. Eski
+    (g) ESKİ RAPORLAR VE TMS 29: Evo'nun genel yöntemi geçmiş dönemleri
+        şirketin en güncel raporlama döneminin satın alma gücü bazına
+        taşımaktır; ancak bunun şirket/dönem bazında uygulanmadığı
+        istisnalar vardır. Eski PDF kendi rapor tarihinin parasıyladır;
+        ikisi doğrudan eşit olmak zorunda değildir. Eski
         rapor rakamı Evo'dan farklıysa sırayla kontrol edilir ve sonuç
         koduyla yazılır:
         1. Daha yeni raporun (yeniden ifade edilmiş) karşılaştırmalı
@@ -989,8 +1001,8 @@ Holding / yatırım şirketi:
   FCF_HLD = CFO_TTM + Alınan Temettüler^(CFO DIŞINDA)_TTM
             − CAPEX_STD − |Kira anaparası|_TTM
 Teşhis (FCF DEĞİL):
-  Finansman Öncesi Nakit = CFO_TTM − Yatırım Faaliyetleri Toplamı_TTM
-  (işaret sözleşmesi: FCF bloğu ③; işaretli CFI ile = CFO + CFI)
+  Finansman Öncesi Nakit = CFO_TTM − normalize edilmiş pozitif yatırım
+  nakit çıkışı_TTM (işaretli CFI kullanılıyorsa CFO_TTM + CFI_TTM)
 
 Capex daima POZİTİF ÇIKIŞ olarak ele alınır.
 Doğrulama: Capex arttığında FCF azalmalıdır.
@@ -1015,7 +1027,8 @@ aynı SQL oturumunda çıkar, ek iş yükü getirmez.
 
 Teşhis kuralı: FCF_STD ile Finansman Öncesi Nakit arasındaki fark bir hata veya FCF düzeltme kalemi değil, şirketin CAPEX dışındaki yatırım/portföy nakit hareketlerini gösteren TEŞHİS SİNYALİDİR.
 
-Finansman Öncesi Nakit = CFO_TTM − Yatırım Faaliyetleri Toplamı_TTM
+Finansman Öncesi Nakit = CFO_TTM − normalize edilmiş pozitif yatırım nakit çıkışı_TTM
+(işaretli CFI kullanılıyorsa CFO_TTM + CFI_TTM)
 
 Bu metrik FCF DEĞİLDİR ve FCF_STD / FCF_HLD yerine kullanılmaz.
 
