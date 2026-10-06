@@ -1672,5 +1672,41 @@
  "SAHOL|2026|3|YAGM|onceki": {
   "deger": 1127000.0,
   "not": "KAP 1602061 (bin TL): 'Yatırım Amaçlı Gayrimenkul Alımından Kaynaklanan Nakit Girişleri / (Çıkışları)' 67 / 1.127 (net giriş, pozitif) → belgedeki gibi (TTM pozitifse K6 ile 0)"
+ },
+ "PLTUR|2025|12|MDV+MODV|cari": {
+  "deger": -40842430,
+  "not": "yatırım bölümü MDV alım satırı (filo alımları CFO içinde; XBRL MDV filo alımlarını da içerdiği için kullanılmaz)"
+ },
+ "PLTUR|2025|12|MDV+MODV|onceki": {
+  "deger": -10408821,
+  "not": "aynı satır karşılaştırmalı"
+ },
+ "PLTUR|2026|3|MDV+MODV|cari": {
+  "deger": -2220312,
+  "not": "yatırım bölümü MDV alım satırı (filo alımları CFO içinde; XBRL MDV filo alımlarını da içerdiği için kullanılmaz)"
+ },
+ "PLTUR|2026|3|MDV+MODV|onceki": {
+  "deger": -1787711,
+  "not": "aynı satır karşılaştırmalı"
+ },
+ "PLTUR|2026|6|MDV+MODV|cari": {
+  "deger": -22126138,
+  "not": "yatırım bölümü MDV alım satırı (filo alımları CFO içinde; XBRL MDV filo alımlarını da içerdiği için kullanılmaz)"
+ },
+ "PLTUR|2026|6|MDV+MODV|onceki": {
+  "deger": -6551135,
+  "not": "aynı satır karşılaştırmalı"
+ },
+ "PLTUR|2025|12|KIRA|*": {
+  "deger": 0,
+  "not": "belgenin finansman bölümünde kira ödemesi satırı yok; 'Operasyonel Kiralamada Kullanılan Varlık Alımları/Satışları' filo alım-satımı (kira ödemesi değil)"
+ },
+ "PLTUR|2026|3|KIRA|*": {
+  "deger": 0,
+  "not": "belgenin finansman bölümünde kira ödemesi satırı yok; 'Operasyonel Kiralamada Kullanılan Varlık Alımları/Satışları' filo alım-satımı (kira ödemesi değil)"
+ },
+ "PLTUR|2026|6|KIRA|*": {
+  "deger": 0,
+  "not": "belgenin finansman bölümünde kira ödemesi satırı yok; 'Operasyonel Kiralamada Kullanılan Varlık Alımları/Satışları' filo alım-satımı (kira ödemesi değil)"
  }
 }

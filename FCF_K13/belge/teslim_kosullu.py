@@ -46,14 +46,11 @@ ACIKLAMA = {
     'KATMR': 'KATMR 2024 işletme nakit akışı orijinal 31.12.2024 raporunda +2.506,4 mn, 31.12.2025 raporunun karşılaştırmalısında '
              '999,0 mn (yeniden düzenleme). V7 düzenlenmiş esasla birebir tutuyor; 2024 ara dönem orijinal raporları bulunamadığından '
              'hangi esasın 2025 ara dönem raporlarıyla tutarlı olduğu belgeyle gösterilemedi.',
-    'PLTUR': 'PLTUR araç kiralama: filo (operasyonel kiralama varlıkları) alım-satımları işletme bölümünde; 2025/12–2026/06 PDF '
-             'işletme nakit akışı XBRL’den tanım olarak farklı (2025/12: PDF (386,0) mn, XBRL 548,6 mn). FCF için hangi tanımın '
-             'kullanılacağı yorum gerektirir.',
     'GSDHO': 'GSDHO 2025/09: A başlık değeri (1.764.997 bin TL) ile alt toplamlar ve dönem sonu − başı nakit değişimi '
              'birbiriyle tutmuyor; CFO belgeden tek değere bağlanamadı.',
 }
 # belge değeri olan satırlarda özel inceleme notları (Kod|Dönem)
-NOT = {'DGNMO|2025/06': 'DGNMO 2025/06 şirket sitesi konsolide raporu: A 524.522.345, A+B+C(+etki) = net değişim ✓. Evo 2024/06 '
+NOT = {'PLTUR|2025/12': 'PLTUR (araç kiralama): filo alımları işletme bölümünde. GEM: CFO nakit akış tablosundaki satır olduğu gibi alınır → PDF \'İşletme Faaliyetlerinden Sağlanan/(Kullanılan) Net Nakit\' (filo alımları düşülmüş). XBRL/Evo CFO bu satırla uyuşmuyor ve XBRL MDV filo alımlarını da içeriyor → MDV = yatırım bölümündeki \'Maddi ve Maddi Olmayan Duran Varlık Alımları\' satırı (çift sayım yok). Kira satırı yok → 0. 2026/06: 1.405,6 − 63,7 − 24,4 = 1.317,6 mn TL (Evo 2.147,8).', 'PLTUR|2026/03': 'PLTUR (araç kiralama): filo alımları işletme bölümünde. GEM: CFO nakit akış tablosundaki satır olduğu gibi alınır → PDF \'İşletme Faaliyetlerinden Sağlanan/(Kullanılan) Net Nakit\' (filo alımları düşülmüş). XBRL/Evo CFO bu satırla uyuşmuyor ve XBRL MDV filo alımlarını da içeriyor → MDV = yatırım bölümündeki \'Maddi ve Maddi Olmayan Duran Varlık Alımları\' satırı (çift sayım yok). Kira satırı yok → 0. 2026/06: 1.405,6 − 63,7 − 24,4 = 1.317,6 mn TL (Evo 2.147,8).', 'PLTUR|2026/06': 'PLTUR (araç kiralama): filo alımları işletme bölümünde. GEM: CFO nakit akış tablosundaki satır olduğu gibi alınır → PDF \'İşletme Faaliyetlerinden Sağlanan/(Kullanılan) Net Nakit\' (filo alımları düşülmüş). XBRL/Evo CFO bu satırla uyuşmuyor ve XBRL MDV filo alımlarını da içeriyor → MDV = yatırım bölümündeki \'Maddi ve Maddi Olmayan Duran Varlık Alımları\' satırı (çift sayım yok). Kira satırı yok → 0. 2026/06: 1.405,6 − 63,7 − 24,4 = 1.317,6 mn TL (Evo 2.147,8).', 'DGNMO|2025/06': 'DGNMO 2025/06 şirket sitesi konsolide raporu: A 524.522.345, A+B+C(+etki) = net değişim ✓. Evo 2024/06 '
                         've 2024/12 değerleri belgelerle birebir; yalnız Evo 2025/06 CFO (−1.404,8 mn) belgeyle uyuşmuyor → Evo hatası.',
        **{f'SAHOL|{d}': 'SAHOL 2024 nakit akışını 31.12.2025 raporunda işletme↔yatırım arasında yeniden sınıflamış (2024 işletme: '
                          'orijinal (90,8) mlr, düzenlenmiş +153,2 mlr; net değişim aynı). 2025/03–09 raporlarının karşılaştırmalı sütunları '
