@@ -1,0 +1,547 @@
+{
+ "_aciklama": "Kontrol 9 elle sınıflandırma (imzalı PDF nakit akış satırı / dipnot referansı). 'KOD|*' şirketin tüm raporları için geçerli.",
+ "ATATP|*": {
+  "diger_sinif": "FINANSAL",
+  "not": "PDF: 'Diğer Nakit Girişleri (Çıkışları)' satırı Dipnot 7 FİNANSAL YATIRIMLAR referanslı (GUD farkı K/Z'a yansıtılan finansal yatırımlar)"
+ },
+ "CEMTS|*": {
+  "diger_sinif": "FINANSAL",
+  "not": "PDF: 'Diğer' satırı Not 6 FİNANSAL YATIRIMLAR referanslı (likit fon, hisse senetleri, girişim fonları)"
+ },
+ "PKART|*": {
+  "diger_sinif": "FINANSAL",
+  "not": "PDF: 'Diğer' satırı Dipnot 3 NAKİT VE NAKİT BENZERLERİ referanslı (blokeli/vadeli mevduat hareketi)"
+ },
+ "SAYAS|*": {
+  "diger_sinif": "FINANSAL",
+  "not": "PDF: 'Diğer' satırı Not 5 FİNANSAL YATIRIMLAR referanslı (kur korumalı mevduat)"
+ },
+ "BOBET|*": {
+  "diger_sinif": "FINANSAL",
+  "not": "PDF: XBRL 'Diğer' = PDF 'Finansal Yatırımlardaki Değişim' satırı"
+ },
+ "GENIL|*": {
+  "diger_sinif": "FINANSAL",
+  "not": "PDF: XBRL 'Diğer' = finansal yatırımlar (Not 12) + yabancı para çevrim farkı + pay geri alımı + alınan faiz satırları (hepsi kapsam dışı ✗)"
+ },
+ "ASTOR|*": {
+  "diger_sinif": "FINANSAL",
+  "sinif": {
+   "ifrs-full_PurchaseOfOtherLongtermAssetsClassifiedAsInvestingActivities": "FINANSAL"
+  },
+  "not": "PDF: XBRL 'Diğer'/'Diğer uzun vadeli varlık alımı' = PDF 'Finansal yatırımlar / Finansal yatırımlardan kaynaklı nakit çıkışları' satırı"
+ },
+ "DGNMO|2024|12": {
+  "diger_sinif": "FINANSAL",
+  "not": "PDF: 'Finansal yatırımlardan nakit girişleri / çıkışları' satırları"
+ },
+ "ENDAE|2024|12": {
+  "diger_sinif": "FINANSAL",
+  "not": "Not 28: kur korumalı vadeli mevduat (2023 sonu 214,8 mn alım, 2024'te çözüldü); faiz gelirleri KKM'den"
+ },
+ "AGROT|2025|3": {
+  "diger": [
+   [
+    "Finansal yatırımlar (PDF, Not 10)",
+    "FINANSAL",
+    "FINANSAL",
+    -21481250,
+    0
+   ],
+   [
+    "Yabancı para çevrim farkı (PDF)",
+    "KUR",
+    "KUR",
+    -7212579,
+    0
+   ]
+  ],
+  "not": "PDF yatırım bölümü satırları"
+ },
+ "AGROT|2024|12": {
+  "diger": [
+   [
+    "Konsolidasyondan çıkış (Grid Teknoloji) (PDF)",
+    "MA",
+    "ARTIK",
+    -185162039,
+    0
+   ]
+  ],
+  "not": "PDF yatırım bölümü; önceki sütun TTM'de kullanılmıyor"
+ },
+ "ALCAR|2025|6": {
+  "satirlar": [
+   [
+    "MDV/MODV alımı",
+    "CAPEX",
+    "CAPEX",
+    -16948548,
+    -98610555
+   ],
+   [
+    "MDV/MODV satışı",
+    "SATIS",
+    "SATIS",
+    0,
+    2013158
+   ]
+  ],
+  "not": "XBRL'de yatırım bölümü yok; imzalı PDF nakit akış tablosu (başka satır yok)"
+ },
+ "ARASE|2025|9": {
+  "satirlar": [
+   [
+    "MDV/MODV alımı",
+    "CAPEX",
+    "CAPEX",
+    -5181580,
+    -366705
+   ],
+   [
+    "Diğer nakit çıkışları (Not 17: Dönem içi yatırım harcamaları)",
+    "CAPEX_DIPNOT",
+    "CAPEX_DIPNOT",
+    -2522530823,
+    -2644626186
+   ]
+  ],
+  "not": "XBRL'de yatırım bölümü yok; PDF + Not 17 'Dönem içi yatırım harcamaları' 2.522.530.823 / 2.644.626.186"
+ },
+ "ASTOR|2025|3": {
+  "satirlar": [
+   [
+    "MDV/MODV alımı",
+    "CAPEX",
+    "CAPEX",
+    -502703924,
+    -1314109245
+   ],
+   [
+    "MDV/MODV satışı",
+    "SATIS",
+    "SATIS",
+    557140343,
+    155372792
+   ],
+   [
+    "Yatırım faaliyetlerinde kaynaklanan nakit giriş çıkışları, net (dipnot referansı yok)",
+    "ARTIK",
+    "ARTIK",
+    -866173526,
+    -17963531
+   ]
+  ],
+  "not": "XBRL'de yatırım bölümü yok; imzalı PDF nakit akış tablosu"
+ },
+ "CIMSA|2025|9": {
+  "satirlar": [
+   [
+    "MDV alımı",
+    "CAPEX",
+    "CAPEX",
+    -3922753000,
+    -2706804000
+   ],
+   [
+    "MODV alımı",
+    "CAPEX",
+    "CAPEX",
+    -286539000,
+    -15022000
+   ],
+   [
+    "MDV satışı",
+    "SATIS",
+    "SATIS",
+    23610000,
+    228094000
+   ],
+   [
+    "Alınan temettü",
+    "TEMETTU",
+    "TEMETTU",
+    94646000,
+    128287000
+   ],
+   [
+    "MDV alımı için verilen avanslardaki değişim (GEM: avans capex ile netleştirilmez — CIMSA vakası)",
+    "AVANS",
+    "AVANS",
+    274379000,
+    148027000
+   ],
+   [
+    "Diğer nakit girişleri/(çıkışları)",
+    "ARTIK",
+    "ARTIK",
+    -921970000,
+    459699000
+   ]
+  ],
+  "not": "XBRL'de yatırım bölümü yok; imzalı PDF (bin TL)"
+ },
+ "ECILC|2025|12": {
+  "satirlar": [
+   [
+    "MDV/MODV alımı",
+    "CAPEX",
+    "CAPEX",
+    -330527000,
+    -615823000
+   ],
+   [
+    "MDV/MODV satışı",
+    "SATIS",
+    "SATIS",
+    291232000,
+    1066215000
+   ],
+   [
+    "YAGM alımı",
+    "CAPEX",
+    "CAPEX",
+    0,
+    -4614000
+   ],
+   [
+    "Alınan temettüler",
+    "TEMETTU",
+    "TEMETTU",
+    809671000,
+    1265197000
+   ],
+   [
+    "Mali duran varlıkların satışına ilişkin nakit girişleri",
+    "FINANSAL",
+    "FINANSAL",
+    3493546000,
+    123054000
+   ]
+  ],
+  "not": "XBRL'de yatırım bölümü yok; imzalı PDF (bin TL)"
+ },
+ "OYAKC|2025|12": {
+  "satirlar": [
+   [
+    "MDV/MODV satışı",
+    "SATIS",
+    "SATIS",
+    16531000,
+    3464000
+   ],
+   [
+    "MDV/MODV alımı",
+    "CAPEX",
+    "CAPEX",
+    -6993730000,
+    -10092926000
+   ],
+   [
+    "Finansal yatırımlardaki azalış (artış)",
+    "FINANSAL",
+    "FINANSAL",
+    1932605000,
+    -1532231000
+   ],
+   [
+    "Fon/borçlanma aracı satışı",
+    "FINANSAL",
+    "FINANSAL",
+    299057000,
+    208913000
+   ],
+   [
+    "Alınan faiz",
+    "FAIZ",
+    "FAIZ",
+    723814000,
+    278617000
+   ],
+   [
+    "Temettü geliri",
+    "TEMETTU",
+    "TEMETTU",
+    3415000,
+    4717000
+   ]
+  ],
+  "not": "XBRL'de yatırım bölümü yok; imzalı PDF (bin TL)"
+ },
+ "MAGEN|2024|12": {
+  "satirlar": [
+   [
+    "İştirak pay alımı/sermaye artırımı",
+    "MA",
+    "MA",
+    0,
+    -1622213414
+   ],
+   [
+    "MDV/MODV satışı",
+    "SATIS",
+    "SATIS",
+    10654887,
+    30310980
+   ],
+   [
+    "MDV/MODV alımı",
+    "CAPEX",
+    "CAPEX",
+    -62985009,
+    -55455329
+   ],
+   [
+    "Alınan faizler",
+    "FAIZ",
+    "FAIZ",
+    37327107,
+    206066476
+   ],
+   [
+    "Finansal varlıklardaki değişim",
+    "FINANSAL",
+    "FINANSAL",
+    0,
+    613384423
+   ],
+   [
+    "Geri alınan paylar ve satışlar, net",
+    "FINANSMAN",
+    "FINANSMAN",
+    -30394421,
+    -41499807
+   ],
+   [
+    "Alınan temettüler",
+    "TEMETTU",
+    "TEMETTU",
+    10499186,
+    4517374
+   ]
+  ],
+  "not": "XBRL'de yatırım bölümü yok; imzalı PDF"
+ },
+ "BRLSM|2026|3": {
+  "satirlar": [
+   [
+    "MDV/MODV alımı",
+    "CAPEX",
+    "CAPEX",
+    -3532374,
+    -3456822
+   ],
+   [
+    "MDV/MODV satımı",
+    "SATIS",
+    "SATIS",
+    -907790,
+    2921092
+   ],
+   [
+    "Satış amaçlı gayrimenkul satımı",
+    "SATIS",
+    "SATIS",
+    98776361,
+    0
+   ],
+   [
+    "Faiz gelirleri",
+    "FAIZ",
+    "FAIZ",
+    14957025,
+    6097742
+   ],
+   [
+    "Finansal varlık alışı (Not 11)",
+    "FINANSAL",
+    "FINANSAL",
+    -356582484,
+    5461937
+   ]
+  ],
+  "not": "XBRL satırları yatırım toplamını tutmuyor; imzalı PDF"
+ },
+ "BRLSM|2025|12": {
+  "satirlar": [
+   [
+    "MDV/MODV alımı",
+    "CAPEX",
+    "CAPEX",
+    -9367975,
+    -64266473
+   ],
+   [
+    "MDV/MODV satımı",
+    "SATIS",
+    "SATIS",
+    -43363397,
+    5527186
+   ],
+   [
+    "Satış amaçlı gayrimenkul alımı",
+    "ARTIK",
+    "ARTIK",
+    0,
+    -316752715
+   ],
+   [
+    "Satış amaçlı gayrimenkul satımı",
+    "SATIS",
+    "SATIS",
+    117493960,
+    12832201
+   ],
+   [
+    "Faiz gelirleri",
+    "FAIZ",
+    "FAIZ",
+    29983319,
+    20002549
+   ],
+   [
+    "Finansal varlık satışı",
+    "FINANSAL",
+    "FINANSAL",
+    7057021,
+    -2626967
+   ]
+  ],
+  "not": "XBRL'de yatırım bölümü yok; imzalı PDF"
+ },
+ "SUNTK|2026|6": {
+  "satirlar": [
+   [
+    "MDV alımı",
+    "CAPEX",
+    "CAPEX",
+    -214093091,
+    -615361105
+   ],
+   [
+    "MODV alımı",
+    "CAPEX",
+    "CAPEX",
+    -88631527,
+    -92303791
+   ],
+   [
+    "MDV satışı",
+    "SATIS",
+    "SATIS",
+    40497973,
+    10963760
+   ],
+   [
+    "YAGM alımı",
+    "CAPEX",
+    "CAPEX",
+    -160077457,
+    -34467748
+   ],
+   [
+    "Finansal varlık alımı",
+    "FINANSAL",
+    "FINANSAL",
+    0,
+    -12763513
+   ],
+   [
+    "Yatırım ya da finansman faaliyetlerinden nakit girişi (Not 15: menkul kıymet satış karları)",
+    "FINANSAL",
+    "FINANSAL",
+    302319567,
+    301321876
+   ]
+  ],
+  "not": "XBRL'de yatırım bölümü yok; imzalı PDF + Not 15"
+ },
+ "SUNTK|*": {
+  "diger_sinif": "FINANSAL",
+  "not": "PDF: 'Yatırım ya da finansman faaliyetlerinden kaynaklanan nakit girişi' = dipnotta 'Menkul kıymet satış karları' (tutar birebir)"
+ },
+ "TEZOL|2025|6": {
+  "satirlar": [
+   [
+    "MDV/MODV alımı",
+    "CAPEX",
+    "CAPEX",
+    -40068000,
+    -273420000
+   ],
+   [
+    "MDV/MODV satışı",
+    "SATIS",
+    "SATIS",
+    76492000,
+    1430000
+   ],
+   [
+    "Verilen diğer nakit avans ve borçlar",
+    "AVANS",
+    "AVANS",
+    8890000,
+    252850000
+   ],
+   [
+    "Alınan faiz",
+    "FAIZ",
+    "FAIZ",
+    46792000,
+    40027000
+   ],
+   [
+    "Katılım payı ve diğer finansal araçlar",
+    "FINANSAL",
+    "FINANSAL",
+    158232000,
+    -398448000
+   ]
+  ],
+  "not": "XBRL'de yatırım bölümü yok; imzalı PDF (bin TL)"
+ },
+ "BESLR|*": {
+  "diger_sinif": "KUR",
+  "not": "PDF: XBRL 'Diğer' = 'Yatırım faaliyetlerinden elde edilen kur farkı' + 'Yatırım amaçlı gayrimenkullerden elde edilen kira geliri' satırları (ilişkili taraf alacaklarının kur farkı + kira geliri; capex değil)"
+ },
+ "ARSAN|2025|6": {
+  "diger_sinif": "FINANSAL",
+  "not": "PDF: 'Diğer' satırı Dipnot 4 referanslı; tutar (172.347.824) dipnotta 'Kur Korumalı Mevduat Hesabı (KKMH)' — finansal yatırım"
+ },
+ "PRKAB|2024|12": {
+  "diger_sinif": "FINANSAL",
+  "not": "Dipnot: 'Grup'un kur korumalı mevduat hesabı yoktur (31 Aralık 2023: 85.292.626)' — KKM kapanışı"
+ },
+ "SONME|2026|3": {
+  "diger": [
+   [
+    "Finansal yatırımlar ve özkaynak yöntemiyle değerlenen yatırımlardaki değişim / Bağlı ortaklık hisse satışından sağlanan nakit (PDF)",
+    "FINANSAL",
+    "MA",
+    23438990,
+    -74725562
+   ]
+  ],
+  "not": "PDF yatırım bölümü satırları"
+ },
+ "YAYLA|*": {
+  "diger_sinif": "AVANS",
+  "not": "PDF: 'Diğer nakit girişleri (çıkışları)' satırı (2025/09 raporunda) Dipnot 7 DİĞER ALACAK VE DİĞER BORÇLAR referanslı (ilişkili taraf alacakları, teminatlar); capex değil"
+ },
+ "YAYLA|2025|3": {
+  "diger": [
+   [
+    "Diğer nakit girişleri — dipnot: yatırım amaçlı gayrimenkullerin kira geliri 5.396.757",
+    "KIRA_GELIRI",
+    "AVANS",
+    5396757,
+    43528859
+   ]
+  ],
+  "not": "Cari: dipnotta kira geliri (tutar birebir); önceki: şirketin Diğer satırı Dipnot 7 (diğer alacak/borç)"
+ },
+ "SDTTR|2025|9": {
+  "diger_sinif": "MA",
+  "not": "PDF: 'İşletme Birleşmesinin Etkileri (Diğer Nakit Giriş Çıkışları)' satırı, Dipnot 17-18-19 — işletme birleşmesi (M&A, FCF after M&A'da)"
+ }
+}

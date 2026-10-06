@@ -137,3 +137,13 @@ Eski Evo toplu taramaları (5 dönem) ↔ nihai: ESKI_TARAMA_karsilastirma.xlsx 
 MASTER: FCF_MASTER.xlsx (belge/master.py <GEM_20xxQx...xlsx>): ANA · FCF (formüllü bileşenler; belge satırları BELGE_TTM'e bağlı) ·
 BELGE_TTM (A×kA+B×kB−C×kC) · RAPOR_KALEM · ELLE_KARAR · NOTLAR · TMS29 · FUNNEL (M1 güncel CFO, Bölüm F) · FUNNEL_GIRDI · KODLAR.
 LibreOffice Calc bu ortamda yoktu → apt-get install libreoffice-calc (recalc için). Kullanıcı kararı: P/FCF ve çeyreklik FCF master'da yok.
+
+=== TUR 17: Kontrol 9 artık sınıflandırması (KOŞULLU satırlar) ===
+belge/k9.py: V7'de Kontrol 9 ile KOŞULLU olan 154 satırın TTM penceresindeki tüm raporlarının yatırım bölümü KAP XBRL'den kalem
+kalem okunup GEM listesine göre sınıflandı; XBRL 'Diğer' satırı imzalı PDF satırlarından (alt küme eşleşmesi) ve dipnottan
+(tutar birebir) ayrıştırıldı; elle kararlar belge/k9_elle.json ('KOD|*' şirket düzeyi). C parçası ayrışmazsa geçen yılın aynı
+dönem raporu (2024 ara raporlar indirildi: rapor_bildirim_haritasi_2024ara.json; TÜFE ile 2024 ara katsayıları).
+Sonuç: 140 satır KOŞULLU→KESİN; ARASE (Not 17 'Dönem içi yatırım harcamaları' = Diğer nakit çıkışları, ENJSA vakası) ve
+UNLU ('Yapılmakta olan yatırım harcamaları') CAPEX'e eklendi. KOŞULLU kalan: 12 (Diğer dipnotta açıklanmıyor: ASUZU, ENDAE
+2026/06, GUBRF, HEKTS×2, PRKAB, PSDTC×2, QUAGR×3, ULUSE) + ATATP 2026/03-06 (Kontrol 11). Toplam KOŞULLU 26.
+Çıktılar: k9_sonuc.csv, k9_rapor.csv → nihai (K9_SONUC/K9_KALEM) ve master (K9_SINIF/K9_KALEM); V62_DIFFSET K9_* sayfaları.

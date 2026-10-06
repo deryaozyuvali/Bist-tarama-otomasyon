@@ -275,6 +275,19 @@ GENEL = [
 nt += [['GENEL', '', k, v] for k, v in GENEL]
 sayfa('NOTLAR', ['Kod', 'Dönem', 'Tür', 'Not'], nt, [10, 9, 26, 140], dondur='A2')
 
+# Kontrol 9: yatırım bölümü kalem kalem sınıflandırma (k9.py) — satır sonucu + rapor bazında döküm
+if os.path.exists('belge/k9_sonuc.csv'):
+    K9S = pd.read_csv('belge/k9_sonuc.csv', keep_default_na=False)
+    sayfa('K9_SINIF', ['Kod', 'Dönem', 'V7 artık (Evo)', 'Eşik', 'Belgeden sınıflanmayan artık', 'Kapandı', 'CAPEX (belge, TTM)',
+                       '"Diğer"den CAPEX\'e eklenen', 'CAPEX (V7/master)', 'Sınıflandırma dökümü (TTM, mn TL)', 'Not'],
+          [[r.Kod, r['Dönem'], sayi(r.V7_artik), sayi(r.Esik), sayi(r.Siniflanmayan), 'EVET' if str(r.Kapandi) == 'True' else 'HAYIR',
+            sayi(r.CAPEX_belge_ttm), sayi(r.Capex_ek), sayi(r.CAPEX_master), r.Dokum, r.Sorun] for _, r in K9S.iterrows()],
+          [8, 9, 12, 10, 14, 9, 13, 14, 13, 110, 70], bicim={3: NUM, 4: NUM, 5: NUM, 7: NUM, 8: NUM, 9: NUM}, dondur='C2')
+    K9R = pd.read_csv('belge/k9_rapor.csv', keep_default_na=False)
+    sayfa('K9_KALEM', ['Kod', 'Rapor', 'KAP no', 'Kaynak', 'Belgedeki satır', 'Sınıf (GEM)', 'Cari YTD (TL)', 'Önceki YTD (TL)'],
+          [[r.Kod, r.Rapor, r.idx, r.Kaynak, r.Etiket, r['Sınıf'], sayi(r.Cari), sayi(r['Önceki'])] for _, r in K9R.iterrows()],
+          [8, 9, 10, 60, 80, 22, 16, 16], bicim={7: TL, 8: TL}, dondur='C2')
+
 # =============== TMS29 ===============
 TM = [('2024/12', 1.5414), ('2025/03', 1.4004), ('2025/06', 1.3211), ('2025/09', 1.2289), ('2025/12', 1.1776), ('2026/03', 1.0701), ('2026/06', 1.0)]
 ws = sayfa('TMS29', ['Rapor tarihi', 'Katsayı → Haziran 2026', 'Açıklama'], [[d, k, ''] for d, k in TM], [12, 18, 100], bicim={2: '0.0000'}, font={2: FBL})
@@ -459,6 +472,10 @@ OK = [
                     '(KAP XBRL/PDF, şirket sitesi, Evo belge havuzu, izahname).'),
     ('ELLE_KARAR', 'Belge elle okunarak verilen kararlar ve gerekçeleri (XBRL hatası, PDF satırı seçimi vb.).'),
     ('NOTLAR', 'Şirket bazında çözülemeyen satırların gerekçesi, belge kararları, kod değişiklikleri ve genel bulgular.'),
+    ('K9_SINIF / K9_KALEM', 'Kontrol 9: V7\'de yatırım bölümü "Diğer" artığı nedeniyle KOŞULLU olan 154 satırın yatırım bölümü '
+                            'belgeden (KAP XBRL + imzalı PDF + dipnot) kalem kalem sınıflandı. Sınıflanmayan artık ≤ eşik → KESİN; '
+                            '"Diğer" içinde dipnotla yatırım harcaması çıkan tutar CAPEX\'e eklendi (ARASE, UNLU); içeriği dipnotta '
+                            'açıklanmayan artık eşiği aşıyorsa KOŞULLU kaldı. K9_KALEM: her raporun satır satır dökümü.'),
     ('TMS29', 'Belge rakamlarını Haziran 2026 satın alma gücüne çeviren katsayılar ve dayanağı.'),
     ('FUNNEL', 'Funnel V8.2: M1–M12 değerleri ve puanları, NULL sayısı, MIN/MAX, tier, kategori. M1\'in CFO\'su FCF sayfasındaki '
                'CFO\'dan farklıysa o kullanılır (yeşil). Bölüm F (Ana Liste + son üç çeyrek TTM FCF negatif → KOŞULLU ANA LİSTE) '

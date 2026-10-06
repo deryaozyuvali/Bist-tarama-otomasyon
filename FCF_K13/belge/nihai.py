@@ -180,6 +180,40 @@ for _, r in v.iterrows():
             o['aciklama'] = r['KOŞULLU nedeni'] if isinstance(r['KOŞULLU nedeni'], str) else ''
     satirlar.append(o)
 
+# Kontrol 9 artık sınıflandırması (k9.py): yatırım bölümünün tamamı belgeden kalem kalem sınıflandı.
+# Sınıflanmayan |artık| ≤ eşik → Kontrol 9 kapanır. 'Diğer' içinde dipnotla yatırım harcaması çıkan tutar CAPEX'e eklenir
+# (GEM Kontrol 9: sınıflandırmayı dipnot yapar; ENJSA vakası). Sınıflanamayan artık eşiği aşıyorsa KOŞULLU sürer.
+if os.path.exists('k9_sonuc.csv'):
+    K9 = pd.read_csv('k9_sonuc.csv', keep_default_na=False).set_index(['Kod', 'Dönem'])
+    for o in satirlar:
+        k = (o['Kod'], o['Dönem'])
+        if k not in K9.index or o['statu'] != 'KOŞULLU' or 'Kontrol 9' not in (o['aciklama'] or ''): continue
+        r = K9.loc[k]
+        kapandi = str(r['Kapandi']) == 'True'
+        dok = f"kalemler (TTM, mn TL): {r['Dokum']}" if r['Dokum'] else 'yatırım bölümünde capex dışı satır yok'
+        sorun = (' · ' + r['Sorun']) if r['Sorun'] else ''
+        if not kapandi:
+            o['aciklama'] = (f"Kontrol 9: belgeden sınıflanamayan artık {float(r['Siniflanmayan']):,.1f} > eşik {float(r['Esik']):,.1f}; "
+                             f"'Diğer' satırının içeriği dipnotlarda açıklanmıyor (tutar ve dipnot referansı arandı). {dok}{sorun}")
+            continue
+        ek = float(r['Capex_ek'] or 0)
+        notlar = [f"Kontrol 9 artığı belgeden sınıflandı (sınıflanmayan {float(r['Siniflanmayan']):,.1f} ≤ eşik {float(r['Esik']):,.1f}); {dok}"]
+        if abs(ek) >= 0.05 and o['capex'] is not None and o['cfo'] is not None:
+            o['capex'] += ek
+            o['std'] = o['cfo'] - o['capex'] - (o['kira'] or 0.0)
+            if o['tur'] == 'FCF_HLD' and o['tem'] is not None: o['hld'] = o['std'] + max(o['tem'], 0.0)
+            o['fcf'] = o['hld'] if o['tur'] == 'FCF_HLD' and o.get('hld') is not None else o['std']
+            notlar.append(f"'Diğer' içindeki yatırım harcaması (dipnot) CAPEX'e eklendi: +{ek:,.1f} → |MDV+MODV alımı| içinde")
+            o['kaynak'] = f"KARMA (Diğer içindeki capex: BELGE dipnot; diğer bileşenler: {o['kaynak']})"
+        v7n = str(v.set_index(['Kod', 'Dönem']).loc[k, 'KOŞULLU nedeni'])
+        if 'Kontrol 11' in v7n:
+            # ATATP: 2026/06 raporunun karşılaştırmalı (2025/06) sütunu eski sunumda, FY2025 yeni sunumda → TTM iki bazı topluyor
+            # (belge TTM'i de aynı rakamı veriyor, yani 'teyit' bazı düzeltmez). GEM Kontrol 11 vakası; çözülmedi.
+            o['aciklama'] = ' '.join(notlar) + ' | KOŞULLU nedeni: Kontrol 11 (sunum değişikliği; TTM penceresinde iki farklı sunum bazı) — V7: ' + v7n.split('|')[-1].strip()
+            continue
+        o['statu'] = 'KESİN'
+        o['aciklama'] = ' '.join(notlar)
+
 A = pd.DataFrame(satirlar)
 A['P/FCF'] = [round(p / f, 2) if p and f and f > 0 else None for p, f in zip(A.PD, A.fcf)]
 A['Değişti'] = [('YENİ (NULL→rakam)' if pd.isna(a) and not pd.isna(b) else
@@ -227,5 +261,8 @@ with pd.ExcelWriter('../FCF_TTM_nihai_belgeli.xlsx') as w:
     seri.to_excel(w, sheet_name='SERI', index=False)
     pd.concat([ozet, pd.DataFrame([{}]), kay, pd.DataFrame([{}]), deg]).to_excel(w, sheet_name='OZET', index=False)
     pd.DataFrame(kanitlar).to_excel(w, sheet_name='BELGE_KANIT', index=False)
+    if os.path.exists('k9_sonuc.csv'):
+        pd.read_csv('k9_sonuc.csv').to_excel(w, sheet_name='K9_SONUC', index=False)
+        pd.read_csv('k9_rapor.csv').to_excel(w, sheet_name='K9_KALEM', index=False)
     pd.DataFrame(cikan).rename(columns=KOLON).to_excel(w, sheet_name='KOD_DEGISTI', index=False)
 print(ozet.to_string(index=False)); print(kay.to_string(index=False)); print(deg.to_string(index=False))
