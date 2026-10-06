@@ -10,7 +10,8 @@ def curl(url, out):
     for i in range(4):
         r = subprocess.run(['curl', '-sS', '-L', '--max-time', '180', '-o', out, '-w', '%{http_code}', url],
                            capture_output=True, text=True)
-        if r.stdout.strip() == '200' and os.path.getsize(out) > 1000: return True
+        # aktarım yarıda kesilirse (curl çıkış kodu 18) http_code yine 200 olur → kesik sayfa kabul edilmez
+        if r.returncode == 0 and r.stdout.strip() == '200' and os.path.getsize(out) > 1000: return True
         time.sleep(2 ** i)
     return False
 
