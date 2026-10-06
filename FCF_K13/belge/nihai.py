@@ -38,6 +38,10 @@ def belge_degerleri(r):
     std, hld = sayi(r['FCF_STD (belge)']), sayi(r['FCF_HLD (belge)'])
     fcf = hld if tur == 'FCF_HLD' else std
     tem = sayi(r['TEMETTU TTM']) if 'TEMETTU TTM' in r else None
+    cfo, capex, kira = sayi(r['CFO TTM']), sayi(r['CAPEX_STD (belge)']), sayi(r['|Kira| (belge)'])
+    if std is None and None not in (cfo, capex, kira): std = round(cfo - capex - kira, 3)
+    if tur == 'FCF_HLD' and hld is None and std is not None and tem is not None: hld = round(std + max(tem, 0), 3)
+    fcf = hld if tur == 'FCF_HLD' else std
     return dict(cfo=sayi(r['CFO TTM']), capex=sayi(r['CAPEX_STD (belge)']), kira=sayi(r['|Kira| (belge)']),
                 tem=tem, std=std, hld=hld, fcf=fcf, tur=tur)
 
@@ -70,12 +74,15 @@ for _, r in v.iterrows():
         sonuc = b['Sonuç']
         if sonuc in ('KESİN_ONERI', 'KESİN_ONERI_YAKIN', 'BELGE_DEGERI'):
             d = belge_degerleri(b)
+            karma_k = False
+            if d['fcf'] is None and tur == 'FCF_HLD' and d['std'] is not None and o['tem'] is not None:
+                d['hld'] = d['std'] + max(o['tem'], 0); d['fcf'] = d['hld']; karma_k = True  # temettü belgede yok → Evo
             if d['fcf'] is not None:
                 o.update({x: d[x] for x in ('cfo', 'capex', 'kira', 'std', 'hld', 'fcf')})
                 if d['tem'] is not None:
                     o['tem'] = d['tem']
             o['kaynak'] = 'EVO (belgeyle teyitli)' if sonuc == 'KESİN_ONERI' else 'BELGE'
-            if tur == 'FCF_HLD' and d['tem'] is None and o['tem'] is not None and sonuc != 'KESİN_ONERI':
+            if karma_k or (tur == 'FCF_HLD' and d['tem'] is None and o['tem'] is not None and sonuc != 'KESİN_ONERI'):
                 o['kaynak'] = 'KARMA (temettü: EVO; diğerleri: BELGE)'
             if k9:
                 o['statu'] = 'KOŞULLU'
@@ -101,13 +108,16 @@ for _, r in v.iterrows():
     elif v7_st == 'NULL' and (kod, don) in nul.index:
         b = nul.loc[(kod, don)]
         d = belge_degerleri(b)
+        karma_k = False
+        if d['fcf'] is None and tur == 'FCF_HLD' and d['std'] is not None and o['tem'] is not None:
+            d['hld'] = d['std'] + max(o['tem'], 0); d['fcf'] = d['hld']; karma_k = True
         if d['fcf'] is not None:
             o.update({x: d[x] for x in ('cfo', 'capex', 'kira', 'std', 'hld', 'fcf')})
             if d['tem'] is not None:
                 o['tem'] = d['tem']
             o['statu'] = 'KESİN'
             o['kaynak'] = 'BELGE (izahname)' if b['Satır statü'] == 'IZAHNAME' else 'BELGE'
-            if tur == 'FCF_HLD' and d['tem'] is None and o['tem'] is not None:
+            if karma_k or (tur == 'FCF_HLD' and d['tem'] is None and o['tem'] is not None):
                 o['kaynak'] = 'KARMA (temettü: EVO; diğerleri: BELGE)'
             o['aciklama'] = 'V7\'de NULL idi; belgeden dolduruldu (' + b['Satır statü'] + ')'
         else:
@@ -126,6 +136,8 @@ for _, r in v.iterrows():
         else:
             karma = False
         kanitlar.append(dict(Kod=kod, Dönem=don, Grup='K6/K7', Sonuç=b['Satır statü'], Kanıt=kanit(b)))
+        if b['Satır statü'] not in ('TEYITLI', 'PDF_OKUNDU', 'IZAHNAME', 'XBRL_ESAS'):
+            d['fcf'] = None; karma = False  # belge okuması elle karar bekliyor → çözülmemiş say
         if d['fcf'] is not None:
             ayni = v7_fcf is not None and abs(d['fcf'] - v7_fcf) <= max(0.005 * abs(v7_fcf), 0.5)
             o.update({x: d[x] for x in ('cfo', 'capex', 'kira', 'std', 'hld', 'fcf')})
