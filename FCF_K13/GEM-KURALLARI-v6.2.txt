@@ -320,6 +320,8 @@ NULL       → rakam yok; nedeni kodla yazılır. NULL asla 0 sayılmaz.
              NULL_BELGE_YOK      → rapor bulunamadı
              NULL_OKUNAMADI      → rapor var, bileşen okunamadı
              NULL_CATISMA        → Evo ≠ belge, fark açıklanamadı
+                                   (Funnel girdileri; FCF'de bu durum
+                                   KOŞULLU + iki değer, Kontrol 14 (g))
 ⛔ Statü yazılmayan FCF rakamı geçersizdir.
 Rakamın KAYNAĞI statüden ayrı yazılır:
 EVO   → Evo değeri, Kontrol 14 ile belgeyle tuttu
