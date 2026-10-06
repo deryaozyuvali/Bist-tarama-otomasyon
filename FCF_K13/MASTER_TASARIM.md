@@ -190,3 +190,22 @@ Yeni GEM metninin iskeleti (öneri):
 6. Analiz kuralları (P/FCF, seri yönü, seri kırığı, holding).
 7. Yeni dönem ekleme akışı.
 8. Bilinen sınırlar.
+
+## 8. GEM v6.1 metnindeki çelişkiler (girdi/GEM-KURALLARI-GUNCEL.txt, satır no'ları bu dosyaya göre)
+
+V7'de çözülmüş olanlar (V7 Notlar / Açık_Kontroller kayıtlarında):
+- **Ç1 — Formül seçimi:** s.200 "tip analizin başında belirlenir" ↔ s.222 temettü/CFO göstergesi. v6.2 göstergeyle seçmişti; v7'de ekonomik tip esas, çatışmada iki tanım yan yana (BS#2).
+- **Ç2 — Bölüm G ">%25" paydasız:** kullanıcı kararıyla (05.10.2026) eşik kaldırıldı, tutar+yön teşhisi. Metinde güncellendi.
+- **Ç3 — ENJSA örneği (s.345):** "düzeltilmiş FCF +5.917" kirayı düşmüyor; formül ① kira düşülmesini zorunlu tutuyor → doğrusu 4.327,8. Örnek metinde hâlâ eski.
+
+Metinde hâlâ açık olanlar:
+- **Ç4 — Şirketin kendi FCF'i için iki ayrı eşik:** K11(a) s.374 "fark >%25 → köprüle" ↔ RECONCILE s.397 ">%10 → köprüle". Aynı karşılaştırma, iki eşik. Öneri: tek kural (RECONCILE %10), K11(a) ona atıf yapsın.
+- **Ç5 — Statü "üç değerli" (s.272) ama dört-beş değer kullanılıyor:** K7(B)/K10 "FCF = NULL", BS#3 "FCF_HLD = VERİ YETERSİZ". Master'da kalite A–D + kullanılabilirlik ile çözülür.
+- **Ç6 — Bilinen Sınırlamalar "kural değildir, formülü/statüyü etkilemez" (s.407)** ↔ BS#3 "UYGULAMA" bölümü formülü ve sonucu değiştiriyor (HLD → VERİ YETERSİZ, ① uygula). Ya kural bölümüne taşınmalı ya da sınırlama olarak kalmalı.
+- **Ç7 — K10 ↔ BS#3 (temettü):** K10 temettüyü de "1–3 kayıt → NULL" kapsamına alıyor (s.354–358); temettü doğası gereği yılda 1–2 çeyrekte gelir. BS#3 ise "kayıt var + try_ttm var → sağlam" diyor. İkisi aynı satır için farklı sonuç verir. (Master'da TTM belgeden kurulduğu için ikisi de gereksizleşir.)
+- **Ç8 — K6 ↔ K7 "NULL asla 0 sayılmaz":** K6 pozitif alım/kira satırını "KULLANMA, FCF onsuz hesaplanır" (s.293–298) diyor; bu fiilen o kalemi 0 saymak. K7 ise eksik kalemde FCF'i NULL yapıyor. K6v2 önerisi (GEM_K6v2_K13_onerisi.txt) bunu kaynak işaretine bakarak ayırıyor; metne girmedi.
+- **Ç9 — Belgeden okunan rakamın statüsü tanımsız:** s.19 "çıkarma ile bulunan sayı okunmuş veri değildir → TÜRETİLMİŞ"; TÜRETİLMİŞ tanımı (s.272+) yalnız "artık/köprü". Bu çalışmada NULL'ların çoğu doğrudan rapordan okundu; GEM'de bunun yeri yok. Master'da kalite kodu A/B.
+- **Ç10 — TMS 29:** s.401 "FCF reel yorumlanır" + s.544 "hiçbir veriye katsayı uygulanmaz" + s.509–510 "dönemler aynı sorgu oturumunda çekilir". Bu üçü yalnız tüm seri her seferinde Evo'dan yeniden çekilirse tutarlı. Belgeden okunan rakam raporun parasıdır; TTM'in üç parçası farklı paralardadır ve ekleme yapılan bir master'da eski dönemler eski parada kalır. Master'da ENDEKS ile açık çevrim (ham veri değişmez, analiz tek bazda).
+- **Ç11 — Kaynak:** Funnel A2 (s.538) akış kalemleri için "Evo try_ttm doğrudan" diyor; FCF master'ı belgeden kuruluyor. FCF için kaynak maddesi master'a atıf yapacak şekilde değişmeli.
+- **Ç12 — Bölüm F "FCF üç dönem üst üste negatif" (s.809):** "dönem" tanımsız (art arda üç çeyreklik TTM mi, üç yıl mı?). Art arda TTM'ler 9 ay örtüşür. Master'daki SERI tanımıyla netleştirilmeli.
+- **Ç13 — Çifte sayım SQL'i (s.479):** yalnız "satır_no > yatırım başlığı" koşulu var; finansman başlığından önce olma şartı yok (finansmandaki temettü satırı da seçilebilir). V7 bu şartı ekledi, metin eksik.
