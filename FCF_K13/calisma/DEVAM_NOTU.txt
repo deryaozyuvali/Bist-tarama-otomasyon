@@ -116,3 +116,16 @@ KOŞULLU: KESİN 224, YAKIN 17, BELGE_DEGERI 108, ELLE 37, BELGE_YOK 19 (YEDEK_F
 Holding şablonu: KAP holding sayfalarında tablolar 'tbl_holding_role_…' → kap_tablo.py yalnız 'general' arıyordu; düzeltildi, 30 bildirim
 (AGHOL, DOHOL, KCHOL, POLHO, SAHOL) yeniden indi. AGHOL ×4, KCHOL ×4 KESİN; POLHO 2025/09 belge değeri (V7 kira eksik);
 SAHOL 2025/03–09 BELGE_DEGERI: 2024 işletme↔yatırım yeniden sınıflaması ilk kez 2025/12 raporunda; 2025 ara raporlarının karşılaştırmalıları eski esasta → orijinal 2024 raporu tutarlı esas; Evo 2024/12 yeni esastan, V7 TTM karışık.
+
+--- 15. tur: KOŞULLU elle satırlar belgeden (38 → 11) ---
+Yeni elle kararlar (elle_kararlar.json; scratchpad/cf.py ile her raporun nakit akış satırları + XBRL yan yana okundu):
+ARZUM/HUNER MDV: XBRL kullanım hakkı alımlarını içeriyor → yalnız MDV+MODV satırı. BOBET: satır başı "−" etiketi (TEYITLI),
+2025/06 CFO XBRL yanlış (PDF A + özdeşlik). BOSSA: PDF "işletme faaliyetlerinden nakit" çalışan ödemeleri öncesi ara toplam →
+XBRL TEYITLI; kira XBRL'de yok → PDF. BRLSM/DENGE/MEGMT: XBRL satış satırını alım olarak etiketlemiş → PDF alım satırı. CIMSA:
+XBRL MDV avansları netlemiş → PDF alım satırları. ELITE "MDV Alımından" kısaltması. EREGL 4 sütun (USD|TL) kira TL. HKTM/SNICA/
+TUREX 2024: XBRL CFO özdeşliği bozuyor → PDF A. PKENT: PDF A satırı özdeşliği bozuyor → XBRL. TUREX kira: tabloda yalnız net
+değişim satırı (pozitif). QUAGR 2026/06: KAP PDF taranmış, İngilizce çevirisi XBRL ile aynı. MARBL 2025/06: site PDF OCR (ocr/).
+TBORG/MARBL 2024/12 YAGM satırı yok → 0. SAHOL 2026/03 YAGM net satır pozitif.
+Kalan ELLE 11 (gerekçe teslim_kosullu ACIKLAMA): CANTE ×5 (tablolar raporlar arası tutarsız; CFO V7 ile aynı), KATMR ×3 (2024 CFO
+yeniden düzenlemesi, esas belirlenemedi), PLTUR ×3 (araç kiralama filo alımları işletmede; PDF/XBRL CFO tanım farkı).
+KOŞULLU: KESİN 243, YAKIN 18, BELGE_DEGERI 129, ELLE 11, BELGE_YOK 4.

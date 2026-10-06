@@ -1392,5 +1392,285 @@
  "MARBL|2025|9|KIRA|onceki": {
   "deger": -60410211.0,
   "not": "Şirket sitesi Tureks 30.09.2025 konsolide: Kira sözleşmelerinden borç ödemeleri 5.621.219 (pozitif basılmış) / (60.410.211); C toplamı bu işaretle tutuyor: 302.493.021 − 84.924.234 + 5.621.219 − 72.920.706 + 8.559.216 = 158.828.516 ✓ → belgedeki gibi"
+ },
+ "ARZUM|2024|12|MDV+MODV|cari": {
+  "deger": -74010880.0,
+  "not": "KAP 1405289 s.11 PDF nakit akış: 'Maddi ve maddi olmayan duran varlık alımından kaynaklanan nakit çıkışları' satırı; XBRL elemanı ayrı satırdaki 'Kullanım hakkı' alımlarını da içeriyor → V7 tanımı (|MDV+MODV alımı|) gereği kullanım hakkı hariç (kira ödemeleri ayrıca düşülüyor, çift sayım olmasın): (74.010.880) / kullanım hakkı (42.854.553) ayrı"
+ },
+ "ARZUM|2024|12|MDV+MODV|onceki": {
+  "deger": -48405027.0,
+  "not": "KAP 1405289 s.11 PDF nakit akış: 'Maddi ve maddi olmayan duran varlık alımından kaynaklanan nakit çıkışları' satırı; XBRL elemanı ayrı satırdaki 'Kullanım hakkı' alımlarını da içeriyor → V7 tanımı (|MDV+MODV alımı|) gereği kullanım hakkı hariç (kira ödemeleri ayrıca düşülüyor, çift sayım olmasın): (74.010.880) / kullanım hakkı (42.854.553) ayrı"
+ },
+ "ARZUM|2025|6|MDV+MODV|cari": {
+  "deger": -36211672.0,
+  "not": "KAP 1481026 s.9 PDF nakit akış: 'Maddi ve maddi olmayan duran varlık alımından kaynaklanan nakit çıkışları' satırı; XBRL elemanı ayrı satırdaki 'Kullanım hakkı' alımlarını da içeriyor → V7 tanımı (|MDV+MODV alımı|) gereği kullanım hakkı hariç (kira ödemeleri ayrıca düşülüyor, çift sayım olmasın): (36.211.672) (26.537.404) / kullanım hakkı (66.223.945) ayrı"
+ },
+ "ARZUM|2025|6|MDV+MODV|onceki": {
+  "deger": -26537404.0,
+  "not": "KAP 1481026 s.9 PDF nakit akış: 'Maddi ve maddi olmayan duran varlık alımından kaynaklanan nakit çıkışları' satırı; XBRL elemanı ayrı satırdaki 'Kullanım hakkı' alımlarını da içeriyor → V7 tanımı (|MDV+MODV alımı|) gereği kullanım hakkı hariç (kira ödemeleri ayrıca düşülüyor, çift sayım olmasın): (36.211.672) (26.537.404) / kullanım hakkı (66.223.945) ayrı"
+ },
+ "ARZUM|2025|12|MDV+MODV|cari": {
+  "deger": -86918822.0,
+  "not": "KAP 1574442 s.12 PDF nakit akış: 'Maddi ve maddi olmayan duran varlık alımından kaynaklanan nakit çıkışları' satırı; XBRL elemanı ayrı satırdaki 'Kullanım hakkı' alımlarını da içeriyor → V7 tanımı (|MDV+MODV alımı|) gereği kullanım hakkı hariç (kira ödemeleri ayrıca düşülüyor, çift sayım olmasın): (86.918.822) / kullanım hakkı (73.031.263) ayrı"
+ },
+ "ARZUM|2025|12|MDV+MODV|onceki": {
+  "deger": -96874564.0,
+  "not": "KAP 1574442 s.12 PDF nakit akış: 'Maddi ve maddi olmayan duran varlık alımından kaynaklanan nakit çıkışları' satırı; XBRL elemanı ayrı satırdaki 'Kullanım hakkı' alımlarını da içeriyor → V7 tanımı (|MDV+MODV alımı|) gereği kullanım hakkı hariç (kira ödemeleri ayrıca düşülüyor, çift sayım olmasın): (86.918.822) / kullanım hakkı (73.031.263) ayrı"
+ },
+ "ARZUM|2026|6|MDV+MODV|cari": {
+  "deger": -11871139.0,
+  "not": "KAP 1643917 s.8 PDF nakit akış: 'Maddi ve maddi olmayan duran varlık alımından kaynaklanan nakit çıkışları' satırı; XBRL elemanı ayrı satırdaki 'Kullanım hakkı' alımlarını da içeriyor → V7 tanımı (|MDV+MODV alımı|) gereği kullanım hakkı hariç (kira ödemeleri ayrıca düşülüyor, çift sayım olmasın): (11.871.139) (47.838.891) / kullanım hakkı (95.288.137) ayrı; XBRL önceki sütunu 0 (etiket eksik)"
+ },
+ "ARZUM|2026|6|MDV+MODV|onceki": {
+  "deger": -47838891.0,
+  "not": "KAP 1643917 s.8 PDF nakit akış: 'Maddi ve maddi olmayan duran varlık alımından kaynaklanan nakit çıkışları' satırı; XBRL elemanı ayrı satırdaki 'Kullanım hakkı' alımlarını da içeriyor → V7 tanımı (|MDV+MODV alımı|) gereği kullanım hakkı hariç (kira ödemeleri ayrıca düşülüyor, çift sayım olmasın): (11.871.139) (47.838.891) / kullanım hakkı (95.288.137) ayrı; XBRL önceki sütunu 0 (etiket eksik)"
+ },
+ "BOBET|2025|6|CFO|cari": {
+  "deger": -1095639450.0,
+  "not": "KAP 1479957 s.8: A. İşletme faaliyetlerinden nakit akışları (1.095.639.450) 1.139.436.549; özdeşlik A+B+C = 32.260.726 ✓; XBRL (2.191.921.901)/175.100.064 PDF'le uyuşmuyor"
+ },
+ "BOBET|2025|6|CFO|onceki": {
+  "deger": 1139436549.0,
+  "not": "KAP 1479957 s.8: A. İşletme faaliyetlerinden nakit akışları (1.095.639.450) 1.139.436.549; özdeşlik A+B+C = 32.260.726 ✓; XBRL (2.191.921.901)/175.100.064 PDF'le uyuşmuyor"
+ },
+ "BOBET|2025|3|MDV+MODV|*": {
+  "durum": "TEYITLI",
+  "not": "KAP 1437609 PDF s.8: \"− Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları\" satırı XBRL ile aynı tutar (satır başındaki \"−\" etiket kontrolünü şaşırtmış)"
+ },
+ "BOBET|2025|3|KIRA|*": {
+  "durum": "TEYITLI",
+  "not": "KAP 1437609 PDF s.8: \"− Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları\" satırı XBRL ile aynı tutar (satır başındaki \"−\" etiket kontrolünü şaşırtmış)"
+ },
+ "BOBET|2025|6|MDV+MODV|*": {
+  "durum": "TEYITLI",
+  "not": "KAP 1479957 PDF s.8: \"− Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları\" satırı XBRL ile aynı tutar (satır başındaki \"−\" etiket kontrolünü şaşırtmış)"
+ },
+ "BOBET|2025|6|KIRA|*": {
+  "durum": "TEYITLI",
+  "not": "KAP 1479957 PDF s.8: \"− Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları\" satırı XBRL ile aynı tutar (satır başındaki \"−\" etiket kontrolünü şaşırtmış)"
+ },
+ "BOSSA|2025|12|KIRA|cari": {
+  "deger": -18253711.0,
+  "not": "KAP 1563211 s.13 BOSSA nakit akış (PDF, TL; XBRL kira elemanı yok): Kira sözleşmelerinden kaynaklanan borç ödemeleri (18.253.711) (29.233.312)"
+ },
+ "BOSSA|2025|12|KIRA|onceki": {
+  "deger": -29233312.0,
+  "not": "KAP 1563211 s.13 BOSSA nakit akış (PDF, TL; XBRL kira elemanı yok): Kira sözleşmelerinden kaynaklanan borç ödemeleri (18.253.711) (29.233.312)"
+ },
+ "BOSSA|2026|3|KIRA|cari": {
+  "deger": -4209841.0,
+  "not": "KAP 1600010 s.8 BOSSA nakit akış (PDF, TL; XBRL kira elemanı yok): (4.209.841) (7.359.593)"
+ },
+ "BOSSA|2026|3|KIRA|onceki": {
+  "deger": -7359593.0,
+  "not": "KAP 1600010 s.8 BOSSA nakit akış (PDF, TL; XBRL kira elemanı yok): (4.209.841) (7.359.593)"
+ },
+ "BOSSA|2026|6|KIRA|cari": {
+  "deger": -8419682.0,
+  "not": "KAP 1645929 s.9 BOSSA nakit akış (PDF, TL; XBRL kira elemanı yok): (8.419.682) (12.991.798)"
+ },
+ "BOSSA|2026|6|KIRA|onceki": {
+  "deger": -12991798.0,
+  "not": "KAP 1645929 s.9 BOSSA nakit akış (PDF, TL; XBRL kira elemanı yok): (8.419.682) (12.991.798)"
+ },
+ "BOSSA|2026|3|MDV+MODV|cari": {
+  "deger": -39099585.0,
+  "not": "KAP 1600010 s.8 BOSSA nakit akış (PDF, TL; XBRL kira elemanı yok): MDV+MODV alımı (39.099.585) (87.037.623)"
+ },
+ "BOSSA|2026|3|MDV+MODV|onceki": {
+  "deger": -87037623.0,
+  "not": "KAP 1600010 s.8 BOSSA nakit akış (PDF, TL; XBRL kira elemanı yok): MDV+MODV alımı (39.099.585) (87.037.623)"
+ },
+ "BOSSA|2026|3|CFO|*": {
+  "durum": "TEYITLI",
+  "not": "KAP 1600010: PDF \"İşletme faaliyetlerinden nakit akışları\" satırı çalışan ödemeleri öncesi ara toplam; A toplamı = 430.107.679 − 7.580.355 = 422.527.324; önceki 547.308.818 − 7.500.974 = 539.807.844 = XBRL ✓"
+ },
+ "BOSSA|2026|6|CFO|*": {
+  "durum": "TEYITLI",
+  "not": "KAP 1645929: PDF \"İşletme faaliyetlerinden nakit akışları\" satırı çalışan ödemeleri öncesi ara toplam; A toplamı = 737.702.879 − çalışan ödemeleri = 725.008.675 (XBRL) = XBRL ✓"
+ },
+ "BRLSM|2026|3|MDV+MODV|cari": {
+  "deger": -3532374.0,
+  "not": "KAP 1605905 s.7: Maddi ve Maddi Olmayan Duran Varlık Alımları (3.532.374) (3.456.822); XBRL (4.440.164) negatif basılmış 'MDV satımları (907.790)' satırını da içeriyor → satış satırı FCF dışı (V7)"
+ },
+ "BRLSM|2026|3|MDV+MODV|onceki": {
+  "deger": -3456822.0,
+  "not": "KAP 1605905 s.7: Maddi ve Maddi Olmayan Duran Varlık Alımları (3.532.374) (3.456.822); XBRL (4.440.164) negatif basılmış 'MDV satımları (907.790)' satırını da içeriyor → satış satırı FCF dışı (V7)"
+ },
+ "CIMSA|2025|6|MDV+MODV|cari": {
+  "deger": -2962759000.0,
+  "not": "KAP 1472697 s.10 (bin TL): MDV alımı (2.794.914) + MODV alımı (167.845) = (2.962.759); önceki (1.813.548)+(8.052); XBRL (2.850.109) 'MDV alımı için verilen avanslardaki değişim 112.650' satırını netlemiş → avans FCF dışı (V7)"
+ },
+ "CIMSA|2025|6|MDV+MODV|onceki": {
+  "deger": -1821600000.0,
+  "not": "KAP 1472697 s.10 (bin TL): MDV alımı (2.794.914) + MODV alımı (167.845) = (2.962.759); önceki (1.813.548)+(8.052); XBRL (2.850.109) 'MDV alımı için verilen avanslardaki değişim 112.650' satırını netlemiş → avans FCF dışı (V7)"
+ },
+ "DENGE|2026|3|MDV+MODV|cari": {
+  "deger": -55042.0,
+  "not": "KAP 1607547 s.7: MDV ve MODV alışları (55.042) (695.102); XBRL MODV elemanına satış hasılatı 50.287.743 yazılmış → alım satırı"
+ },
+ "DENGE|2026|3|MDV+MODV|onceki": {
+  "deger": -695102.0,
+  "not": "KAP 1607547 s.7: MDV ve MODV alışları (55.042) (695.102); XBRL MODV elemanına satış hasılatı 50.287.743 yazılmış → alım satırı"
+ },
+ "DENGE|2026|3|YAGM|*": {
+  "durum": "TEYITLI",
+  "not": "KAP 1607547 s.7: B toplamı 27.635.627 = 28.336.854 − 695.102 − 6.125 → XBRL YAGM önceki (6.125) tabloyla tutarlı; cari 0"
+ },
+ "ELITE|2024|12|MDV+MODV|*": {
+  "durum": "TEYITLI",
+  "not": "KAP 1405031 s.12: \"MDV Alımından Kaynaklanan Nakit Çıkışları (84.799.363)\" = XBRL (kısaltma \"MDV\" etiket kalıbına uymadı)"
+ },
+ "EREGL|2026|3|KIRA|cari": {
+  "deger": -122000000.0,
+  "not": "KAP 1598405 nakit akış (sütunlar: bin USD | bin TL | bin USD | bin TL): Kira sözleşmelerinden borç ödemeleri TL (122.000) / önceki (85.825) bin TL"
+ },
+ "EREGL|2026|3|KIRA|onceki": {
+  "deger": -85825000.0,
+  "not": "KAP 1598405 nakit akış (sütunlar: bin USD | bin TL | bin USD | bin TL): Kira sözleşmelerinden borç ödemeleri TL (122.000) / önceki (85.825) bin TL"
+ },
+ "HKTM|2025|6|CFO|cari": {
+  "deger": -97866572.0,
+  "not": "KAP 1479937 s.8: A. İşletme faaliyetlerinden nakit akışları (97.866.572) (47.770.152); A+B+C = 29.041.407 ✓ / (145.373.018) ✓; XBRL (108.412.183)/(46.821.851) uyuşmuyor"
+ },
+ "HKTM|2025|6|CFO|onceki": {
+  "deger": -47770152.0,
+  "not": "KAP 1479937 s.8: A. İşletme faaliyetlerinden nakit akışları (97.866.572) (47.770.152); A+B+C = 29.041.407 ✓ / (145.373.018) ✓; XBRL (108.412.183)/(46.821.851) uyuşmuyor"
+ },
+ "HUNER|2025|6|MDV+MODV|cari": {
+  "deger": -352817629.0,
+  "not": "KAP 1481049 s.13: MDV+MODV alımı (352.817.629) (289.584.312); kullanım hakkı (272.947.886) ayrı — kullanım hakkı varlık alımları ayrı satırda; XBRL MDV+MODV elemanı ikisinin toplamı → V7 tanımı gereği yalnız MDV+MODV (önceki HUNER kararlarıyla aynı)"
+ },
+ "HUNER|2025|6|MDV+MODV|onceki": {
+  "deger": -289584312.0,
+  "not": "KAP 1481049 s.13: MDV+MODV alımı (352.817.629) (289.584.312); kullanım hakkı (272.947.886) ayrı — kullanım hakkı varlık alımları ayrı satırda; XBRL MDV+MODV elemanı ikisinin toplamı → V7 tanımı gereği yalnız MDV+MODV (önceki HUNER kararlarıyla aynı)"
+ },
+ "HUNER|2025|9|MDV+MODV|cari": {
+  "deger": -480828141.0,
+  "not": "KAP 1515164 s.7: MDV+MODV alımı (480.828.141) (459.615.801); kullanım hakkı (376.462.042) ayrı — kullanım hakkı varlık alımları ayrı satırda; XBRL MDV+MODV elemanı ikisinin toplamı → V7 tanımı gereği yalnız MDV+MODV (önceki HUNER kararlarıyla aynı)"
+ },
+ "HUNER|2025|9|MDV+MODV|onceki": {
+  "deger": -459615801.0,
+  "not": "KAP 1515164 s.7: MDV+MODV alımı (480.828.141) (459.615.801); kullanım hakkı (376.462.042) ayrı — kullanım hakkı varlık alımları ayrı satırda; XBRL MDV+MODV elemanı ikisinin toplamı → V7 tanımı gereği yalnız MDV+MODV (önceki HUNER kararlarıyla aynı)"
+ },
+ "QUAGR|2026|6|CFO|*": {
+  "durum": "TEYITLI",
+  "not": "KAP PDF taranmış; aynı raporun İngilizce çevirisi (yatirimci.qua.com.tr …6e93690adcc941a8a291dba2852aa9d7.pdf, nakit akış) XBRL ile aynı: CFO 105.914.921 / 672.341.287; MDV+MODV (25.023.669) / (87.773.182); kira (153.456.511) / (171.255.098)"
+ },
+ "QUAGR|2026|6|MDV+MODV|*": {
+  "durum": "TEYITLI",
+  "not": "KAP PDF taranmış; aynı raporun İngilizce çevirisi (yatirimci.qua.com.tr …6e93690adcc941a8a291dba2852aa9d7.pdf, nakit akış) XBRL ile aynı: CFO 105.914.921 / 672.341.287; MDV+MODV (25.023.669) / (87.773.182); kira (153.456.511) / (171.255.098)"
+ },
+ "QUAGR|2026|6|KIRA|*": {
+  "durum": "TEYITLI",
+  "not": "KAP PDF taranmış; aynı raporun İngilizce çevirisi (yatirimci.qua.com.tr …6e93690adcc941a8a291dba2852aa9d7.pdf, nakit akış) XBRL ile aynı: CFO 105.914.921 / 672.341.287; MDV+MODV (25.023.669) / (87.773.182); kira (153.456.511) / (171.255.098)"
+ },
+ "QUAGR|2026|6|YAGM|*": {
+  "durum": "TEYITLI",
+  "not": "KAP PDF taranmış; aynı raporun İngilizce çevirisi (yatirimci.qua.com.tr …6e93690adcc941a8a291dba2852aa9d7.pdf, nakit akış) XBRL ile aynı: CFO 105.914.921 / 672.341.287; MDV+MODV (25.023.669) / (87.773.182); kira (153.456.511) / (171.255.098); yatırım amaçlı gayrimenkul alım satırı yok → 0"
+ },
+ "MARBL|2024|12|YAGM|*": {
+  "durum": "TEYITLI",
+  "not": "KAP PDF metinsiz; aynı rapor şirket sitesi Tureks 31.12.2024 BDR B bölümü: MDV satış, MDV alım, alınan faiz — yatırım amaçlı gayrimenkul satırı yok → 0"
+ },
+ "MARBL|2025|6|MDV+MODV|cari": {
+  "deger": -93743027.0,
+  "not": "KAP 1480041 PDF taranmış; şirket sitesi Tureks 30.06.2025 konsolide (taranmış) OCR s.9 (belge/ocr/MARBL_2025_06_s9_nakit_akis.txt): MDV+MODV alımı (93.743.027) (87.694.431)"
+ },
+ "MARBL|2025|6|MDV+MODV|onceki": {
+  "deger": -87694431.0,
+  "not": "KAP 1480041 PDF taranmış; şirket sitesi Tureks 30.06.2025 konsolide (taranmış) OCR s.9 (belge/ocr/MARBL_2025_06_s9_nakit_akis.txt): MDV+MODV alımı (93.743.027) (87.694.431)"
+ },
+ "MARBL|2025|6|KIRA|cari": {
+  "deger": 2935230.0,
+  "not": "KAP 1480041 PDF taranmış; şirket sitesi Tureks 30.06.2025 konsolide (taranmış) OCR s.9 (belge/ocr/MARBL_2025_06_s9_nakit_akis.txt): Kira sözleşmelerinden borç ödemeleri 2.935.230 (pozitif basılmış; 2025/09 raporunda da pozitif) / (44.645.331)"
+ },
+ "MARBL|2025|6|KIRA|onceki": {
+  "deger": -44645331.0,
+  "not": "KAP 1480041 PDF taranmış; şirket sitesi Tureks 30.06.2025 konsolide (taranmış) OCR s.9 (belge/ocr/MARBL_2025_06_s9_nakit_akis.txt): Kira sözleşmelerinden borç ödemeleri 2.935.230 (pozitif basılmış; 2025/09 raporunda da pozitif) / (44.645.331)"
+ },
+ "MARBL|2025|6|YAGM|cari": {
+  "deger": 0.0,
+  "not": "KAP 1480041 PDF taranmış; şirket sitesi Tureks 30.06.2025 konsolide (taranmış) OCR s.9 (belge/ocr/MARBL_2025_06_s9_nakit_akis.txt): yatırım amaçlı gayrimenkul satırı yok"
+ },
+ "MARBL|2025|6|YAGM|onceki": {
+  "deger": 0.0,
+  "not": "KAP 1480041 PDF taranmış; şirket sitesi Tureks 30.06.2025 konsolide (taranmış) OCR s.9 (belge/ocr/MARBL_2025_06_s9_nakit_akis.txt): yatırım amaçlı gayrimenkul satırı yok"
+ },
+ "MARBL|2025|6|CFO|*": {
+  "durum": "TEYITLI",
+  "not": "KAP PDF taranmış; şirket sitesi aynı rapor OCR s.9: A) İşletme faaliyetlerinden nakit akışları 199.108 (179.102.848) = XBRL"
+ },
+ "PKENT|2025|6|CFO|*": {
+  "durum": "TEYITLI",
+  "not": "KAP 1476338 s.6: A satırı 46.327.441 tabloyla tutmuyor (A+B+C = −41,2 mn ≠ net 16.465.924); XBRL 103.967.138 ile A+B+C = 103.967.138 − 87.501.214 + 0 = 16.465.924 ✓ → XBRL; önceki 229.013.360 PDF=XBRL"
+ },
+ "SNICA|2025|6|CFO|cari": {
+  "deger": -26322421.0,
+  "not": "KAP 1476593 s.8: A. İşletme faaliyetlerinden nakit akışları (26.322.421) 18.149.963; A+B+C = 9.704.104 ✓ (XBRL (26.734.947) ile tutmuyor)"
+ },
+ "SNICA|2025|6|CFO|onceki": {
+  "deger": 18149963.0,
+  "not": "KAP 1476593 s.8: A. İşletme faaliyetlerinden nakit akışları (26.322.421) 18.149.963; A+B+C = 9.704.104 ✓ (XBRL (26.734.947) ile tutmuyor)"
+ },
+ "TUREX|2024|12|CFO|cari": {
+  "deger": 653475000.0,
+  "not": "KAP 1405034 s.13 (bin TL): İşletme faaliyetlerinden sağlanan nakit 653,475 / 759,558; A+B+C = 653,475 − 621,176 + 9,557 = 41,856 ✓; XBRL 610.508 tutmuyor"
+ },
+ "TUREX|2024|12|CFO|onceki": {
+  "deger": 759558000.0,
+  "not": "KAP 1405034 s.13 (bin TL): İşletme faaliyetlerinden sağlanan nakit 653,475 / 759,558; A+B+C = 653,475 − 621,176 + 9,557 = 41,856 ✓; XBRL 610.508 tutmuyor"
+ },
+ "TUREX|2025|6|KIRA|cari": {
+  "deger": 14015000.0,
+  "not": "KAP 1472028 s.8 (bin TL): nakit akışta kira için yalnız 'Kiralama işlemlerinden borçlardaki net değişim' 14.015 / 27.880 (pozitif); XBRL (25.069) tabloda yok → belgedeki satır (TTM pozitif → K6 0)"
+ },
+ "TUREX|2025|6|KIRA|onceki": {
+  "deger": 27880000.0,
+  "not": "KAP 1472028 s.8 (bin TL): nakit akışta kira için yalnız 'Kiralama işlemlerinden borçlardaki net değişim' 14.015 / 27.880 (pozitif); XBRL (25.069) tabloda yok → belgedeki satır (TTM pozitif → K6 0)"
+ },
+ "TUREX|2025|9|KIRA|cari": {
+  "deger": 16777000.0,
+  "not": "KAP 1515068 (bin TL): 'Kiralama işlemlerinden borçlardaki net değişim' 16,777 / 21,224 (pozitif); XBRL (36.190) tabloda yok → belgedeki satır"
+ },
+ "TUREX|2025|9|KIRA|onceki": {
+  "deger": 21224000.0,
+  "not": "KAP 1515068 (bin TL): 'Kiralama işlemlerinden borçlardaki net değişim' 16,777 / 21,224 (pozitif); XBRL (36.190) tabloda yok → belgedeki satır"
+ },
+ "MEGMT|2024|12|MDV+MODV|cari": {
+  "deger": -243528220.0,
+  "not": "KAP 1400411 s.13: MDV ve MODV alımından nakit çıkışları (243.528.220) / önceki (354.816.275); XBRL alım ve satış elemanlarını ters etiketlemiş (alım +31.679.693 = PDF satış satırı)"
+ },
+ "MEGMT|2024|12|MDV+MODV|onceki": {
+  "deger": -354816275.0,
+  "not": "KAP 1400411 s.13: MDV ve MODV alımından nakit çıkışları (243.528.220) / önceki (354.816.275); XBRL alım ve satış elemanlarını ters etiketlemiş (alım +31.679.693 = PDF satış satırı)"
+ },
+ "TBORG|2024|12|YAGM|*": {
+  "durum": "TEYITLI",
+  "not": "KAP PDF metinsiz; aynı rapor Evo havuzu PDF: yatırım bölümü MDV satış/alım, MODV alım, alınan faiz, diğer — yatırım amaçlı gayrimenkul satırı yok → 0"
+ },
+ "KATMR|2024|12|CFO|cari": {
+  "durum": "ELLE",
+  "not": "KATMR 2024 işletme nakit akışı orijinal 31.12.2024 raporunda 2.506.394.985 (XBRL = PDF ilk satır); 31.12.2025 raporunun karşılaştırmalı sütunu 999,0 mn (2025/12 gücü) — yeniden düzenleme. V7 düzenlenmiş esasla birebir; 2024 ara dönem orijinal raporları (KAP listesi/Evo) bulunamadığından tutarlı esas belirlenemedi"
+ },
+ "BOBET|2024|12|MDV+MODV|*": {
+  "durum": "TEYITLI",
+  "not": "KAP 1404509 PDF s.8: \"− Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları (1.656.677.638) (2.894.113.053)\" = XBRL (satır başındaki \"−\" etiket kontrolünü şaşırtmış)"
+ },
+ "BOBET|2024|12|KIRA|*": {
+  "durum": "TEYITLI",
+  "not": "KAP 1404509 PDF s.8: \"− Kira Sözleşmelerinden Kaynaklanan Borç Ödemelerine İlişkin Nakit Çıkışları 28.824.580 (142.222.285)\" = XBRL (satır başındaki \"−\" etiket kontrolünü şaşırtmış)"
+ },
+ "BOSSA|2025|12|CFO|*": {
+  "durum": "TEYITLI",
+  "not": "KAP 1563211: PDF \"İşletme faaliyetlerinden nakit akışları\" 1.537.911.507 çalışan ödemeleri öncesi ara toplam; A = 1.537.911.507 − 33.588.195 = 1.504.323.312 = XBRL ✓"
+ },
+ "SAHOL|2026|3|YAGM|cari": {
+  "deger": 67000.0,
+  "not": "KAP 1602061 (bin TL): 'Yatırım Amaçlı Gayrimenkul Alımından Kaynaklanan Nakit Girişleri / (Çıkışları)' 67 / 1.127 (net giriş, pozitif) → belgedeki gibi (TTM pozitifse K6 ile 0)"
+ },
+ "SAHOL|2026|3|YAGM|onceki": {
+  "deger": 1127000.0,
+  "not": "KAP 1602061 (bin TL): 'Yatırım Amaçlı Gayrimenkul Alımından Kaynaklanan Nakit Girişleri / (Çıkışları)' 67 / 1.127 (net giriş, pozitif) → belgedeki gibi (TTM pozitifse K6 ile 0)"
  }
 }

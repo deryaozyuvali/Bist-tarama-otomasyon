@@ -40,6 +40,15 @@ ACIKLAMA = {
     'GOKNR': 'GOKNR 2025/06 ve 2025/09 (şirket sitesi raporları): MDV alım ve satışı tek net satırda, her bölümde ayrı '
              '"enflasyon etkisi" satırı var; bu sunumda işletme nakit akışının tanımı Evo’dan farklı (belge 693,7 / V7 605,0) ve '
              'CAPEX net satırdan ayrıştırılamıyor → belgeden tek değere bağlanamadı.',
+    'CANTE': 'CANTE (ODAS bağlı ortaklığı) nakit akış tabloları raporlar arası tutarsız: aynı dönem MDV alımı farklı raporlarda '
+             'farklı tutar/işaretle (2025/06 kendi raporunda +233,6 mn, 2026/06 karşılaştırmalısında +308,6 mn), kira için 3 ayrı '
+             'satır her raporda farklı. CFO tüm dönemlerde V7 ile aynı; CAPEX/kira belgeden güvenle kurulamıyor.',
+    'KATMR': 'KATMR 2024 işletme nakit akışı orijinal 31.12.2024 raporunda +2.506,4 mn, 31.12.2025 raporunun karşılaştırmalısında '
+             '999,0 mn (yeniden düzenleme). V7 düzenlenmiş esasla birebir tutuyor; 2024 ara dönem orijinal raporları bulunamadığından '
+             'hangi esasın 2025 ara dönem raporlarıyla tutarlı olduğu belgeyle gösterilemedi.',
+    'PLTUR': 'PLTUR araç kiralama: filo (operasyonel kiralama varlıkları) alım-satımları işletme bölümünde; 2025/12–2026/06 PDF '
+             'işletme nakit akışı XBRL’den tanım olarak farklı (2025/12: PDF (386,0) mn, XBRL 548,6 mn). FCF için hangi tanımın '
+             'kullanılacağı yorum gerektirir.',
     'GSDHO': 'GSDHO 2025/09: A başlık değeri (1.764.997 bin TL) ile alt toplamlar ve dönem sonu − başı nakit değişimi '
              'birbiriyle tutmuyor; CFO belgeden tek değere bağlanamadı.',
 }
