@@ -113,3 +113,6 @@ kap_ek_tamamla.py (ek yoksa 4 deneme) ile 166+45 bildirimin ekleri, 96 NAKIT_AKI
 ttm.py ALT: KAP PDF'i okunamazsa/XBRL PDF'te bulunmazsa aynı raporun Evo/site PDF satırı XBRL ile birebir ise TEYITLI; uyuşmazsa
 KULLANILMAZ (XBRL'siz okuma ARZUM/CIMSA/TUREX/PLTUR'da alt satır/birim karıştırdı) → ELLE, kanıta not.
 KOŞULLU: KESİN 224, YAKIN 17, BELGE_DEGERI 108, ELLE 37, BELGE_YOK 19 (YEDEK_FARKLI kalmadı). NULL: TEYITLI 333, BELGE_YOK 223, ELLE 8.
+Holding şablonu: KAP holding sayfalarında tablolar 'tbl_holding_role_…' → kap_tablo.py yalnız 'general' arıyordu; düzeltildi, 30 bildirim
+(AGHOL, DOHOL, KCHOL, POLHO, SAHOL) yeniden indi. AGHOL ×4, KCHOL ×4 KESİN; POLHO 2025/09 belge değeri (V7 kira eksik);
+SAHOL 2025/03–09 ELLE (2024 CFO orijinal (90,8) mlr vs 2025/12 karşılaştırmalı +153,2 mlr — yeniden sınıflama, karar gerekli).

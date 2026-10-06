@@ -24,7 +24,7 @@ def _txt(s):
 def tablolar(raw):
     t = _metin(raw)
     out = {}
-    starts = [m for m in re.finditer(r'<table class="financial-table tbl_general_role_(\d+)">', t)]
+    starts = [m for m in re.finditer(r'<table class="financial-table tbl_[a-z]+_role_(\d+)">', t)]
     for n, m in enumerate(starts):
         role = m.group(1)
         end = starts[n + 1].start() if n + 1 < len(starts) else len(t)
@@ -33,7 +33,7 @@ def tablolar(raw):
         nit = re.findall(r'Finansal Tablo Niteliği</td>\s*<td>([^<]*)</td>', on)
         bir = re.findall(r'Sunum Para Birimi</td>\s*<td>([^<]*)</td>', on)
         bas = [_txt(h) for h in re.findall(r'class="context-header"[^>]*>(.*?)</td>', body, re.S)]
-        rows = re.split(r'<tr class="general_role_\d+-row-\d+', body)[1:]
+        rows = re.split(r'<tr class="[a-z]+_role_\d+-row-\d+', body)[1:]
         sat = []
         for r in rows:
             el = re.search(r'taxonomy-field-name">([^<|]*)', r)

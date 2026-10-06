@@ -40,6 +40,9 @@ ACIKLAMA = {
     'GOKNR': 'GOKNR 2025/06 ve 2025/09 (şirket sitesi raporları): MDV alım ve satışı tek net satırda, her bölümde ayrı '
              '"enflasyon etkisi" satırı var; bu sunumda işletme nakit akışının tanımı Evo’dan farklı (belge 693,7 / V7 605,0) ve '
              'CAPEX net satırdan ayrıştırılamıyor → belgeden tek değere bağlanamadı.',
+    'SAHOL': 'SAHOL 2025/03–09: 2024 işletme nakit akışı orijinal 31.12.2024 raporunda (90,8) mlr TL, 31.12.2025 raporunun '
+             'karşılaştırmalı sütununda +153,2 mlr TL (bankacılık iştiraki kaynaklı yeniden sınıflama). Hangi esasın (orijinal / '
+             'yeniden düzenlenmiş) kullanılacağı karar gerektirir; V7 TTM ikisiyle de kurulamıyor.',
     'GSDHO': 'GSDHO 2025/09: A başlık değeri (1.764.997 bin TL) ile alt toplamlar ve dönem sonu − başı nakit değişimi '
              'birbiriyle tutmuyor; CFO belgeden tek değere bağlanamadı.',
 }

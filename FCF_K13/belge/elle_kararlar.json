@@ -1392,5 +1392,9 @@
  "MARBL|2025|9|KIRA|onceki": {
   "deger": -60410211.0,
   "not": "Şirket sitesi Tureks 30.09.2025 konsolide: Kira sözleşmelerinden borç ödemeleri 5.621.219 (pozitif basılmış) / (60.410.211); C toplamı bu işaretle tutuyor: 302.493.021 − 84.924.234 + 5.621.219 − 72.920.706 + 8.559.216 = 158.828.516 ✓ → belgedeki gibi"
+ },
+ "SAHOL|2024|12|CFO|cari": {
+  "durum": "ELLE",
+  "not": "SAHOL 2024 CFO yeniden düzenlenmiş: orijinal 31.12.2024 raporu (KAP 1398985 s.16) (90.810.797) bin TL; 31.12.2025 raporunun karşılaştırmalı sütunu 153.204.593 bin TL (bankacılık iştiraki kaynaklı yeniden sınıflama). V7 TTM her ikisiyle de kurulamıyor → hangi esasın kullanılacağı karar gerektirir"
  }
 }
