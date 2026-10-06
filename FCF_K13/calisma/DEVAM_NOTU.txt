@@ -34,7 +34,7 @@ cikar.py: bin/mn TL eşleşmesi binlik ayraç ister (dipnot no yanlış teyitler
 MDV regex '\balış' (azalış yanlış eşleşmesi TGSAS), 'değer artış' dışlandı, TL tolerans ±5 (≥100 bin), CFO regex genişledi.
 Evo gözlemi: KPEKS/SSAAT/SARAE izahnamelerinde Evo vergi öncesi "Faaliyetlerden elde edilen" satırını CFO almış.
 Sırada: KOŞULLU 405 satır (V7 KOŞULLU 172 + KESİN→KOŞULLU 200 + TÜRETİLMİŞ→KOŞULLU 33); alarm çoğunlukla MDV+MODV / kira.
-HATIRLAT (kullanıcı istedi): ONRYT 2024/12 — KAP 1415200 indirilemedi; Evo havuzundaki 2025/12 raporunun 2024 sütunundan
+[ÇÖZÜLDÜ 06.10 — orijinal 31.12.2024 BDR şirket sitesinden OCR; XBRL doğru, 2025/12 karşılaştırmalısı yeniden düzenlenmiş] HATIRLAT (kullanıcı istedi): ONRYT 2024/12 — KAP 1415200 indirilemedi; Evo havuzundaki 2025/12 raporunun 2024 sütunundan
   alındı. MDV XBRL ile birebir; CFO (+9,0 mn) ve kira (0) şirketin XBRL'iyle (−31,0 mn / −4,7 mn) uyuşmuyor → KOŞULLU sonrası tekrar bak.
 
 === 5. TUR (KOŞULLU başlangıcı) ===
@@ -79,3 +79,10 @@ KALEM/DOGRULAMA/OOS_TEST/ORNEKLEM_DISI/DUYARLILIK değişmedi.
 --- 10. tur: KCAER 2026/06 kullanıcının verdiği şirket sitesi PDF'inden (taranmış) OCR ile çözüldü ---
 belge/ocr/KCAER_2026_06_s9_nakit_akis.txt; A+B+C = net değişim tuttu; CFO/MDV XBRL ile aynı, YAGM/kira satırı yok → elle_kararlar TEYITLI.
 NULL: TEYITLI 331, ELLE 7. KAP denemelerinde KCAER artık gerekmiyor.
+
+--- 11. tur: ONRYT 2024/12 çözüldü ---
+Kullanıcının verdiği 2025/06 faaliyet raporunda nakit akış yoktu; aynı sitenin yatırımcı ilişkileri sayfasında orijinal
+Onur-Yuksek-BDR-31.12.2024.pdf (taranmış) bulundu, OCR s.10 (belge/ocr/ONRYT_2024_12_s10_nakit_akis.txt): A −31.036.394,
+MDV+MODV −155.101.241, kira −4.682.076, A+B+C = 344.152.017 ✓ — hepsi XBRL ile aynı. 2025/12 raporunun 2024 sütunu (A +11,7 mn,
+kira yok) şirketin sonradan yeniden düzenlediği hâl. elle_kararlar orijinal değerlerle güncellendi. ONRYT 2025/03 FCF_STD −249,3.
+Şirket siteleri KAP alternatifi olarak çalışıyor (kocaersteel.com, onur.net).

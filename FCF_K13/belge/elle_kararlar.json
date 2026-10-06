@@ -610,20 +610,20 @@
   "not": "kopya şüphesi incelendi: 2025/03 değeri kendi PDF’iyle birebir (A. ESAS FAALİYETLERDEN NAKİT AKIŞLARI (23.105.492)/(36.524.202)); kopya 2025/06 XBRL’inde (orada belgeden düzeltildi)"
  },
  "ONRYT|2024|12|CFO|cari": {
-  "deger": 8955618,
-  "not": "KAP 1415200 indirilemedi (bağlantı kesiliyor); Evo belge havuzundaki ONRYT 2025/12 raporunun (KAP 1569942) 2024 sütunu, 31.12.2025 satın alma gücünde: A 11.722.308, B (187.954.305), C 627.986.055, A+B+C = 451.754.058 ✓; değerler ×F(2025/12)/F(2024/12) ile 2024/12 gücüne indirildi; XBRL (−31,0 mn nominal) bu sütunla uyuşmuyor"
+  "deger": -31036394,
+  "not": "Şirket sitesi orijinal 31.12.2024 BDR (onur.net/wp-content/uploads/Onur-Yuksek-BDR-31.12.2024.pdf, taranmış) OCR s.10, 31.12.2024 satın alma gücü; A+B+C = 344.152.017 = net artış ✓; XBRL ile aynı. 2025/12 raporunun 2024 sütunu (A +11,7 mn, kira yok) şirketin sonradan yeniden düzenlediği hâl → orijinal rapor esas: A. İşletme faaliyetlerinden kaynaklanan nakit akışları -31.036.394"
  },
  "ONRYT|2024|12|MDV+MODV|cari": {
-  "durum": "TEYITLI",
-  "not": "KAP 1415200 indirilemedi (bağlantı kesiliyor); Evo belge havuzundaki ONRYT 2025/12 raporunun (KAP 1569942) 2024 sütunu, 31.12.2025 satın alma gücünde: A 11.722.308, B (187.954.305), C 627.986.055, A+B+C = 451.754.058 ✓; değerler ×F(2025/12)/F(2024/12) ile 2024/12 gücüne indirildi; MDV (120.546.079)+MODV (82.469.547)=(203.015.626) → indirgenmiş hali XBRL ile aynı"
+  "deger": -155101241,
+  "not": "Şirket sitesi orijinal 31.12.2024 BDR (onur.net/wp-content/uploads/Onur-Yuksek-BDR-31.12.2024.pdf, taranmış) OCR s.10, 31.12.2024 satın alma gücü; A+B+C = 344.152.017 = net artış ✓; XBRL ile aynı. 2025/12 raporunun 2024 sütunu (A +11,7 mn, kira yok) şirketin sonradan yeniden düzenlediği hâl → orijinal rapor esas: MDV ve MODV alımından nakit çıkışları -155.101.241 (92.095.603 + 63.005.638)"
  },
  "ONRYT|2024|12|YAGM|cari": {
   "deger": 0,
-  "not": "KAP 1415200 indirilemedi (bağlantı kesiliyor); Evo belge havuzundaki ONRYT 2025/12 raporunun (KAP 1569942) 2024 sütunu, 31.12.2025 satın alma gücünde: A 11.722.308, B (187.954.305), C 627.986.055, A+B+C = 451.754.058 ✓; değerler ×F(2025/12)/F(2024/12) ile 2024/12 gücüne indirildi; YAGM satırı yok"
+  "not": "Şirket sitesi orijinal 31.12.2024 BDR (onur.net/wp-content/uploads/Onur-Yuksek-BDR-31.12.2024.pdf, taranmış) OCR s.10, 31.12.2024 satın alma gücü; A+B+C = 344.152.017 = net artış ✓; XBRL ile aynı. 2025/12 raporunun 2024 sütunu (A +11,7 mn, kira yok) şirketin sonradan yeniden düzenlediği hâl → orijinal rapor esas: yatırım amaçlı gayrimenkul alım satırı yok → 0"
  },
  "ONRYT|2024|12|KIRA|cari": {
-  "deger": 0,
-  "not": "KAP 1415200 indirilemedi (bağlantı kesiliyor); Evo belge havuzundaki ONRYT 2025/12 raporunun (KAP 1569942) 2024 sütunu, 31.12.2025 satın alma gücünde: A 11.722.308, B (187.954.305), C 627.986.055, A+B+C = 451.754.058 ✓; değerler ×F(2025/12)/F(2024/12) ile 2024/12 gücüne indirildi; finansmanda kira satırı yok (C alt kalemleri toplamı C ile tutuyor); XBRL kira (−4,7 mn) bu sütunla uyuşmuyor"
+  "deger": -4682076,
+  "not": "Şirket sitesi orijinal 31.12.2024 BDR (onur.net/wp-content/uploads/Onur-Yuksek-BDR-31.12.2024.pdf, taranmış) OCR s.10, 31.12.2024 satın alma gücü; A+B+C = 344.152.017 = net artış ✓; XBRL ile aynı. 2025/12 raporunun 2024 sütunu (A +11,7 mn, kira yok) şirketin sonradan yeniden düzenlediği hâl → orijinal rapor esas: Finansal kiralama sözleşmelerinden kaynaklanan borç ödemeleri -4.682.076"
  },
  "ARZUM|2025|6|CFO|cari": {
   "deger": 193534624.0,
