@@ -37,10 +37,18 @@ ACIKLAMA = {
     'ODAS': 'ODAS nakit akış tabloları güvenilmez: MDV alımları bazı raporlarda pozitif (giriş gibi), aynı dönem farklı '
             'raporlarda farklı işaretle; A+B+C(+D) basılı net değişimle tutmuyor (2025/03: 3 mn, 2025/06: 4,5 mn fark). '
             'CFO başlık toplamları açık etiketli olsa da CAPEX/kira belgeden güvenle kurulamıyor.',
+    'GOKNR': 'GOKNR 2025/06 ve 2025/09 (şirket sitesi raporları): MDV alım ve satışı tek net satırda, her bölümde ayrı '
+             '"enflasyon etkisi" satırı var; bu sunumda işletme nakit akışının tanımı Evo’dan farklı (belge 693,7 / V7 605,0) ve '
+             'CAPEX net satırdan ayrıştırılamıyor → belgeden tek değere bağlanamadı.',
     'GSDHO': 'GSDHO 2025/09: A başlık değeri (1.764.997 bin TL) ile alt toplamlar ve dönem sonu − başı nakit değişimi '
              'birbiriyle tutmuyor; CFO belgeden tek değere bağlanamadı.',
 }
-R['Açıklama'] = [ACIKLAMA.get(k, '') if s == 'ELLE' else '' for k, s in zip(R.Kod, R['Sonuç'])]
+# belge değeri olan satırlarda özel inceleme notları (Kod|Dönem)
+NOT = {'DGNMO|2025/06': 'DGNMO 2025/06 şirket sitesi konsolide raporu: A 524.522.345, A+B+C(+etki) = net değişim ✓. Evo 2024/06 '
+                        've 2024/12 değerleri belgelerle birebir; yalnız Evo 2025/06 CFO (−1.404,8 mn) belgeyle uyuşmuyor → Evo hatası.',
+       'KTSKR|2026/03': 'KTSKR 2026/03: MDV alımı 24.122.658 pozitif basılmış; özdeşlik ancak çıkış işaretiyle tutuyor → (24.122.658). '
+                        'V7/Evo basılı işareti kullanmış.'}
+R['Açıklama'] = [ACIKLAMA.get(k, '') if s == 'ELLE' else NOT.get(f'{k}|{d}', '') for k, s, d in zip(R.Kod, R['Sonuç'], R['Dönem'])]
 ozet = R['Sonuç'].value_counts().rename_axis('Sonuç').reset_index(name='Satır')
 kolon = ['Kod', 'Tip', 'Dönem', 'Sonuç', 'Fark özeti', 'Açıklama', 'Satır statü',
          'CFO TTM', 'V7 CFO_TTM (Evo)', 'CFO TTM nominal', 'CAPEX_STD (belge)', 'V7 CAPEX_STD (Evo)',

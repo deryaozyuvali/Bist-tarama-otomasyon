@@ -96,3 +96,12 @@ KOŞULLU: BELGE_YOK 252→196, KESİN 74→104, BELGE_DEGERI 62→75, ELLE 9→2
 Kontrol: CIMSA 2025/03, DERHL 2026/06 site okuması Evo dönem değeriyle aynı (fark başka dönemden); GIPTA 2025/06 Evo CFO tabloyla
 uyuşmuyor (belge doğru); BRLSM 2026/03 Evo negatif 'satım' satırını capex'e katmış. OCR gerekenler: site/site_ocr_gerek.json
 (çoğu finansal rapor değil; MARBL 2025/06 ve QUAGR 2026/06 gerçek rapor olabilir). ARTMS/BVSAN sitelerinde aday yok.
+
+--- 13. tur: site kaynaklı 13 ELLE satır belgeden çözüldü (11/13) ---
+ASTOR 2025/12 MDV (dipnot rakama bitişik) → 2025/12 ve 2026/03 KESİN. AVTUR 2026/03-06 pozitif MDV/MODV (toplam bu işaretle tutuyor) → KESİN.
+DGNMO 2024/12 site raporu elle (A 952.071.345, MDV −888.077.593, kira −190.830.767) → 2025/09 KESİN; 2026/06 MDV önceki +416,6 basıldığı gibi
+→ KESİN; 2025/06 BELGE_DEGERI (Evo 2025/06 CFO −1.404,8 belgeyle uyuşmuyor; Evo 2024/06, 2024/12 belgeyle aynı). KTSKR 2026/03 MDV +24,1
+basılmış, özdeşlik çıkışla tutuyor → BELGE_DEGERI (V7 basılı işareti almış). MARBL 2024/12 MDV +214,6 basılmış → B toplamıyla (214,6);
+2025/03 kira (26.859.923) KAP PDF; 2025/09 kira +5,6 C toplamıyla tutuyor → MARBL KESİN. MERCN 2025/06 MDV (dipnot "13 14") ve YAGM +50 mn
+(B toplamı tutuyor) → KESİN. Kalan: GOKNR 2025/06-09 (net satır + bölüm içi enflasyon etkisi; açıklama teslim_kosullu ACIKLAMA'da).
+KOŞULLU: KESİN 113, YAKIN 6, BELGE_DEGERI 77, ELLE 11, YEDEK_FARKLI 2, BELGE_YOK 196.

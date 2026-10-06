@@ -1300,5 +1300,97 @@
  "KCAER|2026|6|KIRA|onceki": {
   "durum": "TEYITLI",
   "not": "Şirket sitesi PDF (kocaersteel.com/uploads/2026/08/kocaer-konsolide-mali-tablolar-30062026.pdf, taranmış) OCR s.9; A+B+C = net değişim (−159.375.188) tuttu: nakit akış tablosunda kira/kiralama satırı yok → 0 (FY2025 raporunda da yok)"
+ },
+ "ASTOR|2025|12|MDV+MODV|cari": {
+  "deger": -4557006067.0,
+  "not": "Şirket sitesi astoras.com.tr 2025-Yili-12-Aylik-Finansal-Rapor-31.12.2025.pdf nakit akış: Maddi ve maddi olmayan duran varlık alımından kaynaklanan nakit çıkışları (dipnot 8,9 rakama bitişik, otomatik okunamadı) (4.557.006.067) (4.847.161.034)"
+ },
+ "ASTOR|2025|12|MDV+MODV|onceki": {
+  "deger": -4847161034.0,
+  "not": "Şirket sitesi astoras.com.tr 2025-Yili-12-Aylik-Finansal-Rapor-31.12.2025.pdf nakit akış: Maddi ve maddi olmayan duran varlık alımından kaynaklanan nakit çıkışları (dipnot 8,9 rakama bitişik, otomatik okunamadı) (4.557.006.067) (4.847.161.034)"
+ },
+ "AVTUR|2026|3|MDV+MODV|cari": {
+  "deger": 1770205.0,
+  "not": "Şirket sitesi avtur.com.tr 2026/3-aylik-mali-tablo.pdf: MDV alımı 1.763.463 + MODV alımı 6.742 pozitif basılmış (etiket '(-)'); tablo bu işaretlerle tutuyor: A (71.221.994) + B 1.770.205 + C 29.434 = net (69.422.355) ✓ → belgedeki gibi; önceki (26.274). TTM pozitif → K6 ile 0"
+ },
+ "AVTUR|2026|3|MDV+MODV|onceki": {
+  "deger": -26274.0,
+  "not": "Şirket sitesi avtur.com.tr 2026/3-aylik-mali-tablo.pdf: MDV alımı 1.763.463 + MODV alımı 6.742 pozitif basılmış (etiket '(-)'); tablo bu işaretlerle tutuyor: A (71.221.994) + B 1.770.205 + C 29.434 = net (69.422.355) ✓ → belgedeki gibi; önceki (26.274). TTM pozitif → K6 ile 0"
+ },
+ "AVTUR|2026|6|MDV+MODV|cari": {
+  "deger": 8742701.0,
+  "not": "Şirket sitesi avtur.com.tr 2026/6-aylik-mali-tablo.pdf: MDV alımı (418.448) + MODV alımı 9.161.149 pozitif basılmış; tablo bu işaretlerle tutuyor: A (179.426.705) + B 67.562.425 + C (133.629) = net (111.997.909) ✓ → belgedeki gibi; önceki (135.365). TTM pozitif → K6 ile 0"
+ },
+ "AVTUR|2026|6|MDV+MODV|onceki": {
+  "deger": -135365.0,
+  "not": "Şirket sitesi avtur.com.tr 2026/6-aylik-mali-tablo.pdf: MDV alımı (418.448) + MODV alımı 9.161.149 pozitif basılmış; tablo bu işaretlerle tutuyor: A (179.426.705) + B 67.562.425 + C (133.629) = net (111.997.909) ✓ → belgedeki gibi; önceki (135.365). TTM pozitif → K6 ile 0"
+ },
+ "DGNMO|2024|12|CFO|cari": {
+  "deger": 952071345.0,
+  "not": "Şirket sitesi doganlarmobilyagrubu.com DGNMO 31.12.2024 raporu nakit akış (A+B+C+D = −292.882.712 ✓): A. İşletme faaliyetlerinde kullanılan nakit akışları 952.071.345"
+ },
+ "DGNMO|2024|12|MDV+MODV|cari": {
+  "deger": -888077593.0,
+  "not": "Şirket sitesi doganlarmobilyagrubu.com DGNMO 31.12.2024 raporu nakit akış (A+B+C+D = −292.882.712 ✓): MDV ve MODV alımından nakit çıkışları (888.077.593)"
+ },
+ "DGNMO|2024|12|YAGM|cari": {
+  "deger": 0.0,
+  "not": "Şirket sitesi doganlarmobilyagrubu.com DGNMO 31.12.2024 raporu nakit akış (A+B+C+D = −292.882.712 ✓): yatırım amaçlı gayrimenkul satırı yok"
+ },
+ "DGNMO|2024|12|KIRA|cari": {
+  "deger": -190830767.0,
+  "not": "Şirket sitesi doganlarmobilyagrubu.com DGNMO 31.12.2024 raporu nakit akış (A+B+C+D = −292.882.712 ✓): Kira sözleşmelerinden kaynaklanan borç ödemeleri (190.830.767)"
+ },
+ "DGNMO|2026|6|MDV+MODV|cari": {
+  "deger": -107007483.0,
+  "not": "Şirket sitesi doganlarmobilyagrubu.com 30.06.2026 konsolide rapor: Maddi duran varlıkların alımından nakit çıkışları (107.007.483) / önceki 416.611.391 (pozitif basılmış — işaret tutarsızlığı, belgedeki gibi alındı; TTM V7 ile aynı çıkıyor)"
+ },
+ "DGNMO|2026|6|MDV+MODV|onceki": {
+  "deger": 416611391.0,
+  "not": "Şirket sitesi doganlarmobilyagrubu.com 30.06.2026 konsolide rapor: Maddi duran varlıkların alımından nakit çıkışları (107.007.483) / önceki 416.611.391 (pozitif basılmış — işaret tutarsızlığı, belgedeki gibi alındı; TTM V7 ile aynı çıkıyor)"
+ },
+ "KTSKR|2026|3|MDV+MODV|cari": {
+  "deger": -24122658.0,
+  "not": "Şirket sitesi kutahyaseker.com.tr data/2026_1.pdf: MDV alımı ve B toplamı 24.122.658 pozitif basılmış; özdeşlik negatif işaretle tutuyor: A (292.062.568) − 24.122.658 + C 10.465.084 = (305.720.142) ≈ basılı net (305.324.951) [pozitifle (257.474.826), tutmaz] → çıkış (24.122.658) alındı; V7/Evo basılı (pozitif) işareti kullanmış"
+ },
+ "KTSKR|2026|3|MDV+MODV|onceki": {
+  "deger": -391208.0,
+  "not": "Şirket sitesi kutahyaseker.com.tr data/2026_1.pdf: MDV alımı ve B toplamı 24.122.658 pozitif basılmış; özdeşlik negatif işaretle tutuyor: A (292.062.568) − 24.122.658 + C 10.465.084 = (305.720.142) ≈ basılı net (305.324.951) [pozitifle (257.474.826), tutmaz] → çıkış (24.122.658) alındı; V7/Evo basılı (pozitif) işareti kullanmış"
+ },
+ "MARBL|2024|12|MDV+MODV|cari": {
+  "deger": -214644796.0,
+  "not": "Şirket sitesi marblesystemstureks.com.tr Tureks 31.12.2024 BDR: MDV+MODV alımı 214.644.796 pozitif basılmış; B toplamı ancak çıkışla tutuyor: 2.142.205 − 214.644.796 + 29.831.124 = (182.671.467) ✓ → (214.644.796)"
+ },
+ "MARBL|2025|3|KIRA|cari": {
+  "deger": -26859923.0,
+  "not": "KAP 1437843 PDF s.8: Kira sözleşmelerinden kaynaklanan borç ödemeleri (26.859.923) (19.210.701); C toplamı tutuyor (20.805.495) ✓; XBRL (26.476) PDF'le uyuşmuyor"
+ },
+ "MARBL|2025|3|KIRA|onceki": {
+  "deger": -19210701.0,
+  "not": "KAP 1437843 PDF s.8: Kira sözleşmelerinden kaynaklanan borç ödemeleri (26.859.923) (19.210.701); C toplamı tutuyor (20.805.495) ✓; XBRL (26.476) PDF'le uyuşmuyor"
+ },
+ "MERCN|2025|6|MDV+MODV|cari": {
+  "deger": -124709493.0,
+  "not": "Şirket sitesi mercankimya.com.tr FinansalSonuclar-30-06-2025.pdf, B toplamı: 0 − 124.709.493 + 50.000.000 + 42.086.716 = (32.622.777) ✓: MDV+MODV alımı (124.709.493) (64.825.160) (dipnot '13 14' iki sayı sanıldı)"
+ },
+ "MERCN|2025|6|MDV+MODV|onceki": {
+  "deger": -64825160.0,
+  "not": "Şirket sitesi mercankimya.com.tr FinansalSonuclar-30-06-2025.pdf, B toplamı: 0 − 124.709.493 + 50.000.000 + 42.086.716 = (32.622.777) ✓: MDV+MODV alımı (124.709.493) (64.825.160) (dipnot '13 14' iki sayı sanıldı)"
+ },
+ "MERCN|2025|6|YAGM|cari": {
+  "deger": 50000000.0,
+  "not": "Şirket sitesi mercankimya.com.tr FinansalSonuclar-30-06-2025.pdf, B toplamı: 0 − 124.709.493 + 50.000.000 + 42.086.716 = (32.622.777) ✓: Yatırım amaçlı gayrimenkul alımı satırı 50.000.000 pozitif basılmış ve toplam bu işaretle tutuyor → belgedeki gibi (TTM pozitifse K6 ile 0)"
+ },
+ "MERCN|2025|6|YAGM|onceki": {
+  "deger": 0.0,
+  "not": "Şirket sitesi mercankimya.com.tr FinansalSonuclar-30-06-2025.pdf, B toplamı: 0 − 124.709.493 + 50.000.000 + 42.086.716 = (32.622.777) ✓: Yatırım amaçlı gayrimenkul alımı satırı 50.000.000 pozitif basılmış ve toplam bu işaretle tutuyor → belgedeki gibi (TTM pozitifse K6 ile 0)"
+ },
+ "MARBL|2025|9|KIRA|cari": {
+  "deger": 5621219.0,
+  "not": "Şirket sitesi Tureks 30.09.2025 konsolide: Kira sözleşmelerinden borç ödemeleri 5.621.219 (pozitif basılmış) / (60.410.211); C toplamı bu işaretle tutuyor: 302.493.021 − 84.924.234 + 5.621.219 − 72.920.706 + 8.559.216 = 158.828.516 ✓ → belgedeki gibi"
+ },
+ "MARBL|2025|9|KIRA|onceki": {
+  "deger": -60410211.0,
+  "not": "Şirket sitesi Tureks 30.09.2025 konsolide: Kira sözleşmelerinden borç ödemeleri 5.621.219 (pozitif basılmış) / (60.410.211); C toplamı bu işaretle tutuyor: 302.493.021 − 84.924.234 + 5.621.219 − 72.920.706 + 8.559.216 = 158.828.516 ✓ → belgedeki gibi"
  }
 }
