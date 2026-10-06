@@ -13,11 +13,12 @@ Tablo Okuma Disiplini: Excel veya CSV dosyalarından veri çekerken asla satır 
 
 Evo–Belge Çapraz Kontrol Kuralı (TÜM RAKAMLAR): Analizde kullanılan her Evo rakamı (gelir tablosu, bilanço, nakit akış, Funnel girdileri, FCF bileşenleri) şirketin finansal raporuyla karşılaştırılır. Evo'da rakam olsa da olmasa da belgeye bakılır.
 * Akış kalemleri DÖNEMSEL (YTD) bazda, raporun cari sütunuyla; bilanço kalemleri dönem sonu sütunuyla karşılaştırılır. En güncel rapor ile Evo'nun aynı dönem değeri katsayısız birebir tutmalıdır (tolerans: yuvarlama, ≈ %0,1).
-* TTM ve geçmiş dönem rakamları, onları oluşturan raporlardan kontrol edilir. Fark varsa sırayla: TMS 29 (eski rapor kendi tarihinin parasıdır), yeniden düzenleme (karşılaştırmalı sütun ilk rapordan farklı mı), Evo eşleme hatası (yanlış satır, ters işaret, netleştirme), belgenin kendi iç tutarsızlığı.
+* TTM ve geçmiş dönem rakamları, onları oluşturan raporlardan kontrol edilir. Fark varsa sırayla: yeniden düzenleme (karşılaştırmalı sütun ilk rapordan farklı mı), TMS 29 (eski rapor kendi tarihinin parasıdır; şirketin raporunda yayımlanan katsayıyla fark açıklanıyor mu), Evo'nun geçmiş rakamı yeni baza taşımamış olması, Evo eşleme hatası (yanlış satır, ters işaret, netleştirme), belgenin kendi iç tutarsızlığı. Ayrıntı: FCF Kontrol 14 (g).
 * Fark bulunursa BELGE ESASTIR; analizde belge rakamı kullanılır, kaynağı (rapor, sayfa) yazılır. Hiçbir neden farkı açıklamıyorsa iki rakam da gösterilir ve o rakama dayalı yorum koşullu yapılır.
 * FCF bileşenleri için ayrıntılı uygulama: FCF Kontrol 14.
 
 TMS 29 Uyarıları: Tüm tabloları enflasyon muhasebesi (TMS 29) uygulanmış olarak değerlendir ve ciroların “reel” olarak büyüyüp büyümediğine bak.
+TMS 29 Uygulama Tespiti: Şirketin TMS 29 uygulayıp uygulamadığı finansal raporundan belirlenir, sırayla: (1) sunum esası / muhasebe politikaları, (2) “TMS 29 / UMS 29 / yüksek enflasyonlu ekonomiler / cari dönem satın alma gücü” ifadeleri, (3) karşılaştırmalı tabloların yeniden ifade açıklaması. Hiçbirinde bulunamazsa TMS29 durumu = DOĞRULANAMADI. Evo'da ayrı bir TMS 29 alanı varsayılmaz. Evo ile PDF rakamlarının eşit ya da farklı olması yalnız teşhis sinyalidir; TMS 29 sınıflandırıcısı olarak kullanılmaz.
 
 Nakit Kraldır: Net Kâr manşetlerine asla güvenme. İFNA ile çapraz kontrol et. Kasa para basmıyorsa o kâr makyajlıdır.
 
@@ -183,12 +184,23 @@ başlıkta açıkça belirtilir ve TTM ile yan yana gösterilir.
 ⛔ Dönemsel ve TTM rakamları asla aynı sütunda karışmaz.
 
 ANALİZDE FCF TABLOSU: Her analizde FCF iki ayrı tabloda gösterilir:
-  • ÇEYREKLİK FCF — son 5 çeyrek; her biri yalnız o çeyreğin akışı
-    (çeyrek = YTD_t − YTD_t−1, aynı mali yıl içinde, parçalar aynı bazda)
+  • ÇEYREKLİK FCF — son 5 çeyrek; her biri yalnız o çeyreğin akışı:
+      Q1 = 3A · Q2 = 6A − 3A · Q3 = 9A − 6A · Q4 = FY − 9A
+    Kontrol 14'ten geçmiş Evo çeyreklik (try_ceyreklik) değeri tercih
+    edilir. Elle çıkarma yalnız iki değer aynı satın alma gücü ve aynı
+    yeniden düzenleme bazındaysa yapılır.
+    ⛔ Farklı tarihlerde yayımlanmış iki PDF'in ham rakamları doğrudan
+       birbirinden çıkarılmaz; önce Kontrol 14 (g) ile aynı baza
+       getirilir.
   • TTM FCF — aynı 5 dönem için son 12 ay
 Her satırda tanım (STD/HLD), statü ve kaynak (EVO/BELGE) yazılır.
 P/FCF ve FCF Yield analiz anındaki piyasa değeri ve son TTM FCF ile
-hesaplanır; piyasa değerinin tarihi yazılır.
+hesaplanır. Yanına iki tarih yazılır: piyasa değerinin tarihi ve
+finansal rakamların satın alma gücü (baz) tarihi. Aradaki fiyat
+seviyesi farkı TÜİK TÜFE ile yalnız TEŞHİS amacıyla yüzde olarak
+gösterilir; P/FCF düzeltilmez. (Aynı kural F/K gibi diğer piyasa
+değeri / finansal akış oranları için de geçerlidir.) Bu fark için
+alarm eşiği tanımlanmamıştır.
 Seri/desen kuralı (“son 3 dönem pozitif” vb.) bu kural setinde yoktur;
 bu sorular istendiğinde veriden sorgulanır. Kuralların görevi verinin
 bu sorgulara uygun ve doğru olmasıdır.
@@ -303,8 +315,11 @@ yazılır, rakam kullanılır ama etiketlenir
 KOŞULLU    → Kontrol 9/10/11’den biri tetiklendi ve çözülemedi.
 Rakam gösterilir ama karnede FCF’ye dayalı yorum
 yapılmaz; şirket ayrı bölümde listelenir.
-NULL       → rakam yok (belge de bulunamadı veya okunamadı); nedeni
-yazılır. NULL asla 0 sayılmaz.
+NULL       → rakam yok; nedeni kodla yazılır. NULL asla 0 sayılmaz.
+             NULL_GECMIS_YOK     → TTM için gerekli önceki yıl verisi yok
+             NULL_BELGE_YOK      → rapor bulunamadı
+             NULL_OKUNAMADI      → rapor var, bileşen okunamadı
+             NULL_CATISMA        → Evo ≠ belge, fark açıklanamadı
 ⛔ Statü yazılmayan FCF rakamı geçersizdir.
 Rakamın KAYNAĞI statüden ayrı yazılır:
 EVO   → Evo değeri, Kontrol 14 ile belgeyle tuttu
@@ -313,10 +328,13 @@ BELGE → rapordan okundu (rapor, sayfa yazılır)
 ZORUNLU ÇAPRAZ KONTROLLER
 
 1. KASA TESTİ (TMS 29 kalkanı): “CFO ne derse desin, dönem sonu kasa
-    ne oldu?” CFO yüksek ama nakit değişimi yoksa, CFO içinde nakit
-    olmayan parasal pozisyon kazancı var demektir → FCF şüphelidir.
-    Nakit akış tablosunun mutabakat düzeltmelerinde parasal kazancın
-    geri çevrilip çevrilmediğini kontrol et.
+    ne oldu?” CFO yüksek ama nakit değişimi yoksa önce yatırım ve
+    finansman akışlarıyla mutabakat yapılır (capex, borç ödemesi,
+    temettü, menkul kıymet alımı nakdi tüketmiş olabilir). Bunlarla
+    açıklanmayan fark kalırsa CFO içinde nakit olmayan parasal
+    pozisyon kazancı olabilir → nakit akış tablosunun mutabakat
+    düzeltmelerinde parasal kazancın geri çevrilip çevrilmediği
+    kontrol edilir.
 2. FCF / Net Kâr → 1’in altındaysa kâr nakit üretmiyor, açıkla
 3. FCF Yield = FCF / Piyasa Değeri
 4. P/FCF (FCF negatifse “anlamsız” yaz, hesaplama)
@@ -353,8 +371,11 @@ ZORUNLU ÇAPRAZ KONTROLLER
     ⛔ Kalem raporda hiç yoksa 0'dır; okunamıyorsa NULL'dır. İkisi
        karıştırılmaz.
     Ekonomik önemsizlik eşiği: pencerede bulunan capex kayıtlarının
-    mutlak toplamı |capex| < 1 mn TL VEYA < CFO_TTM × %0,5 ise
+    mutlak toplamı |capex| < 1 mn TL VEYA < |CFO_TTM| × %0,5 ise
     (A) kabul edilir, nota “ihmal edilebilir capex” yazılır.
+    ⛔ Şirket analizinde önce BELGE YOLU uygulanır; eksik çeyrekler
+       okunmadan, bulunan kayıtlar küçük diye eksik kayıtlar 0 kabul
+       edilmez. Eşik yalnız belge de okunamadığında kullanılır.
     ⛔ NULL asla 0 sayılmaz; capex düşülmeden CFO’yu FCF diye yazma.
     Doğrulama: GWIND 2026/06 → capex kaydı 2/4 → şık (B).
 8. CAPEX = TOPLAM YATIRIM ŞABLON HATASI:
@@ -402,7 +423,9 @@ ZORUNLU ÇAPRAZ KONTROLLER
     1–3 → Kontrol 7(B) devreye girer, FCF = NULL veya TÜRETİLMİŞ
     0/4 → kalem yok, capex tarafında 0 kabul edilir
     ⛔ try_ttm IS NULL tek başına “kalem yok” anlamına GELMEZ.
-    Kayıt sayısı sayılmadan karar verilmez.
+    Kayıt sayısı sayılmadan karar verilmez. Dönem verisi olup TTM'i
+    NULL olan kalem (gerekli önceki yıl penceresi yok) NULL_GECMIS_YOK
+    kodunu alır (vaka: AKHAN 2025/03–06).
     TEMETTÜ (Bilinen Sınırlamalar #3'ten taşındı): Alınan temettü yılda
     1–2 çeyrekte gelir; 1–3 kayıt temettü için eksiklik sayılmaz.
     HLD formülü kullanılmadan önce şu test yapılır:
@@ -411,8 +434,10 @@ ZORUNLU ÇAPRAZ KONTROLLER
          • Kayıt var VE try_ttm üretilmiş → veri sağlam, HLD kullanılır
          • Kayıt var AMA try_ttm NULL     → TTM artefaktı
                                            → FCF_HLD = VERİ YETERSİZ
-         • Hiç kayıt yok                  → ekonomik olarak temettü yok
-                                           → ① uygulanır
+         • Hiç kayıt yok                  → bu TTM'de temettü yok
+                                           → temettü bileşeni 0;
+                                             kayıtlı ekonomik tip
+                                             DEĞİŞMEZ (FCF_HLD = FCF_STD)
     ⛔ Temettü NULL'u ekonomik 0 kabul EDİLMEZ; önce hangi durumda
        olduğu tespit edilir.
 11. SUNUM DEĞİŞİKLİĞİ — DIŞ ÇIPA:
@@ -476,17 +501,30 @@ ZORUNLU ÇAPRAZ KONTROLLER
         dosyasında belgeyle doğrulanmış kayıt varsa o kullanılır. Yoksa
         güncel raporun karşılaştırmalı sütunu ve ilgili eski rapor Evo
         ile kıyaslanır.
-    (g) ESKİ RAPORLAR VE TMS 29: Evo geçmiş dönemleri en güncel satın
-        alma gücüne çevirir; belge kendi tarihinin parasıyladır. Eski
-        rapor rakamı Evo'dan farklıysa sırayla kontrol edilir:
-        1. TMS 29: belge × endeks(güncel)/endeks(rapor tarihi) Evo'yu
-           tutuyor mu? Tutuyorsa fark gerçek değildir.
-        2. Yeniden düzenleme: sonraki raporun karşılaştırmalı sütunu
-           ilk rapordan farklı mı? (Kontrol 11 — TTM'in üç parçası
-           aynı esasta olmalı.)
-        3. Evo eşleme hatası: (d) listesi.
-        4. Belge iç tutarsızlığı: (e).
-        Hiçbiri açıklamıyorsa FCF statüsü = KOŞULLU, iki değer yazılır.
+    (g) ESKİ RAPORLAR VE TMS 29: Evo geçmiş dönemleri şirketin en güncel
+        döneminin satın alma gücüne taşır; eski PDF kendi rapor tarihinin
+        parasıyladır. İkisi doğrudan eşit olmak zorunda değildir. Eski
+        rapor rakamı Evo'dan farklıysa sırayla kontrol edilir ve sonuç
+        koduyla yazılır:
+        1. Daha yeni raporun (yeniden ifade edilmiş) karşılaştırmalı
+           sütunu Evo'yu tutuyor mu? → YENI_KARSILASTIRMALI_TUTTU
+           Karşılaştırmalı sütun ilk rapordan farklıysa yeniden
+           düzenleme vardır (Kontrol 11 — TTM'in üç parçası aynı esasta
+           olmalı).
+        2. Şirketin kendi raporunda yayımlanan TMS 29 endeksi/katsayısı
+           ile çevrilen belge rakamı Evo'yu tutuyor mu?
+           → TMS29_KATSAYI_ACIKLIYOR
+           Bu, “Evo yöntemi doğrulandı” değil, “fark TMS 29 yeniden
+           ifadesiyle açıklanıyor” anlamına gelir. (Ampirik dayanak:
+           BIMAS 21/21 kalem; şüpheli 405 satırda CFO'da 282 birebir.)
+           ⛔ Kaynağı ve yöntemi belli olmayan harici katsayıyla Evo
+              rakamı “doğrulanmış” sayılmaz.
+        3. Evo rakamı belgenin çevrilmemiş (nominal) hâline eşit
+           → EVO_YENIDEN_BAZLAMAMIS (Evo eski bazda saklamış; vaka:
+           MEGMT; BLCYT/GMTAS/ECOGR 2025/12). Belge çevrilerek kullanılır.
+        4. Evo eşleme hatası: (d) listesi. Belge iç tutarsızlığı: (e).
+        Hiçbiri açıklamıyorsa → ACIKLANAMAYAN_FARK: FCF statüsü =
+        KOŞULLU, iki değer yazılır.
     (h) Fark bulunursa BELGE ESASTIR. FCF belge rakamıyla hesaplanır,
         kaynak BELGE (rapor, sayfa) yazılır. Fark master FCF dosyasına
         karar kaydı olarak işlenir; toplu hesapta aynı hata tekrar
@@ -656,7 +694,10 @@ T3	Aynı sorgu içinde aynı kalem için veri kaynağı çatışması
 T4	NULL / eksik / mükerrer veri problemi
 T5	Şirket TTM penceresi içinde sunum/sınıflandırma değiştirmiş (bkz. FCF Kontrol 11)
 
-Şirket analizinde Funnel girdileri ayrıca Evo–Belge Çapraz Kontrol Kuralı'ndan geçer; fark çıkarsa T2/T4 tetiklenmiş sayılır ve belge rakamı kullanılır.
+Şirket analizinde Funnel girdileri ayrıca Evo–Belge Çapraz Kontrol Kuralı'ndan geçer:
+* Fark çıktı ve nedeni bulundu (Kontrol 14 (g) kodları) → T2/T4 tetiklenmiş sayılır, belge rakamı kullanılır.
+* Belgeye erişilemedi, somut çatışma yok → Evo verisi kullanılır, “doğrulanamadı” işaretlenir (aşağıdaki kural).
+* Evo ≠ belge ve fark açıklanamadı (ACIKLANAMAYAN_FARK) → ilgili Funnel girdisi NULL → Bölüm E (MIN–MAX).
 
 Doğrulama yapılamıyorsa: Evo verisi olduğu gibi kullanılır, audit bloğunda “doğrulanamadı” işaretlenir, skor koşullu sayılır.
 
