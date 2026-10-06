@@ -150,3 +150,43 @@ okuma görünümüdür; elle değişiklik Excel'e değil kaynak tabloya (çoğun
 ## 6. Bu çalışmadan taşınacaklar
 Mevcut `rapor_kalemleri*.csv`, `rapor_bildirim_haritasi.json`, `elle_kararlar.json`, `ocr/` ve `site/` çıktıları
 RAPOR / KALEM / KARAR tablolarının ilk doldurulmuş hâlidir. Evo köprüsü (V7) master'da yalnız karşılaştırma sütunu olur.
+
+## 7. GEM talimatlarıyla eşleme
+
+GEM v6.1/v2.2 kuralları, verinin Evo'dan geldiği ve tek tek rapora bakılmadığı bir düzen için yazıldı. Kuralların bir kısmı
+Evo'nun kusurlarını (eksik çeyrek kaydı, TTM artefaktı, yanlış satır eşlemesi) dolaylı yoldan yakalamaya çalışıyordu.
+Master'da veri doğrudan belgeden geldiği için bu kurallar ya veri modelinin parçası olur ya da gereksizleşir.
+
+| GEM bölümü | Master'daki karşılığı | Durum |
+|---|---|---|
+| ① FCF_STD, ② FCF_HLD, çifte sayım kilidi | TANIM | Kalır; CAPEX dışlamaları (kullanım hakkı, avans, satış, net satır) eklenir |
+| FCF'ye girmeyenler, FCF after M&A | TANIM + KALEM'e iştirak/bağlı ortaklık alımı kalemi | Kalır |
+| ③ Finansman öncesi nakit, Bölüm G teşhisi | GÖSTERGE (teşhis sütunu) | Kalır |
+| Statü (KESİN/TÜRETİLMİŞ/KOŞULLU/NULL) | Kalite (A–D) + Kullanılabilirlik (KULLAN/DİKKAT/KULLANMA) | Değişir; eski statü geriye dönük uyum için türetilebilir |
+| K1 kasa testi | KONTROL: A+B+C = net değişim özdeşliği (daha güçlü) | Değişir |
+| K2–K5 (FCF/net kâr, verim, P/FCF, capex < amortisman) | GÖSTERGE | Kalır |
+| K6 işaret denetimi (v2) | KALEM: işaret belgedeki gibi; işaret anomalisi sorun kodu; pozitif TTM → 0 TANIM'da | Değişir: karar artık belgeden |
+| K7 capex NULL (0/4, 1–3, 4/4 çeyrek kaydı) | "Rapor var mı / satır var mı" (RAPOR + KALEM) | Kalkar (Evo'ya özgü) |
+| K8 şablon hatası (MDV = yatırım toplamı) | KALEM: XBRL–PDF karşılaştırması, XBRL_ETIKET_HATASI kodu | Otomatikleşir |
+| K9 artık testi ("diğer" yatırım satırları) | KONTROL: yatırım bölümünün tüm satırları KALEM'de; "diğer" satır büyükse uyarı | Kalır, belgeye dayanır |
+| K10 TTM bütünlüğü (4 çeyrek kaydı) | TTM: üç parça var mı + esas tutarlılığı | Kalkar (Evo'ya özgü) |
+| BS#3 temettü TTM bütünlüğü | — | Kalkar (TTM belgeden kurulur) |
+| K11 sunum değişikliği | KALEM karşılaştırmalı sütunlarıyla otomatik YENİDEN_DUZENLEME + SERI kırığı | Güçlenir |
+| K12 işletme sermayesi kalitesi | GÖSTERGE (isteğe bağlı; işletme sermayesi satırları KALEM'e eklenirse) | Kalır |
+| K13 seri tutarlılığı | KONTROL alarmı: belge verisinde yıl içi kümülatif gerileme (XBRL hatası/net sunum işareti) | Statü kuralı olmaktan çıkar, kontrol olur |
+| RECONCILE (şirketin kendi FCF'i) | KONTROL (isteğe bağlı) | Kalır |
+| KIRA_DOGRULAMA_KUYRUGU, BS#4 gömülü kira | SIRKET_KURALLARI + KONTROL | Kalır |
+| Tier 0,5 (finansal benzeri şirketler) | SIRKET.ekonomik_tip | Kalır |
+| TMS 29 ("katsayı uygulanmaz") | ENDEKS + baz tarihi: ham veri raporun parası, analiz tek baz | Değişir (açıkça çevrilir) |
+| Bilinen sınırlamalar 1–7 | OKUBENI "bilinen sınırlar" | Güncellenir: BS#3 ve BS#7 kapanır, BS#4–6 kalır, yeniden düzenleme ve XBRL etiket hataları eklenir |
+| Funnel V8.2 (tarama kullanımı) | GÖSTERGE + kullanılabilirlik filtresi | Kalır |
+
+Yeni GEM metninin iskeleti (öneri):
+1. Veri kaynağı ve sırası: KAP bildirimi (XBRL + PDF) → şirket sitesi → Evo belge havuzu; Evo sayısal verisi yalnız karşılaştırma.
+2. Okuma: hangi satırın hangi kalem olduğu (TANIM) + şirket kuralları; XBRL ile PDF farklıysa kim kazanır (özdeşliği sağlayan).
+3. Doğrulama: özdeşlik, etiket, yıl içi kümülatif gerileme, karşılaştırmalı sütun = eski kayıt.
+4. TTM ve esas tutarlılığı (yeniden düzenleme kuralı).
+5. Kalite ve kullanılabilirlik kodları.
+6. Analiz kuralları (P/FCF, seri yönü, seri kırığı, holding).
+7. Yeni dönem ekleme akışı.
+8. Bilinen sınırlar.
