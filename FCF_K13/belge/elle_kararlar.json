@@ -1268,5 +1268,37 @@
  "TEZOL|2026|6|MDV+MODV|onceki": {
   "deger": -52935000.0,
   "not": "Evo PDF (bin TL): 'Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları' (77.539)/(52.935)"
+ },
+ "KCAER|2026|6|CFO|cari": {
+  "durum": "TEYITLI",
+  "not": "Şirket sitesi PDF (kocaersteel.com/uploads/2026/08/kocaer-konsolide-mali-tablolar-30062026.pdf, taranmış) OCR s.9; A+B+C = net değişim (−159.375.188) tuttu: A) İşletme faaliyetlerinden nakit akışları (1.124.504.232) (1.280.177.358) = XBRL"
+ },
+ "KCAER|2026|6|CFO|onceki": {
+  "durum": "TEYITLI",
+  "not": "Şirket sitesi PDF (kocaersteel.com/uploads/2026/08/kocaer-konsolide-mali-tablolar-30062026.pdf, taranmış) OCR s.9; A+B+C = net değişim (−159.375.188) tuttu: A) İşletme faaliyetlerinden nakit akışları (1.124.504.232) (1.280.177.358) = XBRL"
+ },
+ "KCAER|2026|6|MDV+MODV|cari": {
+  "durum": "TEYITLI",
+  "not": "Şirket sitesi PDF (kocaersteel.com/uploads/2026/08/kocaer-konsolide-mali-tablolar-30062026.pdf, taranmış) OCR s.9; A+B+C = net değişim (−159.375.188) tuttu: Maddi ve maddi olmayan duran varlık alımından nakit çıkışları (417.452.320) (644.725.216) = XBRL"
+ },
+ "KCAER|2026|6|MDV+MODV|onceki": {
+  "durum": "TEYITLI",
+  "not": "Şirket sitesi PDF (kocaersteel.com/uploads/2026/08/kocaer-konsolide-mali-tablolar-30062026.pdf, taranmış) OCR s.9; A+B+C = net değişim (−159.375.188) tuttu: Maddi ve maddi olmayan duran varlık alımından nakit çıkışları (417.452.320) (644.725.216) = XBRL"
+ },
+ "KCAER|2026|6|YAGM|cari": {
+  "durum": "TEYITLI",
+  "not": "Şirket sitesi PDF (kocaersteel.com/uploads/2026/08/kocaer-konsolide-mali-tablolar-30062026.pdf, taranmış) OCR s.9; A+B+C = net değişim (−159.375.188) tuttu: nakit akış tablosunda yatırım amaçlı gayrimenkul satırı yok → 0"
+ },
+ "KCAER|2026|6|YAGM|onceki": {
+  "durum": "TEYITLI",
+  "not": "Şirket sitesi PDF (kocaersteel.com/uploads/2026/08/kocaer-konsolide-mali-tablolar-30062026.pdf, taranmış) OCR s.9; A+B+C = net değişim (−159.375.188) tuttu: nakit akış tablosunda yatırım amaçlı gayrimenkul satırı yok → 0"
+ },
+ "KCAER|2026|6|KIRA|cari": {
+  "durum": "TEYITLI",
+  "not": "Şirket sitesi PDF (kocaersteel.com/uploads/2026/08/kocaer-konsolide-mali-tablolar-30062026.pdf, taranmış) OCR s.9; A+B+C = net değişim (−159.375.188) tuttu: nakit akış tablosunda kira/kiralama satırı yok → 0 (FY2025 raporunda da yok)"
+ },
+ "KCAER|2026|6|KIRA|onceki": {
+  "durum": "TEYITLI",
+  "not": "Şirket sitesi PDF (kocaersteel.com/uploads/2026/08/kocaer-konsolide-mali-tablolar-30062026.pdf, taranmış) OCR s.9; A+B+C = net değişim (−159.375.188) tuttu: nakit akış tablosunda kira/kiralama satırı yok → 0 (FY2025 raporunda da yok)"
  }
 }

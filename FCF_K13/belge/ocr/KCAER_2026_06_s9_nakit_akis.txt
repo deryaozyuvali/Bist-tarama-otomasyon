@@ -1,0 +1,66 @@
+KOCAER ÇELİK SANAYİ VE TİCARET ANONİM ŞİRKETİ
+1 OCAK-30 HAZİRAN 2026 ARA HESAP DÖNEMİNE AİT
+KONSOLİDE NAKİT AKIŞ TABLOSU
+(Tutarlar aksi belirtilmedikçe Türk Lirası'nın 30 Haziran 2026 tarihi itibarıyla
+satın alma gücü esasına göre (“TL”) olarak belirtilmiştir.)
+Sınırlı Sınırlı
+Denetimden Denetimden
+Geçmiş Geçmiş
+Cari Dönem Önceki Dönem
+Notlar 01.01.2026 01.01.2025
+30.06.2026 30.06.2025
+A) İŞLETME FAALİYETLERİNDEN NAKİT AKIŞLARI (1.124.504.232) (1.280.177.358)
+Dönem Karı (Zararı) 618.236.275 519.597.028
+Sürdürülen Faaliyetlerden Dönem Karı (Zararı) 618.236.275 519.597.028
+Dönem Net Karı (Zararı) Mutabakatı İle İlgili Düzeltmeler (1.084.148.940) — (331.918.968)
+Amortisman Ve Itfa Gideri İle İlgili Düzeltmeler 14-18-19 329.019.708 309.365.760
+Vergi Geliri/Gideri Ile Ilgili Düzeltmeler (475.781.190) (97.673.404)
+Karşılıklar İle İlgili Düzeltmeler 22-24 55.409.208 39.816.958
+Diğer Karşılıklar (ptalleri) İle İlgili Düzeltmeler (7.979.167) 39.416.958
+Çahışanlara Sağlanan Faydalara İlişkin Karşılıklar (iptali) İle İlgili Düzeltmeler 22-24 63.388.375 -
+Faiz (Gelirleri) Ve Giderleri İle İlgili Düzeltmeler (746.969.154) — (411.160.499)
+Faiz Gelirleri İle İlgili Düzeltmeler 33 10.363.167 27477.630)
+Faiz Giderleri İle İlgili Düzeltmeler 33 (757332321) o (438.638.129)
+Gerçekleşmemiş Yabancı Para Çevrim Farkları Ile Ilgili Düzeltmeler 18.813.500 72.149.488
+Gerçeğe Uygun Değer Kayıpları (Kazançları) İle İlgili Düzeltmeler (291.057.175) — (286.154.876)
+Finansal Varlıkların Gerçeğe Uvgun Değer Kayıpları (Kazançları) İle İlgili Düzelimeler (291.057.175) (286.154.876)
+Parasal Kavıp Kazanç 26.416.163 41.737.605
+Toplam Düzeltmeler (1.084.148.940) o (331.918.968)
+İşletme Sermayesinde Gerçekleşen Değişimler (646.988.969) (1.451.574.996)
+Ticari Alacaklardaki Azalış (Artış) Ile İlgili Düzeltmeler 10 352.934.718 (9.426.030)
+İlişkili Olmayan Taraflara Ticari Alacaklardaki Artış (Azalış) 10 352.934.718 (9.426.030)
+Faaliyetlerle Ilgili Diğer Alacaklardaki Azalışlar/(Artışlar) Ilgili Düzeltmeler 11-37 (224.392.563) — (167.032.959)
+İlişkili Olmayan Taraflardan Diğer Alacaklardaki Aruş (Azalış) (130.192.112) — (167032.959)
+İlişkili Taraflardan Diğer Alacaklardaki Artış (Azalış) (94.200.451) -
+Türev Varlıklardaki Azalış (Artış) (171.440.384) o (577.968.345)
+Stoklardaki Azalışlar (Artışlar) İle İlgili Düzeltmeler 13 (1.304.268.072) o (638.707.551)
+Peşin Ödenmiş Giderlerdeki Azalış (Artış) 15 (40.966.818) (52.524.155)
+Ticari Borçlardaki Artış (Azalış) Ile İlgili Düzeltmeler 10 950.504.665 (37.042.361)
+İlişkili Olmayan Taraflara Ticari Borçlardaki Artış (Azalış) 10 950.504.665 (37042361)
+Çalışanlara Sağlanan Faydalar Kapsamında Borçlardaki Artış (Azalış) 20 (28.577.362) (3.573.417)
+Faaliyetlerle Ilgili Diğer Borçlardaki Artışlar/(Azalışlar) Ilgili Düzeltmeler 57.965.082 239.584.788
+İlişkili Olmayan Taraflardan Diğer Borçlardaki Artış (Azalış) 57955454 239.584 788
+İlişkili Taraflardan Diğer Borçlardaki Arş (Azalış) 9.628 -
+Ertelenmiş Gelirlerdeki Artış (Azalış) 15 (238.748.235) — (204.879.966)
+Faaliyetlerden Elde Edilen Nakit Akışları (1.112.901.634) (1.263.896.936)
+Çalışanlara Sağlanan Faydalara İlişkin Karşılıklar Kapsamında Yapılan Ödemeler 22-24 (16.233.417) (14.483.542)
+Vergi ladeleri (Ödemeleri) 35 4.630.819 (1.796.880)
+İşletme Faaliyetlerinden Elde Edilen Nakit (1.124.504.232) (1.280.177.358)
+B) YATIRIM FAALİYETLERİNDEN KAYNAKLANAN NAKİT AKIŞLARI 253.094.807 (644.725.216)
+Maddi Ve Maddi Olmayan Duran Varlıkların Satışından Kaynaklanan Nakit Girişleri 18 541.762.088 -
+Maddi Duran Varlıkların Satışından Kaynaklanan Nakit Girişleri 18 541.762.088 -
+Maddi Ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları 18 (417.452.320) — (644.725.216)
+Maddi Duran Varlık Alımından Kaynaklanan Nakit Çıkışları 18 (417.452.320) (644.426.476)
+Maddi Olmayan Duran Varlık Alımından Kaynaklanan Nakit Çıkışları (-) 19 - (298.740)
+Katılım (Kar) Payı Ve Diğer Finansal Araçlardan Nakit Girişleri 7 128.785.039 -
+C) FINANSMAN FAALIYETLERİNDEN NAKIT AKIŞLARI 712.034.237 296.639.918
+Borç Ödemelerine İlişkin Nakit Çıkışları (36.934.917) (114.520.580)
+Kredi Geri Ödemelerine İlişkin Nakit Çıkışları (26.406.176) (96.387.514)
+Diğer Finansal Borç Ödemelerinden Nakit Çıkışları (8.328.741) (58.133.062)
+Alınan Faiz 746.969.154 411.160.498
+D) YABANCI PARA ÇEVRİM FARKLARININ ETKİSİNDEN ÖNCE NAKİT VE
+NAKİT BENZERLERİNDEKİ NET ARTIŞ (AZALIŞ) (159.375.188) (1.628.262.656)
+Yabancı Para Çevrim Farklarının Nakit Ve Nakit Benzerleri Üzerindeki Etkisi (36.462.878) 23.575.314
+NAKİT VE NAKİT BENZERLERİNDEKİ NET ARTIŞ (AZALIŞ) (195.838.066) (1.604.687.342)
+E) DÖNEM BAŞI NAKİT VE NAKİT BENZERLERİ 6 5.057.267.743 — 3.969.803.963
+DÖNEM SONU NAKİT VE NAKİT BENZERLERİ 6 4.861.429.677. 2.365.116.621

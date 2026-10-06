@@ -25,7 +25,7 @@ Not: OCR için OMP_THREAD_LIMIT=1 şart (4 çekirdek; çok iş parçacıklı Tes
 
 === 4. TUR (2026-10-05, ELLE kapanışı) ===
 NULL 734: TEYITLI 332 · PDF_OKUNDU 151 · IZAHNAME 15 · XBRL_ESAS 1 · ELLE 6 · BELGE_YOK 229 · FCF_STD 440.
-Kalan ELLE (gerekçeli): ALBTN 2026/03 (izahname taranmış, rakamlar bozuk), KCAER 2026/06 (taranmış; OCR KAP engeli
+Kalan ELLE (gerekçeli): ALBTN 2026/03 (izahname taranmış, rakamlar bozuk), [ÇÖZÜLDÜ 06.10: KCAER 2026/06 şirket sitesi PDF OCR → TEYITLI] KCAER 2026/06 (taranmış; OCR KAP engeli
 nedeniyle bekliyor, KAP 1643859), TEHOL 2026/06 (PDF'te yatırım bölümü görüntü), TGSAS 2025/03-06-09 (alım+satış tek
 satır, işaretler raporlar arası tutarsız).
 Düzeltilen hatalar: izahname okuyucu (sütun sırası en yakın tarih satırından; bölünmüş etiket; yanlış sayfa; "Not"
@@ -75,3 +75,7 @@ K13'ü yeniden üretmek (kod değişikliği dahil) için hâlâ K6_K11_Kademe2_D
 CALISTIR zinciri mevcut FCF_V8_aday_K13.xlsx'i 8 sayfada birebir üretti (dogrula.py revizyon öncesi seri_kalem.pkl okur → CALISTIR'a eklendi).
 teslim.py ESKI_KOD: KOZAL/KOZAA/IPEKE/MARKA/SNKRN 30 satır Önerilen statü = ÇIKAR (29 NULL + MARKA 2025/12 TÜRETİLMİŞ). FARK 233→263.
 KALEM/DOGRULAMA/OOS_TEST/ORNEKLEM_DISI/DUYARLILIK değişmedi.
+
+--- 10. tur: KCAER 2026/06 kullanıcının verdiği şirket sitesi PDF'inden (taranmış) OCR ile çözüldü ---
+belge/ocr/KCAER_2026_06_s9_nakit_akis.txt; A+B+C = net değişim tuttu; CFO/MDV XBRL ile aynı, YAGM/kira satırı yok → elle_kararlar TEYITLI.
+NULL: TEYITLI 331, ELLE 7. KAP denemelerinde KCAER artık gerekmiyor.
