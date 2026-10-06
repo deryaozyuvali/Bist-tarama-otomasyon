@@ -40,15 +40,16 @@ ACIKLAMA = {
     'GOKNR': 'GOKNR 2025/06 ve 2025/09 (şirket sitesi raporları): MDV alım ve satışı tek net satırda, her bölümde ayrı '
              '"enflasyon etkisi" satırı var; bu sunumda işletme nakit akışının tanımı Evo’dan farklı (belge 693,7 / V7 605,0) ve '
              'CAPEX net satırdan ayrıştırılamıyor → belgeden tek değere bağlanamadı.',
-    'SAHOL': 'SAHOL 2025/03–09: 2024 işletme nakit akışı orijinal 31.12.2024 raporunda (90,8) mlr TL, 31.12.2025 raporunun '
-             'karşılaştırmalı sütununda +153,2 mlr TL (bankacılık iştiraki kaynaklı yeniden sınıflama). Hangi esasın (orijinal / '
-             'yeniden düzenlenmiş) kullanılacağı karar gerektirir; V7 TTM ikisiyle de kurulamıyor.',
     'GSDHO': 'GSDHO 2025/09: A başlık değeri (1.764.997 bin TL) ile alt toplamlar ve dönem sonu − başı nakit değişimi '
              'birbiriyle tutmuyor; CFO belgeden tek değere bağlanamadı.',
 }
 # belge değeri olan satırlarda özel inceleme notları (Kod|Dönem)
 NOT = {'DGNMO|2025/06': 'DGNMO 2025/06 şirket sitesi konsolide raporu: A 524.522.345, A+B+C(+etki) = net değişim ✓. Evo 2024/06 '
                         've 2024/12 değerleri belgelerle birebir; yalnız Evo 2025/06 CFO (−1.404,8 mn) belgeyle uyuşmuyor → Evo hatası.',
+       **{f'SAHOL|{d}': 'SAHOL 2024 nakit akışını 31.12.2025 raporunda işletme↔yatırım arasında yeniden sınıflamış (2024 işletme: '
+                         'orijinal (90,8) mlr, düzenlenmiş +153,2 mlr; net değişim aynı). 2025/03–09 raporlarının karşılaştırmalı sütunları '
+                         'eski esasta (Evo 2024/03-06-09 bunlarla aynı) → tutarlı TTM orijinal 2024 raporuyla kurulur. Evo 2024/12’yi yeni '
+                         'esastan (+180,4 mlr) almış; V7 TTM iki esası karıştırıyor.' for d in ('2025/03', '2025/06', '2025/09')},
        'KTSKR|2026/03': 'KTSKR 2026/03: MDV alımı 24.122.658 pozitif basılmış; özdeşlik ancak çıkış işaretiyle tutuyor → (24.122.658). '
                         'V7/Evo basılı işareti kullanmış.'}
 R['Açıklama'] = [ACIKLAMA.get(k, '') if s == 'ELLE' else NOT.get(f'{k}|{d}', '') for k, s, d in zip(R.Kod, R['Sonuç'], R['Dönem'])]
