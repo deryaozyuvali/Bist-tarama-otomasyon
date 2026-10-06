@@ -97,6 +97,8 @@ def al(kod, y, m, kalem, sut):
     if r is None or r.durum == 'SUTUN_YOK': return None, 'BELGE_YOK', f'{y}/{m:02d} {sut} sütunu yok'
     v = None if pd.isna(r.deger_tl) else r.deger_tl / 1e6
     kanit = f'KAP {int(r.idx)} {y}/{m:02d} {sut}'
+    if str(r.kaynak).startswith('PDF (şirket sitesi)'):
+        kanit = f"Şirket sitesi {str(r.kaynak).split(' ', 3)[-1]} {y}/{m:02d} {sut}"
     if v is not None and kod in TMS29_SIRKET:
         a = son_rapor.get(kod, (2026, 6))
         k = F[(y, m)] / F[a]

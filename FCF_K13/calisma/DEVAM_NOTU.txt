@@ -86,3 +86,13 @@ Onur-Yuksek-BDR-31.12.2024.pdf (taranmış) bulundu, OCR s.10 (belge/ocr/ONRYT_2
 MDV+MODV −155.101.241, kira −4.682.076, A+B+C = 344.152.017 ✓ — hepsi XBRL ile aynı. 2025/12 raporunun 2024 sütunu (A +11,7 mn,
 kira yok) şirketin sonradan yeniden düzenlediği hâl. elle_kararlar orijinal değerlerle güncellendi. ONRYT 2025/03 FCF_STD −249,3.
 Şirket siteleri KAP alternatifi olarak çalışıyor (kocaersteel.com, onur.net).
+
+--- 12. tur: şirket siteleri (KAP alternatifi) ---
+belge/site/: siteler.json (105 şirket, Evo kurumsal bilgi kartı 'Web sitesi'), tara.py (aynı alan adında IR bağlantıları, 3 adım)
+→ pdf_linkleri.json (79 sitede PDF; 26 sitede JS nedeniyle yok), esle.py (URL/metindeki tarih → dönem) → aday.json (292 gereken
+raporun 148'i), site_oku.py (indir, dönem tarihi metinde, cikar_pdf.isle; CFO özdeşliği şart) → ../rapor_kalemleri_site.csv (74 rapor).
+ttm.py site satırlarını KAP/Evo'da CFO'su olmayan raporlar için kullanır; kanıt "Şirket sitesi <url>".
+KOŞULLU: BELGE_YOK 252→196, KESİN 74→104, BELGE_DEGERI 62→75, ELLE 9→22. Site kaynaklı 78 satırın 31'i V7 ile birebir.
+Kontrol: CIMSA 2025/03, DERHL 2026/06 site okuması Evo dönem değeriyle aynı (fark başka dönemden); GIPTA 2025/06 Evo CFO tabloyla
+uyuşmuyor (belge doğru); BRLSM 2026/03 Evo negatif 'satım' satırını capex'e katmış. OCR gerekenler: site/site_ocr_gerek.json
+(çoğu finansal rapor değil; MARBL 2025/06 ve QUAGR 2026/06 gerçek rapor olabilir). ARTMS/BVSAN sitelerinde aday yok.

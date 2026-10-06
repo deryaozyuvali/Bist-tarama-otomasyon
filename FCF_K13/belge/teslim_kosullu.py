@@ -7,7 +7,9 @@ okubeni = pd.DataFrame([
     ('Yöntem', 'Her satır için şirketin kendi raporlarından TTM = YTD_cari + FY_önceki − YTD_önceki (NULL çalışmasıyla aynı '
                'hesap, aynı TMS 29 çevrimi: değer × F(rapor) / F(şirketin son raporu)). Bileşenler V7 ile kıyaslanır.'),
     ('Kaynak', 'KAP bildirimi (XBRL + imzalı PDF) — KAP erişimi kesildiğinde Evo belge havuzundaki orijinal PDF '
-               '(storage.fintables.com; KAP ekinin aynısı). Evo havuzu raporların yaklaşık %45’ini kapsıyor.'),
+               '(storage.fintables.com; KAP ekinin aynısı). Evo havuzu raporların yaklaşık %45’ini kapsıyor. İkisinde de yoksa '
+               'şirketin kendi sitesindeki finansal rapor PDF’i (belge/site/: adres Evo kurumsal bilgi kartından, tarama + dönem '
+               'eşleme + aynı okuyucu; metinde dönem sonu tarihi ve CFO özdeşliği zorunlu). Kanıtta “Şirket sitesi <url>”.'),
     ('XBRL’siz PDF okuma güvenilirliği', 'XBRL ile teyitli ~1.000 rapora karşı test: özdeşlikle (A+B+C(+etki) = nakit değişimi) '
                'okunan CFO 1.037/1.042 doğru; tek adaylı CFO 70/92 (yalnız V7 ile örtüşürse kabul); MDV+MODV satırı %99 doğru; '
                '"MDV satırı yok → 0" güvenilmez (elle). Türetilmiş CFO (net − B − C) testte başarısız olduğu için kullanılmıyor.'),
