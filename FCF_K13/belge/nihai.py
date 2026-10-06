@@ -28,7 +28,11 @@ v = pd.read_excel(V7, sheet_name='FCF_TTM')
 nul = pd.read_csv('null_ttm.csv', keep_default_na=False).set_index(['Kod', 'Dönem'])
 kos = pd.read_csv('kosullu_sonuc.csv', keep_default_na=False).set_index(['Kod', 'Dönem'])
 import os
-k6 = (pd.read_csv('k6_ttm.csv', keep_default_na=False).set_index(['Kod', 'Dönem']) if os.path.exists('k6_ttm.csv')
+SIS = set()
+if os.path.exists('sistem_ttm.csv'):
+    _s = pd.read_csv('sistem_ttm.csv', keep_default_na=False); SIS = set(zip(_s.Kod, _s['Dönem']))
+_k6 = [pd.read_csv(f, keep_default_na=False) for f in ('k6_ttm.csv', 'sistem_ttm.csv') if os.path.exists(f)]
+k6 = (pd.concat(_k6).drop_duplicates(['Kod', 'Dönem']).set_index(['Kod', 'Dönem']) if _k6
       else pd.DataFrame(columns=['Kod', 'Dönem']).set_index(['Kod', 'Dönem']))
 KALEMLER = ['CFO', 'MDV+MODV', 'YAGM', 'KIRA', 'TEMETTU']
 
@@ -129,14 +133,21 @@ for _, r in v.iterrows():
     elif (kod, don) in k6.index:  # GEM v6.2: Kontrol 6 işaret anomalisi / Kontrol 7 ihmal eşiği / 0/4 tablo yok
         b = k6.loc[(kod, don)]
         d = belge_degerleri(b)
-        neden = ('K6: ' + r['K6 dışlanan satır'] if isinstance(r['K6 dışlanan satır'], str) else
+        neden = ('Sistematik Evo hatası kontrolü (şirketin başka bir döneminde Evo belgeyle uyuşmadı)' if (kod, don) in SIS else
+                 'K6: ' + r['K6 dışlanan satır'] if isinstance(r['K6 dışlanan satır'], str) else
                  'K7: ' + r['K7 notu'] if isinstance(r['K7 notu'], str) and 'ihmal' in r['K7 notu'] else 'K7: capex 0/4, tablo Evo\'da kayıtlı değil')
         if d['fcf'] is None and tur == 'FCF_HLD' and d['std'] is not None and o['tem'] is not None:
             d['hld'] = d['std'] + o['tem']; d['fcf'] = d['hld']; karma = True
         else:
             karma = False
-        kanitlar.append(dict(Kod=kod, Dönem=don, Grup='K6/K7', Sonuç=b['Satır statü'], Kanıt=kanit(b)))
-        if b['Satır statü'] not in ('TEYITLI', 'PDF_OKUNDU', 'IZAHNAME', 'XBRL_ESAS'):
+        kanitlar.append(dict(Kod=kod, Dönem=don, Grup='SİSTEM' if (kod, don) in SIS else 'K6/K7', Sonuç=b['Satır statü'], Kanıt=kanit(b)))
+        TAMAM = ('TEYITLI', 'PDF_OKUNDU', 'IZAHNAME', 'XBRL_ESAS')
+        kab = b['Satır statü'] in TAMAM
+        # CFO PDF'te özdeşlikle tek satıra bağlanamadı ama XBRL CFO'su Evo ile aynıysa CFO teyitli sayılır (iki bağımsız kaynak)
+        if not kab and all(b[k + ' statü'] in TAMAM for k in ('MDV+MODV', 'YAGM', 'KIRA')) and d['cfo'] is not None \
+                and o['cfo'] is not None and abs(d['cfo'] - o['cfo']) <= max(0.005 * abs(o['cfo']), 0.5):
+            kab = True; neden += ' · CFO: PDF satırı özdeşlikle seçilemedi, XBRL CFO = Evo CFO'
+        if not kab:
             d['fcf'] = None; karma = False  # belge okuması elle karar bekliyor → çözülmemiş say
         if d['fcf'] is not None:
             ayni = v7_fcf is not None and abs(d['fcf'] - v7_fcf) <= max(0.005 * abs(v7_fcf), 0.5)
@@ -150,7 +161,10 @@ for _, r in v.iterrows():
         else:
             m_ = re.search(r'TTM \+([\d.]+)', neden)
             tutar = float(m_.group(1)) if m_ else None
-            if neden.startswith('K6') and tutar is not None and v7_fcf is not None:
+            if (kod, don) in SIS:
+                o['aciklama'] = neden + '; belge bulunamadı/okunamadı (' + b['Satır statü'] + ') → Evo rakamı, kontrol edilemedi'
+                o['k6'] = 'SIS_YOK'
+            elif neden.startswith('K6') and tutar is not None and v7_fcf is not None:
                 maddi = tutar > 0.10 * abs(v7_fcf) or tutar >= abs(v7_fcf)
                 o['statu'] = 'KOŞULLU' if maddi else v7_st
                 o['aciklama'] = neden + ('; belge bulunamadı/okunamadı → maddi işaret anomalisi (> |FCF|×%10) → KOŞULLU' if maddi

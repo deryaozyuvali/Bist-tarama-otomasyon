@@ -68,7 +68,8 @@ N['Statü'] = N['Statü'].fillna('NULL')  # pandas 'NULL' metnini NaN okur
 nul = pd.read_csv('belge/null_ttm.csv', keep_default_na=False)
 kos = pd.read_csv('belge/kosullu_sonuc.csv', keep_default_na=False)
 hol = pd.read_csv('belge/holding_ttm.csv', keep_default_na=False)
-k6t = pd.read_csv('belge/k6_ttm.csv', keep_default_na=False)
+import os
+k6t = pd.concat([pd.read_csv(f, keep_default_na=False) for f in ('belge/k6_ttm.csv', 'belge/sistem_ttm.csv') if os.path.exists(f)]).drop_duplicates(['Kod', 'Dönem'])
 K6I = k6t.set_index(['Kod', 'Dönem'])
 NUL, KOS = nul.set_index(['Kod', 'Dönem']), kos.set_index(['Kod', 'Dönem'])
 ACIK = ast_dict('belge/teslim_kosullu.py', 'ACIKLAMA'); NOTD = ast_dict('belge/teslim_kosullu.py', 'NOT')
@@ -114,8 +115,8 @@ def null_kodu(kod, don, st):
 KIYAS = {'CFO': 'CFO kıyas', 'CAPEX': 'CAPEX kıyas', 'KIRA': 'KIRA kıyas'}
 def fark_kodu(kod, don, kaynak='', statu='', aciklama=''):
     if (kod, don) in K6I.index and (kod, don) not in KOS.index:
-        if 'teyit' in str(kaynak): return 'TMS29_KATSAYI_ACIKLIYOR (K6/K7 belgeyle teyit)'
-        if 'BELGE' in str(kaynak) or 'KARMA' in str(kaynak): return 'EVO_ESLEME_HATASI (K6/K7)'
+        if 'teyit' in str(kaynak): return 'TMS29_KATSAYI_ACIKLIYOR (belge kontrolü teyit)'
+        if 'BELGE' in str(kaynak) or 'KARMA' in str(kaynak): return 'EVO_ESLEME_HATASI (belge kontrolü)'
         if 'maddi işaret' in str(aciklama): return 'ISARET_ANOMALISI_COZULEMEDI (K6)'
         return None
     if (kod, don) not in KOS.index: return None
@@ -175,7 +176,7 @@ KAL = ['CFO', 'MDV+MODV', 'YAGM', 'KIRA', 'TEMETTU']
 bt = []
 kullanilan = {(r['Kod'], r['Dönem']) for _, r in N.iterrows() if 'BELGE' in str(r['Kaynak']) or 'teyitli' in str(r['Kaynak'])}
 K6SET = set(K6I.index)
-for grup, d in (('NULL', nul), ('KOŞULLU', kos), ('HOLDING (temettü)', hol), ('K6/K7', k6t)):
+for grup, d in (('NULL', nul), ('KOŞULLU', kos), ('HOLDING (temettü)', hol), ('K6/K7/SİSTEM', k6t)):
     for _, r in d.iterrows():
         for k in KAL:
             if k + ' bileşen' not in r or (grup.startswith('HOLDING') and k != 'TEMETTU'): continue

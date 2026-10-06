@@ -19,7 +19,8 @@ MOD = os.environ.get('MOD', 'NULL')
 # MOD=HOLDING: tüm holding satırları (FCF_HLD temettü okumasının V7'ye karşı doğrulaması; holding_satirlar.csv)
 SATIRLAR, CIKTI = {'KOSULLU': ('kosullu_satirlar.csv', 'kosullu_ttm.csv'),
                    'HOLDING': ('holding_satirlar.csv', 'holding_ttm.csv'),
-                   'K6': ('k6_satirlar.csv', 'k6_ttm.csv')}.get(MOD, ('null_satirlar.csv', 'null_ttm.csv'))
+                   'K6': ('k6_satirlar.csv', 'k6_ttm.csv'),
+                   'SISTEM': ('sistem_satirlar.csv', 'sistem_ttm.csv')}.get(MOD, ('null_satirlar.csv', 'null_ttm.csv'))
 
 K = pd.read_csv('rapor_kalemleri.csv', dtype={'pdf_sayfa': str})
 # KAP sayfası geçici olarak indirilemeyen raporlar (504): aynı bildirimin önceki başarılı çıkarımı kullanılır
@@ -263,7 +264,7 @@ for r in csv.DictReader(open(SATIRLAR)):
     out.append(satir)
 D = pd.DataFrame(out)
 V7 = pd.read_excel('../FCF_V8_aday_K13.xlsx', sheet_name='KARAR', keep_default_na=False, na_values=[''])
-V7 = V7[(V7['Önerilen statü'] == 'KOŞULLU') if MOD == 'KOSULLU' else (V7.Tip == 'Holding') if MOD == 'HOLDING' else (V7.Kod == V7.Kod) if MOD == 'K6' else (V7['V7 statü'] == 'NULL')][['Kod', 'Dönem', 'CFO_TTM', 'CAPEX_STD', '|Kira anapara|']]
+V7 = V7[(V7['Önerilen statü'] == 'KOŞULLU') if MOD == 'KOSULLU' else (V7.Tip == 'Holding') if MOD == 'HOLDING' else (V7.Kod == V7.Kod) if MOD in ('K6', 'SISTEM') else (V7['V7 statü'] == 'NULL')][['Kod', 'Dönem', 'CFO_TTM', 'CAPEX_STD', '|Kira anapara|']]
 V7.columns = ['Kod', 'Dönem', 'V7 CFO_TTM (Evo)', 'V7 CAPEX_STD (Evo)', 'V7 |Kira| (Evo)']
 D = D.merge(V7, on=['Kod', 'Dönem'], how='left')
 _H = pd.read_excel('../girdi/FCF_TTM_2025-03_2026-06_v7_nihai.xlsx', sheet_name='FCF_TTM')
