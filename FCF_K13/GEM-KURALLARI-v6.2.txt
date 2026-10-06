@@ -644,6 +644,7 @@ Veri Dönemi
     * Aralık dışı mali yılı olan şirketlerde dönem, şirketin kendi mali yıl takvimine göre eşlenir.
 * Retrospektif tarama kuralı: Geçmiş bir dönem için üretilen skor, bugünkü Evo verisiyle hesaplanır. Evo geçmiş serileri en güncel raporlama bazına restate ettiği için, aynı dönem farklı tarihlerde farklı rakam verebilir. Bu bir hata değildir; audit bloğundaki veri çekim tarihi bu farkı izlenebilir kılar.
 * ⚠️ Dönemler arası delta karşılaştırması yapılacaksa, karşılaştırılan tüm dönemler aynı sorgu oturumunda çekilmelidir. Farklı tarihlerde çekilmiş dönemler karşılaştırılırsa fark, şirket performansı ile veri vintage’ı arasında ayrıştırılamaz. ⚠️ Aynı uyarı KURAL SÜRÜMÜ için de geçerlidir: farklı oturumlarda üretilen sütunlar farklı kural sürümü taşıyabilir. Delta okumadan önce bir şirketi 11 metrikten baştan kurarak sütunun hangi sürümle üretildiğini doğrula.
+* AUDIT BLOĞU (ZORUNLU): Her Funnel/FCF çalışmasının audit bloğuna şunlar yazılır: veri çekim tarihi (UTC) · Evo baz dönemi (verinin satın alma gücü dönemi, ör. 2026/06) · GEM sürümü (ör. v6.2) · kullanılan dönem (Current / Prior). Evo eski veri anlık görüntüsü (snapshot) tutmadığı için bugünkü değerin o günkü hâli sonradan geri çağrılamaz; karşılaştırmanın izlenebilirliği yalnız bu kayda dayanır.
 * Aralık dışı mali yılı olan şirketlerde Qn ve FY, şirketin kendi mali yıl takvimine göre tanımlanır.
 
 Evren
