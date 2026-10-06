@@ -159,3 +159,29 @@ if __name__ == '__main__':
     L.to_pickle('kurulu_yay/uzun.pkl')
     json.dump({k: float(v) for k, v in SKALA.items()}, open('kurulu_yay/skala.json', 'w'), indent=1)
     print(L.groupby('D').Kod.nunique(), SKALA)
+
+
+# --- v2: FCF teyidi (bağımsız denetimde bulunan ek bilgi). FCF TTM bir önceki döneme göre iyileştiyse +β puan.
+_FC = pd.read_excel('FCF_MASTER.xlsx', sheet_name='FCF', keep_default_na=False)
+_FC['fcf'] = pd.to_numeric(_FC['FCF · TTM (mn TL)'], errors='coerce')
+_FC = _FC.sort_values(['Kod', 'Dönem']); _FC['dfcf'] = _FC.groupby('Kod').fcf.diff()
+FCF_IYI = (_FC.set_index(['Kod', 'Dönem']).dfcf > 0).astype(float).where(_FC.set_index(['Kod', 'Dönem']).dfcf.notna())
+
+def fcf_beta(M, T):
+    """β: eğitim geçişlerinde model artığının (gerçek Δ − E[Δ]) FCF-iyileşiyor göstergesine göre farkı (tek katsayı)."""
+    ar = []
+    for d in sorted(T.D.unique()):
+        X = T[T.D == d]
+        if X.p_sonra.isna().all(): continue
+        S = sirket(tahmin(M, X), n_mc=200)
+        S['f'] = [FCF_IYI.get((k, d), np.nan) for k in S.Kod]
+        ar.append(S.dropna(subset=['Gercek_delta', 'f']))
+    A = pd.concat(ar)
+    r = A.Gercek_delta - A.E_delta
+    return float(r[A.f == 1].mean() - r[A.f == 0].mean())
+
+def fcf_uygula(S, beta):
+    f = np.array([FCF_IYI.get((k, d), np.nan) for k, d in zip(S.Kod, S.D)])
+    S['FCF_iyilesiyor'] = f
+    S['E_delta_v2'] = S.E_delta + beta * (np.nan_to_num(f, nan=0.5) - 0.5)   # FCF verisi yoksa nötr
+    return S

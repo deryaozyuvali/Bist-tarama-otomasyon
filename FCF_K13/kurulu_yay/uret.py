@@ -12,6 +12,10 @@ M = ky.egit(L)
 SON = D[-1]
 X = ky.tahmin(M, L[L.D == SON])
 S = ky.sirket(X, n_mc=8000)
+BETA = ky.fcf_beta(M, L)
+S = ky.fcf_uygula(S, BETA)
+S['E_delta_v1'] = S.E_delta; S['E_delta'] = S.E_delta_v2   # v2: FCF teyidi dahil
+S['FCF iyileşiyor (2026/03→06)'] = S.FCF_iyilesiyor.map({1.0: 'EVET', 0.0: 'HAYIR'})
 F = pd.read_excel('FCF_MASTER.xlsx', sheet_name='FUNNEL')
 F = F[F['Dönem'] == SON].set_index('Kod')
 A = pd.read_excel('FCF_MASTER.xlsx', sheet_name='ANA', header=None).iloc[4:, :5]; A.columns = ['Kod', 'Ünvan', 'Kapsam', 'Tip', 'Sektör']
@@ -34,8 +38,8 @@ S = S.sort_values('E_delta', ascending=False)
 S['Sıra'] = range(1, len(S) + 1)
 S['Not'] = np.where(S.M10_payi > 0.5, 'Beklenen kazancın yarıdan fazlası M10 (alacak/satış) — oynak metrik', '')
 KOL = ['Sıra', 'Kod', 'Ünvan', 'Sektör', 'Sınıf', 'E_delta', 'P_sicrama', 'P_dusus', 'Yukari', 'Asagi', 'P_kat', 'Funnel MIN (2026/06)', 'Beklenen Funnel',
-       'Önceki Funnel (2026/03)', 'Kategori (2026/06)', 'Surukleyici', 'Risk', 'Not', 'FCF TTM 2026/06', 'FCF statü', 'Funnel MAX']
-AD = {'E_delta': 'KURULU YAY skoru = E[ΔFunnel]', 'P_sicrama': 'P(Δ ≥ +8)', 'P_dusus': 'P(Δ ≤ −8)', 'Yukari': 'Beklenen kazanç',
+       'Önceki Funnel (2026/03)', 'Kategori (2026/06)', 'Surukleyici', 'Risk', 'Not', 'FCF TTM 2026/06', 'FCF iyileşiyor (2026/03→06)', 'E_delta_v1', 'FCF statü', 'Funnel MAX']
+AD = {'E_delta': 'KURULU YAY skoru v2 = E[ΔFunnel] + FCF teyidi', 'E_delta_v1': 'v1 skoru (FCF hariç)', 'P_sicrama': 'P(Δ ≥ +8)', 'P_dusus': 'P(Δ ≤ −8)', 'Yukari': 'Beklenen kazanç',
       'Asagi': 'Beklenen kayıp', 'P_kat': 'P(bir üst kategoriye geçiş)', 'Surukleyici': 'Yukarı sürükleyiciler: metrik puan→hedef (olasılık)', 'Risk': 'Aşağı riskler: metrik puan→düşüş (olasılık)'}
 Y = S[KOL].rename(columns=AD)
 
@@ -67,7 +71,7 @@ with pd.ExcelWriter('KURULU_YAY.xlsx', engine='openpyxl') as w:
     KA['Hedef kategori'] = np.where(KA['Funnel MIN (2026/06)'] >= 60, 'ANA LİSTE (≥70)', 'İZLEME (≥60)')
     KA['Sıra'] = range(1, len(KA) + 1)
     KA[['Sıra', 'Kod', 'Ünvan', 'Sektör', 'Funnel MIN (2026/06)', 'Kategori (2026/06)', 'Hedef kategori', 'P_kat', 'E_delta', 'Asagi', 'Beklenen Funnel',
-        'Surukleyici', 'Risk', 'Not', 'FCF TTM 2026/06', 'FCF statü']].head(80).rename(columns=AD).to_excel(w, sheet_name='KATEGORI_ATLAMA_2026-09', index=False)
+        'Surukleyici', 'Risk', 'Not', 'FCF TTM 2026/06', 'FCF iyileşiyor (2026/03→06)', 'FCF statü']].head(80).rename(columns=AD).to_excel(w, sheet_name='KATEGORI_ATLAMA_2026-09', index=False)
     Y.to_excel(w, sheet_name='ADAYLAR_2026-09', index=False)
     MD.to_excel(w, sheet_name='METRIK_DETAY_ILK60', index=False)
     pd.DataFrame(MOD).to_excel(w, sheet_name='MODEL', index=False)
@@ -101,5 +105,5 @@ for c in ws['E']: c.alignment = Alignment(wrap_text=True)
 for col in ('P', 'Q', 'R'):
     ws.column_dimensions[col].width = 55
 wb.save('KURULU_YAY.xlsx')
-print(S.Sınıf.value_counts())
+print('beta', BETA); print(S.Sınıf.value_counts())
 print(S[['Kod', 'Sınıf', 'E_delta', 'P_sicrama', 'Asagi', 'Funnel MIN (2026/06)', 'Surukleyici', 'Risk']].head(30).round(2).to_string())

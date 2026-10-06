@@ -45,6 +45,12 @@ ama "kaliteye sıçrama" değil. Bu yüzden aynı modelden P(bir üst kategoriye
 Backtest (en olası 20 aday, gerçekten geçenlerin oranı): 2025/09→12 %45 · 2025/12→26/03 %65 · 2026/03→06 %30; taban oran %11–14.
 Kıyas "eşiğe en yakın puan": %35 · %60 · %20 → model her testte 5–10 puan önde (fark mütevazı ama tutarlı; Spearman 0,31–0,45 vs 0,30–0,41).
 
+# v2: FCF teyidi
+Bağımsız denetimde (eski yöntemle karşılaştırma) FCF iyileşmesinin modelin yakalamadığı ek bilgi taşıdığı görüldü: FCF TTM'i bir önceki
+döneme göre iyileşen şirketlerde model artığı ~+1 puan, üç testin üçünde aynı yön. v2 skoru = E[Δ] + β·(FCF iyileşiyor − 0,5);
+β eğitim geçişlerindeki artık farkından tek katsayı olarak öğrenilir (testlerde 1,3–2,0; nihai modelde ayrıca hesaplanır).
+Walk-forward: üst 30 isabeti %47→%50, %23→%30, %13→%17; Spearman 0,300 → 0,304. Kategori atlama olasılığı v1 Monte Carlo'sundan gelir (FCF'siz).
+
 # Kalibrasyon kararları (aşırı uyuma karşı)
 - Ortalamaya dönüş düzeltmesi (son skor değişiminin tersi) denendi → test sonuçlarını kötüleştirdi, alınmadı.
 - Metrik ivmesi: sıralamaya katkısı yok (Spearman 0,300 → 0,301 ivmesiz), aşağı risk ayrımına küçük katkı (alt 30: −6,0 vs −5,6) → tutuldu.

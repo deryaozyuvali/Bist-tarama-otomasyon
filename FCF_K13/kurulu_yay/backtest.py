@@ -27,8 +27,10 @@ if __name__ == '__main__':
     for t in D[1:4]:   # test: 2025/09, 2025/12, 2026/03 (gerçekleşen: bir sonraki dönem)
         egitim = L[L.D.map(D.index) < D.index(t)]
         M = ky.egit(egitim)
-        S = skor_tablo(t, M); S['Test'] = t; tum.append(S)
-        for kol, ad in (('E_delta', 'KURULU YAY (E[Δ])'), ('P_sicrama', 'KURULU YAY (P sıçrama)'), ('B_esik_yakinligi', 'Kıyas: eşik yakınlığı'),
+        S = skor_tablo(t, M)
+        beta = ky.fcf_beta(M, egitim); S = ky.fcf_uygula(S, beta); S['beta'] = beta
+        S['Test'] = t; tum.append(S)
+        for kol, ad in (('E_delta_v2', 'KURULU YAY v2 (E[Δ] + FCF)'), ('E_delta', 'KURULU YAY (E[Δ])'), ('P_sicrama', 'KURULU YAY (P sıçrama)'), ('B_esik_yakinligi', 'Kıyas: eşik yakınlığı'),
                         ('B_dusuk_puan', 'Kıyas: düşük puan'), ('B_skor_ivmesi', 'Kıyas: skor ivmesi')):
             sonuc.append(dict(Test=f'{t}→{D[D.index(t) + 1]}', Yontem=ad, Egitim_gecis=egitim.D.nunique(), **olc(S, kol)))
         s = S.dropna(subset=['P_kat', 'Gercek_kat'])
