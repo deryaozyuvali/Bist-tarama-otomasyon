@@ -129,3 +129,11 @@ TBORG/MARBL 2024/12 YAGM satırı yok → 0. SAHOL 2026/03 YAGM net satır pozit
 Kalan ELLE 11 (gerekçe teslim_kosullu ACIKLAMA): CANTE ×5 (tablolar raporlar arası tutarsız; CFO V7 ile aynı), KATMR ×3 (2024 CFO
 yeniden düzenlemesi, esas belirlenemedi), PLTUR ×3 (araç kiralama filo alımları işletmede; PDF/XBRL CFO tanım farkı).
 KOŞULLU: KESİN 243, YAKIN 18, BELGE_DEGERI 129, ELLE 11, BELGE_YOK 4.
+
+--- 16. tur: GEM v6.2 + MASTER (06.10.2026) ---
+GEM-KURALLARI-v6.2.txt: Evo–belge çapraz kontrolü (tüm rakamlar + FCF Kontrol 14, 14(g) kodları), belge yolu (K7), NULL kodları,
+çeyreklik kilidi, şirket tipi kilidi, P/FCF tarih notu, kasa testi, Funnel çatışma→NULL, audit bloğu. İkinci modelle iki tur gözden geçirildi.
+Eski Evo toplu taramaları (5 dönem) ↔ nihai: ESKI_TARAMA_karsilastirma.xlsx (1.654/1.886 tutuyor). Funnel etkisi: FUNNEL_v62_etki.xlsx.
+MASTER: FCF_MASTER.xlsx (belge/master.py <GEM_20xxQx...xlsx>): ANA · FCF (formüllü bileşenler; belge satırları BELGE_TTM'e bağlı) ·
+BELGE_TTM (A×kA+B×kB−C×kC) · RAPOR_KALEM · ELLE_KARAR · NOTLAR · TMS29 · FUNNEL (M1 güncel CFO, Bölüm F) · FUNNEL_GIRDI · KODLAR.
+LibreOffice Calc bu ortamda yoktu → apt-get install libreoffice-calc (recalc için). Kullanıcı kararı: P/FCF ve çeyreklik FCF master'da yok.
