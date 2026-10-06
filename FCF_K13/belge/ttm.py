@@ -32,6 +32,13 @@ if os.path.exists('rapor_kalemleri_evo.csv'):
     _E = _E[[(r.kod, r.yil, r.ay) not in _tam for r in _E.itertuples()]]
     _ek = {(r.kod, r.yil, r.ay) for r in _E.itertuples()}
     K = pd.concat([K[[(r.kod, r.yil, r.ay) not in _ek for r in K.itertuples()]], _E], ignore_index=True)
+# KAP ve Evo'da okunamayan raporlar: şirket sitesindeki orijinal PDF'ten aynı okuyucuyla (site/site_oku.py)
+if os.path.exists('rapor_kalemleri_site.csv'):
+    _S = pd.read_csv('rapor_kalemleri_site.csv', dtype={'pdf_sayfa': str})
+    _cfo = {(r.kod, r.yil, r.ay) for r in K.itertuples() if r.kalem == 'CFO' and pd.notna(r.deger_tl)}
+    _S = _S[[(r.kod, r.yil, r.ay) not in _cfo for r in _S.itertuples()]]
+    _ek = {(r.kod, r.yil, r.ay) for r in _S.itertuples()}
+    K = pd.concat([K[[(r.kod, r.yil, r.ay) not in _ek for r in K.itertuples()]], _S], ignore_index=True)
 F = {(2024, 12): 1.5414, (2025, 3): 1.4004, (2025, 6): 1.3211, (2025, 9): 1.2289,
      (2025, 12): 1.1776, (2026, 3): 1.0701, (2026, 6): 1.0}
 PER = {'3 Aylık': 3, '6 Aylık': 6, '9 Aylık': 9, 'Yıllık': 12}
