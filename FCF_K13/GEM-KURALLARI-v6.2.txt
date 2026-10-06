@@ -11,13 +11,13 @@ Temel Analiz Kuralların (Bunu Asla Unutma):
 
 Tablo Okuma Disiplini: Excel veya CSV dosyalarından veri çekerken asla satır ve sütunları kaydırma! Rakamları almadan önce “Dönem” ile “Bilanço Kalemi” kesişimini iki kez kontrol et. TTM tabloları ile Çeyreklik tabloları birbirine karıştırma — hangisini kullandığını her zaman açıkça belirt.
 
-Evo–Belge Çapraz Kontrol Kuralı (TÜM RAKAMLAR): Analizde kullanılan her Evo rakamı (gelir tablosu, bilanço, nakit akış, Funnel girdileri, FCF bileşenleri) şirketin finansal raporuyla karşılaştırılır. Evo'da rakam olsa da olmasa da belgeye bakılır.
+Evo–Belge Çapraz Kontrol Kuralı (TÜM RAKAMLAR): Analizde kullanılan her Evo finansal tablo rakamı (gelir tablosu, bilanço, nakit akış, Funnel girdileri, FCF bileşenleri) şirketin finansal raporuyla karşılaştırılır. Piyasa değeri, fiyat, hedef fiyat gibi finansal raporda bulunmayan veriler bu kuralın dışındadır. FAVÖK gibi türetilmiş rakamlar, belgeyle doğrulanmış ham bileşenlerinden yeniden kurularak kontrol edilir. Evo'da rakam olsa da olmasa da belgeye bakılır.
 * Akış kalemleri DÖNEMSEL (YTD) bazda, raporun cari sütunuyla; bilanço kalemleri dönem sonu sütunuyla karşılaştırılır. En güncel rapor ile Evo'nun aynı dönem değeri katsayısız birebir tutmalıdır (tolerans: yuvarlama, ≈ %0,1).
 * TTM ve geçmiş dönem rakamları, onları oluşturan raporlardan kontrol edilir. Fark varsa sırayla: yeniden düzenleme (karşılaştırmalı sütun ilk rapordan farklı mı), TMS 29 (eski rapor kendi tarihinin parasıdır; şirketin raporunda yayımlanan katsayıyla fark açıklanıyor mu), Evo'nun geçmiş rakamı yeni baza taşımamış olması, Evo eşleme hatası (yanlış satır, ters işaret, netleştirme), belgenin kendi iç tutarsızlığı. Ayrıntı: FCF Kontrol 14 (g).
-* Fark bulunursa BELGE ESASTIR; analizde belge rakamı kullanılır, kaynağı (rapor, sayfa) yazılır. Hiçbir neden farkı açıklamıyorsa iki rakam da gösterilir ve o rakama dayalı yorum koşullu yapılır.
+* Farkın nedeni açıklanmış ve belge kendi içinde tutarlıysa BELGE esas alınır; analizde belge rakamı kullanılır, kaynağı (rapor, sayfa) yazılır. Açıklanamayan çatışmalarda ilgili alt protokol uygulanır: Funnel girdisi → NULL (Bölüm A3); FCF → KOŞULLU + iki değer (Kontrol 14 (g)).
 * FCF bileşenleri için ayrıntılı uygulama: FCF Kontrol 14.
 
-TMS 29 Uyarıları: Tüm tabloları enflasyon muhasebesi (TMS 29) uygulanmış olarak değerlendir ve ciroların “reel” olarak büyüyüp büyümediğine bak.
+TMS 29 Uyarıları: TMS 29 uygulayan şirketlerde tabloları enflasyon muhasebesi uygulanmış olarak değerlendir ve ciroların “reel” olarak büyüyüp büyümediğine bak (uygulama durumu: aşağıdaki TMS 29 Uygulama Tespiti).
 TMS 29 Uygulama Tespiti: Şirketin TMS 29 uygulayıp uygulamadığı finansal raporundan belirlenir, sırayla: (1) sunum esası / muhasebe politikaları, (2) “TMS 29 / UMS 29 / yüksek enflasyonlu ekonomiler / cari dönem satın alma gücü” ifadeleri, (3) karşılaştırmalı tabloların yeniden ifade açıklaması. Hiçbirinde bulunamazsa TMS29 durumu = DOĞRULANAMADI. Evo'da ayrı bir TMS 29 alanı varsayılmaz. Evo ile PDF rakamlarının eşit ya da farklı olması yalnız teşhis sinyalidir; TMS 29 sınıflandırıcısı olarak kullanılmaz.
 
 Nakit Kraldır: Net Kâr manşetlerine asla güvenme. İFNA ile çapraz kontrol et. Kasa para basmıyorsa o kâr makyajlıdır.
@@ -179,8 +179,11 @@ TTM marjı çeyreklikten belirgin farklıysa nedenini açıkla (mevsimsellik, te
 
 💵 SERBEST NAKİT AKIŞI (FCF) KURALI — v2.2
 
-FCF DAİMA TTM BAZINDA HESAPLANIR. Dönemsel (YTD) kullanılacaksa
-başlıkta açıkça belirtilir ve TTM ile yan yana gösterilir.
+FCF DAİMA TTM BAZINDA HESAPLANIR: ana karar ve değerleme FCF metriği
+daima TTM'dir. Ayrıca nakit üretim desenini görmek için tek çeyrek
+(standalone) çeyreklik FCF TEŞHİS serisi hesaplanır; P/FCF, FCF Yield
+gibi oranlarda kullanılmaz. Dönemsel (YTD) kullanılacaksa başlıkta
+açıkça belirtilir ve TTM ile yan yana gösterilir.
 ⛔ Dönemsel ve TTM rakamları asla aynı sütunda karışmaz.
 
 ANALİZDE FCF TABLOSU: Her analizde FCF iki ayrı tabloda gösterilir:
@@ -201,7 +204,7 @@ seviyesi farkı TÜİK TÜFE ile yalnız TEŞHİS amacıyla yüzde olarak
 gösterilir; P/FCF düzeltilmez. (Aynı kural F/K gibi diğer piyasa
 değeri / finansal akış oranları için de geçerlidir.) Bu fark için
 alarm eşiği tanımlanmamıştır.
-Seri/desen kuralı (“son 3 dönem pozitif” vb.) bu kural setinde yoktur;
+FCF hesaplama/statü katmanında seri/desen kuralı (“son 3 dönem pozitif” vb.) yoktur (açık istisna: Bölüm F'deki Ana Liste güvenlik filtresi);
 bu sorular istendiğinde veriden sorgulanır. Kuralların görevi verinin
 bu sorgulara uygun ve doğru olmasıdır.
 
@@ -284,6 +287,10 @@ KCHOL’de bu test yapılmadığında 21,1 milyar TL çifte sayılmıştır.
 
 ③ TEŞHİS SÜTUNU (adı FCF DEĞİLDİR)
 Finansman Öncesi Nakit = CFO_TTM − Yatırım Faaliyetleri Toplamı_TTM
+İşaret sözleşmesi: bu formülde Yatırım Faaliyetleri Toplamı pozitif
+nakit çıkışı büyüklüğü olarak normalize edilir. Nakit akış tablosundaki
+işaretli tutar (CFI; çıkış negatif) kullanılıyorsa eşdeğer formül
+CFO_TTM + CFI_TTM'dir.
 Sorusu: “Şirket dışarıdan finansmana muhtaç oldu mu?”
 ⛔ Bu sayıya “Serbest Nakit Akışı” DENMEZ. Fintables tarayıcısındaki
 “Serbest Nakit Akışı” alanı bu tanımdır — etiketi yanıltıcıdır.
@@ -326,6 +333,8 @@ NULL       → rakam yok; nedeni kodla yazılır. NULL asla 0 sayılmaz.
 Rakamın KAYNAĞI statüden ayrı yazılır:
 EVO   → Evo değeri, Kontrol 14 ile belgeyle tuttu
 BELGE → rapordan okundu (rapor, sayfa yazılır)
+KARMA → bileşenler farklı kaynaklardan (ör. CFO belge, temettü Evo);
+        bileşen bazında kaynak ayrıca yazılır
 
 ZORUNLU ÇAPRAZ KONTROLLER
 
@@ -349,17 +358,25 @@ ZORUNLU ÇAPRAZ KONTROLLER
     Tespit edilen vakalar (2026/06): KARTN +148,2 mn · TOASO +10,8 mn ·
     RTALB +8,7 mn. Üçünde de FCF kirasız hesaplanır, nota “kira satırı
     işaret anomalisi” yazılır.
-    ⚠️ Tek çeyrekteki işaret anomalisi FCF statüsünü KOŞULLU YAPMAZ;
-    satıra not düşülür, statü KESİN kalır. (Vaka: PCILT 2025/09
-    capex +7.196.714 → not, blokaj değil.)
+    ⚠️ İşaret anomalisinin statüye etkisi:
+    • Kontrol 14 belgeyle doğru rakamı bulursa → belge rakamı, KESİN.
+    • Belge de çözemezse ve anomali MADDİYSE → KOŞULLU.
+      Maddi: dışlanan satırın mutlak tutarı |FCF_TTM|'in %10'unu aşıyor
+      veya FCF'in işaretini çevirebilecek büyüklükte.
+    • Maddi değilse → KESİN + anomali notu. (Vaka: PCILT 2025/09
+      capex +7.196.714 → not, blokaj değil.)
     Not: Pozitif işaretli satırın dışlanması “NULL'u 0 saymak” değil,
     anomali dışlamasıdır. Kontrol 14 ile belgeden doğru rakam
     okunabiliyorsa o kullanılır.
 7. VERİ EKSİKLİĞİ — CAPEX NULL AYRIMI:
     Karar try_ttm’in NULL olmasına değil, TTM penceresindeki DÖRT
     ÇEYREĞİN try_ceyreklik KAYIT SAYISINA bakılarak verilir.
-    (A) 0/4 kayıt → kalem ekonomik olarak yok → capex = 0
-    → FCF hesaplanır, “capex satırı yok” notu düşülür
+    (A) 0/4 kayıt → Evo'da bu kalem için kayıt yok:
+    • O dönemlerin nakit akış tablosu Evo'da kayıtlı (CFO 4/4) ise
+      kalem tabloda yer almıyor → ekonomik 0, FCF hesaplanır,
+      “capex satırı yok” notu düşülür.
+    • Tablo da kayıtlı değilse → BELGE YOLU; belge kalemin bulunmadığını
+      doğrularsa 0, belge yoksa NULL.
     (B) 1–3 kayıt → veri kısmi → FCF = NULL
     → İstisna: Kontrol 9’un artık yöntemiyle türetilebiliyorsa
     hesaplanır ama statü TÜRETİLMİŞ olur, kaynağı yazılır
@@ -372,12 +389,13 @@ ZORUNLU ÇAPRAZ KONTROLLER
     veya okunamazsa kalır.
     ⛔ Kalem raporda hiç yoksa 0'dır; okunamıyorsa NULL'dır. İkisi
        karıştırılmaz.
-    Ekonomik önemsizlik eşiği: pencerede bulunan capex kayıtlarının
-    mutlak toplamı |capex| < 1 mn TL VEYA < |CFO_TTM| × %0,5 ise
-    (A) kabul edilir, nota “ihmal edilebilir capex” yazılır.
-    ⛔ Şirket analizinde önce BELGE YOLU uygulanır; eksik çeyrekler
-       okunmadan, bulunan kayıtlar küçük diye eksik kayıtlar 0 kabul
-       edilmez. Eşik yalnız belge de okunamadığında kullanılır.
+    Ekonomik önemsizlik eşiği (|capex| < 1 mn TL VEYA < |CFO_TTM| ×
+    %0,5) eksik veriyi 0'a ÇEVİRMEZ. “İhmal edilebilir capex” notu yalnız
+    belge eksik çeyreklerde capex'in bulunmadığını veya eşiğin altında
+    kaldığını doğrularsa kullanılır.
+    ⛔ 1–3 kayıt + belge okunamıyor → FCF = NULL (NULL_OKUNAMADI /
+       NULL_BELGE_YOK). Bulunan kayıtlar küçük diye eksik çeyrekler 0
+       kabul edilmez; eşik yalnız inceleme önceliğini düşürür.
     ⛔ NULL asla 0 sayılmaz; capex düşülmeden CFO’yu FCF diye yazma.
     Doğrulama: GWIND 2026/06 → capex kaydı 2/4 → şık (B).
 8. CAPEX = TOPLAM YATIRIM ŞABLON HATASI:
@@ -497,7 +515,9 @@ ZORUNLU ÇAPRAZ KONTROLLER
         ✗ CFO yanlış satırdan (HKTM, SNICA)
         ✗ yatırım toplamı alım satırına yazılmış (Kontrol 8)
     (e) Belgenin kendi tutarlılığı: İşletme + Yatırım + Finansman
-        (+ kur farkı etkisi) = nakit değişimi. Tutmuyorsa belge
+        (+ kur farkı etkisi + tabloda ayrıca gösterilen diğer nakit
+        mutabakat etkileri, ör. parasal kayıp/kazanç, beklenen zarar
+        karşılığı) = nakit değişimi. Tutmuyorsa belge
         rakamı da tek başına güvenilmez; not düşülür.
     (f) TTM'in diğer iki parçası (önceki FY, önceki YTD): master FCF
         dosyasında belgeyle doğrulanmış kayıt varsa o kullanılır. Yoksa
@@ -527,7 +547,7 @@ ZORUNLU ÇAPRAZ KONTROLLER
         4. Evo eşleme hatası: (d) listesi. Belge iç tutarsızlığı: (e).
         Hiçbiri açıklamıyorsa → ACIKLANAMAYAN_FARK: FCF statüsü =
         KOŞULLU, iki değer yazılır.
-    (h) Fark bulunursa BELGE ESASTIR. FCF belge rakamıyla hesaplanır,
+    (h) Farkın nedeni açıklandıysa (1–4) BELGE ESASTIR. FCF belge rakamıyla hesaplanır,
         kaynak BELGE (rapor, sayfa) yazılır. Fark master FCF dosyasına
         karar kaydı olarak işlenir; toplu hesapta aynı hata tekrar
         oluşmaz.
@@ -548,7 +568,7 @@ seri karşılaştırmaları aynı baza çevrilerek yapılır (Kontrol 14 (g)).
 
 📌 BİLİNEN SINIRLAMALAR KAYDI
 (Kural DEĞİLDİR. Skoru, statüyü, formülü etkilemez.
-Yeterli kanıt birikince v6.2 adayı olur.)
+Yeterli kanıt birikince v6.3 adayı olur.)
 
 1. FİNANSAL İŞTİRAK KONSOLİDASYONU — teşhis notu
    Artık testi (Kontrol 9) çok büyük bir değerle tetiklendiğinde
@@ -571,7 +591,7 @@ Yeterli kanıt birikince v6.2 adayı olur.)
       onu kesin biçimde ① der ve yine yanlıştır.
    Kalıcı çözüm yapısal bir şirket tipi katmanı gerektirir (özkaynak
    yöntemi iştirak büyüklüğü, finansal yatırımların toplam varlık
-   içindeki payı, esas gelir kaynağı). v6.1'e yarım classifier
+   içindeki payı, esas gelir kaynağı). mevcut sürüme yarım classifier
    sokulmaz.
 3. TEMETTÜ TTM BÜTÜNLÜĞÜ — DOĞRULAMA ZORUNLU
    Temettü satırı olan şirket sayısı:
@@ -644,7 +664,7 @@ Veri Dönemi
     * Aralık dışı mali yılı olan şirketlerde dönem, şirketin kendi mali yıl takvimine göre eşlenir.
 * Retrospektif tarama kuralı: Geçmiş bir dönem için üretilen skor, bugünkü Evo verisiyle hesaplanır. Evo geçmiş serileri en güncel raporlama bazına restate ettiği için, aynı dönem farklı tarihlerde farklı rakam verebilir. Bu bir hata değildir; audit bloğundaki veri çekim tarihi bu farkı izlenebilir kılar.
 * ⚠️ Dönemler arası delta karşılaştırması yapılacaksa, karşılaştırılan tüm dönemler aynı sorgu oturumunda çekilmelidir. Farklı tarihlerde çekilmiş dönemler karşılaştırılırsa fark, şirket performansı ile veri vintage’ı arasında ayrıştırılamaz. ⚠️ Aynı uyarı KURAL SÜRÜMÜ için de geçerlidir: farklı oturumlarda üretilen sütunlar farklı kural sürümü taşıyabilir. Delta okumadan önce bir şirketi 11 metrikten baştan kurarak sütunun hangi sürümle üretildiğini doğrula.
-* AUDIT BLOĞU (ZORUNLU): Her Funnel/FCF çalışmasının audit bloğuna şunlar yazılır: veri çekim tarihi (UTC) · Evo baz dönemi (verinin satın alma gücü dönemi, ör. 2026/06) · GEM sürümü (ör. v6.2) · kullanılan dönem (Current / Prior). Evo eski veri anlık görüntüsü (snapshot) tutmadığı için bugünkü değerin o günkü hâli sonradan geri çağrılamaz; karşılaştırmanın izlenebilirliği yalnız bu kayda dayanır.
+* AUDIT BLOĞU (ZORUNLU): Her Funnel/FCF çalışmasının audit bloğuna şunlar yazılır: veri çekim tarihi (UTC) · Evo baz dönemi (beklenen: şirketin en güncel raporlama dönemi, ör. 2026/06; Kontrol 14 ile doğrulandıysa “doğrulandı”, istisna bulunduysa EVO_YENIDEN_BAZLAMAMIS) · GEM sürümü (ör. v6.2) · kullanılan dönem (Current / Prior). Evo eski veri anlık görüntüsü (snapshot) tutmadığı için bugünkü değerin o günkü hâli sonradan geri çağrılamaz; karşılaştırmanın izlenebilirliği yalnız bu kayda dayanır.
 * Aralık dışı mali yılı olan şirketlerde Qn ve FY, şirketin kendi mali yıl takvimine göre tanımlanır.
 
 Evren
@@ -682,7 +702,7 @@ Kurallar:
 * ⛔ Farklı veri çekim tarihlerine ait Evo vintage’ları aynı çalışmada karıştırılmaz.
 * ⛔ Manuel TMS 29 reconstruction yapılmaz.
 
-Gerekçe: Evo, historical finansal serileri cari raporlama döneminin satın alma gücü bazına restate etmektedir. Current ve prior veriler zaten aynı ölçü birimindedir; harici deflatör çifte düzeltmedir.
+Gerekçe: Evo'nun genel yöntemi historical TRY serisini şirketin en güncel raporlama döneminin satın alma gücü bazına taşımaktır; current ve prior veriler bu durumda aynı ölçü birimindedir ve harici deflatör çifte düzeltmedir. Ancak şirket/dönem bazında yeniden bazlanmamış istisnalar tespit edilmiştir (MEGMT; BLCYT/GMTAS/ECOGR 2025/12). Şirket analizinde Kontrol 14 (g) bu istisnaları denetler.
 
 Kavram ayrımı: TMS 29’un buradaki işlevi birim uyumudur, reel büyüme filtresi değildir.
 
@@ -702,7 +722,7 @@ T5	Şirket TTM penceresi içinde sunum/sınıflandırma değiştirmiş (bkz. FCF
 * Belgeye erişilemedi, somut çatışma yok → Evo verisi kullanılır, “doğrulanamadı” işaretlenir (aşağıdaki kural).
 * Evo ≠ belge ve fark açıklanamadı (ACIKLANAMAYAN_FARK) → ilgili Funnel girdisi NULL → Bölüm E (MIN–MAX).
 
-Doğrulama yapılamıyorsa: Evo verisi olduğu gibi kullanılır, audit bloğunda “doğrulanamadı” işaretlenir, skor koşullu sayılır.
+Doğrulama yapılamıyorsa (belgeye erişilemedi ve somut çatışma yok): Evo verisi olduğu gibi kullanılır, audit bloğunda “doğrulanamadı” işaretlenir, skor koşullu sayılır. Açıklanamayan çatışmada (ACIKLANAMAYAN_FARK) bu kural uygulanmaz; girdi NULL olur.
 
 A4 — Flow / Snapshot ayrımı
 
@@ -946,6 +966,8 @@ Skor	Kategori
 60–69	👁️ İzleme
 50–59 + Bilanço Puanı ≥ 7,5	⏳ Shortlist / Bekleme
 
+Not: Funnel skoru deterministiktir. Shortlist için gereken Bilanço Puanı (/10) ADIM 3 karnesindeki nitel analist kararıdır; deterministik rubriği yoktur ve Funnel skoruna girmez.
+
 Tier 0 şirketlerde Funnel satırı “Uygulanamaz — Tier 0” olarak gösterilir.
 
 ⚠️ Ana Liste + FCF negatif → KOŞULLU Ana Liste. Funnel ≥70 olup son üç çeyreğin TTM FCF’i üst üste negatif olan şirket, dipnot incelemesi yapılmadan Ana Liste’de sayılmaz.
@@ -968,6 +990,7 @@ Holding / yatırım şirketi:
             − CAPEX_STD − |Kira anaparası|_TTM
 Teşhis (FCF DEĞİL):
   Finansman Öncesi Nakit = CFO_TTM − Yatırım Faaliyetleri Toplamı_TTM
+  (işaret sözleşmesi: FCF bloğu ③; işaretli CFI ile = CFO + CFI)
 
 Capex daima POZİTİF ÇIKIŞ olarak ele alınır.
 Doğrulama: Capex arttığında FCF azalmalıdır.
@@ -983,7 +1006,7 @@ Aynı şirkette FCF_HLD = −2.983,8 mn TL’dir.
 
 Sütun etiketleme zorunluluğu: Her FCF sütununun başlığında
 (a) tanım [STD / HLD / Finansman Öncesi], (b) pencere [TTM /
-Dönemsel] ve (c) statü [KESİN / TÜRETİLMİŞ / KOŞULLU] yer alır.
+Dönemsel] ve (c) statü [KESİN / TÜRETİLMİŞ / KOŞULLU / NULL] yer alır.
 Etiketsiz sütun kullanılmaz.
 
 Toplu tarama kolonları: Funnel skoruna ek olarak artik,
@@ -1055,8 +1078,9 @@ Bir analiz tamamlandığında şu soruyu sor: “Aynı şirketi dipnot PDF’ini
 ═══════════════════════════════════════
 
 KLASÖR YAPISI
-/BIST/GEM Analizleri/INDEX.md
-/BIST/GEM Analizleri/[KOD]/[KOD][YYYY]Q[N]_GEM.md
+/BIST/GEM Analizleri/_INDEX.md
+/BIST/GEM Analizleri/[KOD]/[KOD]_[YYYY]Q[N]_GEM.md
+/BIST/GEM Analizleri/_satirlar/[KOD]_[YYYY]Q[N].md
 
 ───────────────────────────────────────
 NE ZAMAN ÇALIŞIR
@@ -1077,7 +1101,7 @@ ADIMLAR
 3. KLASÖR — /BIST/GEM Analizleri/[KOD] oluştur. ALREADY_EXISTS hatası normaldir, devam et.
 4. DOSYA — [KOD]_[YYYY]Q[N]_GEM.md yaz.
     İçerik: ADIM 1 + ADIM 2 + ADIM 3 + özet karne, sohbetteki haliyle BİREBİR. Özetleme, kısaltma, yeniden yazma.
-5. SATIR DOSYASI — /BIST/GEM Analizleri/satirlar/[KOD][YYYY]Q[N].md olarak yaz (CSV DEĞİL).
+5. SATIR DOSYASI — /BIST/GEM Analizleri/_satirlar/[KOD]_[YYYY]Q[N].md olarak yaz (CSV DEĞİL).
     İçerik, tek satırlık markdown tablosu:
 
 kod	ad	donem	bilanco	hikaye	funnel	kategori	tarih	dosya	not
