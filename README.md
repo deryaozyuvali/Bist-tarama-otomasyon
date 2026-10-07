@@ -10,6 +10,7 @@ mantığına (RSI/MACD/OBV, mum formasyonları vb.) hiç dokunulmadı — sadece
 | İş | Dosyalar | Zamanlama |
 |---|---|---|
 | **Günlük tarama** | `xutum_tarama_v2.py`, `xutum_tarama_haftalik_son.py` | Her hafta içi gün 09:30 (İstanbul) |
+| **Temel tarama** | `temel_tarama.py` (yöntem: `YONTEM.md`) | Her Cumartesi 10:00 (İstanbul) |
 | **Mum tarama** | `mum_tarama_v1_7_strict_raw_ohlc.py` | Sadece haftanın SON işlem günü ve ayın SON işlem günü, kapanıştan sonra (18:30 İstanbul) |
 
 Mum taramanın "hafta/ay sonu mu?" kararını `gate.py` veriyor. Bu, resmi BIST
@@ -71,6 +72,7 @@ Bir workflow'un zamanlamasını beklemeden hemen çalıştırmak için:
 - `results/gunluk/latest_*.csv` → en güncel günlük tarama sonucu
 - `results/mum/<TARİH>/` → o hafta/ay sonu mum tarama çıktıları
 - `results/mum/latest.csv` → en güncel mum tarama sonucu
+- `results/temel/latest_temel_sinyal.csv` → en güncel temel tarama adayları
 
 Bu dosyalar repo geçmişinde kalıcı olarak birikir, yani istediğin zaman
 geçmiş tarihli bir taramaya da bakabilirsin.

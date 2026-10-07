@@ -1,0 +1,44 @@
+name: Temel Tarama (Haftalık, Cumartesi 10:00 İstanbul)
+
+on:
+  schedule:
+    - cron: "0 7 * * 6"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  tara:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Bağımlılıkları kur
+        run: pip install -q -r requirements.txt
+
+      - name: temel_tarama.py çalıştır
+        run: python temel_tarama.py
+
+      - name: Sonuçları arşivle
+        run: |
+          TARIH=$(TZ=Europe/Istanbul date +%F)
+          mkdir -p "results/temel/$TARIH"
+          cp -f temel_tarama.csv temel_sinyal.csv "results/temel/$TARIH/"
+          cp -f temel_tarama.csv results/temel/latest_temel_tarama.csv
+          cp -f temel_sinyal.csv results/temel/latest_temel_sinyal.csv
+          echo "$TARIH" > results/temel/latest_date.txt
+
+      - name: Commit & push
+        run: |
+          git config user.name "tarama-bot"
+          git config user.email "tarama-bot@users.noreply.github.com"
+          git add results/
+          git diff --cached --quiet || git commit -m "Temel tarama sonucu: $(TZ=Europe/Istanbul date +%F)"
+          git pull --rebase
+          git push
