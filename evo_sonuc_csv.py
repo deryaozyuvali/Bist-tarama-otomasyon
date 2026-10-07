@@ -11,7 +11,8 @@ import sys
 UYARI = [("ALACAK", "u_alacak"), ("TMS38", "u_tms38"),
          ("MARJ_OYNAK", "u_oynak"), ("TEMETTU_YOK", "u_temettu")]
 BAYRAK = [("ZARAR_AMA_FAVOK", "b_zarar_ama_favok"), ("DIGER_GELIR", "b_diger_gelir"),
-          ("ISTIRAK_ZARARI", "b_istirak_zarari"), ("DURDURULAN", "b_durdurulan")]
+          ("ISTIRAK_ZARARI", "b_istirak_zarari"), ("DURDURULAN", "b_durdurulan"),
+          ("FINANSAL_GELIR", "b_finansal_gelir")]
 
 
 def oku(yol):

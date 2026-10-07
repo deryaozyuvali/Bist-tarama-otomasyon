@@ -72,7 +72,8 @@ x AS (
     COALESCE(b.netborc, 0) AS netborc, b.alacak, f.fcf, f.neg3, f.funnel, f.kat,
     COALESCE(t.tem_yil, 0) AS tem_yil,
     h.piyasa_degeri + COALESCE(b.netborc, 0) + COALESCE(b.azinlik, 0) AS fd,
-    CASE WHEN g.favok > 0 THEN (h.piyasa_degeri + COALESCE(b.netborc, 0) + COALESCE(b.azinlik, 0)) / g.favok END AS fd_favok,
+    CASE WHEN g.favok > 0 AND h.piyasa_degeri + COALESCE(b.netborc, 0) + COALESCE(b.azinlik, 0) > 0
+      THEN (h.piyasa_degeri + COALESCE(b.netborc, 0) + COALESCE(b.azinlik, 0)) / g.favok END AS fd_favok,
     g.favok / NULLIF(g.satis, 0) AS marj,
     CASE WHEN g.favok > 0 THEN COALESCE(b.netborc, 0) / g.favok END AS nb_favok,
     g.satis / NULLIF(g.satis_1y, 0) - 1 AS buyume,
@@ -92,9 +93,9 @@ x AS (
     AND h.piyasa_degeri > 0 AND g.satis > 0),
 s AS (
   SELECT x.*,
-    CASE WHEN fd_favok <= 5 THEN 3 WHEN fd_favok <= 8 THEN 2 WHEN fd_favok <= 12 THEN 1
+    CASE WHEN marj > 0.90 THEN 0 WHEN fd_favok <= 5 THEN 3 WHEN fd_favok <= 8 THEN 2 WHEN fd_favok <= 12 THEN 1
          WHEN fd_favok > 20 THEN -1 ELSE 0 END AS p_fd,
-    CASE WHEN marj >= 0.25 THEN 2 WHEN marj >= 0.15 THEN 1 WHEN marj < 0.03 THEN -1 ELSE 0 END AS p_marj,
+    CASE WHEN marj > 0.90 THEN 0 WHEN marj >= 0.25 THEN 2 WHEN marj >= 0.15 THEN 1 WHEN marj < 0.03 THEN -1 ELSE 0 END AS p_marj,
     CASE WHEN netborc < 0 THEN 2 WHEN nb_favok <= 1.5 THEN 1 WHEN nb_favok > 3 THEN -2
          WHEN favok <= 0 THEN -1 ELSE 0 END AS p_borc,
     CASE WHEN buyume >= 0.15 THEN 2 WHEN buyume >= 0 THEN 1 ELSE 0 END AS p_buyume,
@@ -127,7 +128,8 @@ SELECT k AS hisse, sektor, donem,
   CASE WHEN net < 0 AND favok > 0 AND fd_favok <= 10 THEN 'X' END AS b_zarar_ama_favok,
   CASE WHEN fk <> 0 AND diger > 0.30 * ABS(fk) THEN 'X' END AS b_diger_gelir,
   CASE WHEN ozk_pay < 0 AND ABS(ozk_pay) > 0.30 * ABS(net) THEN 'X' END AS b_istirak_zarari,
+  CASE WHEN marj > 0.90 THEN 'X' END AS b_finansal_gelir,
   CASE WHEN durd <> 0 AND ABS(durd) > 0.20 * ABS(net) THEN 'X' END AS b_durdurulan
 FROM s
-ORDER BY puan DESC, fd_favok ASC
+ORDER BY {{SIRA}} DESC, fd_favok ASC
 LIMIT 300

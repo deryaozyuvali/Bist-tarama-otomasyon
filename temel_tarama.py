@@ -13,7 +13,8 @@ EVO'ya dışarıdan bağlanılamadığı (sadece Claude'un MCP aracıyla erişil
 için bu script hesaplamayı kendisi yapmaz; FCF_MASTER verisini içine gömerek
 tek bir SQL sorgusu üretir. Puanlamanın tamamı bu sorgunun içindedir:
 
-    python temel_tarama.py FCF_MASTER.xlsx  >  temel_tarama_uretilmis.sql
+    python temel_tarama.py FCF_MASTER.xlsx  >  sorgu.sql   # yayıncı + FCF/Funnel
+    python temel_tarama.py --sadece-yayinci  >  sorgu.sql   # sadece yayıncı yöntemi
 
 Üretilen sorgu EVO `veri_sorgula` aracıyla çalıştırılır (en fazla 300 satır,
 PUAN'a göre sıralı). Şablon: temel_tarama.sql
@@ -82,10 +83,18 @@ def fcf_cte(satirlar):
     return "\n  UNION ALL ".join(parcalar)
 
 
+BOS_FCF = ("SELECT CAST(NULL AS text) AS k, CAST(NULL AS numeric) AS fcf, 0 AS neg3, "
+           "CAST(NULL AS integer) AS funnel, '-' AS kat")
+
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        sys.exit("Kullanım: python temel_tarama.py FCF_MASTER.xlsx > sorgu.sql")
-    satirlar = list(fcf_satirlari(sys.argv[1]))
-    sql = SABLON.read_text(encoding="utf-8").replace("{{FCF}}", fcf_cte(satirlar))
-    sys.stdout.write(sql)
-    print(f"-- {len(satirlar)} şirketin FCF/Funnel verisi gömüldü", file=sys.stderr)
+    arg = sys.argv[1:]
+    if arg == ["--sadece-yayinci"]:
+        fcf, sira = BOS_FCF, "yayinci"
+    elif len(arg) == 1:
+        satirlar = list(fcf_satirlari(arg[0]))
+        fcf, sira = fcf_cte(satirlar), "puan"
+        print(f"-- {len(satirlar)} şirketin FCF/Funnel verisi gömüldü", file=sys.stderr)
+    else:
+        sys.exit("Kullanım: python temel_tarama.py (FCF_MASTER.xlsx | --sadece-yayinci) > sorgu.sql")
+    sql = SABLON.read_text(encoding="utf-8")
+    sys.stdout.write(sql.replace("{{FCF}}", fcf).replace("{{SIRA}}", sira))

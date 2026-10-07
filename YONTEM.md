@@ -16,8 +16,8 @@ da hep **defansif** varsayımlarla yap.
 EVO'ya sadece Claude'un MCP aracıyla erişilebiliyor (GitHub Actions'tan
 erişilemiyor). Bu yüzden tarama şöyle çalışıyor:
 
-1. `python temel_tarama.py FCF_MASTER.xlsx > sorgu.sql`
-   FCF ve Funnel verisi `temel_tarama.sql` şablonuna gömülür.
+1. `python temel_tarama.py --sadece-yayinci > sorgu.sql` (yalnızca yayıncı yöntemi, `yayinci`'ya göre sıralı)
+   ya da `python temel_tarama.py FCF_MASTER.xlsx > sorgu.sql` (FCF ve Funnel verisi şablona gömülür, `puan`'a göre sıralı).
 2. Üretilen sorgu EVO `veri_sorgula` ile çalıştırılır. Puanlamanın tamamı SQL
    içindedir ve sonuç PUAN'a göre sıralı ilk 300 hissedir.
 3. `python evo_sonuc_csv.py <evo_sonuc.txt> results/temel/temel_tarama_<TARİH>.csv`
@@ -30,7 +30,7 @@ finansman. Bu sektörlerde FD/FAVÖK anlamsız. Holdingler kapsamda (Polisan).
 
 | Kural | Puan | Videodaki karşılığı |
 |---|---|---|
-| FD/FAVÖK ≤5 / ≤8 / ≤12 / >20 | +3 / +2 / +1 / −1 | Ana çarpan: Gimat "5'in altı", Polisan liman 6-7, akranlar 8-9. FD = PD + net borç + azınlık payları. |
+| FD/FAVÖK ≤5 / ≤8 / ≤12 / >20 | +3 / +2 / +1 / −1 | Ana çarpan: Gimat "5'in altı", Polisan liman 6-7, akranlar 8-9. FD = PD + net borç + azınlık payları; FD ≤0 ise hesaplanmaz. |
 | FAVÖK marjı ≥%25 / ≥%15 / <%3 | +2 / +1 / −1 | Gimat ve Tınaztepe yüksek marj, Polisan kimya %1 marj |
 | Net nakit / NetBorç/FAVÖK ≤1,5 / >3 / FAVÖK ≤0 | +2 / +1 / −2 / −1 | Gimat, Tınaztepe, Fonet net nakit; Menderes borç geçmişi |
 | Reel ciro büyümesi (TTM, yıllık) ≥%15 / ≥0 | +2 / +1 | Fonet "enflasyon üzeri %36" |
@@ -61,6 +61,9 @@ finansman. Bu sektörlerde FD/FAVÖK anlamsız. Holdingler kapsamda (Polisan).
   Teşvik, kur farkı, vade farkı gibi kalemler kârı taşıyor olabilir (Menderes).
 - `ISTIRAK_ZARARI`: Özkaynak yöntemiyle değerlenen yatırımlardan gelen zarar,
   net kârın %30'undan fazla (Polisan'ın Kansai iştiraki).
+- `FINANSAL_GELIR`: FAVÖK marjı %90'ın üstünde. Gelir büyük ölçüde yatırım ya
+  da finansal kazanç demektir (yatırım holdingleri). Bu durumda FD/FAVÖK ve
+  marj puanı verilmez.
 - `DURDURULAN`: Durdurulan faaliyetlerin etkisi, net kârın %20'sinden fazla.
   Elden çıkarılan iş olabilir (Polisan Hellas).
 
