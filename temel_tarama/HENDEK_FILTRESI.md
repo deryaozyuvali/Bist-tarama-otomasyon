@@ -13,51 +13,50 @@ Kitabın uyarısı geçerli: Testin amacı mükemmel şirketi bulmak değil, *ne
 
 ## Aşama 1 — Rakamsal tarama
 
+**Dönem: yalnızca enflasyon muhasebeli (TMS 29) yıllar, 2022–2025.**
+- TMS 29, 31.12.2023 yıl sonu tablolarından itibaren zorunlu oldu; 2022 rakamları karşılaştırma için geriye dönük düzeltildi.
+- Kitabın "5–10 yıl" önerisi **bilerek uygulanmıyor**. Amaç, bütün yılların aynı muhasebe yöntemiyle hazırlanmış olması. Bu yüzden 2021 ve öncesi kullanılmıyor ve TÜFE ile ek bir düzeltme yapılmıyor.
+- 2022'de parasal pozisyon kalemi olmayıp sonraki yıllarda olan 14 şirketin 2022 yılı düzeltilmemiş sayılıyor ve atılıyor.
+- Hiç parasal kalemi olmayan 37 şirket uyarıyla birlikte tutuluyor. Bunlar büyük ihtimalle fonksiyonel para birimi döviz olan şirketler.
+
+**Tutarlılık kuralı:**
+- Her yılın rakamı farklı bir tarihin satın alma gücüyle ifade edilmiş olabilir. Bu yüzden **yıllar arasında TL tutar karşılaştırılmıyor**; yalnızca aynı yılın rakamlarından hesaplanan oranlar kullanılıyor: getiri, marj, borçluluk, devir hızı, sektör içi pazar payı.
+- Fintables'ın bu dönemdeki USD tutarları gerçek kurlarla uyuşmuyor (2022 için ima edilen kur 68 TL). Bu yüzden dolar bazlı hiçbir hesap yapılmıyor.
+
 **Kapsam:**
-- Standart şablonlu şirketler; 2016–2025 yıl sonu konsolide tablolar.
-- En az 7 yıl verisi olan ve 2025 yıl sonunu açıklamış şirketler.
+- Standart şablonlu şirketler; TMS 29 döneminde en az 3 yıl verisi olan ve 2025 yıl sonunu açıklamış olanlar.
 - Hariç tutulanlar: bankalar, sigorta, holding, GYO, MKYO/GSYO, aracı kurum, faktoring, leasing, varlık yönetimi.
 
-### Enflasyon kuralı (s. 138–144)
-- **2022 ve sonrası** TMS 29 ile düzeltilmiş rakamlardır. Bunlar zaten reeldir; üstüne enflasyon düşülmez.
-- **2021 ve öncesi** nominaldir. Getiri şöyle reelleştirilir: `(1 + nominal) / (1 + TÜFE) − 1`
-- Büyüme USD satışlarla ölçülür, çünkü kitap TL'nin yanında döviz bazında da bakmayı önerir.
-- Ana ölçüt net kâr değil; **faaliyet kârı** ve **işletme nakit akışı**dır. Parasal pozisyon kazancı faaliyet kârından ayrı tutulur.
-
 ### Sermaye getirisi (s. 98–106)
-`Reel ROIC = Faaliyet kârı × (1 − %25 vergi) / (Ana ortaklık özkaynağı + Finansal borçlar)`
+`ROIC = Faaliyet kârı × (1 − %25 vergi) / (Ana ortaklık özkaynağı + Finansal borçlar)`
 
-Eşik reel **%5**'tir ve sermaye maliyeti yerine kullanılır. Değiştirmek için `REEL_ESIK` ayarı kullanılır.
+TMS 29'lu rakamlar zaten reel olduğu için bu oran doğrudan reel getiridir. Eşik reel **%5**'tir (`REEL_ESIK`).
 
 ### Gösterge 1 — Pazar payı istikrarı (s. 131–136), 3 puan
-Pazar payı, şirketin USD satışının sektördeki halka açık şirketlerin toplam satışına oranıdır. Sepet, 2018'den beri verisi olan şirketlerden oluşur.
+Pazar payı, şirketin satışının aynı yıl sektördeki halka açık şirketlerin toplam satışına oranıdır. Sepet, 2022–2025'in her yılında verisi olan şirketlerden oluşur.
 
 | Kontrol | Kural |
 |---|---|
-| İstikrar (Greenwald–Kahn) | Yıllık mutlak pay değişimi ortalaması ≤ sektör ortalaması, **ya da** son 8 yılın en az 5'inde sektör lideri |
-| Sektörden hızlı büyüme | USD satış bileşik büyümesi ≥ sektör medyanı |
-| Giriş engeli | 2018 sonrası borsaya gelen hiçbir şirket sektörde ilk 3'e girememiş |
+| İstikrar (Greenwald–Kahn) | Yıllık mutlak pay değişimi ortalaması ≤ sektör ortalaması, **ya da** dönemin 4 yılının tamamında sektör lideri |
+| En az sektör kadar hızlı büyüme | Pazar payı 2025'te 2022'deki seviyesinde veya üstünde |
+| Giriş engeli | 2023 ve sonrasında borsaya gelen hiçbir şirket 2025'te sektörde ilk 3'e girememiş |
 
-Sektörde 3'ten az halka açık oyuncu varsa bu gösterge değerlendirilmez. Sonuç tablosunda boş görünür.
+Sektörde 3'ten az oyuncu varsa bu gösterge değerlendirilmez.
 
-### Gösterge 2 — Reel kârlılığın sürekliliği (s. 137–146), 4 puan
+### Gösterge 2 — Reel kârlılığın sürekliliği (s. 137–146), 3 puan
 | Kontrol | Kural |
 |---|---|
-| Uzun süreli | Verisi olan her yıl faaliyet kârı pozitif |
-| Reel | Yılların en az %70'inde reel ROIC > %5 |
-| Faaliyet kaynaklı | Son 3 yılda faaliyet kârı ≤ 1,1 × FAVÖK (kâr kur farkı vb. diğer gelirlerle şişmemiş) **ve** son 5 yılda işletme nakit akışı / net kâr ≥ 0,7 |
-| Kriz yılları | 2018 ve 2020'de faaliyet kârı pozitif |
+| Süreklilik | Dönemin her yılında faaliyet kârı pozitif |
+| Reel | Yılların en az %70'inde ROIC > %5 (4 yılda en az 3) |
+| Faaliyet kaynaklı | Dönem toplamında faaliyet kârı ≤ 1,1 × FAVÖK (kâr kur farkı vb. diğer gelirlerle şişmemiş) **ve** işletme nakit akışı / net kâr ≥ 0,7 |
 
-### Gösterge 3 — Hendeğin gücü, sayısal iz (s. 146–153), 2 puan
-| Kontrol | Kural |
-|---|---|
-| Fiyat primi (marka ölçütü tanınırlık değil, primdir) | Brüt marj medyanı > sektör medyanı |
-| Marj istikrarı | Brüt marj oynaklığı ≤ sektör medyanı |
+Kitabın kriz yılı sorusu bu dönemde uygulanamıyor (2018 kur krizi ya da 2020 pandemisi gibi bir yıl yok), bu yüzden puanlamaya girmiyor.
 
-Avantajın kaynağı, teknoloji riski, düzenleme bağımlılığı ve nesil geçişi niteldir; bunlar Aşama 2'de kontrol edilir.
+### Gösterge 3 — Hendeğin gücü ve ömrü (s. 146–153)
+Kitapta bu gösterge niteldir ve Aşama 2'de kontrol edilir. Tabloda gösterilen "fiyat primi" (brüt marj sektörün üstünde mi) ve "marj istikrarı" yalnızca **yardımcı bilgidir; gruplamaya etkisi yoktur**.
 
 ### Finansal güç (s. 155–157)
-Piotroski F-skoru, 2025'in 2024 ile karşılaştırılmasıyla hesaplanır. İki yıl da TMS 29'lu olduğu için aynı ölçü birimindedir.
+Piotroski F-skoru, 2025 oranlarının 2024 oranlarıyla karşılaştırılmasıyla hesaplanır.
 
 | Başlık | Sinyaller |
 |---|---|
@@ -72,23 +71,24 @@ Piotroski F-skoru, 2025'in 2024 ile karşılaştırılmasıyla hesaplanır. İki
 ### Gruplar (kitaptaki dört olasılık, s. 157–159)
 | Grup | Tanım | Ne yapılır |
 |---|---|---|
-| **A** | Hendek VAR + finansal güç | Portföy çekirdeği; uzun süre tutulur |
-| **B** | Hendek KIRILGAN + finansal güç | Daha yüksek güvenlik marjı istenir, pozisyon sınırlı tutulur, test düzenli tekrarlanır |
-| **C** | Hendek YOK + finansal güç | Yalnızca ucuzsa alınır. Bu bir ortalamaya dönüş yatırımıdır: büyümeye prim ödenmez, çıkış koşulu baştan belirlenir |
-| **D** | Hendek var/kırılgan + finansal güç YOK | En tehlikeli durum. Hendek içeriden çöküyor olabilir; izlenir |
-| **E** | İkisi de yok | İşimiz yok. Ucuzluk tek başına gerekçe değildir |
+| **A** | Hendek VAR + finansal güç | Portföy çekirdeği adayı; Aşama 2'den geçmeli |
+| **B** | Hendek KIRILGAN + finansal güç | Daha yüksek güvenlik marjı, sınırlı pozisyon, testi düzenli tekrarla |
+| **C** | Hendek YOK + finansal güç | Yalnızca ucuzsa; ortalamaya dönüş yatırımı, çıkış koşulu baştan belli |
+| **D** | Hendek var/kırılgan + finansal güç YOK | En tehlikeli durum; izlenir |
+| **E** | İkisi de yok | İşimiz yok |
 
-- **Hendek VAR:** Gösterge 2'den 4/4 **ve** Gösterge 1'den ≥ 2/3 (ya da Gösterge 1 değerlendirilemiyor).
-- **KIRILGAN:** Gösterge 2'den 3/4.
+- **Hendek VAR:** Gösterge 2'den 3/3 **ve** Gösterge 1'den ≥ 2/3 (ya da Gösterge 1 değerlendirilemiyor).
+- **KIRILGAN:** Gösterge 2'den 2/3.
 
-### Otomatik uyarılar (bölüm 2 ve 4'ten)
-- Halka açıklık > %70: hâkim ortak zayıf.
-- 10 yılda 2 veya daha fazla yıl bedelli sermaye artırımı.
-- Net kârın yarısından fazlası parasal kazanç: kâr kalitesine bakılmalı.
-- Yüksek döviz açığı (hedge dahil net YP pozisyonu < −%30 özkaynak). Gelir de dövizse sorun değildir.
-- Birikimli işletme nakit akışı yatırım harcamasını karşılamıyor: büyüme dış kaynakla finanse ediliyor.
+### Otomatik uyarılar
+- Halka açıklık > %70.
+- Dönemde 2 veya daha fazla yıl bedelli sermaye artırımı.
+- Net kârın yarısından fazlası parasal kazanç.
+- Yüksek döviz açığı (hedge dahil net YP pozisyonu < −%30 özkaynak).
 - Faaliyet kârını diğer gelirler şişiriyor.
-- Sektöre yeni girenler ilk 3'e yerleşebiliyor: giriş engeli zayıf.
+- Ortalama serbest nakit marjı negatif: büyüme dış kaynakla finanse ediliyor.
+- Sektöre yeni girenler ilk 3'e yerleşebiliyor.
+- Hiç parasal kalem yok: TMS 29 uygulanmamış olabilir.
 
 ### Çıktılar
 - `results/temel/hendek_tarama.csv`: Tüm şirketler, tüm kolonlar.
@@ -166,11 +166,12 @@ Kısa listedeki her şirket için. Kaynaklar Fintables doküman havuzundadır (`
 ## Verinin güncellenmesi
 Fintables verisi yalnızca Claude'un bağlı EVO aracıyla çekilebiliyor; GitHub Actions bu kaynağa erişemiyor. Güncelleme adımları:
 1. Yeni yıl sonu tabloları açıklanınca (Mart–Nisan) Claude'dan `sql/finansal_veri.sql` ile veriyi yeniden çekmesi istenir.
-2. `SON_YIL` ve `TUFE` ayarları güncellenir.
+2. `SON_YIL` ayarı güncellenir.
 3. `python temel_tarama/hendek_tarama.py` çalıştırılır.
 
 ## Bilinen sınırlar
-- Pazar payı yalnızca **halka açık rakiplere** göre ölçülür. Halka açık olmayan büyük rakipler (A101 gibi) ve ithalat görünmez. Bu yüzden Gösterge 1 bir yaklaşıktır ve Aşama 2'de bağımsız veriyle doğrulanmalıdır.
-- 2021 öncesi reel ROIC kaba bir düzeltmedir. Kitap da enflasyon düzeltmesinin tam bir çözüm değil, önemli bir iyileştirme olduğunu söylüyor (s. 142).
-- Yatırılan sermaye yıl sonu bakiyesidir; ortalama kullanılmaz.
-- Faaliyet kârı, şirketin kendi sunduğu "esas faaliyet kârı"dır. Diğer faaliyet gelir ve giderleri net olarak ayrıştırılamadığı için FAVÖK ile karşılaştırılarak kontrol edilir.
+- **Dönem kısa (en fazla 4 yıl).** Kitabın "uzun süreli kârlılık" ve "lider 5–10 yıldır aynı mı" soruları tam karşılanamıyor ve kriz yılı testi yapılamıyor. Bu yüzden dönem uzun olan eski sürüme göre A grubu daha kalabalık. Kısa dönemde iyi bir konjonktür hendek gibi görünebilir; Aşama 2 bu yüzden önemli.
+- Pazar payı yalnızca **halka açık rakiplere** göre ölçülüyor. Halka açık olmayan rakipler ve ithalat görünmüyor.
+- Yıllar arasında TL bazında büyüme (reel ciro artışı) hesaplanmıyor; büyüme yalnızca pazar payı değişimiyle ölçülüyor.
+- Gösterge 2'deki dönem toplamları (nakit/kâr, faaliyet kârı/FAVÖK) farklı yılların TL'lerini topluyor. Pay ve payda aynı yıllardan geldiği için oran kabaca tutarlı ama kesin değil.
+- Faaliyet kârı, şirketin sunduğu esas faaliyet kârıdır. Diğer faaliyet gelir ve giderleri net olarak ayrıştırılamadığı için FAVÖK ile karşılaştırılarak kontrol ediliyor.

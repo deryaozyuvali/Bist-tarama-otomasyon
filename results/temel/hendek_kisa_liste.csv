@@ -1,135 +1,253 @@
-kod,sektor,grup,hendek_skoru,reel_roic_medyan,reel_roic_son,faal_kar_pozitif_yil,veri_yili,usd_satis_cagr,pazar_payi_son,piotroski,net_borc_favok,pd_dd,fk,fd_favok,uyarilar
-RYSAS,Ulaştırma,A - Korunaklı + güçlü (portföy çekirdeği),11.0,0.256,0.093,10,10,0.098,0.009,6,0.916,1.833,15.267,9.401,
-KLKIM,Kimya ve Plastik,A - Korunaklı + güçlü (portföy çekirdeği),11.0,0.157,0.225,8,8,0.195,0.008,6,-0.922,1.2,6.866,2.137,
-YATAS,Mobilya ve Dekorasyon,A - Korunaklı + güçlü (portföy çekirdeği),11.0,0.084,0.087,10,10,0.137,0.472,6,2.144,0.302,28.662,3.376,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil)
-FROTO,Otomotiv,A - Korunaklı + güçlü (portföy çekirdeği),10.0,0.189,0.1,10,10,0.138,0.533,6,1.904,1.324,6.076,5.867,yüksek döviz açığı (gelir dövizse sorun değil)
-KMPUR,Kimya ve Plastik,A - Korunaklı + güçlü (portföy çekirdeği),10.0,0.161,0.157,8,8,0.146,0.01,6,2.362,1.582,,5.673,2 yıl bedelli artırım; net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil)
-EGPRO,Kimya ve Plastik,A - Korunaklı + güçlü (portföy çekirdeği),10.0,0.122,0.164,10,10,0.02,0.01,7,-0.137,1.488,11.753,4.54,
-TCELL,Haberleşme,A - Korunaklı + güçlü (portföy çekirdeği),10.0,0.081,0.132,10,10,0.018,0.627,6,0.142,0.697,10.273,1.866,
-CLEBI,Ulaştırma,A - Korunaklı + güçlü (portföy çekirdeği),9.0,0.226,0.164,10,10,0.078,0.015,6,1.165,3.753,8.659,6.903,
-DERIM,"Tekstil, Giyim ve Deri",A - Korunaklı + güçlü (portföy çekirdeği),9.0,0.217,0.249,10,10,0.048,0.038,7,-1.497,1.668,11.277,1.088,sektöre yeni girenler ilk 3'e yerleşebiliyor
-GRSEL,Servis Taşımacılığı ve Araç Kiralama,A - Korunaklı + güçlü (portföy çekirdeği),9.0,0.166,0.24,8,8,0.219,0.458,6,-0.428,2.271,8.245,5.931,2 yıl bedelli artırım; sektöre yeni girenler ilk 3'e yerleşebiliyor
-FMIZP,Otomotiv Yan Sanayi,A - Korunaklı + güçlü (portföy çekirdeği),9.0,0.164,0.076,10,10,-0.024,0.007,6,-4.921,4.796,43.996,34.429,
-TUREX,Servis Taşımacılığı ve Araç Kiralama,A - Korunaklı + güçlü (portföy çekirdeği),9.0,0.125,0.128,8,8,0.133,0.314,9,-0.017,0.694,8.404,2.408,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-GENIL,İlaç ve Sağlık,A - Korunaklı + güçlü (portföy çekirdeği),9.0,0.111,0.105,8,8,0.091,0.066,7,0.524,1.904,24.164,10.838,
-TEZOL,Kağıt ve Kağıt Ürünleri,A - Korunaklı + güçlü (portföy çekirdeği),9.0,0.104,0.04,8,8,0.041,0.342,6,-2.236,0.503,16.599,3.745,sektöre yeni girenler ilk 3'e yerleşebiliyor
-EGGUB,Kimya ve Plastik,A - Korunaklı + güçlü (portföy çekirdeği),9.0,0.092,0.108,10,10,-0.028,0.003,8,0.032,0.901,10.885,5.041,
-LKMNH,İlaç ve Sağlık,A - Korunaklı + güçlü (portföy çekirdeği),9.0,0.081,0.081,10,10,0.049,0.015,6,2.386,0.861,13.542,4.527,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
-BIMAS,Gıda Perakendeciliği,A - Korunaklı + güçlü (portföy çekirdeği),9.0,0.081,0.055,10,10,0.109,0.465,7,0.887,2.345,20.838,9.815,net kârın çoğu parasal kazanç
-SDTTR,Savunma,A - Korunaklı + güçlü (portföy çekirdeği),8.5,0.155,0.062,7,7,0.106,,6,0.529,3.136,252.371,29.055,sektöre yeni girenler ilk 3'e yerleşebiliyor
-KRONT,Haberleşme,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",9.5,0.034,0.186,10,10,0.037,0.001,8,-0.201,3.46,17.431,11.688,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor
-PNLSN,İnşaat,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",9.0,0.101,0.068,8,8,0.055,0.016,6,-0.957,0.644,7.539,4.17,sektöre yeni girenler ilk 3'e yerleşebiliyor
-ULKER,Gıda ve İçecek,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",9.0,0.088,0.125,10,10,0.073,0.134,7,1.847,0.569,5.053,3.185,net kârın çoğu parasal kazanç
-BFREN,Otomotiv Yan Sanayi,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.5,0.143,0.201,9,10,0.07,0.028,7,-0.272,17.782,94.31,29.863,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil)
-ALKA,Kağıt ve Kağıt Ürünleri,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.5,0.139,0.05,10,10,0.016,0.177,6,1.211,1.639,,19.423,net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-DESA,"Tekstil, Giyim ve Deri","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.5,0.127,0.137,9,10,0.066,0.032,8,-1.683,0.894,5.906,2.075,sektöre yeni girenler ilk 3'e yerleşebiliyor
-TRILC,İlaç ve Sağlık,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.5,0.121,0.214,9,9,0.283,0.016,6,2.093,0.445,,2.688,halka açıklık >%70 (hâkim ortak zayıf)
-DESPC,Teknolojik Ürün Ticareti,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.5,0.079,1.666,10,10,0.166,0.035,6,-0.029,1.299,,0.835,net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor
-HTTBT,Bilişim ve Yazılım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.5,0.068,0.085,8,8,0.19,0.05,6,-0.445,3.148,24.023,12.902,büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-CIMSA,"Taş, Toprak, Çimento","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.5,0.052,0.059,10,10,0.12,0.192,6,2.365,0.928,9.935,6.106,
-GENTS,Mobilya ve Dekorasyon,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.5,0.049,0.146,10,10,0.039,0.106,7,-0.387,0.669,8.919,2.571,halka açıklık >%70 (hâkim ortak zayıf); büyümeyi dış kaynakla finanse ediyor
-BRKSN,İnşaat,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.5,0.048,0.115,10,10,0.014,0.004,8,-0.567,0.552,22.293,2.835,sektöre yeni girenler ilk 3'e yerleşebiliyor
-NUHCM,"Taş, Toprak, Çimento","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.5,0.031,0.069,10,10,0.034,0.074,6,-1.936,1.085,35.553,5.022,
-ENKAI,İnşaat,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.5,-0.026,0.057,10,10,0.014,0.924,6,-6.283,1.225,12.636,7.186,sektöre yeni girenler ilk 3'e yerleşebiliyor
-SONME,"Tekstil, Giyim ve Deri","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.5,-0.065,0.007,10,10,0.001,0.001,6,-2.008,1.608,,143.417,sektöre yeni girenler ilk 3'e yerleşebiliyor
-PCILT,Destek ve Hizmet,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.0,0.252,0.254,8,8,0.081,0.315,8,-0.977,1.681,6.602,4.304,2 yıl bedelli artırım; sektöre yeni girenler ilk 3'e yerleşebiliyor
-ARASE,Enerji Üretim ve Dağıtım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.0,0.248,0.246,8,8,0.116,0.068,8,0.312,0.97,8.644,2.764,sektöre yeni girenler ilk 3'e yerleşebiliyor
-MPARK,İlaç ve Sağlık,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.0,0.2,0.145,10,10,0.068,0.19,6,0.78,1.937,12.187,5.182,net kârın çoğu parasal kazanç
-ATATP,Bilişim ve Yazılım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.0,0.198,0.634,8,8,0.239,0.156,6,-0.112,3.902,8.377,4.184,sektöre yeni girenler ilk 3'e yerleşebiliyor
-ENJSA,Enerji Üretim ve Dağıtım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.0,0.135,0.174,10,10,0.068,0.487,7,1.463,1.166,35.2,4.042,sektöre yeni girenler ilk 3'e yerleşebiliyor
-VBTYZ,Bilişim ve Yazılım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.0,0.125,0.151,8,8,0.176,0.068,8,0.654,2.172,11.301,4.715,büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-LOGO,Bilişim ve Yazılım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",8.0,0.087,0.23,10,10,0.089,0.161,6,-0.681,2.563,6.838,4.424,sektöre yeni girenler ilk 3'e yerleşebiliyor
-SUMAS,Mobilya ve Dekorasyon,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",7.5,0.174,0.124,10,10,0.045,0.012,8,-1.232,2.637,82.703,10.237,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
-ULUUN,Gıda ve İçecek,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",7.5,0.148,0.095,10,10,0.17,0.08,6,-1.644,0.301,,0.348,net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
-DGATE,Teknolojik Ürün Ticareti,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",7.5,0.137,0.528,10,10,-0.008,0.051,6,1.47,4.554,86.074,3.357,faaliyet kârını diğer gelirler şişiriyor
-TLMAN,Ulaştırma,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",7.5,0.129,0.043,10,10,0.013,0.001,6,-1.336,0.572,17.406,2.161,büyümeyi dış kaynakla finanse ediyor
-QUAGR,"Cam, Seramik, Porselen","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",7.5,0.102,0.06,8,8,0.201,0.04,6,2.273,0.375,,4.096,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-BEYAZ,Destek ve Hizmet,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",7.5,0.084,0.169,10,10,0.119,0.585,7,-1.846,0.983,9.915,1.204,sektöre yeni girenler ilk 3'e yerleşebiliyor
-CCOLA,Gıda ve İçecek,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",7.5,0.053,0.147,10,10,0.072,0.224,8,0.778,2.408,12.976,6.326,net kârın çoğu parasal kazanç
-ALCTL,Haberleşme,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",7.5,0.039,0.068,10,10,-0.007,0.008,6,-2.463,0.765,,1.515,
-BRSAN,Ana Metal,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",7.5,0.007,0.045,10,10,0.12,0.096,7,1.632,2.489,73.859,21.3,
-AHGAZ,Enerji Üretim ve Dağıtım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",7.0,0.103,0.115,7,7,0.154,,6,-1.729,2.133,35.518,8.647,2 yıl bedelli artırım; faaliyet kârını diğer gelirler şişiriyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-GUBRF,Kimya ve Plastik,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",7.0,0.091,0.182,10,10,0.03,0.041,8,-0.037,3.548,20.04,9.524,
-ASELS,Savunma,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",7.0,0.074,0.126,10,10,0.145,1.0,7,0.295,5.261,43.992,28.133,faaliyet kârını diğer gelirler şişiriyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-BMSTL,Ana Metal,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",7.0,0.056,0.029,7,7,0.059,,7,2.127,8.059,,60.664,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor
-TTKOM,Haberleşme,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.5,0.161,0.108,8,10,0.007,0.323,7,0.586,0.712,6.583,2.112,net kârın çoğu parasal kazanç
-MTRKS,Bilişim ve Yazılım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.5,0.128,0.128,9,9,0.115,0.035,6,-0.586,1.627,6.442,3.852,sektöre yeni girenler ilk 3'e yerleşebiliyor
-BOSSA,"Tekstil, Giyim ve Deri","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.5,0.086,0.069,10,10,0.034,0.059,6,2.101,0.525,19.714,8.039,faaliyet kârını diğer gelirler şişiriyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-FONET,Bilişim ve Yazılım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.5,0.06,0.121,10,10,0.121,0.024,8,-0.279,1.842,13.98,7.963,2 yıl bedelli artırım; sektöre yeni girenler ilk 3'e yerleşebiliyor
-PKART,Bilişim ve Yazılım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.5,0.014,0.167,10,10,0.077,0.064,6,-0.384,3.384,23.684,8.208,sektöre yeni girenler ilk 3'e yerleşebiliyor
-MNDRS,"Tekstil, Giyim ve Deri","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.5,0.087,0.015,10,10,-0.004,0.075,8,1.82,0.138,6.703,3.99,2 yıl bedelli artırım; net kârın çoğu parasal kazanç; sektöre yeni girenler ilk 3'e yerleşebiliyor
-BASGZ,Enerji Üretim ve Dağıtım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.5,0.044,0.074,8,8,0.086,0.1,6,-0.249,0.812,6.829,3.676,sektöre yeni girenler ilk 3'e yerleşebiliyor
-MERCN,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",11.0,0.12,0.12,9,9,0.072,0.002,5,1.569,0.62,10.652,4.487,büyümeyi dış kaynakla finanse ediyor
-BRISA,Otomotiv Yan Sanayi,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",11.0,0.099,0.059,10,10,0.057,0.393,4,0.993,0.758,,4.077,net kârın çoğu parasal kazanç
-MAVI,"Tekstil, Giyim ve Deri","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",10.0,0.296,0.231,10,10,0.109,0.392,5,-0.459,1.806,10.932,2.377,halka açıklık >%70 (hâkim ortak zayıf); sektöre yeni girenler ilk 3'e yerleşebiliyor
-TTRAK,Otomotiv,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",10.0,0.231,0.049,10,10,0.011,0.034,4,1.764,1.852,68.056,8.01,
-INDES,Teknolojik Ürün Ticareti,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",10.0,0.202,0.197,10,10,0.061,0.292,5,-0.224,1.098,14.142,2.161,
-MEDTR,İlaç ve Sağlık,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",10.0,0.125,0.024,8,8,0.072,0.01,5,-1.183,0.63,,5.046,
-TBORG,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",10.0,0.105,0.174,10,10,0.13,0.049,5,-0.15,1.385,9.678,2.687,
-ISKPL,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",10.0,0.073,0.073,9,9,0.041,0.002,5,2.605,1.407,18.008,9.742,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
-DEVA,İlaç ve Sağlık,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",10.0,0.069,0.018,10,10,0.078,0.066,5,1.675,0.493,,10.761,net kârın çoğu parasal kazanç
-ASTOR,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",9.5,0.295,0.194,7,7,0.271,,5,-0.714,4.199,18.223,11.873,sektöre yeni girenler ilk 3'e yerleşebiliyor
-KCAER,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",9.5,0.141,0.089,7,7,0.102,,5,0.648,1.34,34.792,5.947,
-SUWEN,"Tekstil, Giyim ve Deri","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",9.5,0.138,0.11,7,7,0.38,,4,1.495,1.388,20.591,3.456,net kârın çoğu parasal kazanç; sektöre yeni girenler ilk 3'e yerleşebiliyor
-POLTK,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",9.5,0.125,0.064,10,10,0.08,0.001,5,-0.397,30.892,,123.217,net kârın çoğu parasal kazanç
-KRVGD,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",9.5,0.109,0.063,9,9,0.18,0.019,6,2.98,0.572,,5.347,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor
-ISSEN,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",9.5,0.109,0.063,8,8,0.038,0.004,2,4.731,0.315,,7.895,net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
-ARCLK,Dayanıklı Tüketim Ürünleri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",9.5,0.05,0.026,10,10,0.097,0.688,5,4.565,0.612,,5.989,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor
-PENTA,Teknolojik Ürün Ticareti,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",9.0,0.199,0.143,9,9,0.023,0.111,4,-0.076,0.849,32.128,2.971,
-ALKIM,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",9.0,0.119,0.033,10,10,0.02,0.004,4,-0.069,0.647,,6.805,net kârın çoğu parasal kazanç
-VAKKO,"Tekstil, Giyim ve Deri","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",9.0,0.091,0.038,10,10,0.117,0.168,5,0.025,0.696,119.214,3.191,net kârın çoğu parasal kazanç; sektöre yeni girenler ilk 3'e yerleşebiliyor
-ELITE,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.5,0.279,0.14,9,9,0.153,0.003,5,-0.067,0.9,8.197,3.758,2 yıl bedelli artırım; faaliyet kârını diğer gelirler şişiriyor
-DURDO,Ambalaj,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.5,0.219,-0.005,9,10,0.063,0.073,5,3.253,1.637,,14.665,
-SUNTK,"Tekstil, Giyim ve Deri","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.5,0.165,0.114,7,7,0.045,,4,-0.145,1.19,12.128,4.629,sektöre yeni girenler ilk 3'e yerleşebiliyor
-KOTON,"Giyim, Tekstil ve Deri Ürünleri Perakendeciliği","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.5,0.154,0.08,9,9,-0.004,,5,1.239,0.971,,2.275,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil)
-MAKIM,Metal Eşya ve Makine,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.5,0.142,0.078,7,7,0.183,,5,0.334,1.094,61.98,7.463,sektöre yeni girenler ilk 3'e yerleşebiliyor
-PLTUR,Servis Taşımacılığı ve Araç Kiralama,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.5,0.128,0.156,7,7,0.069,,4,0.989,0.336,4.07,2.222,sektöre yeni girenler ilk 3'e yerleşebiliyor
-RNPOL,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.5,0.108,0.078,8,8,0.116,0.001,3,2.73,0.753,,6.249,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
-JANTS,Otomotiv Yan Sanayi,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.5,0.091,0.049,10,10,0.11,0.058,5,0.005,1.084,,15.071,faaliyet kârını diğer gelirler şişiriyor
-TUKAS,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.5,0.086,0.059,10,10,0.131,0.01,3,2.457,0.427,14.546,5.568,büyümeyi dış kaynakla finanse ediyor
-GOLTS,"Taş, Toprak, Çimento","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.5,0.044,0.029,10,10,0.045,0.028,4,3.103,0.37,9.66,8.623,
-OYAKC,"Taş, Toprak, Çimento","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.5,0.019,0.127,10,10,0.452,0.237,4,-0.723,1.26,9.055,4.694,
-MAKTK,Metal Eşya ve Makine,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.5,0.017,0.075,10,10,0.029,0.033,4,0.669,0.605,,4.354,sektöre yeni girenler ilk 3'e yerleşebiliyor
-AEFES,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.5,0.01,0.096,10,10,0.057,0.292,4,1.401,0.81,9.824,3.626,net kârın çoğu parasal kazanç
-GOKNR,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.0,0.169,0.099,7,7,0.194,,5,1.143,0.405,8.42,3.562,faaliyet kârını diğer gelirler şişiriyor
-ARDYZ,Bilişim ve Yazılım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.0,0.159,0.143,8,8,0.376,0.118,4,0.733,3.276,30.531,9.161,3 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-EUPWR,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.0,0.115,0.115,7,7,0.459,,3,0.98,2.445,42.941,11.866,büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-BARMA,Ambalaj,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",8.0,0.09,0.014,7,7,0.067,,4,14.292,0.308,,17.16,büyümeyi dış kaynakla finanse ediyor
-MACKO,Destek ve Hizmet,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.281,0.487,8,8,0.217,0.032,4,-0.014,2.881,6.195,3.291,sektöre yeni girenler ilk 3'e yerleşebiliyor
-YEOTK,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.266,0.187,8,8,0.55,0.224,4,1.623,4.217,11.782,7.103,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-GESAN,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.196,0.156,8,8,0.305,0.275,3,0.867,1.013,15.289,4.55,2 yıl bedelli artırım; yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-EGEEN,Otomotiv Yan Sanayi,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.127,0.032,10,10,0.031,0.045,4,-0.5,1.591,,27.321,faaliyet kârını diğer gelirler şişiriyor
-SARKY,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.108,0.072,10,10,0.076,0.098,2,4.888,1.263,42.102,12.407,halka açıklık >%70 (hâkim ortak zayıf); net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
-BVSAN,İmalat,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.107,0.121,8,8,0.072,0.173,4,0.843,0.882,10.734,4.173,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-AKSA,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.104,0.06,10,10,0.018,0.025,5,3.655,1.005,8.189,9.396,büyümeyi dış kaynakla finanse ediyor
-TOASO,Otomotiv,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.1,0.024,10,10,0.053,0.205,4,3.354,1.729,12.422,13.733,
-BURVA,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.095,-0.45,8,10,0.044,0.0,3,0.193,26.853,,,yüksek döviz açığı (gelir dövizse sorun değil)
-BUCIM,"Taş, Toprak, Çimento","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.082,0.02,10,10,0.024,0.051,3,2.992,0.367,,7.55,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor
-BESLR,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.064,0.054,10,10,0.021,0.039,4,1.604,0.348,11.094,2.948,
-KFEIN,Bilişim ve Yazılım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.062,0.109,9,9,0.227,0.079,5,-1.525,0.709,19.362,2.414,halka açıklık >%70 (hâkim ortak zayıf); 2 yıl bedelli artırım; sektöre yeni girenler ilk 3'e yerleşebiliyor
-CEMTS,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.059,0.059,10,10,0.045,0.008,5,-0.594,0.469,,3.26,
-AYEN,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.034,0.035,10,10,0.052,0.016,5,3.352,0.325,23.858,6.144,sektöre yeni girenler ilk 3'e yerleşebiliyor
-KONKA,Kağıt ve Kağıt Ürünleri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.025,0.021,8,8,-0.004,0.199,5,-2.369,0.308,,7.136,net kârın çoğu parasal kazanç; sektöre yeni girenler ilk 3'e yerleşebiliyor
-EREGL,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.017,0.017,10,10,0.036,0.281,4,2.096,0.882,495.935,14.507,
-KLSYN,Mobilya ve Dekorasyon,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,0.011,0.028,8,8,-0.002,0.041,5,0.566,1.453,62.249,13.34,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
-GMTAS,Toptan ve Perakende Ticaret,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,-0.001,0.085,8,8,0.335,0.545,3,-0.325,3.278,,26.606,halka açıklık >%70 (hâkim ortak zayıf); sektöre yeni girenler ilk 3'e yerleşebiliyor
-AZTEK,Teknolojik Ürün Ticareti,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.0,0.227,0.08,7,7,0.205,,3,4.098,1.248,,8.664,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor
-ALFAS,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.0,0.208,0.051,7,7,0.411,,4,3.685,1.545,,15.301,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-YYLGD,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.0,0.102,0.071,7,7,0.111,,6,4.476,0.485,7.255,7.692,2 yıl bedelli artırım; yüksek döviz açığı (gelir dövizse sorun değil); faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
-MIATK,Bilişim ve Yazılım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.0,0.081,0.079,8,8,0.439,0.076,4,0.333,1.972,,9.425,sektöre yeni girenler ilk 3'e yerleşebiliyor
-YAPRK,"Tarım, Hayvancılık, Balıkçılık","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.0,0.072,0.194,10,10,0.061,1.0,5,-0.378,2.928,85.84,9.93,büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-AKSEN,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.0,0.071,0.063,10,10,-0.007,0.088,7,3.977,1.205,19.645,9.935,büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-MEGMT,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.0,0.063,0.055,6,7,0.145,,5,3.349,2.044,5.522,10.251,2 yıl bedelli artırım
-FADE,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.0,0.03,0.051,7,7,0.155,,5,1.031,0.411,23.642,6.1,
-DNISI,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.0,0.011,0.005,7,7,0.027,,5,-1.295,1.242,72.014,18.569,4 yıl bedelli artırım; net kârın çoğu parasal kazanç
-KRTEK,"Tekstil, Giyim ve Deri","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,0.306,0.053,10,10,-0.002,0.017,7,-7.736,0.364,37.498,,faaliyet kârını diğer gelirler şişiriyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-ORGE,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,0.197,0.316,10,10,0.124,0.046,5,-0.118,1.834,12.252,4.092,büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-EDATA,Bilişim ve Yazılım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,0.124,0.188,8,8,0.166,0.068,4,-2.237,1.716,,15.958,faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-GWIND,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,0.066,0.066,8,8,-0.096,0.006,5,0.742,0.606,10.127,4.998,sektöre yeni girenler ilk 3'e yerleşebiliyor
-AKCNS,"Taş, Toprak, Çimento","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,0.032,0.041,10,10,0.02,0.103,4,-0.33,1.235,42.58,8.937,
-ISDMR,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,0.031,0.03,10,10,0.041,0.162,5,-0.884,1.153,27.829,12.795,
-ODAS,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,0.014,0.022,10,10,0.022,0.019,5,0.137,0.397,13.209,2.055,halka açıklık >%70 (hâkim ortak zayıf); 6 yıl bedelli artırım; sektöre yeni girenler ilk 3'e yerleşebiliyor
-BRLSM,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,0.169,0.149,8,8,0.058,0.062,3,2.138,1.08,,6.278,faaliyet kârını diğer gelirler şişiriyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-DOAS,Otomotiv,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,0.169,0.088,10,10,0.047,0.164,2,1.711,0.388,8.303,3.483,
-KONTR,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,0.052,0.026,9,9,0.594,0.225,5,40.606,0.321,,45.961,halka açıklık >%70 (hâkim ortak zayıf); 3 yıl bedelli artırım; net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
-ZOREN,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,0.041,0.009,10,10,0.086,0.076,5,7.181,0.12,,8.168,3 yıl bedelli artırım; net kârın çoğu parasal kazanç; sektöre yeni girenler ilk 3'e yerleşebiliyor
+kod,sektor,grup,hendek_skoru,g1_puan,g2_puan,reel_roic_medyan,reel_roic_son,veri_yili,pazar_payi_ilk,pazar_payi_son,piotroski,net_borc_favok,pd_dd,fk,fd_favok,uyarilar
+DERIM,"Tekstil, Giyim ve Deri",A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.26,0.249,4,0.026,0.033,7,-1.497,1.668,11.277,1.088,
+NETCD,Bilişim ve Yazılım,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.223,0.262,4,0.027,0.029,8,-0.383,3.315,10.412,7.63,
+KLKIM,Kimya ve Plastik,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.22,0.225,4,0.003,0.008,6,-0.922,1.2,6.866,2.137,
+FRMPL,Kimya ve Plastik,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.217,0.162,4,0.002,0.003,6,1.291,1.117,16.492,5.071,
+EGPRO,Kimya ve Plastik,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.184,0.164,4,0.007,0.01,7,-0.137,1.488,11.753,4.54,
+NTGAZ,Enerji Üretim ve Dağıtım,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.159,0.17,4,0.013,0.013,8,0.005,1.168,6.539,3.466,
+ENJSA,Enerji Üretim ve Dağıtım,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.154,0.174,4,0.295,0.386,7,1.463,1.166,35.2,4.042,
+BEYAZ,Destek ve Hizmet,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.152,0.169,4,0.433,0.475,7,-1.846,0.983,9.915,1.204,
+FROTO,Otomotiv,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.14,0.1,4,0.522,0.533,6,1.904,1.324,6.076,5.867,yüksek döviz açığı (gelir dövizse sorun değil)
+KRSTL,Gıda ve İçecek,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.138,0.137,4,0.002,0.003,6,0.172,0.647,4.475,2.663,halka açıklık >%70 (hâkim ortak zayıf); büyümeyi dış kaynakla finanse ediyor
+EFOR,Gıda ve İçecek,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.137,0.132,4,0.009,0.011,7,0.097,6.779,13901.984,17.563,büyümeyi dış kaynakla finanse ediyor
+CGCAM,"Cam, Seramik, Porselen",A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.107,0.064,4,0.008,0.009,7,-0.781,0.546,5.534,4.005,
+BIGCH,Gıda ve İçecek,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.102,0.078,4,0.003,0.004,6,0.667,1.268,152.43,2.212,net kârın çoğu parasal kazanç
+EGGUB,Kimya ve Plastik,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.092,0.108,4,0.002,0.003,8,0.032,0.901,10.885,5.041,
+GENKM,Kimya ve Plastik,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.09,0.083,4,0.003,0.004,7,0.268,0.67,14.134,5.123,
+ALCTL,Haberleşme,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.089,0.068,4,0.004,0.006,6,-2.463,0.765,,1.515,hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+FONET,Bilişim ve Yazılım,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.078,0.121,4,0.014,0.018,8,-0.279,1.842,13.98,7.963,
+LKMNH,İlaç ve Sağlık,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.076,0.081,4,0.012,0.014,6,2.386,0.861,13.542,4.527,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
+HTTBT,Bilişim ve Yazılım,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.076,0.085,4,0.008,0.029,6,-0.445,3.148,24.023,12.902,büyümeyi dış kaynakla finanse ediyor; hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+BASCM,"Taş, Toprak, Çimento",A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.073,0.075,4,0.034,0.045,8,-0.214,0.786,15.711,4.385,
+MEPET,Kimya ve Plastik,A - Korunaklı + güçlü (portföy çekirdeği),7.5,3.0,3,0.066,0.099,4,0.003,0.003,7,-1.081,0.447,7.436,2.644,
+ARASE,Enerji Üretim ve Dağıtım,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.252,0.246,4,0.053,0.054,8,0.312,0.97,8.644,2.764,
+MTRKS,Bilişim ve Yazılım,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.245,0.128,4,0.029,0.026,6,-0.586,1.627,6.442,3.852,
+GRSEL,Servis Taşımacılığı ve Araç Kiralama,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.22,0.24,4,0.211,0.29,6,-0.428,2.271,8.245,5.931,sektöre yeni girenler ilk 3'e yerleşebiliyor
+DESA,"Tekstil, Giyim ve Deri",A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.197,0.137,4,0.033,0.028,8,-1.683,0.894,5.906,2.075,
+KRONT,Haberleşme,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.194,0.186,4,0.001,0.001,8,-0.201,3.46,17.431,11.688,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor
+PKART,Bilişim ve Yazılım,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.178,0.167,4,0.064,0.047,6,-0.384,3.384,23.684,8.208,
+ATATP,Bilişim ve Yazılım,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.171,0.634,4,0.054,0.117,6,-0.112,3.902,8.377,4.184,
+MPARK,İlaç ve Sağlık,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.162,0.145,4,0.141,0.188,6,0.78,1.937,12.187,5.182,net kârın çoğu parasal kazanç
+TUPRS,Kimya ve Plastik,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.161,0.075,4,0.69,0.643,7,-0.918,1.687,20.811,8.98,
+FORTE,Bilişim ve Yazılım,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.154,0.116,4,0.041,0.051,6,1.711,2.053,2.176,7.921,
+LILAK,Kağıt ve Kağıt Ürünleri,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.14,0.096,4,0.502,0.454,7,-1.611,0.686,6.533,2.65,
+CCOLA,Gıda ve İçecek,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.14,0.147,4,0.153,0.174,8,0.778,2.408,12.976,6.326,net kârın çoğu parasal kazanç
+ULKER,Gıda ve İçecek,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.13,0.125,4,0.086,0.104,7,1.847,0.569,5.053,3.185,net kârın çoğu parasal kazanç
+FMIZP,Otomotiv Yan Sanayi,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.125,0.076,4,0.008,0.005,6,-4.921,4.796,43.996,34.429,
+SDTTR,Savunma,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.123,0.062,4,0.013,0.012,6,0.529,3.136,252.371,29.055,
+TUREX,Servis Taşımacılığı ve Araç Kiralama,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.116,0.128,4,0.171,0.199,9,-0.017,0.694,8.404,2.408,büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+GUBRF,Kimya ve Plastik,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.091,0.182,4,0.036,0.041,8,-0.037,3.548,20.04,9.524,
+TCELL,Haberleşme,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.088,0.132,4,0.649,0.639,6,0.142,0.697,10.273,1.866,
+CVKMD,Madencilik ve Taş Ocakçılığı,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.083,0.032,4,0.051,0.057,6,1.189,4.439,279.2,47.681,yüksek döviz açığı (gelir dövizse sorun değil)
+TEZOL,Kağıt ve Kağıt Ürünleri,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.079,0.04,4,0.135,0.187,6,-2.236,0.503,16.599,3.745,
+BASGZ,Enerji Üretim ve Dağıtım,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.077,0.074,4,0.063,0.079,6,-0.249,0.812,6.829,3.676,
+YATAS,Mobilya ve Dekorasyon,A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.072,0.087,4,0.494,0.528,6,2.144,0.302,28.662,3.376,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil); sektöre yeni girenler ilk 3'e yerleşebiliyor
+CIMSA,"Taş, Toprak, Çimento",A - Korunaklı + güçlü (portföy çekirdeği),6.5,2.0,3,0.058,0.059,4,0.147,0.184,6,2.365,0.928,9.935,6.106,
+CLEBI,Ulaştırma,A - Korunaklı + güçlü (portföy çekirdeği),6.0,,3,0.17,0.164,3,,,6,1.165,3.753,8.659,6.903,
+GENTS,Mobilya ve Dekorasyon,A - Korunaklı + güçlü (portföy çekirdeği),6.0,,3,0.146,0.146,3,,,7,-0.387,0.669,8.919,2.571,halka açıklık >%70 (hâkim ortak zayıf)
+CITAS,Gıda ve İçecek,A - Korunaklı + güçlü (portföy çekirdeği),6.0,,3,0.132,0.226,3,,,7,-0.019,3.384,15.846,9.361,
+TKNKA,Kimya ve Plastik,A - Korunaklı + güçlü (portföy çekirdeği),6.0,,3,0.082,0.071,3,,,6,2.468,1.26,32.726,6.433,büyümeyi dış kaynakla finanse ediyor
+DESPC,Teknolojik Ürün Ticareti,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.75,1.666,4,0.024,0.039,6,-0.029,1.299,,0.835,net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor
+DGATE,Teknolojik Ürün Ticareti,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.501,0.528,4,0.041,0.058,6,1.47,4.554,86.074,3.357,net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor
+INTEK,Bilişim ve Yazılım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.278,0.454,4,0.002,0.009,6,-0.122,7.687,,6.609,net kârın çoğu parasal kazanç
+GEDZA,Ambalaj,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.254,0.234,4,0.016,0.027,6,-0.842,0.736,48.4,1.816,faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+BFREN,Otomotiv Yan Sanayi,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.204,0.201,4,0.017,0.026,7,-0.272,17.782,94.31,29.863,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil)
+SAFKR,Metal Eşya ve Makine,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.163,0.196,4,0.021,0.044,7,-0.245,1.786,12.673,5.051,büyümeyi dış kaynakla finanse ediyor
+KMPUR,Kimya ve Plastik,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.163,0.157,4,0.007,0.01,6,2.362,1.582,,5.673,2 yıl bedelli artırım; yüksek döviz açığı (gelir dövizse sorun değil); faaliyet kârını diğer gelirler şişiriyor
+PKENT,Turizm,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.149,0.105,4,0.104,0.13,7,-3.43,1.463,12.465,15.65,faaliyet kârını diğer gelirler şişiriyor
+SEGMN,Gıda ve İçecek,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.137,0.051,4,0.002,0.003,6,-0.606,0.506,8.882,5.922,büyümeyi dış kaynakla finanse ediyor
+TCKRC,İmalat,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.127,0.142,4,0.035,0.059,6,0.33,3.19,13.466,13.796,büyümeyi dış kaynakla finanse ediyor
+TRILC,İlaç ve Sağlık,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.117,0.214,4,0.012,0.015,6,2.093,0.445,,2.688,halka açıklık >%70 (hâkim ortak zayıf)
+LINK,Bilişim ve Yazılım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.115,0.086,4,0.004,0.03,6,-2.187,1.488,7.544,5.871,büyümeyi dış kaynakla finanse ediyor
+KONYA,"Taş, Toprak, Çimento","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.106,0.097,4,0.025,0.025,7,0.418,3.046,50.801,15.875,
+PAMEL,Enerji Üretim ve Dağıtım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.084,0.095,4,0.0,0.0,6,-0.239,1.564,,55.335,faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+GRTHO,Gıda ve İçecek,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.083,0.053,4,0.002,0.007,7,-1.858,0.849,4.26,7.877,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor
+QUAGR,"Cam, Seramik, Porselen","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.073,0.06,4,0.036,0.038,6,2.273,0.375,,4.096,yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor
+MRSHL,Kimya ve Plastik,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.062,0.056,4,0.002,0.003,6,0.396,13.703,,16.502,yüksek döviz açığı (gelir dövizse sorun değil)
+MARBL,"Taş, Toprak, Çimento","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.058,0.047,4,0.004,0.011,7,1.961,0.767,1536.055,5.822,hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+BIMAS,Gıda Perakendeciliği,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.044,0.055,4,0.457,0.46,7,0.887,2.345,20.838,9.815,net kârın çoğu parasal kazanç
+BESTE,Enerji Üretim ve Dağıtım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",6.0,3.0,2,0.023,0.018,4,0.0,0.001,9,1.032,0.932,17.835,13.988,hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+PCILT,Destek ve Hizmet,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.5,1.0,3,0.252,0.254,4,0.294,0.256,8,-0.977,1.681,6.602,4.304,
+LOGO,Bilişim ve Yazılım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.5,1.0,3,0.214,0.23,4,0.172,0.12,6,-0.681,2.563,6.838,4.424,
+VBTYZ,Bilişim ve Yazılım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.5,1.0,3,0.134,0.151,4,0.07,0.05,8,0.654,2.172,11.301,4.715,büyümeyi dış kaynakla finanse ediyor
+NUHCM,"Taş, Toprak, Çimento","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.5,1.0,3,0.103,0.069,4,0.103,0.071,6,-1.936,1.085,35.553,5.022,
+GENIL,İlaç ve Sağlık,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.5,1.0,3,0.101,0.105,4,0.079,0.065,7,0.524,1.904,24.164,10.838,
+SAYAS,Enerji Teknolojileri,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.0,2.0,2,0.256,0.202,4,0.021,0.013,6,0.171,1.898,15.194,6.605,faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+ALKA,Kağıt ve Kağıt Ürünleri,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.0,2.0,2,0.232,0.05,4,0.113,0.096,6,1.211,1.639,,19.423,faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+CEMZY,"Tarım, Hayvancılık, Balıkçılık","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.0,2.0,2,0.153,0.088,4,0.212,0.319,6,0.996,3.336,,21.064,büyümeyi dış kaynakla finanse ediyor
+ASELS,Savunma,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.0,2.0,2,0.132,0.126,4,0.978,0.971,7,0.295,5.261,43.992,28.133,faaliyet kârını diğer gelirler şişiriyor
+ULUUN,Gıda ve İçecek,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.0,2.0,2,0.112,0.095,4,0.062,0.062,6,-1.644,0.301,,0.348,faaliyet kârını diğer gelirler şişiriyor
+AHGAZ,Enerji Üretim ve Dağıtım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.0,2.0,2,0.109,0.115,4,0.042,0.065,6,-1.729,2.133,35.518,8.647,2 yıl bedelli artırım; faaliyet kârını diğer gelirler şişiriyor
+AYES,İmalat,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.0,2.0,2,0.107,0.051,4,0.255,0.237,6,0.941,0.999,2.933,12.425,büyümeyi dış kaynakla finanse ediyor
+BOSSA,"Tekstil, Giyim ve Deri","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.0,2.0,2,0.071,0.069,4,0.066,0.05,6,2.101,0.525,19.714,8.039,faaliyet kârını diğer gelirler şişiriyor
+MOBTL,Teknolojik Ürün Ticareti,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.0,2.0,2,0.062,0.061,4,0.072,0.055,6,1.949,1.031,13.225,11.415,büyümeyi dış kaynakla finanse ediyor
+IZENR,Enerji Üretim ve Dağıtım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.0,2.0,2,0.054,0.06,4,0.023,0.015,7,-0.359,0.442,10.778,3.352,
+CATES,Enerji Üretim ve Dağıtım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.0,2.0,2,0.05,0.021,4,0.012,0.011,7,-1.449,0.31,2.213,3.735,net kârın çoğu parasal kazanç
+VSNMD,Madencilik ve Taş Ocakçılığı,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",5.0,2.0,2,0.025,0.001,4,0.027,0.025,7,-1.967,1.061,59.859,13.609,büyümeyi dış kaynakla finanse ediyor
+SSAAT,Toptan ve Perakende Ticaret,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.5,,2,0.361,0.361,3,,,8,0.511,4.02,9.769,4.496,
+LYDHO,Toptan ve Perakende Ticaret,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.5,,2,0.262,0.143,4,,,6,7.134,1.691,28.362,,büyümeyi dış kaynakla finanse ediyor
+RYSAS,Ulaştırma,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.5,0.0,3,0.16,0.093,4,0.102,0.077,6,0.916,1.833,15.267,9.401,sektöre yeni girenler ilk 3'e yerleşebiliyor
+INTET,Bilişim ve Yazılım,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.5,,2,0.15,0.15,3,,,6,0.709,3.833,37.002,10.696,büyümeyi dış kaynakla finanse ediyor
+PNLSN,İnşaat,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.5,0.0,3,0.122,0.068,4,0.074,0.038,6,-0.957,0.644,7.539,4.17,sektöre yeni girenler ilk 3'e yerleşebiliyor
+TAVHL,Ulaştırma,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.5,,2,0.061,0.074,3,,,6,2.429,1.235,34.898,6.314,büyümeyi dış kaynakla finanse ediyor
+TGSAS,Toptan ve Perakende Ticaret,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.0,1.0,2,0.329,0.297,4,0.007,0.006,6,-0.539,4.039,14.486,11.067,halka açıklık >%70 (hâkim ortak zayıf); 2 yıl bedelli artırım; faaliyet kârını diğer gelirler şişiriyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+SUMAS,Mobilya ve Dekorasyon,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.0,1.0,2,0.22,0.124,4,0.017,0.014,8,-1.232,2.637,82.703,10.237,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+ERBOS,Ana Metal,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.0,1.0,2,0.166,0.121,4,0.013,0.009,8,1.271,0.501,,7.799,halka açıklık >%70 (hâkim ortak zayıf); net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+TLMAN,Ulaştırma,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.0,1.0,2,0.117,0.043,4,0.014,0.005,6,-1.336,0.572,17.406,2.161,büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+BRKSN,İnşaat,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.0,1.0,2,0.109,0.115,4,0.018,0.011,8,-0.567,0.552,22.293,2.835,sektöre yeni girenler ilk 3'e yerleşebiliyor
+YKSLN,Ana Metal,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.0,1.0,2,0.082,0.049,4,0.008,0.002,7,1.713,1.331,,7.529,net kârın çoğu parasal kazanç; sektöre yeni girenler ilk 3'e yerleşebiliyor
+BRSAN,Ana Metal,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.0,1.0,2,0.066,0.045,4,0.027,0.098,7,1.632,2.489,73.859,21.3,sektöre yeni girenler ilk 3'e yerleşebiliyor; hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+YBTAS,İnşaat,"B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.0,1.0,2,0.037,0.081,4,0.031,0.024,7,0.001,1.645,,7.199,sektöre yeni girenler ilk 3'e yerleşebiliyor
+MNDRS,"Tekstil, Giyim ve Deri","B - Kırılgan hendek + güçlü (güvenlik marjı iste, küçük pozisyon)",4.0,1.0,2,0.029,0.015,4,0.103,0.064,8,1.82,0.138,6.703,3.99,net kârın çoğu parasal kazanç
+LMKDC,"Taş, Toprak, Çimento","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.368,0.299,4,0.016,0.035,4,-0.663,1.275,4.774,2.132,2 yıl bedelli artırım
+MAVI,"Tekstil, Giyim ve Deri","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.263,0.231,4,0.259,0.336,5,-0.459,1.806,10.932,2.377,halka açıklık >%70 (hâkim ortak zayıf)
+ARDYZ,Bilişim ve Yazılım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.216,0.143,4,0.059,0.088,4,0.733,3.276,30.531,9.161,büyümeyi dış kaynakla finanse ediyor
+OYAKC,"Taş, Toprak, Çimento","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.188,0.127,4,0.185,0.226,4,-0.723,1.26,9.055,4.694,
+MAKIM,Metal Eşya ve Makine,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.187,0.078,4,0.02,0.035,5,0.334,1.094,61.98,7.463,
+MCARD,Destek ve Hizmet,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.123,0.09,4,0.042,0.057,4,-4.686,4.53,10.024,9.932,
+KFEIN,Bilişim ve Yazılım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.122,0.109,4,0.045,0.059,5,-1.525,0.709,19.362,2.414,halka açıklık >%70 (hâkim ortak zayıf)
+MERCN,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.111,0.12,4,0.002,0.002,5,1.569,0.62,10.652,4.487,
+GWIND,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.104,0.066,4,0.004,0.005,5,0.742,0.606,10.127,4.998,
+TARKM,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.104,0.066,4,0.001,0.002,5,2.47,2.196,,19.816,büyümeyi dış kaynakla finanse ediyor
+BIGEN,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.095,0.06,4,0.0,0.002,7,4.22,2.449,,15.392,hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+TATEN,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.091,0.058,4,0.001,0.004,4,4.391,0.93,,7.69,2 yıl bedelli artırım; yüksek döviz açığı (gelir dövizse sorun değil); hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+ATAKP,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.083,0.019,4,0.004,0.004,5,-0.773,0.623,,7.496,
+MAKTK,Metal Eşya ve Makine,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.069,0.075,4,0.016,0.027,4,0.669,0.605,,4.354,
+ISKPL,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.064,0.073,4,0.001,0.002,5,2.605,1.407,18.008,9.742,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
+BRISA,Otomotiv Yan Sanayi,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",7.5,3.0,3,0.056,0.059,4,0.361,0.368,4,0.993,0.758,,4.077,net kârın çoğu parasal kazanç
+MACKO,Destek ve Hizmet,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.477,0.487,4,0.026,0.026,4,-0.014,2.881,6.195,3.291,
+ASTOR,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.263,0.194,4,0.242,0.225,5,-0.714,4.199,18.223,11.873,
+TTRAK,Otomotiv,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.194,0.049,4,0.067,0.035,4,1.764,1.852,68.056,8.01,
+PENTA,Teknolojik Ürün Ticareti,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.184,0.143,4,0.041,0.099,4,-0.076,0.849,32.128,2.971,hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+KSTUR,Turizm,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.181,0.127,4,0.064,0.045,5,-1.744,7.47,75.252,37.398,
+GLRMK,İnşaat,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.161,0.122,4,0.51,0.595,4,-0.113,1.962,8.136,5.596,sektöre yeni girenler ilk 3'e yerleşebiliyor
+TBORG,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.138,0.174,4,0.025,0.038,5,-0.15,1.385,9.678,2.687,
+SUWEN,"Tekstil, Giyim ve Deri","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.138,0.11,4,0.023,0.043,4,1.495,1.388,20.591,3.456,net kârın çoğu parasal kazanç
+VAKKO,"Tekstil, Giyim ve Deri","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.124,0.038,4,0.102,0.144,5,0.025,0.696,119.214,3.191,net kârın çoğu parasal kazanç
+ALKIM,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.123,0.033,4,0.004,0.004,4,-0.069,0.647,,6.805,
+AEFES,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.11,0.096,4,0.255,0.226,4,1.401,0.81,9.824,3.626,net kârın çoğu parasal kazanç
+MEDTR,İlaç ve Sağlık,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.103,0.024,4,0.012,0.01,5,-1.183,0.63,,5.046,
+GOLTS,"Taş, Toprak, Çimento","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.102,0.029,4,0.037,0.027,4,3.103,0.37,9.66,8.623,
+TABGD,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.099,0.091,4,0.027,0.044,4,-0.005,1.996,16.921,4.569,
+KLSYN,Mobilya ve Dekorasyon,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.099,0.028,4,0.038,0.046,5,0.566,1.453,62.249,13.34,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+ENERY,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.083,0.072,4,0.042,0.054,5,-0.384,2.03,22.544,17.447,
+AFYON,"Taş, Toprak, Çimento","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.082,0.054,4,0.017,0.015,5,-1.026,0.495,15.575,2.608,
+GIPTA,İmalat,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.082,0.079,4,0.06,0.044,5,-4.026,0.906,13.421,3.326,2 yıl bedelli artırım
+SERNT,"Cam, Seramik, Porselen","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.07,0.042,4,0.014,0.01,5,7.16,0.453,,10.102,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil)
+PGSUS,Ulaştırma,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.5,2.0,3,0.061,0.025,4,0.629,0.811,5,4.35,0.546,4.644,6.071,sektöre yeni girenler ilk 3'e yerleşebiliyor; hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+ORZAX,İlaç ve Sağlık,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,,3,0.348,0.26,3,,,3,1.131,5.084,18.658,8.672,
+ELITE,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.263,0.14,4,0.002,0.002,5,-0.067,0.9,8.197,3.758,faaliyet kârını diğer gelirler şişiriyor
+YAPRK,"Tarım, Hayvancılık, Balıkçılık","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.237,0.194,4,0.034,0.036,5,-0.378,2.928,85.84,9.93,büyümeyi dış kaynakla finanse ediyor
+MASFN,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,,3,0.228,0.127,3,,,5,-2.163,2.172,10.375,8.202,hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+ALBTN,"Taş, Toprak, Çimento","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,,3,0.205,0.064,3,,,4,0.75,2.083,286.779,13.693,büyümeyi dış kaynakla finanse ediyor
+ODINE,Bilişim ve Yazılım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.2,-0.047,4,0.02,0.033,5,-15.228,3.96,523.936,230.818,büyümeyi dış kaynakla finanse ediyor; hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+KPEKS,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,,3,0.193,0.145,3,,,4,-0.335,2.237,47.525,9.367,
+BNTAS,Ambalaj,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.191,0.122,4,0.027,0.033,3,-2.18,0.674,4.323,3.259,faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+DOFRB,İmalat,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.154,0.064,4,0.003,0.017,3,0.41,4.823,40.688,28.512,büyümeyi dış kaynakla finanse ediyor; hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+MEYSU,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.147,0.132,4,0.003,0.004,5,1.346,1.653,11.034,7.286,büyümeyi dış kaynakla finanse ediyor
+BETAE,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,,3,0.145,0.094,3,,,5,3.376,5.626,18.78,21.065,büyümeyi dış kaynakla finanse ediyor
+DERHL,"Tekstil, Giyim ve Deri","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.134,0.161,4,0.022,0.031,3,2.772,0.726,134.864,4.441,3 yıl bedelli artırım; net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+SARAE,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,,3,0.132,0.12,3,,,4,4.069,2.146,39.236,13.207,net kârın çoğu parasal kazanç
+EMNIS,Ambalaj,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.131,-0.061,4,0.005,0.012,4,-0.058,3.331,,104.652,
+ALKLC,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.127,0.131,4,0.002,0.005,2,2.081,1.664,,6.923,2 yıl bedelli artırım; net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
+EUPWR,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.127,0.115,4,0.066,0.083,3,0.98,2.445,42.941,11.866,büyümeyi dış kaynakla finanse ediyor
+IMASM,Metal Eşya ve Makine,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.119,0.097,4,0.043,0.06,4,1.426,0.376,,5.679,halka açıklık >%70 (hâkim ortak zayıf); faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+KOPOL,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.11,0.056,4,0.001,0.004,1,3.722,0.828,,8.978,yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor; hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+KOTON,"Giyim, Tekstil ve Deri Ürünleri Perakendeciliği","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,,3,0.11,0.08,4,1.0,1.0,5,1.239,0.971,,2.275,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil)
+KUTPO,"Cam, Seramik, Porselen","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.098,0.087,4,0.012,0.015,5,0.036,0.472,8.837,2.464,
+EUREN,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.094,0.066,4,0.008,0.012,4,1.378,0.427,5.23,5.726,faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+AKHAN,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.092,0.064,4,0.007,0.007,3,4.758,1.679,40.131,15.013,net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor
+RNPOL,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.09,0.078,4,0.001,0.001,3,2.73,0.753,,6.249,büyümeyi dış kaynakla finanse ediyor
+KARSN,Otomotiv,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.09,0.125,4,0.009,0.011,9,2.651,0.841,33.969,4.881,net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+KRVGD,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.089,0.063,4,0.014,0.015,6,2.98,0.572,,5.347,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor
+CMENT,"Taş, Toprak, Çimento","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.083,0.079,4,0.064,0.068,5,-1.348,1.009,13.306,4.527,
+ARMGD,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.077,0.08,4,0.009,0.011,5,3.995,4.126,35.921,21.368,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil); faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+DARDL,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.074,0.043,4,0.009,0.013,4,5.237,0.296,,7.833,yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor
+ISSEN,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.073,0.063,4,0.003,0.004,2,4.731,0.315,,7.895,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
+INGRM,Teknolojik Ürün Ticareti,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.069,0.048,4,0.043,0.083,2,7.378,3.344,,17.053,büyümeyi dış kaynakla finanse ediyor; hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+BARMA,Ambalaj,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.068,0.014,4,0.078,0.084,4,14.292,0.308,,17.16,büyümeyi dış kaynakla finanse ediyor
+SEKUR,Ambalaj,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.057,0.05,4,0.007,0.034,5,3.698,1.27,,7.787,halka açıklık >%70 (hâkim ortak zayıf); büyümeyi dış kaynakla finanse ediyor; hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+FADE,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.049,0.051,4,0.0,0.001,5,1.031,0.411,23.642,6.1,
+ARCLK,Dayanıklı Tüketim Ürünleri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.037,0.026,4,0.582,0.689,5,4.565,0.612,,5.989,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor
+HUNER,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.035,0.042,4,0.0,0.001,5,3.422,0.787,,9.829,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor; hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+ECOGR,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.031,0.039,4,0.001,0.01,7,4.524,0.593,22.004,9.873,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil)
+ENTRA,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.025,0.017,4,0.006,0.007,6,3.652,0.428,,8.502,2 yıl bedelli artırım; net kârın çoğu parasal kazanç
+DNISI,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",6.0,3.0,2,0.015,0.005,4,0.0,0.0,5,-1.295,1.242,72.014,18.569,2 yıl bedelli artırım
+INTEM,Toptan ve Perakende Ticaret,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.307,0.191,4,0.077,0.047,5,0.188,3.25,,9.561,sektöre yeni girenler ilk 3'e yerleşebiliyor
+UCAYM,İnşaat,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.261,0.245,4,0.06,0.037,3,-0.372,2.322,26.446,5.464,büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+INDES,Teknolojik Ürün Ticareti,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.246,0.197,4,0.427,0.331,5,-0.224,1.098,14.142,2.161,
+MIATK,Bilişim ve Yazılım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.221,0.079,4,0.066,0.057,4,0.333,1.972,,9.425,
+OFSYM,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.22,0.155,4,0.024,0.017,2,2.875,1.587,16.946,7.131,
+ATATR,Turizm,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.165,0.156,4,0.281,0.246,5,-0.804,1.286,8.947,2.811,
+SUNTK,"Tekstil, Giyim ve Deri","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.15,0.114,4,0.098,0.095,4,-0.145,1.19,12.128,4.629,
+BUCIM,"Taş, Toprak, Çimento","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.149,0.02,4,0.081,0.049,3,2.992,0.367,,7.55,büyümeyi dış kaynakla finanse ediyor
+CEMTS,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.129,0.059,4,0.017,0.01,5,-0.594,0.469,,3.26,sektöre yeni girenler ilk 3'e yerleşebiliyor
+PLTUR,Servis Taşımacılığı ve Araç Kiralama,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.123,0.156,4,0.192,0.193,4,0.989,0.336,4.07,2.222,sektöre yeni girenler ilk 3'e yerleşebiliyor
+KCAER,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.115,0.089,4,0.047,0.039,5,0.648,1.34,34.792,5.947,sektöre yeni girenler ilk 3'e yerleşebiliyor
+AKSEN,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.088,0.063,4,0.158,0.07,7,3.977,1.205,19.645,9.935,büyümeyi dış kaynakla finanse ediyor
+MEGMT,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.085,0.055,4,0.011,0.032,5,3.349,2.044,5.522,10.251,2 yıl bedelli artırım; sektöre yeni girenler ilk 3'e yerleşebiliyor; hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+GMTAS,Toptan ve Perakende Ticaret,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.084,0.085,4,0.098,0.128,3,-0.325,3.278,,26.606,halka açıklık >%70 (hâkim ortak zayıf); sektöre yeni girenler ilk 3'e yerleşebiliyor
+ISDMR,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.5,1.0,3,0.064,0.03,4,0.075,0.166,5,-0.884,1.153,27.829,12.795,sektöre yeni girenler ilk 3'e yerleşebiliyor; hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+ORGE,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.349,0.316,4,0.025,0.022,5,-0.118,1.834,12.252,4.092,büyümeyi dış kaynakla finanse ediyor
+DOAS,Otomotiv,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.254,0.088,4,0.143,0.164,2,1.711,0.388,8.303,3.483,
+BRLSM,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.233,0.149,4,0.046,0.03,3,2.138,1.08,,6.278,net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor
+YEOTK,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.221,0.187,4,0.052,0.107,4,1.623,4.217,11.782,7.103,büyümeyi dış kaynakla finanse ediyor
+AZTEK,Teknolojik Ürün Ticareti,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.221,0.08,4,0.045,0.033,3,4.098,1.248,,8.664,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor
+ALVES,İmalat,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.22,0.223,4,0.073,0.19,4,1.554,0.27,7.13,1.912,halka açıklık >%70 (hâkim ortak zayıf); 3 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor
+GESAN,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.196,0.156,4,0.132,0.131,3,0.867,1.013,15.289,4.55,yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor
+MEGAP,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.192,0.089,4,0.002,0.006,4,3.048,0.128,,4.002,halka açıklık >%70 (hâkim ortak zayıf); 2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor
+GOKNR,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.171,0.099,4,0.015,0.014,5,1.143,0.405,8.42,3.562,faaliyet kârını diğer gelirler şişiriyor
+SELEC,İlaç ve Sağlık,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.154,0.05,4,0.634,0.586,5,-1.535,1.242,,6.906,büyümeyi dış kaynakla finanse ediyor
+BOBET,"Taş, Toprak, Çimento","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.141,-0.025,4,0.044,0.045,3,-0.134,0.691,,3.421,yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor
+EGEEN,Otomotiv Yan Sanayi,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.13,0.032,4,0.058,0.042,4,-0.5,1.591,,27.321,faaliyet kârını diğer gelirler şişiriyor
+KRTEK,"Tekstil, Giyim ve Deri","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.125,0.053,4,0.026,0.014,7,-7.736,0.364,37.498,,faaliyet kârını diğer gelirler şişiriyor
+ALTNY,Savunma,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.121,0.033,4,0.009,0.017,3,2.165,2.199,62.196,15.979,büyümeyi dış kaynakla finanse ediyor
+BVSAN,İmalat,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.116,0.121,4,0.094,0.062,4,0.843,0.882,10.734,4.173,büyümeyi dış kaynakla finanse ediyor
+TOASO,Otomotiv,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.114,0.024,4,0.201,0.205,4,3.354,1.729,12.422,13.733,
+GUNDG,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.11,0.023,4,0.003,0.002,3,-2.529,3.478,,142.368,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
+ONRYT,Bilişim ve Yazılım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.106,0.009,4,0.031,0.021,4,-1.197,0.719,,19.892,büyümeyi dış kaynakla finanse ediyor
+KBORU,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.106,0.033,4,0.004,0.009,3,4.018,1.101,7.608,10.016,yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+ORCAY,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.1,0.063,4,0.001,0.001,5,4.29,0.624,,8.07,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
+TUKAS,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.098,0.059,4,0.012,0.008,3,2.457,0.427,14.546,5.568,büyümeyi dış kaynakla finanse ediyor
+GEREL,Metal Eşya ve Makine,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.097,0.058,4,0.058,0.067,4,13.751,2.676,87.552,120.602,2 yıl bedelli artırım; faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+AKSA,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.082,0.06,4,0.026,0.025,5,3.655,1.005,8.189,9.396,büyümeyi dış kaynakla finanse ediyor
+IHEVA,Dayanıklı Tüketim Ürünleri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.081,0.07,4,0.005,0.005,5,0.609,0.216,16.578,2.021,halka açıklık >%70 (hâkim ortak zayıf); net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
+DURKN,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.064,0.067,4,0.001,0.001,4,2.387,0.456,7.934,5.269,büyümeyi dış kaynakla finanse ediyor
+OYLUM,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.063,0.01,4,0.001,0.001,3,-1.379,0.447,,8.669,halka açıklık >%70 (hâkim ortak zayıf); büyümeyi dış kaynakla finanse ediyor
+DEVA,İlaç ve Sağlık,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.059,0.018,4,0.065,0.066,5,1.675,0.493,,10.761,net kârın çoğu parasal kazanç
+KLYPV,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.058,0.018,4,0.043,0.044,4,6.499,1.611,,16.391,büyümeyi dış kaynakla finanse ediyor; hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+AYEN,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.043,0.035,4,0.021,0.013,5,3.352,0.325,23.858,6.144,
+HRKET,Destek ve Hizmet,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.041,0.036,4,0.127,0.14,4,4.172,1.929,,13.504,net kârın çoğu parasal kazanç; yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor
+KONKA,Kağıt ve Kağıt Ürünleri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.035,0.021,4,0.121,0.109,5,-2.369,0.308,,7.136,
+ZOREN,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",5.0,2.0,2,0.022,0.009,4,0.07,0.06,5,7.181,0.12,,8.168,net kârın çoğu parasal kazanç
+VEYAS,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.5,,2,0.389,0.312,3,,,3,0.745,2.212,11.77,4.604,
+ISVEA,"Cam, Seramik, Porselen","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.5,,2,0.147,0.14,3,,,6,2.684,3.084,55.663,8.81,büyümeyi dış kaynakla finanse ediyor
+BALSU,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.5,,2,0.113,0.1,3,,,4,5.131,1.484,35.109,8.405,2 yıl bedelli artırım; net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
+NETGL,Kimya ve Plastik,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.5,,2,0.105,0.079,3,,,2,1.886,0.978,27.003,7.76,büyümeyi dış kaynakla finanse ediyor
+SOHOE,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.5,,2,0.102,0.148,3,,,5,2.752,0.866,42.681,5.53,net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+KARCL,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.5,,2,0.072,0.079,3,,,5,5.036,3.051,30.699,17.722,büyümeyi dış kaynakla finanse ediyor; hiç parasal kalem yok (TMS 29 uygulanmamış olabilir)
+THYAO,Ulaştırma,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.5,,2,0.052,0.04,3,,,4,3.132,0.414,3.193,5.517,yüksek döviz açığı (gelir dövizse sorun değil)
+EREGL,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.5,,2,0.044,0.017,3,,,4,2.096,0.882,495.935,14.507,
+METEN,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.5,,2,0.034,0.005,3,,,5,5.809,0.874,33.056,17.702,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
+ESCOM,Bilişim ve Yazılım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.383,0.374,4,0.042,0.035,5,-0.001,0.706,2.037,1.42,büyümeyi dış kaynakla finanse ediyor
+AKFIS,İnşaat,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.255,0.26,4,0.163,0.187,6,4.036,1.458,27.399,13.428,faaliyet kârını diğer gelirler şişiriyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+JANTS,Otomotiv Yan Sanayi,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.17,0.049,4,0.087,0.054,5,0.005,1.084,,15.071,faaliyet kârını diğer gelirler şişiriyor
+ETILR,Toptan ve Perakende Ticaret,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.139,0.184,4,0.02,0.052,3,1.452,2.908,132.005,7.08,faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+SMRTG,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.139,0.065,4,0.07,0.067,5,4.2,1.432,,7.212,net kârın çoğu parasal kazanç; büyümeyi dış kaynakla finanse ediyor
+ALFAS,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.13,0.051,4,0.073,0.052,4,3.685,1.545,,15.301,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor
+EDATA,Bilişim ve Yazılım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.127,0.188,4,0.065,0.051,4,-2.237,1.716,,15.958,faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+CWENE,Enerji Teknolojileri,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.127,0.096,4,0.155,0.104,4,2.219,1.063,6.697,6.893,yüksek döviz açığı (gelir dövizse sorun değil); büyümeyi dış kaynakla finanse ediyor
+POLTK,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.122,0.064,4,0.002,0.001,5,-0.397,30.892,,123.217,net kârın çoğu parasal kazanç; sektöre yeni girenler ilk 3'e yerleşebiliyor
+HATSN,İmalat,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.111,-0.0,4,0.106,0.093,5,0.712,0.792,,20.297,büyümeyi dış kaynakla finanse ediyor
+GSDHO,Ulaştırma,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.105,0.094,4,0.053,0.01,5,-0.913,0.272,16.308,0.892,4 yıl bedelli artırım; net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+RUBNS,"Tekstil, Giyim ve Deri","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.099,0.049,4,0.018,0.016,2,1.617,0.247,,4.191,2 yıl bedelli artırım; büyümeyi dış kaynakla finanse ediyor
+YYLGD,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.087,0.071,4,0.038,0.021,6,4.476,0.485,7.255,7.692,yüksek döviz açığı (gelir dövizse sorun değil); faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor
+TUCLK,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.076,0.075,4,0.003,0.003,3,4.496,0.229,,5.787,halka açıklık >%70 (hâkim ortak zayıf); net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+PASEU,Ulaştırma,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.075,0.025,4,0.034,0.015,4,7.642,6.147,19.618,247.241,faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+BURCE,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.067,-0.097,4,0.001,0.001,2,-2.626,1.364,,,sektöre yeni girenler ilk 3'e yerleşebiliyor
+AKCNS,"Taş, Toprak, Çimento","D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.061,0.041,4,0.117,0.098,4,-0.33,1.235,42.58,8.937,
+BESLR,Gıda ve İçecek,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.06,0.054,4,0.04,0.03,4,1.604,0.348,11.094,2.948,
+ODAS,Enerji Üretim ve Dağıtım,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",4.0,1.0,2,0.052,0.022,4,0.029,0.015,5,0.137,0.397,13.209,2.055,halka açıklık >%70 (hâkim ortak zayıf); 2 yıl bedelli artırım
+EMPAE,Toptan ve Perakende Ticaret,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",3.0,0.0,2,0.471,0.29,4,0.168,0.089,3,0.204,5.632,72.572,15.266,faaliyet kârını diğer gelirler şişiriyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+SARKY,Ana Metal,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",3.0,0.0,2,0.114,0.072,4,0.143,0.128,2,4.888,1.263,42.102,12.407,halka açıklık >%70 (hâkim ortak zayıf); net kârın çoğu parasal kazanç; faaliyet kârını diğer gelirler şişiriyor; büyümeyi dış kaynakla finanse ediyor; sektöre yeni girenler ilk 3'e yerleşebiliyor
+ORMA,Mobilya ve Dekorasyon,"D - Hendek var ama finansal güç yok (en tehlikeli, izle)",3.0,0.0,2,0.035,0.013,4,0.142,0.104,4,5.504,0.421,,11.856,net kârın çoğu parasal kazanç; sektöre yeni girenler ilk 3'e yerleşebiliyor
