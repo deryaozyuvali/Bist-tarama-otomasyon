@@ -82,3 +82,13 @@ geçmiş tarihli bir taramaya da bakabilirsin.
 - `gate.py` — mum taramanın hafta/ay sonu kontrolü (yeni).
 - `.github/workflows/*.yml` — zamanlama tanımları (yeni).
 - `requirements.txt` — gerekli Python paketleri.
+
+## Temel tarama: Hendek filtresi
+
+`temel_tarama/` klasörü, Serkan Ünal'ın *Borsa İstanbul İçin Hisse Seçim Rehberi* kitabındaki hendek testini uygular:
+- pazar payı istikrarı
+- reel kârlılığın sürekliliği
+- hendeğin gücü
+- Piotroski finansal güç skoru
+
+Kurallar ve nitel kontrol listesi `temel_tarama/HENDEK_FILTRESI.md` dosyasında. Sonuçlar `results/temel/` altına yazılır. Veri Fintables'tan Claude aracılığıyla çekildiği için bu tarama otomatik çalışmaz; yılda bir, yıl sonu tabloları açıklandıktan sonra elle güncellenir.
