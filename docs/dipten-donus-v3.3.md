@@ -97,7 +97,8 @@ PİLOT arama yöntemi:
 - Hangi yolun mümkün olduğu (n = Evo'daki karşılaştırılabilir ham çeyrek sayısı, son çeyrek t dahil):
   - R-TTM mümkün ⇔ d ≥ t − n + 8. Dört gözlemin tamamı ⇔ d ≥ t − n + 11.
   - R-ÇEYREK mümkün ⇔ d ≥ t − n + 5.
-  - Örnekler: n = 18 veya fazlası → bütün d'ler R-TTM, 4 gözlem. n = 12 → d ≥ t−4 için R-TTM (1–3 gözlem), d ∈ {t−7 … t−5} için R-ÇEYREK. n = 8 → R-TTM yok; d ∈ {t−3 … t−1} için R-ÇEYREK. n ≤ 5 → referans yok.
+  - Örnekler: n = 18 veya fazlası → bütün d'ler R-TTM, 4 gözlem. n = 12 → d ≥ t−4 için R-TTM (1–4 gözlem; d = t−1'de 4 gözlem), d ∈ {t−7 … t−5} için R-ÇEYREK. n = 8 → R-TTM yok; d ∈ {t−3 … t−1} için R-ÇEYREK. n ≤ 5 → referans yok.
+  - Bu formüller kesintisiz ham veri varsayımına dayanan açıklamalardır, uygulama kuralı değildir. Uygulama, her d için gereken dönem ve kalemlerin Evo'da gerçekten mevcut olup olmadığını doğrudan kontrol eder. Doğrudan alınmış geçerli try_ttm verisi, ham çeyrekler ayrıca çekilmedi diye yok sayılmaz.
 - Kayıt: Her d için kullanılan yol, referans dönemleri, gözlem sayısı ve ZAYIF REFERANS etiketi çıktıya yazılır.
 
 Bozulma kanıtları (en az ikisi; en az biri A veya B):
