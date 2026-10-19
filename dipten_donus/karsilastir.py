@@ -28,13 +28,20 @@ def nedenler(a, b):
     yeni_rqe = [d for d in b.get("dip_tarihleri", []) if d.get("yol") == "R-ÇEYREK (EKSİK)"]
     if eski_rq and yeni_rqe:
         n.append("2023 çeyrekleri doğrulanamadı (R-ÇEYREK → EKSİK)")
-    if any("KAYNAK İSTİSNASI" in m.get("sonuc", "") for m in b.get("ifna_mutabakat", [])) and \
-            not any("KAYNAK İSTİSNASI" in m.get("sonuc", "") for m in a.get("ifna_mutabakat", [])):
-        n.append("İFNA: belgeyle düzeltilmiş master CFO kaynak istisnası olarak kullanıldı")
     if b.get("liste", "").startswith("4-") and "dönem eşlemesi" in b.get("neden", ""):
         n.append("dönem eşlemesi şüphesi (yayın gecikmesi deseni)")
-    if b.get("ifna_mutabakat_bekliyor"):
-        n.append(f"Evo–master İFNA farkı ({b['ifna_mutabakat_bekliyor']}): ilgili nakit kalemleri EKSİK")
+    if a.get("liste", "").startswith("4-") and "dönem eşlemesi" in a.get("neden", "") and not b.get("liste", "").startswith("4-"):
+        n.append("110 gün kuralının otomatik sınıf etkisi kaldırıldı (artık yalnız uyarı)")
+    ma = {m["donem"]: m["sonuc"] for m in a.get("ifna_mutabakat", [])}
+    mb = {m["donem"]: m["sonuc"] for m in b.get("ifna_mutabakat", [])}
+    geri = [d for d, v in ma.items() if v.startswith("KAYNAK") and not mb.get(d, "").startswith("KAYNAK")]
+    yeni = [d for d, v in mb.items() if v.startswith("KAYNAK") and not ma.get(d, "").startswith("KAYNAK")]
+    if geri:
+        n.append("İFNA düzeltmesi geri alındı (" + "; ".join(f"{d}: {mb.get(d, '')[11:].split(' —')[0]}" for d in geri) + ")")
+    if yeni:
+        n.append("İFNA düzeltmesi dönem kaydı/ortak yöntemle uygulandı (" + ", ".join(yeni) + ")")
+    if a.get("ifna_mutabakat_bekliyor", "") != b.get("ifna_mutabakat_bekliyor", ""):
+        n.append(f"mutabakat bekleyen dönemler: '{a.get('ifna_mutabakat_bekliyor', '')}' → '{b.get('ifna_mutabakat_bekliyor', '')}'")
     if a.get("liste", "").startswith("DİP KANITI YOK") and b.get("liste") == "DİP DEĞERLENDİRMESİ EKSİK — KISMİ PENCERE":
         n.append("en eski aday dip tarihi değerlendirilemedi → 'dip yok' denmedi")
     pa, pb = a.get("puan_satirlari", {}), b.get("puan_satirlari", {})

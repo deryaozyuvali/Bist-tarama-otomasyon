@@ -9,6 +9,6 @@ Girdi verileri (Evo çekimi, FCF_MASTER, master kapsam listesi) lisanslı veya k
 bu repoya konmaz; yerel dosya yolları argüman olarak verilir.
 
 ```
-python tarama_v33.py --evo evo.csv --master master_fcf.csv --evren evren.csv --sektor sektor.csv --yayin yayin.csv --belge belge_cfo.csv --kfy kfy.csv --emsal emsal_haritasi_v1.csv --cikti cikti/
+python tarama_v33.py --evo evo.csv --master master_fcf.csv --evren evren.csv --sektor sektor.csv --yayin yayin.csv --belge belge_cfo.csv --kfy kfy.csv --emsal emsal_haritasi_v1.csv --ifna_tl ifna_tl.csv --cikti cikti/
 python rapor_v33.py --sonuc cikti/sonuc.json --referans efk113.csv --cikti cikti/
 ```

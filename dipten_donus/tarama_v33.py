@@ -12,6 +12,8 @@ Girdiler (repoya konmaz; yerel dosya yolları argüman olarak verilir):
   --belge     FCF_MASTER BELGE_TTM CFO kanıtları (İFNA mutabakatı için)
   --kfy       Evo dönen varlıklardaki 'Finansal Yatırımlar' (kod, kfy2503, kfy2506, kfy2603, kfy2606; mn TL) — C1 alternatif dalı
   --emsal     Emsal haritası CSV'si (kod, dar_grup, ust_grup, kanit, ...) — D1; dosya adı sürüm adıdır
+  --ifna_tl   Evo İFNA TTM, TL hassasiyetinde (kod, t2412 … t2606) — mutabakat farkları yuvarlamasız hesaplanır
+  (--belge artık FCF_MASTER'dan çıkarılan genişletilmiş tablo: bileşen tutarları, TMS29 katsayıları, 14g kodu, okuma durumu)
   --cikti     Çıktı klasörü
 
 Tüm tutarlar mn TL. Marjlar oran (0.05 = %5). 1 bps = 0.0001.
@@ -33,6 +35,7 @@ P = {
     "ifna_mutabakat_esik": 0.10,  # Evo İFNA ile FCF_MASTER CFO farkı
     "on_puan_kuyruk": 35,
     "emsal_min": 5,
+    "ortak_yontem_kabul": True,   # İFNA: dönem kaydı yoksa master TMS29 katsayı yöntemi baz kanıtı sayılır mı (duyarlılık için kapatılabilir)
 }
 BPS = 0.0001
 
@@ -40,6 +43,29 @@ KAPSAM_DISI_SEKTOR = {3, 4, 6, 23, 24, 25, 26, 27, 33, 35, 36, 39, 49}
 
 # FCF_MASTER NOTLAR ("Spor kulüpleri"): mali yıl Haziran/Mayıs, takvim TTM'i yok.
 TAKVIM_DISI_MALI_YIL = {"BJKAS", "FENER", "GSRAY", "TSPOR", "KAYSE", "MERKO"}
+
+# Rapor kapak/başlık tarihi ile Evo dönem etiketi doğrudan karşılaştırılıp uyuşmazlığı belgelenen şirketler.
+# (Yalnız yayın gecikmesi bu listeye alma gerekçesi değildir.)
+DONEM_UYUSMAZLIGI_BELGELI = {
+    "ARENA": "Evo '2025/06' satırı KAP 1512424; raporun başlığı '30 Eylül 2025 tarihi itibarıyla' (Evo 2025/06 sonrası seri kaymış)",
+    "BALSU": "mali yıl 1 Temmuz–30 Haziran; Evo mali çeyreği takvim çeyreğine yazıyor, etiket rapor tarihinin 6 ay gerisinde "
+             "(ör. Evo 2024/12 = '30 Haziran 2025 tarihi itibarıyla', Evo 2025/09 = '31 Mart 2026 tarihinde sona eren'); 5/5 dönem uyuşmuyor",
+    "BORSK": "mali yıl 1 Nisan–31 Mart; Evo etiketi rapor tarihinin 3 ay gerisinde (ör. Evo 2024/12 = '31 Mart 2025 tarihi itibarıyla', "
+             "Evo 2025/06 = '30 Eylül 2025 … altı aylık dönem'); 6/6 dönem uyuşmuyor",
+    "MARTI": "mali yıl 1 Nisan–31 Mart ('özel hesap dönemine tabi'); Evo etiketi rapor tarihinin 3 ay gerisinde "
+             "(ör. Evo 2024/12 = 'Cari Dönem 31.03.2025', Evo 2025/12 = '01.04.2025-31.03.2026'); 6/6 dönem uyuşmuyor",
+}
+# Belgeyle düzeltilen Evo değerleri: (kod, dönem, seri) -> (yeni değer mn TL, kanıt). Baz: aynı raporun diğer kalemleri 1,5414.
+BELGE_DUZELTME = {
+    ("SILVR", 202412, "it"): (118.105435 * 1.5414,
+                              "SILVR 2024/12 FR nakit akış s.13: A toplamı 118.105.435 TL × 1,5414; rapor kendi içinde ve net nakit "
+                              "değişimiyle tutarlı, Evo'nun 221,2 mn'u kendi A+B+C toplamıyla tutmuyor; master 2025/03–09'u aynı farkla düzeltmiş"),
+}
+
+# Rapor tarihi ile Evo etiketi doğrudan karşılaştırılıp UYUŞTUĞU görülenler (gecikme gerçek; dönem hatası yok).
+DONEM_DOGRULANDI = {
+    "ATEKS": "7/7 dönemde rapor tarihi Evo etiketiyle aynı (ör. '31 Mart 2025 tarihi itibarıyla'); 2025/03–09 raporları 06.03.2026'da birlikte yayımlanmış",
+}
 
 # Karşılaştırılabilirliği doğrulanamayan çeyrekler (2023/12 öncesi; kaynak istisnası açık)
 DOGRULANAMAYAN_CEYREK = {202303, 202306, 202309}
@@ -179,14 +205,63 @@ def _tr_ascii_upper(x):
     return x.translate(str.maketrans("İIıiŞşÇçĞğÖöÜü", "IIIISSCCGGOOUU")).upper()
 
 
-def ifna_tanimi_dogru(kanit_metni):
-    """Belge satırı İFNA ana toplamı mı (işletme sermayesi öncesi/ara toplam değil)?"""
-    t = _tr_ascii_upper(kanit_metni or "")
-    satir = t.split("·")[-1]
-    if "SERMAYE" in satir or "CFO =" in satir:
-        return False
-    return ("ISLETME FAAL" in satir or "A. ESAS FAALIYETLERDEN NAKIT" in satir
-            or "OPERATING ACTIVITIES" in satir)
+TMS29 = {202412: 1.5414, 202503: 1.4004, 202506: 1.3211, 202509: 1.2289, 202512: 1.1776, 202603: 1.0701, 202606: 1.0}
+TANIM_SIRA = ["ÇELİŞKİ", "METİN", "ONAYLI TÜRETME", "YAPISAL"]
+
+
+def ifna_tanim_sinifi(b):
+    """Master CFO satırının İFNA ana toplamı olduğuna dair kanıt düzeyi (metin araması tek başına yetmez).
+    Bileşen (A cari YTD, B önceki yıl sonu, C önceki yıl aynı dönem) başına, kullanılan rapor okumasına bakılır:
+      YAPISAL        — XBRL değeri PDF satırıyla teyitli (TEYITLI) ya da PDF satırı özdeşlikle (A+B+C = nakit değişimi) kontrol edilmiş
+      ONAYLI TÜRETME — CFO, master'ın belgelenmiş özdeşlik kuralıyla türetilmiş (KAP numaralı PDF satırlarından)
+      METİN          — yalnız PDF/izahname satır metni okunmuş; satırın yeri/bileşenleri doğrulanmamış
+      ÇELİŞKİ        — XBRL ile PDF tutmamış, PDF yok ya da kullanılan tutar rapor okumasıyla eşleşmiyor
+    Satırın sınıfı, değeri sıfır olmayan bileşenlerin en zayıfıdır."""
+    sinif = []
+    for k in ("A", "B", "C"):
+        v = f(b.get(k))
+        if not v:
+            continue
+        ok = _tr_ascii_upper(b.get(f"okuma_{k}", ""))
+        kn = _tr_ascii_upper(b.get(f"kanit_{k.lower()}", ""))
+        if "CFO =" in kn or "OZDESLIGIYLE TURETILDI" in ok or ("OZDESLIKLE" in ok and "XBRL:TEYITLI" not in ok):
+            sinif.append("ONAYLI TÜRETME")
+        elif "XBRL:TEYITLI" in ok or ("OZDESLIK" in kn and "✓" in kn):
+            sinif.append("YAPISAL")
+        elif "TUTAR_ESLESMEDI" in ok or "PDF_TUTMADI" in ok or "PDF_YOK" in ok:
+            sinif.append("ÇELİŞKİ")
+        else:
+            sinif.append("METİN")
+    return min(sinif, key=TANIM_SIRA.index) if sinif else "METİN"
+
+
+def baz_sinifi(b, donem):
+    """Master CFO'nun bu dönemde Evo serisiyle aynı bazda olduğuna dair kanıt (tek dönem tutar eşleşmesi kullanılmaz).
+      DÖNEM KAYDI  — master FCF sayfasında bu dönemin CFO'su için Evo–belge (14g) kodu var (karşılaştırma kayıtlı)
+      ORTAK YÖNTEM — bu dönemin bileşenlerine master TMS29 katsayı tablosu uygulanmış (BELGE_TTM katsayıları tabloyla aynı)
+                     ya da TMS 29 uygulanmayan raporlarda katsayı 1
+      YOK          — ikisi de yok"""
+    k14 = b.get("kod14g", "")
+    parcalar = [x.strip() for x in k14.split(";") if x.strip()]
+    cfo_kodu = [x for x in parcalar if x.startswith("CFO:") or not any(x.startswith(p) for p in ("CAPEX:", "KIRA:"))]
+    if any(c and "ACIKLANAMAYAN" not in c and "BELGE_YOK" not in c for c in cfo_kodu):
+        return "DÖNEM KAYDI", k14
+    y, m = divmod(donem, 100)
+    onceki_yil_sonu = (y - 1) * 100 + 12
+    beklenen = {"A": TMS29.get(donem), "B": TMS29.get(onceki_yil_sonu), "C": TMS29.get(donem)}
+    tms_yok = all(b.get(f"tms29_{k}", "") in ("False", "") for k in "ABC")
+    uyum = True
+    for k in "ABC":
+        if not f(b.get(k)):
+            continue
+        kat = f(b.get(f"k{k}"))
+        if kat is None:
+            uyum = False
+        elif tms_yok and kat == 1:
+            continue
+        elif beklenen[k] is None or abs(kat - beklenen[k]) > 0.0002:
+            uyum = False
+    return ("ORTAK YÖNTEM" if uyum else "YOK"), k14
 
 
 def kanit(deger, referans, esik, tip):
@@ -430,7 +505,8 @@ def puanla(s, t, dip, fcf, row, emsal_pct, ifna_fark=frozenset()):
     if fav is not None and fav <= 0:
         yaz("D1", durum="UYGULANAMAZ", not_=f"FAVÖK TTM ≤ 0 ({fav:,.0f} mn); FD/FAVÖK anlamlı değil")
     elif pd0 is not None and nb_t is not None and pd0 + nb_t <= 0:
-        yaz("D1", durum="UYGULANAMAZ", not_="FD ≤ 0; FD/FAVÖK anlamlı değil (gösterge Evo net borç)")
+        yaz("D1", durum="EKSİK", not_=f"FD ≤ 0 (PD {pd0:,.0f} + Evo net borç {nb_t:,.0f} mn); net borç bileşenleri (blokeli nakit, "
+                                      "finansal yatırımların serbestliği) doğrulanmadan uygulanamazlık kesin değil")
     elif emsal_pct is None:
         yaz("D1", durum="EKSİK", not_="FD/FAVÖK hesaplanamadı (PD, net borç veya FAVÖK yok)")
     elif emsal_pct["durum"] != "HESAPLANDI":
@@ -466,12 +542,21 @@ def on_puan(sat):
 
 def main():
     ap = argparse.ArgumentParser()
-    for a in ("evo", "master", "evren", "sektor", "cikti", "yayin", "belge", "kfy", "emsal"):
+    for a in ("evo", "master", "evren", "sektor", "cikti", "yayin", "belge", "kfy", "emsal", "ifna_tl"):
         ap.add_argument(f"--{a}", required=True)
+    ap.add_argument("--ortak-yontem-yok", action="store_true", help="duyarlılık: ORTAK YÖNTEM baz kanıtını kabul etme")
     args = ap.parse_args()
+    if args.ortak_yontem_yok:
+        P["ortak_yontem_kabul"] = False
     os.makedirs(args.cikti, exist_ok=True)
 
     evo = {r["kod"]: r for r in csv.DictReader(open(args.evo, encoding="utf-8"))}
+    # İFNA TTM, TL hassasiyetinde (2024/12–2026/06): geniş tablodaki 0,1 mn yuvarlamasının yerine geçer
+    for r in csv.DictReader(open(args.ifna_tl, encoding="utf-8")):
+        if r["kod"] in evo:
+            for k, v in r.items():
+                if k.startswith("t") and v not in ("", None):
+                    evo[r["kod"]]["it" + k[1:]] = str(int(v) / 1e6)
     # KV finansal yatırımlar (dönen varlıklar içindeki 'Finansal Yatırımlar'; boş = kalem yok → 0)
     for r in csv.DictReader(open(args.kfy, encoding="utf-8")):
         if r["kod"] in evo:
@@ -601,12 +686,22 @@ def main():
         s = Seri(row)
         t = s.son_donem()
         out["notlar"] = list(s.notlar)
-        if kod in donem_suphe:
+        for (k_, p_, seri_), (v_, kanit_) in BELGE_DUZELTME.items():
+            if k_ == kod:
+                i_ = DONEMLER.index(p_)
+                eski_ = getattr(s, seri_)[i_]
+                getattr(s, seri_)[i_] = v_
+                out["notlar"].append(f"BELGE DÜZELTMESİ {seri_} {donem_str(p_)}: Evo {eski_} → {v_:,.2f} mn ({kanit_})")
+        if kod in DONEM_UYUSMAZLIGI_BELGELI:
             out["liste"] = "4-VERİ EKSİĞİ"
-            out["neden"] = ("dönem eşlemesi doğrulanamadı: raporlar dönem sonundan çok sonra yayımlanmış (" + "; ".join(donem_suphe[kod])
-                            + "); Evo dönem etiketi KAP rapor dönemiyle uyuşmayabilir" + (" — ARENA'da KAP belgesiyle teyit edildi" if kod == "ARENA" else ""))
+            out["neden"] = "belgeyle doğrulanmış dönem uyuşmazlığı: " + DONEM_UYUSMAZLIGI_BELGELI[kod] + "; etkilenen seri düzeltilene kadar hesaplar bekliyor"
             sonuc.append(out)
             continue
+        if kod in DONEM_DOGRULANDI:
+            out["notlar"].append("DÖNEM ETİKETİ DOĞRULANDI: " + DONEM_DOGRULANDI[kod] + "; geç yayın gerçek, sonuçlara etkisi yok")
+        elif kod in donem_suphe:
+            out["notlar"].append("DÖNEM KONTROLÜ BEKLİYOR (uyarı, karar etkisi yok): raporlar dönem sonundan >110 gün sonra yayımlanmış ("
+                                 + "; ".join(donem_suphe[kod]) + "); rapor tarihi ile Evo etiketi doğrudan karşılaştırılmalı")
         if kod in TAKVIM_DISI_MALI_YIL:
             out["liste"] = "4-VERİ EKSİĞİ"
             out["neden"] = "mali yıl takvim dışı; takvim TTM'i güvenilir değil (FCF_MASTER notu)"
@@ -629,31 +724,56 @@ def main():
         mt = m.get(DONEMLER[t])
         ortak = [(i, m[p_]) for i, p_ in enumerate(DONEMLER)
                  if m.get(p_) and m[p_].get("cfo") is not None and s.it[i] is not None]
-        baz_ok = any(abs(s.it[i] / mm["cfo"] - 1) <= 0.01 for i, mm in ortak if mm["cfo"] != 0)
+        # Seri kayması işareti (uyarı): Evo İFNA(p) = master CFO(p+1 veya p+2) en az iki dönemde ve p'de eşit değil.
+        # Karar etkisi: yalnız bu şirkette master ile dönem bazlı değer değiştirme yapılmaz (karışık seri oluşmasın).
+        def _esit(a, b_):
+            return a is not None and b_ is not None and abs(a - b_) <= max(0.0015 * abs(b_), 0.15)
+        kayma = None
+        for sh in (1, 2):
+            hits = [(DONEMLER[i], DONEMLER[i + sh]) for i in range(len(DONEMLER) - sh)
+                    if m.get(DONEMLER[i + sh]) and _esit(s.it[i], m[DONEMLER[i + sh]].get("cfo"))
+                    and not (m.get(DONEMLER[i]) and _esit(s.it[i], m[DONEMLER[i]].get("cfo")))]
+            if len(hits) >= 2:
+                kayma = (sh, hits)
+                break
+        if kayma:
+            out["notlar"].append(f"SERİ KAYMASI İŞARETİ (uyarı): Evo İFNA, master CFO'nun {kayma[0]} çeyrek sonrasıyla aynı ("
+                                 + ", ".join(f"Evo {donem_str(a)} = master {donem_str(b_)}" for a, b_ in kayma[1])
+                                 + "); dönem etiketi rapor tarihiyle doğrudan karşılaştırılmalı")
+            out["seri_kaymasi_isareti"] = kayma[0]
         mutabakat = []
         cozulmemis = {}
         for i, mm in ortak:
-            fark = abs(s.it[i] - mm["cfo"]) / max(abs(mm["cfo"]), 1.0)
-            if fark <= 0.005:
+            # Bütün farklar kaydedilir. Evo TL hassasiyetinde; yalnız master'ın bin TL yuvarlaması (±0,0005 mn) içinde kalan eşit sayılır.
+            fark_mn = s.it[i] - mm["cfo"]
+            if abs(fark_mn) <= 0.0005 + 1e-9:
                 continue
+            payda = max(abs(mm["cfo"]), 1.0)
             b = belge.get((kod, DONEMLER[i]))
             kanit = (b or {}).get("kanit_a", "")
-            tanim_ok = ifna_tanimi_dogru(kanit)
-            cozuldu = (baz_ok and mm["kaynak"].startswith("BELGE") and mm["statu"] in ("KESİN", "TÜRETİLMİŞ")
-                       and b is not None and b.get("kullanildi") == "EVET" and "KAP" in kanit and tanim_ok)
-            kayit = {"donem": donem_str(DONEMLER[i]), "evo": s.it[i], "master": mm["cfo"], "fark": fark,
-                     "master_kaynak": mm["kaynak"], "kanit": kanit[:160]}
+            tanim = ifna_tanim_sinifi(b) if b else "METİN"
+            baz, k14 = baz_sinifi(b, DONEMLER[i]) if b else ("YOK", "")
+            kaynak_ok = (mm["kaynak"].startswith("BELGE") and mm["statu"] in ("KESİN", "TÜRETİLMİŞ")
+                         and b is not None and b.get("kullanildi") == "EVET" and "KAP" in kanit)
+            baz_gecerli = baz == "DÖNEM KAYDI" or (baz == "ORTAK YÖNTEM" and P["ortak_yontem_kabul"])
+            cozuldu = kaynak_ok and baz_gecerli and tanim in ("YAPISAL", "ONAYLI TÜRETME") and not kayma
+            kayit = {"donem": donem_str(DONEMLER[i]), "evo": s.it[i], "master": mm["cfo"], "fark_mn": fark_mn,
+                     "fark": abs(fark_mn) / payda, "isaret_farki": (s.it[i] > 0 > mm["cfo"]) or (s.it[i] < 0 < mm["cfo"]),
+                     "master_kaynak": mm["kaynak"], "master_statu": mm["statu"], "baz": baz, "kod14g": k14,
+                     "tanim": tanim, "kanit": kanit[:160]}
             if cozuldu:
-                kayit["sonuc"] = "KAYNAK İSTİSNASI: belgeyle düzeltilmiş master CFO kullanıldı"
+                kayit["sonuc"] = ("KAYNAK İSTİSNASI: belgeyle düzeltilmiş master CFO kullanıldı"
+                                  + (" (TÜRETİLMİŞ)" if tanim == "ONAYLI TÜRETME" else "") + f" — baz: {baz}")
                 s.it[i] = mm["cfo"]
             else:
-                eksik = [n for n, ok in (("ortak baz kanıtı", baz_ok), ("belge kaynağı", mm["kaynak"].startswith("BELGE")),
-                                         ("KAP kanıtı", b is not None and "KAP" in kanit), ("İFNA tanımı", tanim_ok)) if not ok]
+                eksik = [n for n, ok in (("seri kayması işareti", not kayma), ("belge kaynağı/statü", kaynak_ok), (f"dönem baz kanıtı ({baz})", baz_gecerli),
+                                         (f"İFNA satır kanıtı ({tanim})", tanim in ("YAPISAL", "ONAYLI TÜRETME"))) if not ok]
                 kayit["sonuc"] = "ÇÖZÜLEMEDİ (" + ", ".join(eksik) + ")"
                 cozulmemis[i] = mm["cfo"]
             mutabakat.append(kayit)
         out["ifna_mutabakat"] = mutabakat
-        # Çözülemeyen farklar: >%10 ise ilgili nakit kalemleri EKSİK; küçükse yalnız puan/kanıt dalı değişiyorsa EKSİK
+        # Çözülemeyen farklar: >%10 ise ilgili nakit kalemleri EKSİK; daha küçükse (büyüklükten bağımsız, %0,5 altı dahil)
+        # iki kaynakla kanıt/puan dalı karşılaştırılır; dal değişiyorsa EKSİK, değişmiyorsa "puan duyarlı değil; tutar mutabakatı açık".
         ifna_fark = {i for i, v in cozulmemis.items() if abs(s.it[i] - v) / max(abs(v), 1.0) > P["ifna_mutabakat_esik"]}
         kucuk = [i for i in cozulmemis if i not in ifna_fark]
         if kucuk:
@@ -664,7 +784,9 @@ def main():
                 b1 = None if not sec else seri.IM(t) is not None and seri.IM(sec["d"]) is not None and \
                     kademe((seri.IM(t) - seri.IM(sec["d"])) / BPS, [200, 100], [10, 5])
                 b2 = (seri.it[t] or 0) > 0, (seri.it[t - 1] or 0) > 0
-                return ims, b1, b2
+                b3 = None if not sec else bool(seri.it[t] and seri.it[t] > 0 and seri.IM(sec["d"]) is not None
+                                               and seri.IM(t) is not None and seri.IM(t) > seri.IM(sec["d"]))
+                return ims, b1, b2, b3
             temel = _imza(s)
             for i in kucuk:
                 alt = Seri(row)
@@ -672,8 +794,16 @@ def main():
                 alt.it[i] = cozulmemis[i]
                 if _imza(alt) != temel:
                     ifna_fark.add(i)
+                else:
+                    for k_ in mutabakat:
+                        if k_["donem"] == donem_str(DONEMLER[i]):
+                            k_["sonuc"] += " — puan bu iki değere duyarlı değil; tutar mutabakatı açık"
         for k_ in mutabakat:
-            out["notlar"].append(f"İFNA {k_['donem']}: Evo {k_['evo']:,.0f} / master {k_['master']:,.0f} mn — {k_['sonuc']}")
+            if k_["sonuc"].startswith("ÇÖZÜLEMEDİ") and k_["fark"] > P["ifna_mutabakat_esik"]:
+                k_["sonuc"] += " — fark %10 üstü: ilgili nakit kalemleri EKSİK"
+        for k_ in mutabakat:
+            out["notlar"].append(f"İFNA {k_['donem']}: Evo {k_['evo']:,.1f} / master {k_['master']:,.3f} mn "
+                                 f"(fark {k_['fark_mn']:+,.3f} mn; {k_['fark']:.2%}{'; İŞARET FARKI' if k_['isaret_farki'] else ''}) — {k_['sonuc']}")
         ifna_fark = frozenset(ifna_fark)
         out["ifna_mutabakat_bekliyor"] = ", ".join(donem_str(DONEMLER[i]) for i in sorted(ifna_fark))
         fcf = {"t": mt, "t1": m.get(DONEMLER[t - 1]) if t >= 1 else None} if mt else None
