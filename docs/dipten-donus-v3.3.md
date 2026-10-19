@@ -1,14 +1,14 @@
-# DİPTEN DÖNÜŞ FİLTRESİ v3.2 — CLAUDE CODE UYGULAMA TALİMATI
+# DİPTEN DÖNÜŞ FİLTRESİ v3.3 — CLAUDE CODE UYGULAMA TALİMATI
 
 Tarih: 19 Ekim 2026
-Önceki sürüm: v3.1. Bu sürüm v3.1'in yerini alır. Değişen yerler 15. bölümde listelenmiştir.
+Önceki sürüm: v3.2. Bu sürüm v3.2'nin yerini alır. Değişen yerler 16. bölümde listelenmiştir.
 
 ## 0. Amaç ve kapsam (bu bölüm diğer bütün hükümlere üstündür)
 
 Bu filtrenin amacı, operasyonel dipten toparlanmaya başlayan şirketleri ERKEN yakalamaktır. Bütün sorunları çözülmüş şirketleri seçmek değildir.
 
-1. Ön tarama ile teyit ayrıdır. Anlamlı geçmiş bozulma (5. bölüm) ve sayısal erken sinyal (6. bölüm) bulunan şirket ADAY HAVUZUNA girer. İki çeyrek teyit, pozitif FCF, tamamlanmış belge incelemesi veya yüksek toplam puan aday havuzuna giriş şartı değildir.
-2. Puanlar önceliklendirir; aday silmez. 35/65 ve 70/100 eşikleri yalnızca inceleme sırası ve teyit düzeyi içindir. Eşiğin altında kalan erken sinyaller kayıtta tutulur.
+1. Ön tarama ile teyit ayrıdır. Anlamlı geçmiş bozulma (5. bölüm) ve sayısal erken sinyal (6. bölüm) bulunan şirket ADAY HAVUZUNA girer. İki çeyrek teyit, pozitif FCF, tamamlanmış belge incelemesi, yüksek toplam puan veya bütün borç sorunlarının çözülmüş olması aday havuzuna giriş şartı değildir; bunlar teyit, risk değerlendirmesi ve inceleme önceliği içindir.
+2. Puanlar önceliklendirir; aday silmez. 35/65 ve 70/100 eşikleri yalnızca inceleme sırası ve teyit düzeyi içindir. Puanı düşük adaylar, sınırdaki şirketler ve kısa geçmiş nedeniyle teyidi eksik olanlar kayıtta kalır. Kısa finansal geçmiş otomatik eleme nedeni değildir (5. bölüm).
 3. Eksik veri olumsuz sonuç değildir. EKSİK ve UYGULANAMAZ kalemler ayrı gösterilir; otomatik eleme veya kesin sıfır puan üretmez.
 4. Sınırdaki adaylar görünür tutulur (8.5). Bu liste otomatik olumlu kabul edilmez; pilotta yanlış eleme olup olmadığını incelemek için kullanılır.
 5. Dönüş, risk ve değerleme ayrı eksenlerdir. Borç riski veya pahalı fiyat açıkça işaretlenir; tespit edilmiş operasyonel toparlanma bulgusu silinmez.
@@ -20,7 +20,7 @@ Bu belge bir tarama metodolojisidir. Sayısal eşikler geçmişte doğrulanmış
 
 - Ana evren: BIST'teki finans dışı faaliyet şirketleri. Banka, sigorta, finansal kiralama, faktoring, finansman, aracı kurum, GYO/GSYO/MKYO ve holdingler bu modelin dışındadır; ayrı metodoloji gerektiren evrende tutulur. Kapsam dışı olmak "kötü şirket" anlamına gelmez.
 - Şirket bazında sabit olumlu/olumsuz liste tutulmaz. Önceki analizlerin şirket sonuçları taşınmaz.
-- Hedef geçmiş: tam dip penceresi için yaklaşık 19 çeyrek (bkz. 5. bölüm). Halka arz tarihi ile finansal veri geçmişi aynı şey değildir; izahname veya Evo üzerinden yeterli karşılaştırılabilir geçmiş varsa yeni halka arz otomatik elenmez.
+- Geçmiş: Ana tarama mevcut son 8 çeyreği esas alır. Daha uzun karşılaştırılabilir geçmiş varsa yardımcı bilgi olarak (örneğin referans hesabında) kullanılır; aday havuzuna giriş şartı değildir. Halka arz tarihi ile finansal geçmiş uzunluğu ayrıdır; halka arz öncesi karşılaştırılabilir finansallar varsa kullanılabilir, yoksa mevcut veriyle devam edilir. İki yıldır borsada olan şirket otomatik elenmez.
 - Eksik geçmiş/veri, temel başarısızlıktan ayrı "VERİ EKSİĞİ" sınıfıdır.
 - İşlem likiditesi ayrı raporlanır (mümkünse son 60 işlem gününün medyan günlük TL hacmi). Kullanıcı eşik belirlemedikçe düşük hacim temel toparlanmayı iptal etmez; uygulanabilirlik uyarısı üretir.
 - İki aşama: (1) sayısal tarama, aday havuzu ve ön puan; (2) adaylarda belge incelemesi, nakit/bilanço teyidi ve değerleme.
@@ -88,11 +88,17 @@ PİLOT arama yöntemi:
 
 - t: şirketin son açıklanmış mali çeyreği.
 - Aday dip tarihleri: d ∈ {t−7 … t−1}. Son dönem (t) minimumsa "dip devam ediyor olabilir" denir; bu tek başına dönüş teyidi değildir.
-- Referans: her d için d−8 … d−5 dönemlerinin aynı çekimdeki TTM gözlemlerinin medyanı. En az 3 geçerli gözlem gerekir; yoksa o d değerlendirilmez.
-- Gerekçe: Eski pencerede (d−4 … d−1) referans TTM'lerin dip TTM'siyle ortak çeyrek sayısı sırasıyla 0, 1, 2 ve 3'tü. Bu ortaklık yavaş bozulmayı olduğundan küçük gösterebiliyordu. Yeni pencerede ortak çeyrek yoktur.
-- Bedeli: Referans daha eski işletme koşullarını yansıtır ve daha uzun geçmiş ister. En eski aday dip t−7 için en eski referans TTM t−15'tir; bu TTM'nin içerdiği en eski çeyrek t−18'dir. Tam pencere yaklaşık 19 çeyreklik ekonomik geçmiş kapsar. Evo'dan doğrudan TTM alınması bu ihtiyacı ortadan kaldırmaz.
-- Hiçbir d değerlendirilemiyorsa sonuç "geçmiş yetersiz" olur.
-- Kayıt: Hangi d'lerin yeterli veriyle değerlendirilebildiği ve her d için referans medyanının 3 mü 4 gözlemle mi hesaplandığı yazılır.
+- Ana pencere: son 8 çeyrek. Daha eski karşılaştırılabilir veri varsa yalnızca referans hesabında yardımcı olarak kullanılır.
+- Referans seçimi: Her d için aşağıdaki yollardan ilk uygulanabilen kullanılır. Yol, sonuca bakılmadan yalnızca veri varlığına göre belirlenir; aynı veri durumundaki her şirkete aynı yol uygulanır.
+  - R-TTM: TTM(d), d−7 … d−4 dönemlerinde biten TTM gözlemlerinin medyanıyla karşılaştırılır. Bu gözlemler TTM(d) ile ortak çeyrek içermez (TTM(d−4) d−7…d−4'ü, TTM(d) d−3…d'yi kapsar). Mevcut gözlemlerin hepsi kullanılır, seçme yapılmaz. Tek gözlemle hesaplanan referans "ZAYIF REFERANS" etiketi alır.
+  - R-ÇEYREK: R-TTM için hiç gözlem yoksa, d çeyreğinin çeyreklik değeri geçen yılın aynı çeyreğiyle (d−4) karşılaştırılır. Ortak çeyrek yoktur ve mevsimsellik kontrol edilir. Çeyreklik girdiler 2. bölüm madde 9'a göre doğrulanmış olmalıdır; doğrulanamıyorsa bu yol EKSİK olur.
+  - İkisi de uygulanamıyorsa o d için "referans yok".
+- Dip hiçbir zaman kendi referansına katılmaz. Referans, en yüksek marjlı dönem seçilerek oluşturulmaz. TTM gözlemleri arasındaki ortak çeyrekler bağımsız kanıt sayılmaz.
+- Hangi yolun mümkün olduğu (n = Evo'daki karşılaştırılabilir ham çeyrek sayısı, son çeyrek t dahil):
+  - R-TTM mümkün ⇔ d ≥ t − n + 8. Dört gözlemin tamamı ⇔ d ≥ t − n + 11.
+  - R-ÇEYREK mümkün ⇔ d ≥ t − n + 5.
+  - Örnekler: n = 18 veya fazlası → bütün d'ler R-TTM, 4 gözlem. n = 12 → d ≥ t−4 için R-TTM (1–3 gözlem), d ∈ {t−7 … t−5} için R-ÇEYREK. n = 8 → R-TTM yok; d ∈ {t−3 … t−1} için R-ÇEYREK. n ≤ 5 → referans yok.
+- Kayıt: Her d için kullanılan yol, referans dönemleri, gözlem sayısı ve ZAYIF REFERANS etiketi çıktıya yazılır.
 
 Bozulma kanıtları (en az ikisi; en az biri A veya B):
 
@@ -101,14 +107,24 @@ Bozulma kanıtları (en az ikisi; en az biri A veya B):
 - C: TTM reel satışlar pozitif referans medyandan en az %10 düşük.
 - D: TTM İFNA/satış marjı referans medyandan en az 200 bps düşük.
 
+R-ÇEYREK yolunda aynı eşikler d çeyreğinin çeyreklik değerlerine, geçen yılın aynı çeyreğine göre uygulanır (çeyreklik FAVÖK marjı, çeyreklik temiz EFK, çeyreklik reel satış, çeyreklik İFNA/satış). Doğrulanmamış çeyreklik kalem EKSİK'tir.
+
 Seçim ve sınıflar:
 
-- En az iki kanıtı sağlayan tarihler arasından FAVÖK marjı en düşük olan dip tarihi seçilir; eşitlikte en güncel alınır.
+- En az iki kanıtı sağlayan tarihler arasından dip tarihi şöyle seçilir: R-TTM ile sağlayan tarih varsa bunlar arasından TTM FAVÖK marjı en düşük olan; yoksa R-ÇEYREK ile sağlayanlar arasından çeyreklik FAVÖK marjı en düşük olan. Eşitlikte en güncel alınır.
 - A ve B'nin ilişkili ölçüler olduğu kayda geçer. Dip bulmak ayrıca puan kazandırmaz.
 - Eksik gözlem yüzünden iki kanıtın varlığı kararlaştırılamıyorsa "dip kanıtı için veri yetersiz" yazılır, "dip yok" yazılmaz. Eldeki iki geçerli kanıt koşulu sağlıyorsa diğer kanıtların eksikliği girişi engellemez.
 - Tam veriyle koşulu sağlamayan şirket "BU MODELDE DİP KANITI YOK" sınıfındadır; bundan kötü şirket sonucu çıkarılmaz.
 - Büyük satın alma, satış veya faaliyet kapsamı değişikliği varsa organik/karşılaştırılabilir seri olmadan dip teyit edilmez.
 - Sektörel eşik farklılaştırması gerekirse sonuçlara bakmadan önce ayrıca sürümlenmiş parametre seti hazırlanır. Bir şirketi geçirmek için eşik değiştirilmez.
+
+Kısa geçmiş:
+
+- Sekiz çeyrekten kısa geçmiş otomatik eleme nedeni değildir.
+- KISA GEÇMİŞLİ ADAY: Dip kanıtı ve erken sinyal mevcut veriyle gösterilebiliyor; ancak seçilen dip R-ÇEYREK ile veya ZAYIF REFERANS ile bulunmuş ya da n < 8. Aday havuzuna girer; etiket görünür kalır.
+- DİP DOĞRULANAMADI — GEÇMİŞ SINIRLI / TOPARLANMA İZLEMESİ: Hiçbir d için referans yok veya referans yolları EKSİK, fakat güncel toparlanma sinyali var. Güncel toparlanma sinyali, 6. bölümdeki erken sinyal koşullarının dipten bağımsız kısmıdır: (a) son çeyrek FAVÖK marjı geçen yılın aynı çeyreğinden en az 50 bps yüksek ve temiz EFK marjı geçen yılın aynı çeyreğinden düşük değil; veya (b) son TTM FAVÖK marjı önceki TTM'den yüksek ve temiz EFK marjı önceki TTM'den düşük değil. Bu şirketler aday havuzuna girmez ve puanlanmaz; ayrı listede gösterilir.
+- Hesaplanamayan YoY, TTM veya referans karşılaştırmaları tahminle doldurulmaz; EKSİK işaretlenir.
+- Sınırlı geçmişten "dip yok", "şirket kötü" veya "dönüş kesin" sonucu çıkarılmaz.
 
 ## 6. Erken sinyal ve teyit koşulları
 
@@ -118,7 +134,7 @@ Sayısal ERKEN SİNYAL (iki yoldan biri yeterli; kullanılan yol yazılır):
 
 - Çeyreklik yol: Son çeyrek FAVÖK marjı hem dip çeyreğinden hem geçen yılın aynı çeyreğinden en az 50 bps yüksek; temiz EFK marjı geçen yılın aynı çeyreğinden düşük değil. Bütün çeyreklik girdiler doğrulanmış olmalı.
 - TTM yolu: Son TTM FAVÖK marjı dip TTM'den en az 100 bps yüksek ve bir önceki TTM'den yüksek; temiz EFK marjı dip dönemindekinden yüksek.
-- TTM geriden geldiği için çeyreklik yol korunur. Mevsimsellik veya tek seferlik etkiyle açıklanabilecek ham sinyal, belge incelemesi tamamlanana kadar "sayısal erken sinyal"dir.
+- TTM geriden geldiği için çeyreklik yol korunur. Dip R-ÇEYREK ile bulunduysa ve TTM(d) hesaplanamıyorsa TTM yolu EKSİK'tir; çeyreklik yol kullanılır. Mevsimsellik veya tek seferlik etkiyle açıklanabilecek ham sinyal, belge incelemesi tamamlanana kadar "sayısal erken sinyal"dir.
 
 OPERASYONEL TEYİT (tümü gerekir; aday havuzuna giriş şartı DEĞİLDİR):
 
@@ -144,6 +160,8 @@ Satır türleri:
 
 Her satırın durumu şu değerlerden biridir: HESAPLANDI / EKSİK (veri veya inceleme bekleniyor) / UYGULANAMAZ (gerekçesi doğrulanmış; örneğin yeterli emsal yok). EKSİK ve UYGULANAMAZ satırlara puan verilmez ve sıfır yazılmaz.
 
+Kısa geçmiş durumu: Dip R-ÇEYREK ile bulunmuş ve TTM(d) hesaplanamıyorsa "dipten" ölçülen A1, A2 ve B1 için: gerekli eski çeyrekler Evo'da yoksa ve izahnamede de bulunmadığı doğrulandıysa UYGULANAMAZ; izahname henüz kontrol edilmediyse EKSİK.
+
 ### A. Operasyonel toparlanma (30)
 
 - A1 [OTO]: TTM FAVÖK marjının dipten artışı. ≥200 bps: 10 · 100–<200: 5 · <100: 0
@@ -157,11 +175,13 @@ Her satırın durumu şu değerlerden biridir: HESAPLANDI / EKSİK (veri veya in
 - B1 [OTO]: TTM İFNA marjının dipten artışı. ≥200 bps: 10 · 100–<200: 5 · <100: 0
 - B2 [OTO]: Pozitif İFNA'nın devamı. Son ve önceki TTM pozitif: 5 · yalnızca son TTM pozitif: 2,5 · son TTM ≤0: 0
 - B3 [BELGE]: Nakdin kaynağı. Süregelen faaliyet ve/veya sürdürülebilir işletme sermayesi normalleşmesi: 5 · kalıcı ve geçici karışık, ayrım belgelenmiş ama devamı belirsiz: 2,5 · geçici kaynak veya ödeme baskısı: 0 · inceleme yoksa EKSİK. Otomatik tahminle doldurulmaz; kaynak belge, dönem, gerekçe ve karşı açıklama yazılır. Nakit teyidi için B3 = 5 gerekir.
-- B4 [OTO + BELGE] (TASLAK PUAN, bkz. 4. bölüm): FCF_STD.
-  - Son TTM > 0: 5 (kesin).
-  - Son TTM ≤ 0 ve önceki TTM'ye göre iyileşmemiş: 0 (kesin).
-  - Son TTM ≤ 0 ama önceki TTM'ye göre iyileşmiş: B4_puan = NULL, B4_alt_sinir = 0, B4_ust_sinir = 2,5, durum = "yatırım nedeni incelemesi bekleniyor". Belgeyle büyüme yatırımı kaynaklı olduğu doğrulanırsa 2,5; doğrulanmazsa 0.
-  - Formül veya veri eksikse EKSİK.
+- B4 [OTO + BELGE] (TASLAK YÖNTEM, bkz. 4. bölüm): FCF_STD. Hesaplama kesinliği ile yöntem onayı ayrıdır. Yöntem TASLAK olduğu sürece "kesin puan" ifadesi kullanılmaz.
+  - Son TTM > 0: "Taslak yönteme göre B4 = 5 hesaplandı; bu dal için ek belge beklenmiyor. Yöntem onayı bekleniyor."
+  - Son TTM ≤ 0 ve önceki TTM'ye göre iyileşmemiş: "Taslak yönteme göre B4 = 0 hesaplandı; bu dal için ek belge beklenmiyor. Yöntem onayı bekleniyor."
+  - Son TTM ≤ 0 ama önceki TTM'ye göre iyileşmiş ve yatırım nedeni henüz incelenmemiş: B4_puan = NULL, B4_alt_sinir = 0, B4_ust_sinir = 2,5, durum = "yatırım nedeni incelemesi bekleniyor".
+  - İnceleme tamamlandı ve negatifliğin büyüme yatırımı kaynaklı olduğu belgelendi: 2,5. İnceleme tamamlandı ve belgeler bu nedeni desteklemiyor: 0.
+  - Belgeye erişilemedi veya şirket nedeni açıklamamış: EKSİK olarak kalır (alt 0, üst 2,5), durum "belge erişilemedi / açıklama yok". Bu, "inceleme tamamlandı ve kriter sağlanmadı" ile karıştırılmaz.
+  - Formül veya veri eksikse EKSİK (alt 0, üst 5).
 
 ### C. Bilanço dayanıklılığı (20)
 
@@ -176,7 +196,7 @@ Notlar: C1'de borç azalmasının kaynağı sermaye artırımı veya varlık sat
 
 - D1 [OTO]: Geçerli TTM FD/FAVÖK'ün emsaller içindeki yeri. Alt %25: 5 · %25–%50: 2,5 · %50 üstü: 0. Oran anlamlı değilse veya yeterli emsal yoksa UYGULANAMAZ (gerekçesiyle).
 - D2 [BELGE/MODEL]: Temkinli normalleşmiş özsermaye değeri / mevcut piyasa değeri − 1. ≥%25: 5 · >0–<%25: 2,5 · ≤0: 0. Varsayım/kaynak eksikse EKSİK.
-- D3 [OTO*] (TASLAK PUAN): Faiz ve kira sonrası FCF getirisi. Pozitif ve emsal medyanına eşit/üstünde: 5 · pozitif ama medyan altı: 2,5 · ≤0: 0. Faiz sınıflandırması çözülmediyse EKSİK; yeterli emsal yoksa UYGULANAMAZ.
+- D3 [OTO*] (TASLAK YÖNTEM; yöntem TASLAK iken "kesin puan" denmez): Faiz ve kira sonrası FCF getirisi. Pozitif ve emsal medyanına eşit/üstünde: 5 · pozitif ama medyan altı: 2,5 · ≤0: 0. Faiz sınıflandırması çözülmediyse EKSİK; yeterli emsal yoksa UYGULANAMAZ.
 
 Emsal sepeti: Sonuçlar görülmeden iş modeli/alt sektöre göre belirlenir; en az 5 karşılaştırılabilir şirket gerekir. D1'de pozitif FAVÖK ve pozitif FD içeren oranlar kullanılır. Yüzdelik sıra = (daha düşük oranlı emsal + 0,5 × eşit oranlı emsal) / emsal sayısı. D3 medyanına geçerli negatif getiriler dahildir. Fiyatlar aynı değerleme gününden, mali veriler son açıklanmış dönemden; dönem farkları gösterilir.
 
@@ -197,17 +217,21 @@ Guidance zorunlu değildir; hedefler yatırım devreye alma, kapasite kullanım�
 
 - Kapsam bütün şirketlerde SABİTTİR: A1 + A2 + A3 + A4 + A5 + B1 + B2 + B4 + C1 + D1 + D3. Azami 65.
 - C2 ve C3 erken hesaplanabilse bile ön puana EKLENMEZ. Sonuçları ayrı sütunda gösterilir ve nihai puana işlenir. Böylece her şirket aynı 65 üzerinden sıralanır ve 35/65 eşiği aynı anlamı korur.
-- Her şirket için iki değer hesaplanır:
-  - ON_PUAN_ALT = kesin puanların toplamı (NULL satırlar 0 değil, "bilinmiyor" olarak alt sınırla katılır; B4 için B4_alt_sinir).
-  - ON_PUAN_UST = ON_PUAN_ALT + NULL satırların alabileceği azami puan (B4 için B4_ust_sinir).
-- Ön puan "ALT–ÜST / 65 (ön)" olarak yazılır, örneğin "32–37/65 (ön)". Nihai puan gibi sunulmaz, 100'e ölçeklenmez. Alt sınır "doğrulanmış puan" diye gösterilmez.
+- Her şirket için hesaplanır:
+  - ON_PUAN_ALT = HESAPLANDI satırların puanı + EKSİK satırların alt sınırı. Alt sınır satır için özel tanımlanmışsa o değerdir (B4'te 0); tanımlı değilse 0'dır. Alt sınırdaki 0 "doğrulanmış 0" diye gösterilmez.
+  - ON_PUAN_UST = ON_PUAN_ALT + her EKSİK satırın KALAN olası puanı (satırın üst sınırı − alt sınırı). Örnek: negatif ama iyileşen FCF'de B4'ün kalan puanı 2,5 − 0 = 2,5'tir, satır azamisi olan 5 değil. Aynı puan iki kez eklenmez.
+  - UYGULANAMAZ satırlar ne alt ne üst sınıra katılır. UYGULANAMAZ_KAPASITE ayrı sütunda, gerekçesiyle gösterilir.
+- Ön puan "ALT–ÜST / 65 (ön)" olarak yazılır, örneğin "32–34,5/65 (ön)". Nihai puan gibi sunulmaz; eksik veya uygulanamaz kalemler nedeniyle yeniden ölçeklenmez.
+- FCF yöntemi TASLAK iken ön puanda B4 veya D3 katkısı varsa "taslak FCF katkısı içerir (B4 = x, D3 = y)" notu yazılır.
+- 35/65 yalnızca inceleme önceliğidir, eleme eşiği değildir.
 
 ### 8.2 İnceleme kuyrukları (eleme değil, sıra)
 
 - Kuyruk 1: ON_PUAN_ALT ≥ 35.
-- Kuyruk 2 (eksik inceleme): ON_PUAN_ALT < 35 ≤ ON_PUAN_UST. Eksik kalemin tamamlanması şirketi Kuyruk 1'e taşıyabilir; bu yüzden ayrı görünür.
+- Kuyruk 2 (eksik inceleme): ON_PUAN_ALT < 35 ≤ ON_PUAN_UST. Eksik kalemin tamamlanması şirketi Kuyruk 1'e taşıyabilir; bu yüzden ayrı görünür. UYGULANAMAZ kalemler üst sınırı artırmadığı için, yalnızca uygulanamaz bir kalem yüzünden hiçbir şirket Kuyruk 2'ye girmez.
 - Kuyruk 3: ON_PUAN_UST < 35. Kayıtta kalır, "düşük puanlı erken sinyal" olarak izlenir.
 - Kuyruk içi sıra: ON_PUAN_ALT büyükten küçüğe; eşitlikte ON_PUAN_UST.
+- KISA GEÇMİŞLİ ADAY'lar aynı kuyruklara girer; etiketleri görünür kalır. DİP DOĞRULANAMADI listesi ve sınırdaki adaylar listesi kuyrukların dışındadır.
 
 ### 8.3 Eksik ve uygulanamaz kalemler
 
@@ -218,11 +242,13 @@ Guidance zorunlu değildir; hedefler yatırım devreye alma, kapasite kullanım�
 
 ### 8.4 Üç sonuç ekseni
 
-1. Dönüş durumu: kapsam dışı / veri yetersiz / dip kanıtı yok / dip var, dönüş sinyali yok / sayısal erken sinyal / belgeyle teyit edilmiş erken sinyal / operasyonel ve nakit teyitli dönüş.
+1. Dönüş durumu: kapsam dışı / veri yetersiz / dip doğrulanamadı — geçmiş sınırlı / toparlanma izlemesi / dip kanıtı yok / dip var, dönüş sinyali yok / sayısal erken sinyal / belgeyle teyit edilmiş erken sinyal / operasyonel ve nakit teyitli dönüş.
 2. Finansal risk: inceleme eksik / yüksek risk / incelendi, önemli açıklanamayan açık saptanmadı (risksiz demek değildir).
 3. Değerleme: incelenmedi / uygulanamaz / temkinli senaryoda ≥%25 yükseliş alanı / %0–<%25 / pozitif yükseliş alanı yok.
 
 Borç riski veya pahalı fiyat ilgili eksende açıkça işaretlenir; dönüş eksenindeki bulguyu silmez.
+
+Puan tamamlanma durumu, dönüş durumundan ayrı bir alandır: TAM / KISMİ — EKSİK / KISMİ — UYGULANAMAZ / KISMİ — TASLAK FCF (birden fazlası birlikte olabilir). Dönüş durumu bu alandan etkilenmez.
 
 ### 8.5 Sınırdaki adaylar listesi
 
@@ -236,8 +262,8 @@ Bu liste otomatik olumlu kabul edilmez, puan almaz ve aday havuzuna dahil değil
 
 ### 8.6 Etiketler (teyit düzeyi)
 
-- ÖNCELİKLİ DERİN ANALİZ/TAKİP: Bütün satırlar HESAPLANDI veya doğrulanmış UYGULANAMAZ; bilinen toplam ≥70; A ≥15; B ≥15; operasyonel ve nakit teyidi sağlanmış; 12 aylık likidite incelemesi tamamlanmış; açıklanamayan kritik finansal risk yok; FCF puanları onaylı yöntemle hesaplanmış (TASLAK değil).
-- DÖNÜŞ TEYİTLİ, TOPLAM PUAN KISMİ: Operasyonel ve nakit teyidi sağlanmış ama bazı satırlar EKSİK ya da FCF puanları TASLAK. Tam öncelik etiketinin olmaması dönüşün teyit edilmediği anlamına gelmez.
+- ÖNCELİKLİ DERİN ANALİZ/TAKİP: Puan tamamlanma durumu TAM (bütün satırlar HESAPLANDI, FCF yöntemi onaylı); bilinen toplam ≥70; A ≥15; B ≥15; operasyonel ve nakit teyidi sağlanmış; 12 aylık likidite incelemesi tamamlanmış; açıklanamayan kritik finansal risk yok.
+- DÖNÜŞ TEYİTLİ, TOPLAM PUAN KISMİ: Operasyonel ve nakit teyidi sağlanmış; puan tamamlanma durumu TAM değil (EKSİK, UYGULANAMAZ veya TASLAK FCF). Örneğin yeterli emsali olmadığı için D1'i uygulanamaz olan şirket dönüş teyidini kaybetmez. Uygulanamaz kaleme puan verilmez, toplam 100'e ölçeklenmez. Tam öncelik etiketinin olmaması dönüşün teyit edilmediği anlamına gelmez.
 - İZLEME: Bilinen toplam 55–<70 ve en az sayısal erken sinyal.
 - DÜŞÜK PUANLI ERKEN SİNYAL: Erken sinyal var, puan daha düşük. Kayıtta kalır.
 - Bilinen toplamı ≥70 olup teyit koşulları eksik olan şirket teyitli listeye geçirilmez; mevcut dönüş durumunda eksik gerekçesiyle tutulur.
@@ -265,7 +291,7 @@ Sektör medyanı hem marj seviyesi hem değişimi için gösterilir. Sektörün 
 
 ## 10. Zorunlu çıktı ve takip
 
-Her şirket için en az: kod, sektör, son mali dönem, rapor yayımlanma tarihi, çekim zamanı/run_id; değerlendirilen dip tarihleri ve her birinin referans gözlem sayısı (3/4); seçilen dip tarihi ve kanıtları; erken sinyal yolu; son iki çeyreğin YoY marj değişimleri; TTM FAVÖK/temiz EFK/İFNA marjları; FCF_STD, fcf_yontem, fcf_yontem_surumu ve TASLAK/ONAYLI durumu; varsa faiz sonrası FCF; nakit kaynağı; net borç; cari ve asit-test; faiz ve vade analizi; ön puan (alt–üst); nihai puan alt kırılımı ve her satırın durumu (HESAPLANDI/EKSİK/UYGULANAMAZ); kuyruk numarası; üç sonuç ekseni; sınırdaki aday ise kaçırılan koşul; kaynak belgeler; değerleme tarihi/varsayımları; sonraki bilanço kontrol listesi.
+Her şirket için en az: kod, sektör, son mali dönem, rapor yayımlanma tarihi, çekim zamanı/run_id; ham çeyrek sayısı (n); değerlendirilen dip tarihleri ve her biri için referans yolu (R-TTM / R-ÇEYREK), referans dönemleri, gözlem sayısı ve ZAYIF REFERANS etiketi; seçilen dip tarihi ve kanıtları; erken sinyal yolu; son iki çeyreğin YoY marj değişimleri; TTM FAVÖK/temiz EFK/İFNA marjları; FCF_STD, fcf_yontem, fcf_yontem_surumu ve TASLAK/ONAYLI durumu; varsa faiz sonrası FCF; nakit kaynağı; net borç; cari ve asit-test; faiz ve vade analizi; ön puan (alt–üst); nihai puan alt kırılımı ve her satırın durumu (HESAPLANDI/EKSİK/UYGULANAMAZ); kuyruk numarası veya liste adı (aday havuzu / kısa geçmişli aday / dip doğrulanamadı / sınırdaki); puan tamamlanma durumu; üç sonuç ekseni; sınırdaki aday ise kaçırılan koşul; kaynak belgeler; değerleme tarihi/varsayımları; sonraki bilanço kontrol listesi.
 
 Sonraki bilanço kontrol listesi şirkete özel sayısal beklentiler içerir (marjın korunması, İFNA'nın tedarikçi borcuna bağımlılığının azalması, yatırımın devreye alınması, yaklaşan borç ödemesinin finansmanı vb.); genel kopya metinle doldurulmaz.
 
@@ -277,7 +303,7 @@ Takip: Bilançolar geldikçe ilgili şirket serisi bir arada güncellenir. Son t
 2. Kural dosyası ve parametre kaydı: sabit veri protokolü PİLOT eşiklerden ayrı; FCF yöntemi sürüm numarasıyla kaydedilir.
 3. Evo şemasından gerçek alan eşlemesi çıkarılır; alanlar bulunmadan SQL üretilmez. Şunların varlığı ve KAPSAMI ayrıca raporlanır: nakden ödenen faiz ve sınıfı; kira anapara ödemeleri; borç vade dağılımı; taahhütlü kullanılmamış kredi limitleri.
 4. Puanlama ayrı fonksiyonlar ve açıklama kodlarıyla uygulanır. [BELGE] satırları inceleme olmadan EKSİK kalır. Ön puan sabit 65 kapsamla, alt–üst olarak hesaplanır.
-5. Pilot: önce küçük, farklı durumları kapsayan bir örnekle veri/işaret/dönem eşlemeleri doğrulanır; sonra tanımlı evrene uygulanır. Pilot şirketler sonuçları güzelleştirmek için seçilmez. Pilot raporu hem aday havuzunu hem sınırdaki adaylar listesini kapsar.
+5. Pilot: önce küçük, farklı durumları kapsayan bir örnekle veri/işaret/dönem eşlemeleri doğrulanır; sonra tanımlı evrene uygulanır. Pilot şirketler sonuçları güzelleştirmek için seçilmez. Pilot raporu aday havuzunu, sınırdaki adayları ve DİP DOĞRULANAMADI / toparlanma izlemesi listesini birlikte kapsar.
 6. Kabul senaryoları:
    - Hiç negatif İFNA yaşamadan toparlanan şirket
    - Mevsimsel sahte dönüş
@@ -296,10 +322,15 @@ Takip: Bilançolar geldikçe ilgili şirket serisi bir arada güncellenir. Son t
    - Negatif ama iyileşen FCF: B4 NULL, alt 0, üst 2,5; Kuyruk 2'ye düşebilmeli.
    - Beş uygun emsali olmayan şirket: D1 UYGULANAMAZ; dönüş teyitliyse "dönüş teyitli, toplam puan kısmi" etiketi alabilmeli.
    - Dip kanıtında tek kanıtı olan şirket: sınırdaki adaylar listesinde görünmeli, aday havuzunda görünmemeli.
-7. Tutarlılık: Puan toplamı 100, alt aralıklar çakışmasız. Ön puan kapsamı her şirkette 65. Bilinmeyen puan kesin sıfır yazılmaz. Eksik veride yeniden ölçekleme yok. Negatif paydada "ucuz/geçer" sonucu yok. Çifte kira düşümü ve ikinci enflasyon düzeltmesi yok. TASLAK ve ONAYLI FCF sonuçları aynı sıralamada karışmaz.
+   - 8 çeyrek geçmişli şirket: R-ÇEYREK ile dip aranabilmeli; dip ve sinyal varsa KISA GEÇMİŞLİ ADAY olmalı, otomatik elenmemeli.
+   - 5 çeyrek geçmişli ve güncel toparlanma sinyali olan şirket: DİP DOĞRULANAMADI listesinde görünmeli; "dip yok" yazılmamalı.
+   - Yalnızca UYGULANAMAZ kalemi olan şirket: Kuyruk 2'ye girmemeli; UYGULANAMAZ_KAPASITE ayrı görünmeli.
+   - Pozitif FCF (taslak yöntem): "Taslak yönteme göre B4 = 5" ifadesi kullanılmalı; "kesin puan" denmemeli.
+   - Aynı veri uzunluğundaki iki şirkete aynı referans yolu uygulanmalı; yol sonuca göre değişmemeli.
+7. Tutarlılık: Puan toplamı 100, alt aralıklar çakışmasız. Ön puan kapsamı her şirkette 65. Bilinmeyen puan kesin sıfır yazılmaz. Üst sınıra yalnızca EKSİK satırların kalan puanı eklenir; UYGULANAMAZ satır üst sınırı artırmaz. Eksik veride yeniden ölçekleme yok. Negatif paydada "ucuz/geçer" sonucu yok. Çifte kira düşümü ve ikinci enflasyon düzeltmesi yok. TASLAK ve ONAYLI FCF sonuçları aynı sıralamada karışmaz.
 8. Geçmiş test: Her tarihte o gün kamuya açık veri ve o tarihteki evren kullanılır. Bugün yeniden bazlanmış/revize edilmiş Evo verisi o tarihte biliniyormuş gibi sunulamaz. Arşiv yoksa "bugünkü veriyle retrospektif inceleme" etiketi konur.
 9. Başarı yalnızca fiyatla ölçülmez: sonraki 2–4 çeyrekte faaliyet/nakit iyileşmesinin sürmesi, risklerin gerçekleşmesi, toplam getiri ve XU100'e göre performans ayrı ölçülür. Temettü, sermaye hareketleri, işlem maliyeti ve rapor sonrası erişilebilir fiyat dikkate alınır.
-10. Pilot raporu: kaçırılan gerçek dönüşler ve sahte sinyaller gerekçeleriyle yazılır. Eşik değişikliği önerisi varsa yeni sürüm olarak, sonuçlardan bağımsız gerekçeyle sunulur; pilot sonucuna uygulanmaz.
+10. Pilot raporu şu soruları cevaplar: Gerçek toparlanmaları yakalıyor muyuz? Hangilerini hangi koşul nedeniyle kaçırıyoruz? Mevsimsellik veya geçici etkiler hangi sahte sinyalleri üretiyor? Veri eksikliği yanlışlıkla olumsuz sonuç gibi işleniyor mu? Kaçırılan gerçek dönüşler ve sahte sinyaller gerekçeleriyle yazılır. Eşik değişikliği önerisi varsa yeni sürüm olarak, sonuçlardan bağımsız gerekçeyle sunulur; pilot sonucuna uygulanmaz.
 
 ## 12. v2.0 → v3.0 değişiklikleri (özet)
 
@@ -340,7 +371,7 @@ Kaynaklar:
 - SEC, FCF tanımı ve sınırları: https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures
 - KAP 2026 finansal rapor takvimi: https://kap.org.tr/tr/api/about/content-file/8a019492945fbe080194acf109622904
 
-Bu kaynaklar muhasebe ilkelerini destekler. PİLOT puan ağırlıklarını, bps eşiklerini, %25 değerleme eşiğini, 55/70 puan sınırlarını, 35/65 ön puan eşiğini veya d−8…d−5 referans penceresini doğrulamazlar; bunlar sınanacak model tasarımı tercihleridir.
+Bu kaynaklar muhasebe ilkelerini destekler. PİLOT puan ağırlıklarını, bps eşiklerini, %25 değerleme eşiğini, 55/70 puan sınırlarını, 35/65 ön puan eşiğini veya referans yollarını (R-TTM: d−7…d−4, R-ÇEYREK: d−4) doğrulamazlar; bunlar sınanacak model tasarımı tercihleridir.
 
 ## 15. v3.1 → v3.2 değişiklikleri
 
@@ -355,3 +386,15 @@ Bu kaynaklar muhasebe ilkelerini destekler. PİLOT puan ağırlıklarını, bps 
 | C2/C3: "alan varsa OTO" | Bütün girdiler ve kapsamları doğrulanmışsa OTO; aksi halde BELGE/NULL | Toplam limit ≠ taahhütlü kullanılmamış limit; finansman gideri ≠ nakit faiz |
 | Öncelik için "bütün satırlar tamamlanmış" | EKSİK ile UYGULANAMAZ ayrıldı; "dönüş teyitli, toplam puan kısmi" etiketi | Emsali olmayan şirkette kilitlenme |
 | Sınırdaki adaylar yoktu | 8.5: tek koşulu kaçıranlar ayrı listede, puansız | Pilotta yanlış elemeyi görmek için |
+
+## 16. v3.2 → v3.3 değişiklikleri
+
+| v3.2 | v3.3 | Gerekçe |
+|---|---|---|
+| Tam dip penceresi için yaklaşık 19 çeyrek | Ana tarama son 8 çeyrek; daha uzun geçmiş yalnızca yardımcı | Kısa geçmişli şirketler otomatik elenmesin |
+| Referans d−8…d−5, en az 3 gözlem zorunlu | R-TTM (d−7…d−4, mevcut gözlemlerin hepsi, tek gözlem ZAYIF) → yoksa R-ÇEYREK (d çeyreği vs d−4) | Ortak çeyrek yok; kısa geçmişte de çalışır; yol yalnızca veri varlığına göre önceden belli |
+| Kısa geçmiş için sınıf yoktu | KISA GEÇMİŞLİ ADAY ve DİP DOĞRULANAMADI — TOPARLANMA İZLEMESİ listesi | Görünür kalsınlar; sınırlı veriden olumsuz sonuç çıkmasın |
+| Üst sınıra "NULL satırların azamisi" ekleniyordu | Yalnızca EKSİK satırların kalan puanı; UYGULANAMAZ hariç | Kuyruk 2 şişmesin, çift sayım olmasın |
+| B4 için "kesin" ifadesi | Taslak yöntemde "dal kapandı, yöntem onayı bekleniyor"; erişilemeyen belge EKSİK | Hesap kesinliği ≠ yöntem onayı |
+| ÖNCELİKLİ UYGULANAMAZ'a izin veriyor, "kısmi" etiketi UYGULANAMAZ'ı kapsamıyordu | Tamamlanma durumu ayrı alan; ÖNCELİKLİ = TAM; "dönüş teyitli, puan kısmi" UYGULANAMAZ'ı da kapsar | Çelişki giderildi |
+| Pilot soruları dolaylı | Dört pilot sorusu açıkça yazıldı | Pilotun neyi ölçtüğü net olsun |
