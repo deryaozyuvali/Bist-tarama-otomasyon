@@ -51,7 +51,7 @@ def main():
     w(f"- 3) Kısa geçmişli aday: {len(kisa)} · Dip doğrulanamadı / toparlanma izlemesi: **{len(dipsiz)}**")
     w(f"- 4) Veri eksiği nedeniyle değerlendirilemeyen: **{len(eksik)}** (+ {len(bayat)} şirket bayat dönemle değerlendirildi)")
     w(f"- Diğer: dip var ama sinyal yok {C['DİP VAR, SİNYAL YOK']}, bu modelde dip kanıtı yok {C['DİP KANITI YOK']}, "
-      f"dip kanıtı yok ama en eski aday tarih değerlendirilemedi (kısmi pencere) {C['DİP KANITI YOK (KISMİ PENCERE)']}")
+      f"dip değerlendirmesi eksik — kısmi pencere (değerlendirilebilen tarihlerde dip kanıtı bulunmadı) {C['DİP DEĞERLENDİRMESİ EKSİK — KISMİ PENCERE']}")
     w("")
 
     # 1

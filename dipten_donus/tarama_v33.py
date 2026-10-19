@@ -171,6 +171,20 @@ class Seri:
         return n
 
 
+def _tr_ascii_upper(x):
+    return x.translate(str.maketrans("İIıiŞşÇçĞğÖöÜü", "IIIISSCCGGOOUU")).upper()
+
+
+def ifna_tanimi_dogru(kanit_metni):
+    """Belge satırı İFNA ana toplamı mı (işletme sermayesi öncesi/ara toplam değil)?"""
+    t = _tr_ascii_upper(kanit_metni or "")
+    satir = t.split("·")[-1]
+    if "SERMAYE" in satir or "CFO =" in satir:
+        return False
+    return ("ISLETME FAAL" in satir or "A. ESAS FAALIYETLERDEN NAKIT" in satir
+            or "OPERATING ACTIVITIES" in satir)
+
+
 def kanit(deger, referans, esik, tip):
     """True/False/None (None: veri eksik)."""
     if deger is None or referans is None:
@@ -387,8 +401,15 @@ def puanla(s, t, dip, fcf, row, emsal_pct, ifna_fark=frozenset()):
     for k in ("C2", "C3", "C4", "D2", "E1", "E2"):
         yaz(k, durum="EKSİK", not_="belge/model incelemesi")
     # D1
-    if emsal_pct is None:
-        yaz("D1", durum="EKSİK", not_="emsal sepeti tanımlanmadı (gösterge de yok: oran anlamlı değil veya geniş sektörde < 5 şirket)")
+    pd0 = f(row.get("pd"))
+    nb_t = f(row.get(f"nb{DONEMLER[t] % 10000}"))
+    fav = s.ft[t]
+    if fav is not None and fav <= 0:
+        yaz("D1", durum="UYGULANAMAZ", not_=f"FAVÖK TTM ≤ 0 ({fav:,.0f} mn); FD/FAVÖK anlamlı değil")
+    elif pd0 is not None and nb_t is not None and pd0 + nb_t <= 0:
+        yaz("D1", durum="UYGULANAMAZ", not_="FD ≤ 0; FD/FAVÖK anlamlı değil (gösterge Evo net borç)")
+    elif emsal_pct is None:
+        yaz("D1", durum="EKSİK", not_="emsal sepeti tanımlanmadı")
     else:
         pct, n = emsal_pct
         yaz("D1", durum="EKSİK", not_=f"emsal sepeti tanımlanmadı; gösterge geniş Evo sektöründe yüzdelik {pct:.0%} (n={n})")
@@ -420,7 +441,7 @@ def on_puan(sat):
 
 def main():
     ap = argparse.ArgumentParser()
-    for a in ("evo", "master", "evren", "sektor", "cikti"):
+    for a in ("evo", "master", "evren", "sektor", "cikti", "yayin", "belge"):
         ap.add_argument(f"--{a}", required=True)
     args = ap.parse_args()
     os.makedirs(args.cikti, exist_ok=True)
@@ -428,6 +449,24 @@ def main():
     evo = {r["kod"]: r for r in csv.DictReader(open(args.evo, encoding="utf-8"))}
     sektor_ad = {int(r["id"]): r["baslik"] for r in csv.DictReader(open(args.sektor, encoding="utf-8"))}
     evren = {r["Kod"]: r for r in csv.DictReader(open(args.evren, encoding="utf-8-sig"))}
+    # Dönem eşleme şüphesi: 2025/03–2026/06 arasında en az 3 raporu dönem sonundan >110 gün sonra yayımlanan şirketler
+    import datetime as _dt
+    donem_suphe = {}
+    for r in csv.DictReader(open(args.yayin, encoding="utf-8")):
+        gec = []
+        for k, v in r.items():
+            if k.startswith("y") and v and k[1:].isdigit() and int(k[1:]) >= 2503:
+                yy, mm = 2000 + int(k[1:3]), int(k[3:5])
+                lag = (_dt.date.fromisoformat(v[:10]) - _dt.date(yy, mm, 28)).days
+                if lag > 110:
+                    gec.append(f"{yy}/{mm:02d}: {lag} gün")
+        if len(gec) >= 3:
+            donem_suphe[r["kod"]] = gec
+    # Master CFO belge kanıtları
+    belge = {}
+    for r in csv.DictReader(open(args.belge, encoding="utf-8")):
+        y, m = r["donem"].split("/")
+        belge[(r["kod"], int(y) * 100 + int(m))] = r
     master = {}
     for r in csv.DictReader(open(args.master, encoding="utf-8")):
         y, m = r["donem"].split("/")
@@ -489,6 +528,12 @@ def main():
         s = Seri(row)
         t = s.son_donem()
         out["notlar"] = list(s.notlar)
+        if kod in donem_suphe:
+            out["liste"] = "4-VERİ EKSİĞİ"
+            out["neden"] = ("dönem eşlemesi doğrulanamadı: raporlar dönem sonundan çok sonra yayımlanmış (" + "; ".join(donem_suphe[kod])
+                            + "); Evo dönem etiketi KAP rapor dönemiyle uyuşmayabilir" + (" — ARENA'da KAP belgesiyle teyit edildi" if kod == "ARENA" else ""))
+            sonuc.append(out)
+            continue
         if kod in TAKVIM_DISI_MALI_YIL:
             out["liste"] = "4-VERİ EKSİĞİ"
             out["neden"] = "mali yıl takvim dışı; takvim TTM'i güvenilir değil (FCF_MASTER notu)"
@@ -509,15 +554,53 @@ def main():
         # Evo İFNA ile master CFO karşılaştırması (örtüşen tüm dönemler)
         m = master.get(kod, {})
         mt = m.get(DONEMLER[t])
-        ifna_fark = set()
-        for i, p_ in enumerate(DONEMLER):
-            mm = m.get(p_)
-            if mm and mm.get("cfo") is not None and s.it[i] is not None:
-                fark = abs(s.it[i] - mm["cfo"]) / max(abs(mm["cfo"]), 1.0)
-                if fark > P["ifna_mutabakat_esik"]:
+        ortak = [(i, m[p_]) for i, p_ in enumerate(DONEMLER)
+                 if m.get(p_) and m[p_].get("cfo") is not None and s.it[i] is not None]
+        baz_ok = any(abs(s.it[i] / mm["cfo"] - 1) <= 0.01 for i, mm in ortak if mm["cfo"] != 0)
+        mutabakat = []
+        cozulmemis = {}
+        for i, mm in ortak:
+            fark = abs(s.it[i] - mm["cfo"]) / max(abs(mm["cfo"]), 1.0)
+            if fark <= 0.005:
+                continue
+            b = belge.get((kod, DONEMLER[i]))
+            kanit = (b or {}).get("kanit_a", "")
+            tanim_ok = ifna_tanimi_dogru(kanit)
+            cozuldu = (baz_ok and mm["kaynak"].startswith("BELGE") and mm["statu"] in ("KESİN", "TÜRETİLMİŞ")
+                       and b is not None and b.get("kullanildi") == "EVET" and "KAP" in kanit and tanim_ok)
+            kayit = {"donem": donem_str(DONEMLER[i]), "evo": s.it[i], "master": mm["cfo"], "fark": fark,
+                     "master_kaynak": mm["kaynak"], "kanit": kanit[:160]}
+            if cozuldu:
+                kayit["sonuc"] = "KAYNAK İSTİSNASI: belgeyle düzeltilmiş master CFO kullanıldı"
+                s.it[i] = mm["cfo"]
+            else:
+                eksik = [n for n, ok in (("ortak baz kanıtı", baz_ok), ("belge kaynağı", mm["kaynak"].startswith("BELGE")),
+                                         ("KAP kanıtı", b is not None and "KAP" in kanit), ("İFNA tanımı", tanim_ok)) if not ok]
+                kayit["sonuc"] = "ÇÖZÜLEMEDİ (" + ", ".join(eksik) + ")"
+                cozulmemis[i] = mm["cfo"]
+            mutabakat.append(kayit)
+        out["ifna_mutabakat"] = mutabakat
+        # Çözülemeyen farklar: >%10 ise ilgili nakit kalemleri EKSİK; küçükse yalnız puan/kanıt dalı değişiyorsa EKSİK
+        ifna_fark = {i for i, v in cozulmemis.items() if abs(s.it[i] - v) / max(abs(v), 1.0) > P["ifna_mutabakat_esik"]}
+        kucuk = [i for i in cozulmemis if i not in ifna_fark]
+        if kucuk:
+            def _imza(seri):
+                dd = dip_degerlendir(seri, t)
+                sec = dip_sec(dd)
+                ims = [(x["donem"], x.get("kanit", {}).get("D")) for x in dd]
+                b1 = None if not sec else seri.IM(t) is not None and seri.IM(sec["d"]) is not None and \
+                    kademe((seri.IM(t) - seri.IM(sec["d"])) / BPS, [200, 100], [10, 5])
+                b2 = (seri.it[t] or 0) > 0, (seri.it[t - 1] or 0) > 0
+                return ims, b1, b2
+            temel = _imza(s)
+            for i in kucuk:
+                alt = Seri(row)
+                alt.it = list(s.it)
+                alt.it[i] = cozulmemis[i]
+                if _imza(alt) != temel:
                     ifna_fark.add(i)
-                    out["notlar"].append(f"EVO–MASTER İFNA FARKI {donem_str(p_)}: Evo {s.it[i]:,.0f} / master {mm['cfo']:,.0f} mn "
-                                         f"(master kaynak: {mm['kaynak']}) — mutabakat bekliyor")
+        for k_ in mutabakat:
+            out["notlar"].append(f"İFNA {k_['donem']}: Evo {k_['evo']:,.0f} / master {k_['master']:,.0f} mn — {k_['sonuc']}")
         ifna_fark = frozenset(ifna_fark)
         out["ifna_mutabakat_bekliyor"] = ", ".join(donem_str(DONEMLER[i]) for i in sorted(ifna_fark))
         fcf = {"t": mt, "t1": m.get(DONEMLER[t - 1]) if t >= 1 else None} if mt else None
@@ -586,8 +669,8 @@ def main():
             elif "VERİ YETERSİZ" in sonuclar:
                 yetersiz = [x for x in dipler if x.get("sonuc") == "VERİ YETERSİZ"]
                 if all(x.get("yol") == "R-ÇEYREK (EKSİK)" for x in yetersiz):
-                    out["liste"] = "DİP KANITI YOK (KISMİ PENCERE)"
-                    out["neden"] = ("değerlendirilen tarihlerde dip kanıtı yok; değerlendirilemeyen: "
+                    out["liste"] = "DİP DEĞERLENDİRMESİ EKSİK — KISMİ PENCERE"
+                    out["neden"] = ("Değerlendirilebilen tarihlerde dip kanıtı bulunmadı; değerlendirilemeyen: "
                                     + ", ".join(f"{x['donem']} ({x['not']})" for x in yetersiz))
                 else:
                     out["liste"] = "4-VERİ EKSİĞİ"

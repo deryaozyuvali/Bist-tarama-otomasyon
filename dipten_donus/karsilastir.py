@@ -20,9 +20,13 @@ def nedenler(a, b):
     yeni_rqe = [d for d in b.get("dip_tarihleri", []) if d.get("yol") == "R-ÇEYREK (EKSİK)"]
     if eski_rq and yeni_rqe:
         n.append("2023 çeyrekleri doğrulanamadı (R-ÇEYREK → EKSİK)")
+    if any("KAYNAK İSTİSNASI" in m.get("sonuc", "") for m in b.get("ifna_mutabakat", [])):
+        n.append("İFNA: belgeyle düzeltilmiş master CFO kaynak istisnası olarak kullanıldı")
+    if b.get("liste", "").startswith("4-") and "dönem eşlemesi" in b.get("neden", ""):
+        n.append("dönem eşlemesi şüphesi (yayın gecikmesi deseni)")
     if b.get("ifna_mutabakat_bekliyor"):
         n.append(f"Evo–master İFNA farkı ({b['ifna_mutabakat_bekliyor']}): ilgili nakit kalemleri EKSİK")
-    if a.get("liste") == "DİP KANITI YOK" and b.get("liste") == "DİP KANITI YOK (KISMİ PENCERE)":
+    if a.get("liste", "").startswith("DİP KANITI YOK") and b.get("liste") == "DİP DEĞERLENDİRMESİ EKSİK — KISMİ PENCERE":
         n.append("en eski aday dip tarihi değerlendirilemedi → 'dip yok' denmedi")
     pa, pb = a.get("puan_satirlari", {}), b.get("puan_satirlari", {})
     for k in ("A5", "B1", "B2", "C1", "D1", "D3"):
