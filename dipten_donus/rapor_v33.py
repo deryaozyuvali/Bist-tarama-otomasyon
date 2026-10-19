@@ -13,6 +13,14 @@ def yuzde(x):
     return "" if x is None else f"{x * 100:.1f}%"
 
 
+def _sat(x):
+    if x["durum"] == "HESAPLANDI":
+        return f"{x['puan']:g}"
+    if x["durum"] == "EKSİK":
+        return "?" + (f" ({x['alt']:g}–{x['ust']:g})" if x.get("alt") is not None and x.get("ust") is not None else "")
+    return "U/A"
+
+
 def kisa_kanit(dip):
     return f"{dip['donem']} ({dip['yol']}{', zayıf ref.' if dip.get('zayif') else ''}; {'+'.join(dip['kanit'])})"
 
@@ -58,18 +66,21 @@ def main():
     w("## 1) Aday havuzu")
     w("")
     w("Sıra: kuyruk, sonra ön puan alt sınırı. Ön puan = A1–A5, B1, B2, B4, C1, D1, D3 (azami 65). "
-      "C1 ve D1 bu koşuda EKSİK (tanımlı net borç ve emsal sepeti yok); D3 yalnızca onaylı FCF ≤ 0 ise 0, aksi halde EKSİK. "
+      "C1 = Evo net borç (kira dahil) / TTM satış değişimi; KV finansal yatırım düşülünce dal değişirse EKSİK (iki dal alt–üst). "
+      "D1 = emsal haritası sepetinde FD/FAVÖK yüzdeliği (dar sepet, yoksa üst sepet; iş modeli doğrulanmamışsa EKSİK). "
+      "D3 yalnızca onaylı FCF ≤ 0 ise 0, aksi halde EKSİK. "
       "Teyit sütunları yalnız sayısal kısımdır; belge kısmı (op. teyit 4. madde, B3) bekleniyor.")
     w("")
-    w("| # | Kod | Sektör | Dip (dönem, yol, kanıt) | Sinyal | Ön puan | Kuyruk | Op. teyit (sayısal) | Nakit teyit (sayısal) | B4 (FCF) | Risk işaretleri |")
-    w("|---|---|---|---|---|---|---|---|---|---|---|")
+    w("| # | Kod | Sektör | Dip (dönem, yol, kanıt) | Sinyal | Ön puan | Kuyruk | Op. teyit (sayısal) | Nakit teyit (sayısal) | B4 (FCF) | C1 | D1 | Risk işaretleri |")
+    w("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
     for i, x in enumerate(havuz, 1):
         b4 = x["puan_satirlari"]["B4"]
         b4s = f"{b4['puan']:g}" if b4["durum"] == "HESAPLANDI" else f"? ({b4['alt'] or 0:g}–{b4['ust'] if b4['ust'] is not None else 5:g})"
         etk = " · kısa geçmiş" if "KISA" in x["liste"] else ""
         w(f"| {i} | {x['kod']} | {x['sektor']} | {kisa_kanit(x['dip'])}{etk} | {'+'.join(x['erken_sinyal_yolu'])} | "
           f"{x['on_puan_alt']:g}–{x['on_puan_ust']:g} | {x['kuyruk']} | {'✓' if x['op_teyit_sayisal'] else '–'} | "
-          f"{x['nakit_teyit_sayisal'] if isinstance(x['nakit_teyit_sayisal'], str) else ('✓' if x['nakit_teyit_sayisal'] else '–')} | {b4s} | {', '.join(x['risk_isaretleri']) or '–'} |")
+          f"{x['nakit_teyit_sayisal'] if isinstance(x['nakit_teyit_sayisal'], str) else ('✓' if x['nakit_teyit_sayisal'] else '–')} | {b4s} | "
+          f"{_sat(x['puan_satirlari']['C1'])} | {_sat(x['puan_satirlari']['D1'])} | {', '.join(x['risk_isaretleri']) or '–'} |")
     w("")
 
     # 2

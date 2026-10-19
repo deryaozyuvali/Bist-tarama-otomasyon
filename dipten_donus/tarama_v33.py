@@ -8,6 +8,10 @@ Girdiler (repoya konmaz; yerel dosya yolları argüman olarak verilir):
   --master    FCF_MASTER.xlsx'ten çıkarılmış FCF satırları (kod, donem, fcf_ttm, statu, ...)
   --evren     BIST_EFK_FCF_Genis_Evren_Tarama CSV'si (master kapsam sınıflaması)
   --sektor    Evo sektör id → ad eşlemesi (CSV: id,baslik)
+  --yayin     Evo finansal tablo yayın tarihleri (dönem eşleme şüphesi için)
+  --belge     FCF_MASTER BELGE_TTM CFO kanıtları (İFNA mutabakatı için)
+  --kfy       Evo dönen varlıklardaki 'Finansal Yatırımlar' (kod, kfy2503, kfy2506, kfy2603, kfy2606; mn TL) — C1 alternatif dalı
+  --emsal     Emsal haritası CSV'si (kod, dar_grup, ust_grup, kanit, ...) — D1; dosya adı sürüm adıdır
   --cikti     Çıktı klasörü
 
 Tüm tutarlar mn TL. Marjlar oran (0.05 = %5). 1 bps = 0.0001.
@@ -388,16 +392,35 @@ def puanla(s, t, dip, fcf, row, emsal_pct, ifna_fark=frozenset()):
             yaz("B4", durum="EKSİK", alt=0, ust=2.5, not_=etiket + "; önceki TTM yok")
         else:
             yaz("B4", 0, not_=etiket)
-    # C1
+    # C1 — Evo Net Borç = toplam finansal borç (kira yükümlülükleri dahil) − nakit ve nakit benzerleri.
+    # Eşleme MGROS ve KARSN 2026/06 bilançolarıyla birebir doğrulandı (kosu 4). KV finansal yatırımlar düşülmez;
+    # düşülse puan dalı değişiyorsa satır EKSİK kalır (alt/üst = iki dalın puanı).
     nb = lambda yymm: f(row.get(f"nb{yymm}"))
+    kfy = lambda yymm: f(row.get(f"kfy{yymm}"))
     tt = DONEMLER[t] % 10000
     t4 = DONEMLER[t - 4] % 10000 if t - 4 >= 0 else None
     nb0, nb4 = nb(tt), (nb(t4) if t4 else None)
-    if nb0 is None or nb4 is None or not s.S(t) or not s.S(t - 4):
-        yaz("C1", durum="EKSİK", not_="tanımlı net borç (TFRS 16 dahil) hesaplanmadı; Evo net borç da yok")
+    S0, S4 = s.S(t), (s.S(t - 4) if t - 4 >= 0 else None)
+    if nb0 is None or nb4 is None or not S0 or not S4 or S0 <= 0 or S4 <= 0:
+        yaz("C1", durum="EKSİK", not_="Evo net borç veya TTM satış (t / t−4) yok")
     else:
-        r0, r4 = nb0 / s.S(t), nb4 / s.S(t - 4)
-        yaz("C1", durum="EKSİK", not_=f"tanımlı net borç (TFRS 16 dahil) doğrulanmadı; gösterge Evo net borç/satış {r4:.2f}→{r0:.2f}")
+        def c1_puan(n0, n4):
+            if n0 < 0 and n4 < 0:
+                return 5, "her iki yılda net nakit"
+            d = (n4 / S4 - n0 / S0) * 100  # oranın yüzde puan düşüşü
+            return (5 if d >= 5 else (2.5 if d > 0 else 0)), (f"oran {d:.1f} yp düştü" if d > 0 else f"oran {-d:.1f} yp yükseldi/değişmedi")
+        p, acik = c1_puan(nb0, nb4)
+        k0, k4 = kfy(tt), (kfy(t4) if t4 else None)
+        ek = (f"Evo net borç/TTM satış {nb4 / S4:.1%} → {nb0 / S0:.1%} ({acik}); kira yükümlülükleri dahil; "
+              "blokeli nakit kontrol edilmedi; borç azalmasının kaynağı (sermaye artırımı/varlık satışı) belge incelemesinde yazılacak")
+        if True:  # kfy satırı yoksa bilançoda dönen 'Finansal Yatırımlar' kalemi yoktur → 0
+            p2, acik2 = c1_puan(nb0 - (k0 or 0), nb4 - (k4 or 0))
+            if p2 == p:
+                yaz("C1", p, not_=ek + ("; KV finansal yatırım düşülse de aynı dal" if (k0 or k4) else ""))
+            else:
+                yaz("C1", durum="EKSİK", alt=min(p, p2), ust=max(p, p2),
+                    not_=ek + f"; KV finansal yatırım ({k4 or 0:,.0f} → {k0 or 0:,.0f} mn) düşülürse {p2:g} ({acik2}) — "
+                         "yatırımların likiditesi/serbestliği belgeyle kararlaştırılacak")
     for k in ("C2", "C3", "C4", "D2", "E1", "E2"):
         yaz(k, durum="EKSİK", not_="belge/model incelemesi")
     # D1
@@ -409,10 +432,12 @@ def puanla(s, t, dip, fcf, row, emsal_pct, ifna_fark=frozenset()):
     elif pd0 is not None and nb_t is not None and pd0 + nb_t <= 0:
         yaz("D1", durum="UYGULANAMAZ", not_="FD ≤ 0; FD/FAVÖK anlamlı değil (gösterge Evo net borç)")
     elif emsal_pct is None:
-        yaz("D1", durum="EKSİK", not_="emsal sepeti tanımlanmadı")
+        yaz("D1", durum="EKSİK", not_="FD/FAVÖK hesaplanamadı (PD, net borç veya FAVÖK yok)")
+    elif emsal_pct["durum"] != "HESAPLANDI":
+        yaz("D1", durum=emsal_pct["durum"], not_=emsal_pct["not"])
     else:
-        pct, n = emsal_pct
-        yaz("D1", durum="EKSİK", not_=f"emsal sepeti tanımlanmadı; gösterge geniş Evo sektöründe yüzdelik {pct:.0%} (n={n})")
+        pct = emsal_pct["pct"]
+        yaz("D1", 5 if pct <= 0.25 else (2.5 if pct <= 0.50 else 0), not_=emsal_pct["not"])
     # D3 — faiz sınıflandırması doğrulanmadı
     ft = fcf.get("t") if fcf else None
     if ft and ft.get("statu") in ("KESİN", "TÜRETİLMİŞ") and ft.get("fcf") is not None and ft["fcf"] <= 0:
@@ -441,12 +466,16 @@ def on_puan(sat):
 
 def main():
     ap = argparse.ArgumentParser()
-    for a in ("evo", "master", "evren", "sektor", "cikti", "yayin", "belge"):
+    for a in ("evo", "master", "evren", "sektor", "cikti", "yayin", "belge", "kfy", "emsal"):
         ap.add_argument(f"--{a}", required=True)
     args = ap.parse_args()
     os.makedirs(args.cikti, exist_ok=True)
 
     evo = {r["kod"]: r for r in csv.DictReader(open(args.evo, encoding="utf-8"))}
+    # KV finansal yatırımlar (dönen varlıklar içindeki 'Finansal Yatırımlar'; boş = kalem yok → 0)
+    for r in csv.DictReader(open(args.kfy, encoding="utf-8")):
+        if r["kod"] in evo:
+            evo[r["kod"]].update({k: v for k, v in r.items() if k != "kod"})
     sektor_ad = {int(r["id"]): r["baslik"] for r in csv.DictReader(open(args.sektor, encoding="utf-8"))}
     evren = {r["Kod"]: r for r in csv.DictReader(open(args.evren, encoding="utf-8-sig"))}
     # Dönem eşleme şüphesi: 2025/03–2026/06 arasında en az 3 raporu dönem sonundan >110 gün sonra yayımlanan şirketler
@@ -506,16 +535,60 @@ def main():
         if pd_ and nb0 is not None and fav and fav > 0 and pd_ + nb0 > 0:
             fd_favok[k["kod"]] = ((pd_ + nb0) / fav, k["sek"])
 
+    # Emsal haritası (sürümlü; çarpanlara bakılmadan kuruldu). Kural sırası sabit:
+    # 1) şirketin iş modeli doğrulanmadıysa (kanıt D / haritada yok) → EKSİK
+    # 2) dar grupta, kanıtı D olmayan ve FD/FAVÖK'ü geçerli ≥5 emsal → dar sepet
+    # 3) değilse üst grupta aynı koşulla ≥5 emsal → üst sepet (geniş sepet notu)
+    # 4) değilse: doğrulanmamış şirketler sınıflanınca 5'e ulaşılabilecekse EKSİK, ulaşılamıyorsa UYGULANAMAZ
+    harita = {r["kod"]: r for r in csv.DictReader(open(args.emsal, encoding="utf-8"))}
+    harita_surum = os.path.splitext(os.path.basename(args.emsal))[0]
+    son_d = {}
+    for k in ana:
+        s_ = Seri(k["row"])
+        t_ = s_.son_donem()
+        son_d[k["kod"]] = DONEMLER[t_] if t_ is not None else None
+
     def emsal(kod):
         if kod not in fd_favok:
             return None
         oran, sek = fd_favok[kod]
-        peers = [v for kk, (v, s2) in fd_favok.items() if s2 == sek and kk != kod]
-        if len(peers) < P["emsal_min"]:
-            return None
-        dus = sum(1 for v in peers if v < oran)
-        es = sum(1 for v in peers if v == oran)
-        return ((dus + 0.5 * es) / len(peers), len(peers))
+        h = harita.get(kod)
+        if not h or h["kanit"] == "D":
+            return {"durum": "EKSİK", "not": f"{harita_surum}: iş modeli doğrulanmadı ({h['gerekce'] if h else 'haritada yok'}); "
+                                                f"FD/FAVÖK {oran:.1f}"}
+        dogrulanmamis = {kk for kk, hh in harita.items() if hh["kanit"] == "D" and kk in fd_favok}
+        for seviye, alan in (("dar", "dar_grup"), ("üst", "ust_grup")):
+            g = h[alan]
+            if not g:
+                continue
+            uyeler = [kk for kk, hh in harita.items() if hh[alan] == g and hh["kanit"] != "D" and kk != kod]
+            peers = [(kk, fd_favok[kk][0]) for kk in uyeler if kk in fd_favok]
+            if len(peers) >= P["emsal_min"]:
+                vals = [v for _, v in peers]
+                dus = sum(1 for v in vals if v < oran)
+                es = sum(1 for v in vals if v == oran)
+                pct = (dus + 0.5 * es) / len(vals)
+                farkli = [kk for kk, _ in peers if son_d.get(kk) != son_d.get(kod)]
+                ad = h["dar_grup_adi"] if seviye == "dar" else h["ust_grup_adi"]
+                return {"durum": "HESAPLANDI", "pct": pct, "n": len(vals), "sepet": f"{seviye}: {ad}",
+                        "not": (f"{harita_surum} {seviye} sepet '{ad}' (n={len(vals)}"
+                                + (", geniş sepet" if seviye == "üst" else "") + f"): FD/FAVÖK {oran:.1f}, yüzdelik {pct:.0%}, "
+                                f"emsal medyanı {median(vals):.1f}"
+                                + (f"; dönemi farklı emsal: {', '.join(farkli)}" if farkli else "")
+                                + "; FD = PD (19.10.2026) + Evo net borç (son dönem), azınlık payları eklenmedi")}
+        # yetersiz emsal
+        grup_sek = {int(f(evo[kk].get("sek")) or 0) for kk, hh in harita.items()
+                    if (hh["dar_grup"] and hh["dar_grup"] == h["dar_grup"]) or (hh["ust_grup"] and hh["ust_grup"] == h["ust_grup"])
+                    if kk in evo}
+        aday = [kk for kk in dogrulanmamis if fd_favok[kk][1] in grup_sek]
+        mevcut = max(len([kk for kk, hh in harita.items() if hh[a] and hh[a] == h[a] and hh["kanit"] != "D" and kk != kod and kk in fd_favok])
+                     for a in ("dar_grup", "ust_grup"))
+        ad = h["dar_grup_adi"] or h["ust_grup_adi"]
+        if mevcut + len(aday) >= P["emsal_min"]:
+            return {"durum": "EKSİK", "not": f"{harita_surum} '{ad}': geçerli emsal {mevcut} < {P['emsal_min']}; aynı Evo sektöründe "
+                                            f"iş modeli doğrulanmamış {len(aday)} şirket ({', '.join(sorted(aday))}) sınıflanınca yeniden bakılacak"}
+        return {"durum": "UYGULANAMAZ", "not": f"{harita_surum} '{ad}': yeterli karşılaştırılabilir emsal yok "
+                                              f"(geçerli FD/FAVÖK'lü emsal {mevcut} < {P['emsal_min']}; doğrulanmamış aday da yok)"}
 
     sonuc = []
     for k in kayitlar:

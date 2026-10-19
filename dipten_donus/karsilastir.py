@@ -12,6 +12,14 @@ def ozet(x):
     return l
 
 
+def _sat(x):
+    if x["durum"] == "HESAPLANDI":
+        return f"{x['puan']:g}"
+    if x["durum"] == "EKSİK" and x.get("alt") is not None and x.get("ust") is not None:
+        return f"EKSİK ({x['alt']:g}–{x['ust']:g})"
+    return x["durum"]
+
+
 def nedenler(a, b):
     n = []
     if any(s.startswith("SERİ KIRILMASI") for s in a.get("notlar", [])):
@@ -20,7 +28,8 @@ def nedenler(a, b):
     yeni_rqe = [d for d in b.get("dip_tarihleri", []) if d.get("yol") == "R-ÇEYREK (EKSİK)"]
     if eski_rq and yeni_rqe:
         n.append("2023 çeyrekleri doğrulanamadı (R-ÇEYREK → EKSİK)")
-    if any("KAYNAK İSTİSNASI" in m.get("sonuc", "") for m in b.get("ifna_mutabakat", [])):
+    if any("KAYNAK İSTİSNASI" in m.get("sonuc", "") for m in b.get("ifna_mutabakat", [])) and \
+            not any("KAYNAK İSTİSNASI" in m.get("sonuc", "") for m in a.get("ifna_mutabakat", [])):
         n.append("İFNA: belgeyle düzeltilmiş master CFO kaynak istisnası olarak kullanıldı")
     if b.get("liste", "").startswith("4-") and "dönem eşlemesi" in b.get("neden", ""):
         n.append("dönem eşlemesi şüphesi (yayın gecikmesi deseni)")
@@ -30,9 +39,9 @@ def nedenler(a, b):
         n.append("en eski aday dip tarihi değerlendirilemedi → 'dip yok' denmedi")
     pa, pb = a.get("puan_satirlari", {}), b.get("puan_satirlari", {})
     for k in ("A5", "B1", "B2", "C1", "D1", "D3"):
-        if k in pa and k in pb and (pa[k]["puan"], pa[k]["durum"]) != (pb[k]["puan"], pb[k]["durum"]):
-            n.append(f"{k}: {pa[k]['durum'] if pa[k]['durum'] != 'HESAPLANDI' else pa[k]['puan']} → "
-                     f"{pb[k]['durum'] if pb[k]['durum'] != 'HESAPLANDI' else pb[k]['puan']}")
+        if k in pa and k in pb and (pa[k]["puan"], pa[k]["durum"], pa[k].get("alt"), pa[k].get("ust")) != \
+                (pb[k]["puan"], pb[k]["durum"], pb[k].get("alt"), pb[k].get("ust")):
+            n.append(f"{k}: {_sat(pa[k])} → {_sat(pb[k])}")
     return "; ".join(n)
 
 
