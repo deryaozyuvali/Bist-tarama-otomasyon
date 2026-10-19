@@ -50,14 +50,15 @@ def main():
     w(f"- 2) Tek koşulla sınırda: **{len(sinir)}** (erken sinyal: {C['2-SINIRDA (erken sinyal)']}, dip: {C['2-SINIRDA (dip)']})")
     w(f"- 3) Kısa geçmişli aday: {len(kisa)} · Dip doğrulanamadı / toparlanma izlemesi: **{len(dipsiz)}**")
     w(f"- 4) Veri eksiği nedeniyle değerlendirilemeyen: **{len(eksik)}** (+ {len(bayat)} şirket bayat dönemle değerlendirildi)")
-    w(f"- Diğer: dip var ama sinyal yok {C['DİP VAR, SİNYAL YOK']}, bu modelde dip kanıtı yok {C['DİP KANITI YOK']}")
+    w(f"- Diğer: dip var ama sinyal yok {C['DİP VAR, SİNYAL YOK']}, bu modelde dip kanıtı yok {C['DİP KANITI YOK']}, "
+      f"dip kanıtı yok ama en eski aday tarih değerlendirilemedi (kısmi pencere) {C['DİP KANITI YOK (KISMİ PENCERE)']}")
     w("")
 
     # 1
     w("## 1) Aday havuzu")
     w("")
     w("Sıra: kuyruk, sonra ön puan alt sınırı. Ön puan = A1–A5, B1, B2, B4, C1, D1, D3 (azami 65). "
-      "D3 herkes için EKSİK (nakit faiz sınıflandırması doğrulanmadı) olduğundan üst sınır en az +5'tir. "
+      "C1 ve D1 bu koşuda EKSİK (tanımlı net borç ve emsal sepeti yok); D3 yalnızca onaylı FCF ≤ 0 ise 0, aksi halde EKSİK. "
       "Teyit sütunları yalnız sayısal kısımdır; belge kısmı (op. teyit 4. madde, B3) bekleniyor.")
     w("")
     w("| # | Kod | Sektör | Dip (dönem, yol, kanıt) | Sinyal | Ön puan | Kuyruk | Op. teyit (sayısal) | Nakit teyit (sayısal) | B4 (FCF) | Risk işaretleri |")
@@ -68,7 +69,7 @@ def main():
         etk = " · kısa geçmiş" if "KISA" in x["liste"] else ""
         w(f"| {i} | {x['kod']} | {x['sektor']} | {kisa_kanit(x['dip'])}{etk} | {'+'.join(x['erken_sinyal_yolu'])} | "
           f"{x['on_puan_alt']:g}–{x['on_puan_ust']:g} | {x['kuyruk']} | {'✓' if x['op_teyit_sayisal'] else '–'} | "
-          f"{'✓' if x['nakit_teyit_sayisal'] else '–'} | {b4s} | {', '.join(x['risk_isaretleri']) or '–'} |")
+          f"{x['nakit_teyit_sayisal'] if isinstance(x['nakit_teyit_sayisal'], str) else ('✓' if x['nakit_teyit_sayisal'] else '–')} | {b4s} | {', '.join(x['risk_isaretleri']) or '–'} |")
     w("")
 
     # 2
@@ -101,7 +102,7 @@ def main():
     w("")
     for x in kisa:
         w(f"- **{x['kod']}** ({x['sektor']}): dip {kisa_kanit(x['dip'])}, ham çeyrek {x['n_ham_ceyrek']}"
-          + ("; " + "; ".join(n for n in x.get("notlar", []) if n.startswith("SERİ")) if any(n.startswith("SERİ") for n in x.get("notlar", [])) else ""))
+          + ("; " + "; ".join(n for n in x.get("notlar", []) if n.startswith("İNCELEME")) if any(n.startswith("İNCELEME") for n in x.get("notlar", [])) else ""))
     w("")
     w("Dip doğrulanamadı — geçmiş sınırlı / toparlanma izlemesi (puansız):")
     w("")
@@ -150,12 +151,12 @@ def main():
         cw = csv.writer(fo)
         cols = ["kod", "sektor", "kapsam", "liste", "son_donem", "n_ham_ceyrek", "dip", "erken_sinyal_yolu",
                 "on_puan_alt", "on_puan_ust", "uygulanamaz_kapasite", "kuyruk", "op_teyit_sayisal", "nakit_teyit_sayisal",
-                "ttm_favok_marji", "ttm_efk_marji", "ttm_ifna_marji", "risk_isaretleri", "neden", "notlar"] + \
-               [f"{k}_{f}" for k in ("A1", "A2", "A3", "A4", "A5", "B1", "B2", "B4", "C1", "D1") for f in ("puan", "durum", "not")]
+                "ttm_favok_marji", "ttm_efk_marji", "ttm_ifna_marji", "ifna_mutabakat_bekliyor", "risk_isaretleri", "neden", "notlar"] + \
+               [f"{k}_{f}" for k in ("A1", "A2", "A3", "A4", "A5", "B1", "B2", "B4", "C1", "D1", "D3") for f in ("puan", "durum", "not")]
         cw.writerow(cols)
         for x in S:
             row = []
-            for c in cols[:20]:
+            for c in cols[:21]:
                 v = x.get(c, "")
                 if c == "dip" and v:
                     v = kisa_kanit(v)
@@ -164,7 +165,7 @@ def main():
                 elif isinstance(v, list):
                     v = "; ".join(map(str, v))
                 row.append(v)
-            for k in ("A1", "A2", "A3", "A4", "A5", "B1", "B2", "B4", "C1", "D1"):
+            for k in ("A1", "A2", "A3", "A4", "A5", "B1", "B2", "B4", "C1", "D1", "D3"):
                 p = x.get("puan_satirlari", {}).get(k, {})
                 row += [p.get("puan", ""), p.get("durum", ""), p.get("not", "")]
             cw.writerow(row)

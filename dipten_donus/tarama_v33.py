@@ -24,9 +24,9 @@ DONEMLER = [202303, 202306, 202309, 202312, 202403, 202406, 202409, 202412, 2025
 P = {
     "dip_A_bps": 150, "dip_B_oran": 0.25, "dip_C_oran": 0.10, "dip_D_bps": 200,
     "sinyal_q_bps": 50, "sinyal_ttm_bps": 100,
-    "seri_kirilma_kat": 2.5,      # ardışık TTM satış oranı bu katı aşarsa seri kırılması
-    "ceyrek_tutarlilik": 0.02,    # 4 çeyrek toplamı ile TTM farkı toleransı
-    "a5_degismedi_bandi": 0.02,   # A5 vekil: ±%2 "değişmemiş" (uygulama yorumu)
+    "seri_uyari_kat": 2.5,        # yalnızca İNCELEME UYARISI; veri kesilmez (kosu 2)
+    "ceyrek_tutarlilik": 0.02,    # 4 çeyrek toplamı ile TTM farkı toleransı (tutarlılık kontrolü, kanıt değil)
+    "ifna_mutabakat_esik": 0.10,  # Evo İFNA ile FCF_MASTER CFO farkı
     "on_puan_kuyruk": 35,
     "emsal_min": 5,
 }
@@ -36,6 +36,9 @@ KAPSAM_DISI_SEKTOR = {3, 4, 6, 23, 24, 25, 26, 27, 33, 35, 36, 39, 49}
 
 # FCF_MASTER NOTLAR ("Spor kulüpleri"): mali yıl Haziran/Mayıs, takvim TTM'i yok.
 TAKVIM_DISI_MALI_YIL = {"BJKAS", "FENER", "GSRAY", "TSPOR", "KAYSE", "MERKO"}
+
+# Karşılaştırılabilirliği doğrulanamayan çeyrekler (2023/12 öncesi; kaynak istisnası açık)
+DOGRULANAMAYAN_CEYREK = {202303, 202306, 202309}
 
 # Ön puan satırları ve azami puanları (sabit 65)
 ON_PUAN_SATIRLARI = {"A1": 10, "A2": 5, "A3": 5, "A4": 5, "A5": 5, "B1": 10, "B2": 5, "B4": 5,
@@ -88,16 +91,15 @@ class Seri:
         self._ceyrek_kontrol()
 
     def _kirilma_kontrol(self):
-        k = P["seri_kirilma_kat"]
-        son = None
-        for i, v in enumerate(self.st):
-            if v is None or v <= 0:
+        """Yalnızca uyarı üretir; veri kullanım dışı bırakılmaz (karşılaştırılamazlık gösterilmedikçe)."""
+        k = P["seri_uyari_kat"]
+        for i in range(1, len(self.st)):
+            a, b = self.st[i - 1], self.st[i]
+            if a is None or b is None or a <= 0 or b <= 0:
                 continue
-            if son is not None and (v / self.st[son] > k or self.st[son] / v > k):
-                self.ilk = i
-                self.notlar.append(f"SERİ KIRILMASI: TTM satış {donem_str(DONEMLER[son])}→{donem_str(DONEMLER[i])} "
-                                   f"{self.st[son]:.0f}→{v:.0f}; önceki gözlemler kullanılmadı")
-            son = i
+            if b / a > k or a / b > k:
+                self.notlar.append(f"İNCELEME UYARISI: TTM satış {donem_str(DONEMLER[i - 1])}→{donem_str(DONEMLER[i])} "
+                                   f"{a:.0f}→{b:.0f} (ardışık çeyrekte {max(b / a, a / b):.1f} kat); veri kullanıldı")
 
     def _ceyrek_kontrol(self):
         """Çeyreklik seri, 4 çeyrek toplamının TTM'yi tuttuğu son noktada doğrulanmış sayılır."""
@@ -133,7 +135,7 @@ class Seri:
 
     # Çeyreklik metrikler (yalnızca doğrulanmış çeyreklerde)
     def q_ok(self, i):
-        if not self.gecerli(i):
+        if not self.gecerli(i) or DONEMLER[i] in DOGRULANAMAYAN_CEYREK:
             return False
         # i çeyreği, i..i+3 aralığındaki herhangi bir doğrulanmış TTM'nin içindeyse doğrulanmış sayılır
         return any(self.ceyrek_ok.get(j) for j in range(i, min(i + 4, len(DONEMLER))))
@@ -180,7 +182,7 @@ def kanit(deger, referans, esik, tip):
     raise ValueError(tip)
 
 
-def dip_degerlendir(s, t):
+def dip_degerlendir(s, t, ifna_fark=frozenset()):
     sonuc = []
     for d in range(t - 7, t):
         if d < 0:
@@ -202,8 +204,16 @@ def dip_degerlendir(s, t):
             else:
                 B = s.EFK(d) <= 0 or s.EFK(d) <= (1 - P["dip_B_oran"]) * mEFK
             C = None if (mS is None or mS <= 0 or s.S(d) is None) else s.S(d) <= (1 - P["dip_C_oran"]) * mS
-            D = kanit(s.IM(d), mIM, P["dip_D_bps"], "bps")
+            D = None if ({d, *refs} & ifna_fark) else kanit(s.IM(d), mIM, P["dip_D_bps"], "bps")
             kayit["fm_d"] = s.FM(d)
+        elif d - 4 >= 0 and DONEMLER[d - 4] in DOGRULANAMAYAN_CEYREK and s.sq[d - 4] is not None:
+            kayit["yol"] = "R-ÇEYREK (EKSİK)"
+            kayit["not"] = f"referans çeyrek {donem_str(DONEMLER[d - 4])}: karşılaştırılabilirlik doğrulanamadı"
+            kayit["kanit"] = {"A": None, "B": None, "C": None, "D": None}
+            kayit["sonuc"] = "VERİ YETERSİZ"
+            kayit["tek_kanit_AB"] = False
+            sonuc.append(kayit)
+            continue
         elif s.q_ok(d) and s.q_ok(d - 4) and s.sqv(d) is not None and s.sqv(d - 4) is not None:
             kayit["yol"] = "R-ÇEYREK"
             kayit["ref_donemler"] = [donem_str(DONEMLER[d - 4])]
@@ -219,7 +229,7 @@ def dip_degerlendir(s, t):
                 B = s.efkq(d) <= 0 or s.efkq(d) <= (1 - P["dip_B_oran"]) * r
             sr = s.sqv(d - 4)
             C = None if (sr is None or sr <= 0) else s.sqv(d) <= (1 - P["dip_C_oran"]) * sr
-            D = kanit(s.imq(d), s.imq(d - 4), P["dip_D_bps"], "bps")
+            D = None if ({d, d - 4} & ifna_fark) else kanit(s.imq(d), s.imq(d - 4), P["dip_D_bps"], "bps")
             kayit["fm_d"] = s.fmq(d)
         else:
             kayit["yol"] = "REFERANS YOK"
@@ -297,7 +307,7 @@ def kademe(deger, esikler, puanlar):
     return 0
 
 
-def puanla(s, t, dip, fcf, row, emsal_pct):
+def puanla(s, t, dip, fcf, row, emsal_pct, ifna_fark=frozenset()):
     sat = {}
 
     def yaz(k, puan=None, durum="HESAPLANDI", alt=None, ust=None, not_=""):
@@ -310,6 +320,9 @@ def puanla(s, t, dip, fcf, row, emsal_pct):
     for k, fn, es, pu in (("A1", s.FM, [200, 100], [10, 5]), ("A2", s.EM, [100, 50], [5, 2.5]),
                           ("B1", s.IM, [200, 100], [10, 5])):
         v = dm(fn(t), fn(d)) if d is not None else None
+        if k == "B1" and ({t, d} & ifna_fark):
+            yaz(k, durum="EKSİK", not_=f"Evo–master İFNA mutabakatı bekliyor (gösterge {'' if v is None else f'{v / BPS:+.0f} bps'})")
+            continue
         p = kademe(None if v is None else v / BPS, es, pu)
         if p is None:
             yaz(k, durum="EKSİK", not_="dip TTM veya son TTM hesaplanamadı (izahname kontrol edilmedi)")
@@ -334,11 +347,12 @@ def puanla(s, t, dip, fcf, row, emsal_pct):
         yaz("A5", durum="EKSİK", not_="hacim açıklanmıyor; vekil için TTM(t-4) yok")
     else:
         g = s.S(t) / s.S(t - 4) - 1
-        band = P["a5_degismedi_bandi"]
-        yaz("A5", 5 if g > band else (2.5 if g >= -band else 0), not_=f"vekil ölçü: TTM satış {g:+.1%}")
+        yaz("A5", 5 if g > 0 else (2.5 if g == 0 else 0), not_=f"vekil ölçü: TTM satış {g:+.1%} (bant yok)")
     # B2
     i0, i1 = s.it[t], s.it[t - 1] if t - 1 >= s.ilk else None
-    if i0 is None:
+    if {t, t - 1} & ifna_fark:
+        yaz("B2", durum="EKSİK", not_="Evo–master İFNA mutabakatı bekliyor")
+    elif i0 is None:
         yaz("B2", durum="EKSİK")
     else:
         yaz("B2", 5 if (i0 > 0 and i1 is not None and i1 > 0) else (2.5 if i0 > 0 else 0))
@@ -366,24 +380,24 @@ def puanla(s, t, dip, fcf, row, emsal_pct):
     t4 = DONEMLER[t - 4] % 10000 if t - 4 >= 0 else None
     nb0, nb4 = nb(tt), (nb(t4) if t4 else None)
     if nb0 is None or nb4 is None or not s.S(t) or not s.S(t - 4):
-        yaz("C1", durum="EKSİK", not_="net borç (Evo) yok")
+        yaz("C1", durum="EKSİK", not_="tanımlı net borç (TFRS 16 dahil) hesaplanmadı; Evo net borç da yok")
     else:
         r0, r4 = nb0 / s.S(t), nb4 / s.S(t - 4)
-        if nb0 <= 0 and nb4 <= 0:
-            yaz("C1", 5, not_="her iki dönemde net nakit (Evo net borç)")
-        else:
-            dlt = r4 - r0
-            yaz("C1", 5 if dlt >= 0.05 else (2.5 if dlt > 0 else 0), not_=f"net borç/satış {r4:.2f}→{r0:.2f} (Evo net borç)")
+        yaz("C1", durum="EKSİK", not_=f"tanımlı net borç (TFRS 16 dahil) doğrulanmadı; gösterge Evo net borç/satış {r4:.2f}→{r0:.2f}")
     for k in ("C2", "C3", "C4", "D2", "E1", "E2"):
         yaz(k, durum="EKSİK", not_="belge/model incelemesi")
     # D1
     if emsal_pct is None:
-        yaz("D1", durum="UYGULANAMAZ", not_="oran anlamlı değil veya < 5 emsal")
+        yaz("D1", durum="EKSİK", not_="emsal sepeti tanımlanmadı (gösterge de yok: oran anlamlı değil veya geniş sektörde < 5 şirket)")
     else:
         pct, n = emsal_pct
-        yaz("D1", 5 if pct <= 0.25 else (2.5 if pct <= 0.50 else 0), not_=f"emsal yüzdeliği {pct:.0%} (n={n}, Evo sektörü)")
+        yaz("D1", durum="EKSİK", not_=f"emsal sepeti tanımlanmadı; gösterge geniş Evo sektöründe yüzdelik {pct:.0%} (n={n})")
     # D3 — faiz sınıflandırması doğrulanmadı
-    yaz("D3", durum="EKSİK", not_="nakit faiz sınıflandırması doğrulanmadı")
+    ft = fcf.get("t") if fcf else None
+    if ft and ft.get("statu") in ("KESİN", "TÜRETİLMİŞ") and ft.get("fcf") is not None and ft["fcf"] <= 0:
+        yaz("D3", 0, not_=f"FCF_MASTER {ft['statu']} {ft['fcf']:,.0f} mn ≤ 0; faiz düşülmesi pozitife çeviremez → verim ≤ 0")
+    else:
+        yaz("D3", durum="EKSİK", not_="nakit faiz sınıflandırması doğrulanmadı" + (" (FCF > 0)" if ft and ft.get("fcf") and ft["fcf"] > 0 else ""))
     return sat
 
 
@@ -492,16 +506,23 @@ def main():
         out["ttm_favok_marji"] = s.FM(t)
         out["ttm_efk_marji"] = s.EM(t)
         out["ttm_ifna_marji"] = s.IM(t)
-        # Evo İFNA ile master CFO karşılaştırması
+        # Evo İFNA ile master CFO karşılaştırması (örtüşen tüm dönemler)
         m = master.get(kod, {})
         mt = m.get(DONEMLER[t])
-        if mt and mt.get("cfo") is not None and s.it[t] is not None:
-            fark = abs(s.it[t] - mt["cfo"]) / max(abs(mt["cfo"]), 1.0)
-            if fark > 0.10:
-                out["notlar"].append(f"EVO–MASTER İFNA FARKI: Evo {s.it[t]:,.0f} / master {mt['cfo']:,.0f} mn")
+        ifna_fark = set()
+        for i, p_ in enumerate(DONEMLER):
+            mm = m.get(p_)
+            if mm and mm.get("cfo") is not None and s.it[i] is not None:
+                fark = abs(s.it[i] - mm["cfo"]) / max(abs(mm["cfo"]), 1.0)
+                if fark > P["ifna_mutabakat_esik"]:
+                    ifna_fark.add(i)
+                    out["notlar"].append(f"EVO–MASTER İFNA FARKI {donem_str(p_)}: Evo {s.it[i]:,.0f} / master {mm['cfo']:,.0f} mn "
+                                         f"(master kaynak: {mm['kaynak']}) — mutabakat bekliyor")
+        ifna_fark = frozenset(ifna_fark)
+        out["ifna_mutabakat_bekliyor"] = ", ".join(donem_str(DONEMLER[i]) for i in sorted(ifna_fark))
         fcf = {"t": mt, "t1": m.get(DONEMLER[t - 1]) if t >= 1 else None} if mt else None
 
-        dipler = dip_degerlendir(s, t)
+        dipler = dip_degerlendir(s, t, ifna_fark)
         out["dip_tarihleri"] = [{k2: v for k2, v in x.items() if k2 in ("donem", "yol", "gozlem", "zayif", "ref_donemler", "sonuc", "kanit")} for x in dipler]
         dip = dip_sec(dipler)
         fm_min = min([x for x in (s.FM(i) for i in range(max(t - 7, s.ilk), t + 1)) if x is not None], default=None)
@@ -517,7 +538,7 @@ def main():
                 out["erken_sinyal_yolu"] = yollar
                 kisa = dip["yol"] == "R-ÇEYREK" or dip["zayif"] or out["n_ham_ceyrek"] < 8
                 out["liste"] = "1-ADAY HAVUZU" + (" (KISA GEÇMİŞLİ ADAY)" if kisa else "")
-                sat = puanla(s, t, dip, fcf, row, emsal(kod))
+                sat = puanla(s, t, dip, fcf, row, emsal(kod), ifna_fark)
                 alt, ust, uyg = on_puan(sat)
                 out["puan_satirlari"] = sat
                 out["on_puan_alt"], out["on_puan_ust"], out["uygulanamaz_kapasite"] = alt, ust, uyg
@@ -527,7 +548,8 @@ def main():
                 c2 = (ge(s.emq(t), s.emq(t - 4), 0), ge(s.emq(t - 1), s.emq(t - 5), 0))
                 c3 = ge(s.FM(t), s.FM(dip["d"]), 100)
                 out["op_teyit_sayisal"] = all(x is True for x in c1 + c2 + (c3,))
-                out["nakit_teyit_sayisal"] = bool(s.it[t] and s.it[t] > 0 and s.IM(dip["d"]) is not None and s.IM(t) > s.IM(dip["d"]))
+                out["nakit_teyit_sayisal"] = ("MUTABAKAT BEKLİYOR" if ({t, dip["d"]} & ifna_fark) else
+                                              bool(s.it[t] and s.it[t] > 0 and s.IM(dip["d"]) is not None and s.IM(t) > s.IM(dip["d"])))
                 # risk işaretleri (eleme değil)
                 risk = []
                 nb0 = f(row.get(f"nb{DONEMLER[t] % 10000}"))
@@ -552,8 +574,8 @@ def main():
                 x = tek[-1]
                 out["liste"] = "2-SINIRDA (dip)"
                 out["neden"] = (f"{x['donem']} ({x['yol']}): yalnızca {[k2 for k2, v in x['kanit'].items() if v is True][0]} kanıtı; "
-                                f"diğerleri {', '.join(f'{k2}={v}' for k2, v in x['kanit'].items() if v is not True)}")
-            elif all(x.get("yol") == "REFERANS YOK" for x in dipler):
+                                f"diğerleri {', '.join(f'{k2}=' + ('EKSİK' if v is None else str(v)) for k2, v in x['kanit'].items() if v is not True)}")
+            elif all(x.get("yol") in ("REFERANS YOK", "R-ÇEYREK (EKSİK)") for x in dipler):
                 a, b = guncel_toparlanma(s, t)
                 if a or b:
                     out["liste"] = "3-DİP DOĞRULANAMADI — GEÇMİŞ SINIRLI / TOPARLANMA İZLEMESİ"
@@ -562,8 +584,14 @@ def main():
                     out["liste"] = "4-VERİ EKSİĞİ"
                     out["neden"] = "hiçbir dip tarihi için referans yok; güncel toparlanma sinyali de yok"
             elif "VERİ YETERSİZ" in sonuclar:
-                out["liste"] = "4-VERİ EKSİĞİ"
-                out["neden"] = "dip kanıtı için veri yetersiz: " + ", ".join(x["donem"] for x in dipler if x.get("sonuc") == "VERİ YETERSİZ")
+                yetersiz = [x for x in dipler if x.get("sonuc") == "VERİ YETERSİZ"]
+                if all(x.get("yol") == "R-ÇEYREK (EKSİK)" for x in yetersiz):
+                    out["liste"] = "DİP KANITI YOK (KISMİ PENCERE)"
+                    out["neden"] = ("değerlendirilen tarihlerde dip kanıtı yok; değerlendirilemeyen: "
+                                    + ", ".join(f"{x['donem']} ({x['not']})" for x in yetersiz))
+                else:
+                    out["liste"] = "4-VERİ EKSİĞİ"
+                    out["neden"] = "dip kanıtı için veri yetersiz: " + ", ".join(x["donem"] for x in yetersiz)
             else:
                 out["liste"] = "DİP KANITI YOK"
         sonuc.append(out)
