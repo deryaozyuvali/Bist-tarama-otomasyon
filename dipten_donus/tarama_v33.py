@@ -35,7 +35,7 @@ P = {
     "ifna_mutabakat_esik": 0.10,  # Evo İFNA ile FCF_MASTER CFO farkı
     "on_puan_kuyruk": 35,
     "emsal_min": 5,
-    "ortak_yontem_kabul": True,   # İFNA: dönem kaydı yoksa master TMS29 katsayı yöntemi baz kanıtı sayılır mı (duyarlılık için kapatılabilir)
+    "ortak_yontem_kabul": True,   # İFNA: MASTER YÖNTEMİ kaynak istisnası olarak kullanılsın mı (bağımsız baz doğrulaması değildir; duyarlılık için kapatılabilir)
 }
 BPS = 0.0001
 
@@ -238,8 +238,8 @@ def ifna_tanim_sinifi(b):
 def baz_sinifi(b, donem):
     """Master CFO'nun bu dönemde Evo serisiyle aynı bazda olduğuna dair kanıt (tek dönem tutar eşleşmesi kullanılmaz).
       DÖNEM KAYDI  — master FCF sayfasında bu dönemin CFO'su için Evo–belge (14g) kodu var (karşılaştırma kayıtlı)
-      ORTAK YÖNTEM — bu dönemin bileşenlerine master TMS29 katsayı tablosu uygulanmış (BELGE_TTM katsayıları tabloyla aynı)
-                     ya da TMS 29 uygulanmayan raporlarda katsayı 1
+      MASTER YÖNTEMİ — onaylı master yöntemiyle türetildi (BELGE_TTM katsayıları TMS29 tablosuyla aynı; TMS 29 uygulanmayan
+                     raporlarda katsayı 1); Evo ile ortak satın alma gücü bağımsız doğrulanmadı (tablo Evo/PDF oranlarından ölçülmüş)
       YOK          — ikisi de yok"""
     k14 = b.get("kod14g", "")
     parcalar = [x.strip() for x in k14.split(";") if x.strip()]
@@ -261,7 +261,7 @@ def baz_sinifi(b, donem):
             continue
         elif beklenen[k] is None or abs(kat - beklenen[k]) > 0.0002:
             uyum = False
-    return ("ORTAK YÖNTEM" if uyum else "YOK"), k14
+    return ("MASTER YÖNTEMİ" if uyum else "YOK"), k14
 
 
 def kanit(deger, referans, esik, tip):
@@ -755,7 +755,7 @@ def main():
             baz, k14 = baz_sinifi(b, DONEMLER[i]) if b else ("YOK", "")
             kaynak_ok = (mm["kaynak"].startswith("BELGE") and mm["statu"] in ("KESİN", "TÜRETİLMİŞ")
                          and b is not None and b.get("kullanildi") == "EVET" and "KAP" in kanit)
-            baz_gecerli = baz == "DÖNEM KAYDI" or (baz == "ORTAK YÖNTEM" and P["ortak_yontem_kabul"])
+            baz_gecerli = baz == "DÖNEM KAYDI" or (baz == "MASTER YÖNTEMİ" and P["ortak_yontem_kabul"])
             cozuldu = kaynak_ok and baz_gecerli and tanim in ("YAPISAL", "ONAYLI TÜRETME") and not kayma
             kayit = {"donem": donem_str(DONEMLER[i]), "evo": s.it[i], "master": mm["cfo"], "fark_mn": fark_mn,
                      "fark": abs(fark_mn) / payda, "isaret_farki": (s.it[i] > 0 > mm["cfo"]) or (s.it[i] < 0 < mm["cfo"]),
