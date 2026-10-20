@@ -467,9 +467,12 @@ def puanla(s, t, dip, fcf, row, emsal_pct, ifna_fark=frozenset()):
             yaz("B4", durum="EKSİK", alt=0, ust=2.5, not_=etiket + "; önceki TTM yok")
         else:
             yaz("B4", 0, not_=etiket)
-    # C1 — Evo Net Borç = toplam finansal borç (kira yükümlülükleri dahil) − nakit ve nakit benzerleri.
-    # Eşleme MGROS ve KARSN 2026/06 bilançolarıyla birebir doğrulandı (kosu 4). KV finansal yatırımlar düşülmez;
-    # düşülse puan dalı değişiyorsa satır EKSİK kalır (alt/üst = iki dalın puanı).
+    # C1 — Evo 'Net Borç' = toplam finansal borç (kira yükümlülükleri dahil) − nakit ve nakit benzerleri − KV finansal yatırımlar.
+    # (Koşu 5 sonrası düzeltme: Evo net borcu KV finansal yatırımları zaten düşüyor; MGROS, AEFES, EGEEN, KOCMT, GOKNR'de
+    # birebir görüldü. Önceki koşularda 'alternatif dal' yatırımları ikinci kez düşüyordu.)
+    # KV yatırımların serbestliği belgeye bağlı: her tarihte düşülme oranı bağımsız olarak 0–1 (asimetrik ve kısmi dahil)
+    # taranır; puan değişmiyorsa HESAPLANDI (Evo kapsamı), değişiyorsa EKSİK (alt/üst = senaryoların en düşük/yüksek puanı).
+    # Blokeli nakit ve kira kapsamı doğrulanmadı (belgeye bağlı açık kontrol); bu, doğrulanmış net borç hesabı değildir.
     nb = lambda yymm: f(row.get(f"nb{yymm}"))
     kfy = lambda yymm: f(row.get(f"kfy{yymm}"))
     tt = DONEMLER[t] % 10000
@@ -485,17 +488,22 @@ def puanla(s, t, dip, fcf, row, emsal_pct, ifna_fark=frozenset()):
             d = (n4 / S4 - n0 / S0) * 100  # oranın yüzde puan düşüşü
             return (5 if d >= 5 else (2.5 if d > 0 else 0)), (f"oran {d:.1f} yp düştü" if d > 0 else f"oran {-d:.1f} yp yükseldi/değişmedi")
         p, acik = c1_puan(nb0, nb4)
-        k0, k4 = kfy(tt), (kfy(t4) if t4 else None)
-        ek = (f"Evo net borç/TTM satış {nb4 / S4:.1%} → {nb0 / S0:.1%} ({acik}); kira yükümlülükleri dahil; "
-              "blokeli nakit kontrol edilmedi; borç azalmasının kaynağı (sermaye artırımı/varlık satışı) belge incelemesinde yazılacak")
-        if True:  # kfy satırı yoksa bilançoda dönen 'Finansal Yatırımlar' kalemi yoktur → 0
-            p2, acik2 = c1_puan(nb0 - (k0 or 0), nb4 - (k4 or 0))
-            if p2 == p:
-                yaz("C1", p, not_=ek + ("; KV finansal yatırım düşülse de aynı dal" if (k0 or k4) else ""))
-            else:
-                yaz("C1", durum="EKSİK", alt=min(p, p2), ust=max(p, p2),
-                    not_=ek + f"; KV finansal yatırım ({k4 or 0:,.0f} → {k0 or 0:,.0f} mn) düşülürse {p2:g} ({acik2}) — "
-                         "yatırımların likiditesi/serbestliği belgeyle kararlaştırılacak")
+        k0, k4 = (kfy(tt) or 0), ((kfy(t4) if t4 else None) or 0)
+        ek = (f"Evo net borç (KV finansal yatırımlar düşülmüş)/TTM satış {nb4 / S4:.1%} → {nb0 / S0:.1%} ({acik}); "
+              "blokeli nakit ve kira kapsamı belgeyle doğrulanmadı; borç azalmasının kaynağı belge incelemesinde yazılacak")
+        izgara = [x / 20 for x in range(21)]
+        puanlar = {}
+        for a0 in izgara:
+            for a4 in izgara:
+                pp, _ = c1_puan(nb0 + (1 - a0) * k0, nb4 + (1 - a4) * k4)
+                puanlar.setdefault(pp, (a0, a4))
+        if len(puanlar) == 1:
+            yaz("C1", p, not_=ek + (f"; KV finansal yatırım ({k4:,.0f} → {k0:,.0f} mn) hangi oranda düşülürse düşülsün aynı puan" if (k0 or k4) else ""))
+        else:
+            ornek = f"Evo kapsamında (iki tarihte de tamamı düşülmüş) {p:g}; " + "; ".join(
+                f"{pp:g} (ör. t−4'te %{a4 * 100:.0f}, t'de %{a0 * 100:.0f} düşülürse)" for pp, (a0, a4) in sorted(puanlar.items()))
+            yaz("C1", durum="EKSİK", alt=min(puanlar), ust=max(puanlar),
+                not_=ek + f"; KV finansal yatırım ({k4:,.0f} → {k0:,.0f} mn) serbestliğine göre puan: {ornek} — belgeyle kararlaştırılacak")
     for k in ("C2", "C3", "C4", "D2", "E1", "E2"):
         yaz(k, durum="EKSİK", not_="belge/model incelemesi")
     # D1
