@@ -70,80 +70,356 @@ MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TURGG,AYLIK,Ters Hammer,B,BOĞA,TEYİ
 MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ULUFA,AYLIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,1.5,1.72,1.37,1.72,Sonraki aylık kapanış > 1.72,1.37,1.37 altı formasyonu bozar
 MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YKSLN,AYLIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,1.97,2.83,1.96,2.83,Sonraki aylık kapanış > 2.83,1.96,1.96 altı formasyonu bozar
 MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,EMNIS,AYLIK,Dragonfly Doji,C,BOĞA,İZLE,2026-10-30,,129.7,135.0,110.0,135.0,Tek başına sinyal değil; izleme,110.0,110.00 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ENJSA,HAFTALIK,Yutan Ayı,A,AYI,AYI TEYİDİ,2026-10-30,,105.5,117.5,105.5,105.5,Formasyon kendi içinde teyitli,117.5,117.50 üstü formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AYES,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-10-30,,7.25,7.27,5.62,7.27,Formasyon kendi içinde teyitli,5.62,5.62 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DMRGD,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-10-30,,6.92,7.02,5.59,7.02,Formasyon kendi içinde teyitli,5.59,5.59 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DOAS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-10-30,,149.2,149.2,125.8,149.2,Formasyon kendi içinde teyitli,125.8,125.80 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,NETCD,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-10-30,,87.7,90.85,74.8,90.85,Formasyon kendi içinde teyitli,74.8,74.80 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SANEL,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-10-30,,32.12,33.66,22.5,33.66,Formasyon kendi içinde teyitli,22.5,22.50 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TRCAS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-10-30,,43.44,44.42,39.4,44.42,Formasyon kendi içinde teyitli,39.4,39.40 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TRCAS,HAFTALIK,Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-23,2026-10-30,43.44,42.34,39.4,42.34,Teyit geldi: haftalık kapanış > 42.34,39.4,39.40 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DURDO,HAFTALIK,Dark Cloud,B,AYI,TEYİT BEKLİYOR,2026-10-30,,5.57,6.55,5.12,5.12,Sonraki haftalık kapanış < 5.12,6.55,6.55 üstü formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SANKO,HAFTALIK,Dark Cloud,B,AYI,TEYİT BEKLİYOR,2026-10-30,,20.48,21.98,19.88,19.88,Sonraki haftalık kapanış < 19.88,21.98,21.98 üstü formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ACSEL,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,75.65,83.7,67.5,83.7,Sonraki haftalık kapanış > 83.70,67.5,67.50 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AKHAN,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,22.42,24.24,21.62,24.24,Sonraki haftalık kapanış > 24.24,21.62,21.62 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ALBRK,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,7.84,8.46,7.8,8.46,Sonraki haftalık kapanış > 8.46,7.8,7.80 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ANELE,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,7.46,9.83,6.84,9.83,Sonraki haftalık kapanış > 9.83,6.84,6.84 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ATATR,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,3.83,4.18,3.83,4.18,Sonraki haftalık kapanış > 4.18,3.83,3.83 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ATSYH,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,64.0,74.0,64.0,74.0,Sonraki haftalık kapanış > 74.00,64.0,64.00 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AVTUR,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,6.98,8.49,6.48,8.49,Sonraki haftalık kapanış > 8.49,6.48,6.48 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AYCES,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,282.25,307.0,282.0,307.0,Sonraki haftalık kapanış > 307.00,282.0,282.00 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BAGFS,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,16.38,17.49,16.32,17.49,Sonraki haftalık kapanış > 17.49,16.32,16.32 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BAYRK,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,2.93,3.24,2.53,3.24,Sonraki haftalık kapanış > 3.24,2.53,2.53 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BLUME,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,26.08,30.14,19.62,30.14,Sonraki haftalık kapanış > 30.14,19.62,19.62 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BMSCH,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,7.95,9.11,7.39,9.11,Sonraki haftalık kapanış > 9.11,7.39,7.39 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BMSCH,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,7.95,8.55,7.82,8.55,Sonraki haftalık kapanış > 8.55,7.82,7.82 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BNTAS,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,4.9,5.1,4.35,5.1,Sonraki haftalık kapanış > 5.10,4.35,4.35 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BURCE,HAFTALIK,Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,16.54,16.99,14.72,16.99,Sonraki haftalık kapanış > 16.99,14.72,14.72 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CASA,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,32.98,41.54,30.9,41.54,Sonraki haftalık kapanış > 41.54,30.9,30.90 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,COSMO,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,73.0,86.8,66.6,86.8,Sonraki haftalık kapanış > 86.80,66.6,66.60 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DAGI,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,5.5,6.11,5.08,6.11,Sonraki haftalık kapanış > 6.11,5.08,5.08 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DAGI,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,5.5,6.05,5.27,6.05,Sonraki haftalık kapanış > 6.05,5.27,5.27 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,EKIZ,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,34.88,36.56,33.98,36.56,Sonraki haftalık kapanış > 36.56,33.98,33.98 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,EKOS,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,2.48,2.78,2.46,2.78,Sonraki haftalık kapanış > 2.78,2.46,2.46 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,EUHOL,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,6.44,6.9,4.16,6.9,Sonraki haftalık kapanış > 6.90,4.16,4.16 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,EYGYO,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,1.69,1.85,1.69,1.85,Sonraki haftalık kapanış > 1.85,1.69,1.69 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,FONET,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,3.47,4.0,3.24,4.0,Sonraki haftalık kapanış > 4.00,3.24,3.24 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,FROTO,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,65.45,71.0,62.3,71.0,Sonraki haftalık kapanış > 71.00,62.3,62.30 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GESAN,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,31.12,35.3,30.84,35.3,Sonraki haftalık kapanış > 35.30,30.84,30.84 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GOKNR,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,12.04,13.3,11.38,13.3,Sonraki haftalık kapanış > 13.30,11.38,11.38 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,INTEK,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,151.9,175.0,139.5,175.0,Sonraki haftalık kapanış > 175.00,139.5,139.50 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,INVES,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,641.5,695.0,612.5,695.0,Sonraki haftalık kapanış > 695.00,612.5,612.50 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ISYAT,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,5.23,6.18,5.15,6.18,Sonraki haftalık kapanış > 6.18,5.15,5.15 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KENT,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,240.0,255.75,231.0,255.75,Sonraki haftalık kapanış > 255.75,231.0,231.00 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KFEIN,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,4.86,5.65,4.51,5.65,Sonraki haftalık kapanış > 5.65,4.51,4.51 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KRSTL,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,6.29,6.96,5.8,6.96,Sonraki haftalık kapanış > 6.96,5.8,5.80 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,LXGYO,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,5.08,5.73,5.05,5.73,Sonraki haftalık kapanış > 5.73,5.05,5.05 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MARMR,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,1.06,1.24,1.05,1.24,Sonraki haftalık kapanış > 1.24,1.05,1.05 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,NTHOL,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,33.82,35.84,32.8,35.84,Sonraki haftalık kapanış > 35.84,32.8,32.80 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OBAMS,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,3.5,4.13,3.27,4.13,Sonraki haftalık kapanış > 4.13,3.27,3.27 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ORGE,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,18.6,21.44,17.23,21.44,Sonraki haftalık kapanış > 21.44,17.23,17.23 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ORZAX,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,57.0,61.2,57.0,61.2,Sonraki haftalık kapanış > 61.20,57.0,57.00 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OYAKC,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,17.88,19.15,17.82,19.15,Sonraki haftalık kapanış > 19.15,17.82,17.82 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OZSUB,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,27.0,33.34,25.46,33.34,Sonraki haftalık kapanış > 33.34,25.46,25.46 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PETUN,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,8.66,9.39,8.06,9.39,Sonraki haftalık kapanış > 9.39,8.06,8.06 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PETUN,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,8.66,9.39,8.43,9.39,Sonraki haftalık kapanış > 9.39,8.43,8.43 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,POLHO,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,13.37,16.48,12.47,16.48,Sonraki haftalık kapanış > 16.48,12.47,12.47 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PRDGS,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,3.24,3.9,3.06,3.9,Sonraki haftalık kapanış > 3.90,3.06,3.06 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,QNBTR,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,126.5,142.0,112.7,142.0,Sonraki haftalık kapanış > 142.00,112.7,112.70 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,REEDR,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,2.5,3.15,2.3,3.15,Sonraki haftalık kapanış > 3.15,2.3,2.30 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,RYSAS,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,24.76,26.38,24.2,26.38,Sonraki haftalık kapanış > 26.38,24.2,24.20 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SARAE,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,27.04,31.0,27.0,31.0,Sonraki haftalık kapanış > 31.00,27.0,27.00 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SKYMD,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,9.76,12.1,8.78,12.1,Sonraki haftalık kapanış > 12.10,8.78,8.78 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SODSN,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,5.3,5.69,5.01,5.69,Sonraki haftalık kapanış > 5.69,5.01,5.01 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SUWEN,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,4.29,4.93,3.88,4.93,Sonraki haftalık kapanış > 4.93,3.88,3.88 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TATGD,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,14.0,15.66,13.72,15.66,Sonraki haftalık kapanış > 15.66,13.72,13.72 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TDGYO,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,4.45,5.28,4.45,5.28,Sonraki haftalık kapanış > 5.28,4.45,4.45 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TNZTP,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,21.24,23.6,20.66,23.6,Sonraki haftalık kapanış > 23.60,20.66,20.66 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TNZTP,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,21.24,23.5,20.82,23.5,Sonraki haftalık kapanış > 23.50,20.82,20.82 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,USAK,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,0.36,0.4,0.36,0.4,Sonraki haftalık kapanış > 0.40,0.36,0.36 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,VAKFA,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,8.3,9.05,7.83,9.05,Sonraki haftalık kapanış > 9.05,7.83,7.83 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,VKFYO,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,16.35,17.12,15.96,17.12,Sonraki haftalık kapanış > 17.12,15.96,15.96 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YBTAS,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,9.58,10.5,9.2,10.5,Sonraki haftalık kapanış > 10.50,9.2,9.20 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YGGYO,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,187.0,210.2,173.1,210.2,Sonraki haftalık kapanış > 210.20,173.1,173.10 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YUNSA,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,5.23,5.69,4.92,5.69,Sonraki haftalık kapanış > 5.69,4.92,4.92 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YUNSA,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-10-30,,5.23,5.65,5.13,5.65,Sonraki haftalık kapanış > 5.65,5.13,5.13 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SAFKR,HAFTALIK,Gravestone Doji,C,AYI,İZLE,2026-10-30,,12.5,13.6,12.14,12.14,Tek başına sinyal değil; izleme,13.6,13.60 üstü formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ORGE,HAFTALIK,Dragonfly Doji,C,BOĞA,İZLE,2026-10-30,,18.6,18.9,17.23,18.9,Tek başına sinyal değil; izleme,17.23,17.23 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,QNBFK,HAFTALIK,Dragonfly Doji,C,BOĞA,İZLE,2026-10-30,,33.6,33.66,32.72,33.66,Tek başına sinyal değil; izleme,32.72,32.72 altı formasyonu bozar
-MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TABGD,HAFTALIK,Dragonfly Doji,C,BOĞA,İZLE,2026-10-30,,191.0,195.0,176.1,195.0,Tek başına sinyal değil; izleme,176.1,176.10 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,A1CAP,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.03,3.35,2.28,3.35,Formasyon kendi içinde teyitli,2.28,2.28 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,A1YEN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.46,1.49,1.16,1.49,Formasyon kendi içinde teyitli,1.16,1.16 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AAGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,7.63,7.69,6.75,7.69,Formasyon kendi içinde teyitli,6.75,6.75 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ACSEL,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,91.0,95.05,67.5,95.05,Formasyon kendi içinde teyitli,67.5,67.50 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ADESE,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,0.52,0.53,0.42,0.53,Formasyon kendi içinde teyitli,0.42,0.42 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ADGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,48.8,49.26,35.12,49.26,Formasyon kendi içinde teyitli,35.12,35.12 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AGESA,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,211.0,224.5,189.3,224.5,Formasyon kendi içinde teyitli,189.3,189.30 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AGROT,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.21,1.24,1.02,1.24,Formasyon kendi içinde teyitli,1.02,1.02 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.23,6.33,5.5,6.33,Formasyon kendi içinde teyitli,5.5,5.50 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AHSGY,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.32,6.6,4.67,6.6,Formasyon kendi içinde teyitli,4.67,4.67 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AKENR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,7.3,7.38,5.76,7.38,Formasyon kendi içinde teyitli,5.76,5.76 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AKFGY,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,2.39,2.42,2.08,2.42,Formasyon kendi içinde teyitli,2.08,2.08 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AKMGY,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,194.5,200.2,170.0,200.2,Formasyon kendi içinde teyitli,170.0,170.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AKSEN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,68.55,69.5,57.65,69.5,Formasyon kendi içinde teyitli,57.65,57.65 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AKSUE,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,13.55,15.3,9.28,15.3,Formasyon kendi içinde teyitli,9.28,9.28 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AKSUE,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,13.55,14.46,9.28,14.46,Formasyon kendi içinde teyitli,9.28,9.28 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AKYHO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.57,1.6,1.22,1.6,Formasyon kendi içinde teyitli,1.22,1.22 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ALBRK,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,8.42,8.61,7.68,8.61,Formasyon kendi içinde teyitli,7.68,7.68 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ALKIM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,10.16,10.5,8.61,10.5,Formasyon kendi içinde teyitli,8.61,8.61 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ALTNY,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,10.97,11.35,9.57,11.35,Formasyon kendi içinde teyitli,9.57,9.57 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ANHYT,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,94.35,95.55,86.75,95.55,Formasyon kendi içinde teyitli,86.75,86.75 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ARASE,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,80.9,91.2,67.2,91.2,Formasyon kendi içinde teyitli,67.2,67.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ARDYZ,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,58.4,58.4,46.4,58.4,Formasyon kendi içinde teyitli,46.4,46.40 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ARENA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,12.28,12.35,9.67,12.35,Formasyon kendi içinde teyitli,9.67,9.67 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ARZUM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.02,1.05,0.84,1.05,Formasyon kendi içinde teyitli,0.84,0.84 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ASUZU,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,39.0,40.16,34.5,40.16,Formasyon kendi içinde teyitli,34.5,34.50 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ATAGY,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,7.3,7.46,6.3,7.46,Formasyon kendi içinde teyitli,6.3,6.30 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ATATR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.52,4.6,3.47,4.6,Formasyon kendi içinde teyitli,3.47,3.47 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ATSYH,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,80.0,80.0,57.6,80.0,Formasyon kendi içinde teyitli,57.6,57.60 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AVGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,14.26,15.28,11.67,15.28,Formasyon kendi içinde teyitli,11.67,11.67 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AVOD,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,2.19,2.27,1.87,2.27,Formasyon kendi içinde teyitli,1.87,1.87 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AVPGY,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,50.0,50.25,44.02,50.25,Formasyon kendi içinde teyitli,44.02,44.02 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AVTUR,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,7.85,8.49,6.29,8.49,Formasyon kendi içinde teyitli,6.29,6.29 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AYCES,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,328.0,339.5,260.5,339.5,Formasyon kendi içinde teyitli,260.5,260.50 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AYEN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,25.06,25.36,22.04,25.36,Formasyon kendi içinde teyitli,22.04,22.04 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BAGFS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,18.05,18.55,15.37,18.55,Formasyon kendi içinde teyitli,15.37,15.37 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BANVT,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,115.9,118.2,102.8,118.2,Formasyon kendi içinde teyitli,102.8,102.80 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BASCM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,9.26,9.26,8.29,9.26,Formasyon kendi içinde teyitli,8.29,8.29 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BASGZ,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,34.48,38.88,30.36,38.88,Formasyon kendi içinde teyitli,30.36,30.36 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BERA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,9.93,10.12,8.75,10.12,Formasyon kendi içinde teyitli,8.75,8.75 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BEYAZ,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,14.1,14.38,11.34,14.38,Formasyon kendi içinde teyitli,11.34,11.34 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BFREN,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,101.0,103.3,83.65,103.3,Formasyon kendi içinde teyitli,83.65,83.65 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BIENY,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,13.31,13.35,9.71,13.35,Formasyon kendi içinde teyitli,9.71,9.71 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BINHO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.87,3.96,3.01,3.96,Formasyon kendi içinde teyitli,3.01,3.01 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BLCYT,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.53,1.57,1.27,1.57,Formasyon kendi içinde teyitli,1.27,1.27 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BMSCH,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,9.21,9.24,7.39,9.24,Formasyon kendi içinde teyitli,7.39,7.39 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BMSCH,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,9.21,9.24,7.39,9.24,Formasyon kendi içinde teyitli,7.39,7.39 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BNTAS,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,5.15,5.3,4.35,5.3,Formasyon kendi içinde teyitli,4.35,4.35 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BOBET,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,14.75,15.63,12.9,15.63,Formasyon kendi içinde teyitli,12.9,12.90 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BRISA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,71.4,73.0,63.1,73.0,Formasyon kendi içinde teyitli,63.1,63.10 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BRKO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,5.84,6.38,4.45,6.38,Formasyon kendi içinde teyitli,4.45,4.45 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BRKSN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,5.29,5.35,4.6,5.35,Formasyon kendi içinde teyitli,4.6,4.60 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BRKVY,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,34.22,34.22,19.16,34.22,Formasyon kendi içinde teyitli,19.16,19.16 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BRLSM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,8.85,8.98,6.49,8.98,Formasyon kendi içinde teyitli,6.49,6.49 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BRMEN,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.0,6.84,3.4,6.84,Formasyon kendi içinde teyitli,3.4,3.40 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BRYAT,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1311.0,1394.0,1159.0,1394.0,Formasyon kendi içinde teyitli,1159.0,1159.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BSOKE,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,5.34,5.34,3.53,5.34,Formasyon kendi içinde teyitli,3.53,3.53 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BTCIM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.88,1.95,1.36,1.95,Formasyon kendi içinde teyitli,1.36,1.36 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BURCE,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,20.2,22.0,14.72,22.0,Formasyon kendi içinde teyitli,14.72,14.72 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BVSAN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,58.8,59.6,44.12,59.6,Formasyon kendi içinde teyitli,44.12,44.12 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CANTE,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,0.99,1.0,0.87,1.0,Formasyon kendi içinde teyitli,0.87,0.87 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CASA,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,43.04,43.04,30.9,43.04,Formasyon kendi içinde teyitli,30.9,30.90 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CASA,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,43.04,43.04,30.9,43.04,Formasyon kendi içinde teyitli,30.9,30.90 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CATES,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,27.52,29.8,19.19,29.8,Formasyon kendi içinde teyitli,19.19,19.19 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CEMTS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.67,6.67,5.81,6.67,Formasyon kendi içinde teyitli,5.81,5.81 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CEMZY,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.6,6.69,4.29,6.69,Formasyon kendi içinde teyitli,4.29,4.29 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CGCAM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,17.48,17.71,13.9,17.71,Formasyon kendi içinde teyitli,13.9,13.90 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CLEBI,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1261.0,1291.0,1126.0,1291.0,Formasyon kendi içinde teyitli,1126.0,1126.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CMBTN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1064.0,1080.0,920.0,1080.0,Formasyon kendi içinde teyitli,920.0,920.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CONSE,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.38,1.4,1.15,1.4,Formasyon kendi içinde teyitli,1.15,1.15 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DAGI,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.59,6.69,5.08,6.69,Formasyon kendi içinde teyitli,5.08,5.08 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DAPGM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,2.44,2.45,1.9,2.45,Formasyon kendi içinde teyitli,1.9,1.90 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DERHL,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.29,1.33,1.05,1.33,Formasyon kendi içinde teyitli,1.05,1.05 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DESA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,8.16,8.33,7.49,8.33,Formasyon kendi içinde teyitli,7.49,7.49 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DESPC,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,22.64,23.0,19.22,23.0,Formasyon kendi içinde teyitli,19.22,19.22 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DEVA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,80.5,81.15,66.65,81.15,Formasyon kendi içinde teyitli,66.65,66.65 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DMSAS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.2,6.21,5.12,6.21,Formasyon kendi içinde teyitli,5.12,5.12 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DOHOL,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,18.02,18.3,15.64,18.3,Formasyon kendi içinde teyitli,15.64,15.64 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DYOBY,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,8.94,9.33,7.19,9.33,Formasyon kendi içinde teyitli,7.19,7.19 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,EDATA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.24,3.27,2.39,3.27,Formasyon kendi içinde teyitli,2.39,2.39 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,EGEEN,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4480.0,4667.5,3512.5,4667.5,Formasyon kendi içinde teyitli,3512.5,3512.50 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,EKDMR,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,23.8,26.2,18.51,26.2,Formasyon kendi içinde teyitli,18.51,18.51 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,EKSUN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.7,3.85,3.2,3.85,Formasyon kendi içinde teyitli,3.2,3.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ENDAE,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,10.7,11.33,8.41,11.33,Formasyon kendi içinde teyitli,8.41,8.41 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,EPLAS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.95,5.23,4.25,5.23,Formasyon kendi içinde teyitli,4.25,4.25 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ERBOS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,97.95,101.2,87.25,101.2,Formasyon kendi içinde teyitli,87.25,87.25 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ESEN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,2.1,2.1,1.68,2.1,Formasyon kendi içinde teyitli,1.68,1.68 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,EUREN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,2.43,2.45,2.08,2.45,Formasyon kendi içinde teyitli,2.08,2.08 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,EYGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.82,1.87,1.65,1.87,Formasyon kendi içinde teyitli,1.65,1.65 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,FENER,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,2.15,2.19,1.88,2.19,Formasyon kendi içinde teyitli,1.88,1.88 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,FLAP,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,10.01,10.6,8.15,10.6,Formasyon kendi içinde teyitli,8.15,8.15 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,FMIZP,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,215.9,229.0,181.5,229.0,Formasyon kendi içinde teyitli,181.5,181.50 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,FMIZP,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,215.9,220.0,181.5,220.0,Formasyon kendi içinde teyitli,181.5,181.50 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,FONET,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.95,4.07,3.19,4.07,Formasyon kendi içinde teyitli,3.19,3.19 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,FONET,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.95,4.07,3.19,4.07,Formasyon kendi içinde teyitli,3.19,3.19 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,FORTE,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,80.05,81.65,69.1,81.65,Formasyon kendi içinde teyitli,69.1,69.10 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,FRMPL,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,19.05,19.94,15.71,19.94,Formasyon kendi içinde teyitli,15.71,15.71 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,FROTO,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,73.15,74.2,62.3,74.2,Formasyon kendi içinde teyitli,62.3,62.30 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GEDZA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,19.06,19.89,16.03,19.89,Formasyon kendi içinde teyitli,16.03,16.03 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GENKM,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.63,6.9,5.3,6.9,Formasyon kendi içinde teyitli,5.3,5.30 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GENKM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.63,6.9,5.3,6.9,Formasyon kendi içinde teyitli,5.3,5.30 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GENTS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.46,3.55,3.0,3.55,Formasyon kendi içinde teyitli,3.0,3.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GESAN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,36.1,36.6,28.5,36.6,Formasyon kendi içinde teyitli,28.5,28.50 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GIPTA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,26.2,26.38,17.1,26.38,Formasyon kendi içinde teyitli,17.1,17.10 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GLBMD,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,7.39,7.73,5.8,7.73,Formasyon kendi içinde teyitli,5.8,5.80 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GLRMK,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,120.2,128.0,97.45,128.0,Formasyon kendi içinde teyitli,97.45,97.45 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GOKNR,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,13.85,13.85,11.38,13.85,Formasyon kendi içinde teyitli,11.38,11.38 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GOKNR,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,13.85,13.85,11.38,13.85,Formasyon kendi içinde teyitli,11.38,11.38 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GOLDA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.25,6.35,4.88,6.35,Formasyon kendi içinde teyitli,4.88,4.88 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GOLTS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,226.5,229.4,197.7,229.4,Formasyon kendi içinde teyitli,197.7,197.70 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GRNYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,7.55,7.9,6.09,7.9,Formasyon kendi içinde teyitli,6.09,6.09 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GRSEL,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,278.75,292.75,232.2,292.75,Formasyon kendi içinde teyitli,232.2,232.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GSDHO,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.07,4.14,3.46,4.14,Formasyon kendi içinde teyitli,3.46,3.46 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GSDHO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.07,4.11,3.54,4.11,Formasyon kendi içinde teyitli,3.54,3.54 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GSRAY,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,0.75,0.78,0.64,0.78,Formasyon kendi içinde teyitli,0.64,0.64 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GUBRF,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,289.25,297.5,244.3,297.5,Formasyon kendi içinde teyitli,244.3,244.30 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GWIND,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,18.03,18.8,15.8,18.8,Formasyon kendi içinde teyitli,15.8,15.80 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GWIND,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,18.03,18.4,15.8,18.4,Formasyon kendi içinde teyitli,15.8,15.80 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GZNMI,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,19.0,20.42,13.26,20.42,Formasyon kendi içinde teyitli,13.26,13.26 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,HATSN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,25.76,26.14,17.01,26.14,Formasyon kendi içinde teyitli,17.01,17.01 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,HLGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.76,3.76,3.32,3.76,Formasyon kendi içinde teyitli,3.32,3.32 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,HURGZ,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.0,4.14,3.2,4.14,Formasyon kendi içinde teyitli,3.2,3.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ICBCT,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,13.36,14.17,11.68,14.17,Formasyon kendi içinde teyitli,11.68,11.68 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ICUGS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.17,1.26,0.95,1.26,Formasyon kendi içinde teyitli,0.95,0.95 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,IDGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.71,1.74,1.31,1.74,Formasyon kendi içinde teyitli,1.31,1.31 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,IHAAS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,13.7,13.7,9.21,13.7,Formasyon kendi içinde teyitli,9.21,9.21 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,IHEVA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.43,1.49,1.3,1.49,Formasyon kendi içinde teyitli,1.3,1.30 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,IMASM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.39,1.4,1.16,1.4,Formasyon kendi içinde teyitli,1.16,1.16 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,INGRM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,216.8,220.9,175.2,220.9,Formasyon kendi içinde teyitli,175.2,175.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,INTEK,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,173.3,181.1,139.5,181.1,Formasyon kendi içinde teyitli,139.5,139.50 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,INTEM,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,165.8,175.5,136.8,175.5,Formasyon kendi içinde teyitli,136.8,136.80 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,INVEO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.24,4.26,3.32,4.26,Formasyon kendi içinde teyitli,3.32,3.32 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,INVES,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,675.0,695.0,612.5,695.0,Formasyon kendi içinde teyitli,612.5,612.50 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ISBIR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,64.0,64.0,47.9,64.0,Formasyon kendi içinde teyitli,47.9,47.90 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ISGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,19.29,19.29,17.22,19.29,Formasyon kendi içinde teyitli,17.22,17.22 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ISMEN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,27.36,27.98,24.6,27.98,Formasyon kendi içinde teyitli,24.6,24.60 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ISSEN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.91,4.96,4.14,4.96,Formasyon kendi içinde teyitli,4.14,4.14 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ISYAT,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,5.86,6.23,5.11,6.23,Formasyon kendi içinde teyitli,5.11,5.11 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,IZENR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.01,4.08,2.78,4.08,Formasyon kendi içinde teyitli,2.78,2.78 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,IZINV,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,23.78,24.4,19.95,24.4,Formasyon kendi içinde teyitli,19.95,19.95 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KARCL,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,34.6,34.6,22.06,34.6,Formasyon kendi içinde teyitli,22.06,22.06 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KARSN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,7.9,8.08,6.13,8.08,Formasyon kendi içinde teyitli,6.13,6.13 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KATMR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.18,1.24,0.97,1.24,Formasyon kendi içinde teyitli,0.97,0.97 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KCAER,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,10.14,10.71,8.04,10.71,Formasyon kendi içinde teyitli,8.04,8.04 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KCAER,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,10.14,10.71,8.04,10.71,Formasyon kendi içinde teyitli,8.04,8.04 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KCHOL,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,206.1,206.6,189.6,206.6,Formasyon kendi içinde teyitli,189.6,189.60 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KENT,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,269.0,277.25,231.0,277.25,Formasyon kendi içinde teyitli,231.0,231.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KERVN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.37,6.66,5.15,6.66,Formasyon kendi içinde teyitli,5.15,5.15 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KFEIN,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,5.3,5.65,4.51,5.65,Formasyon kendi içinde teyitli,4.51,4.51 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KLRHO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,10.42,10.53,8.13,10.53,Formasyon kendi içinde teyitli,8.13,8.13 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KLYPV,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,50.1,50.7,45.08,50.7,Formasyon kendi içinde teyitli,45.08,45.08 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KMPUR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,12.5,12.9,10.31,12.9,Formasyon kendi içinde teyitli,10.31,10.31 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KNFRT,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,7.11,7.18,5.62,7.18,Formasyon kendi içinde teyitli,5.62,5.62 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KOCMT,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,2.6,2.68,2.0,2.68,Formasyon kendi içinde teyitli,2.0,2.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KOCMT,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,2.6,2.68,2.0,2.68,Formasyon kendi içinde teyitli,2.0,2.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KONKA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.82,7.0,6.0,7.0,Formasyon kendi içinde teyitli,6.0,6.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KONYA,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3157.5,3330.0,2590.0,3330.0,Formasyon kendi içinde teyitli,2590.0,2590.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KONYA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3157.5,3247.5,2590.0,3247.5,Formasyon kendi içinde teyitli,2590.0,2590.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KRONT,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,17.02,17.64,14.91,17.64,Formasyon kendi içinde teyitli,14.91,14.91 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KTLEV,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.86,4.86,3.25,4.86,Formasyon kendi içinde teyitli,3.25,3.25 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KTSKR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,51.5,52.7,42.52,52.7,Formasyon kendi içinde teyitli,42.52,42.52 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KZBGY,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.16,1.28,0.98,1.28,Formasyon kendi içinde teyitli,0.98,0.98 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KZBGY,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.16,1.19,0.98,1.19,Formasyon kendi içinde teyitli,0.98,0.98 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,LINK,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,2.84,2.92,2.41,2.92,Formasyon kendi içinde teyitli,2.41,2.41 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,LMKDC,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,22.04,22.3,17.94,22.3,Formasyon kendi içinde teyitli,17.94,17.94 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,LUKSK,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,49.28,51.6,41.08,51.6,Formasyon kendi içinde teyitli,41.08,41.08 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,LXGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,5.68,5.94,4.74,5.94,Formasyon kendi içinde teyitli,4.74,4.74 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MAALT,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,765.0,789.0,599.0,789.0,Formasyon kendi içinde teyitli,599.0,599.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MAGEN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,5.36,5.59,3.91,5.59,Formasyon kendi içinde teyitli,3.91,3.91 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MAKTK,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,5.56,5.7,4.54,5.7,Formasyon kendi içinde teyitli,4.54,4.54 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MARBL,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,7.69,8.28,6.43,8.28,Formasyon kendi içinde teyitli,6.43,6.43 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MARMR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.14,1.24,1.0,1.24,Formasyon kendi içinde teyitli,1.0,1.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MAVI,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,36.18,36.5,32.2,36.5,Formasyon kendi içinde teyitli,32.2,32.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MEKAG,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.71,1.77,1.32,1.77,Formasyon kendi içinde teyitli,1.32,1.32 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MEPET,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,15.15,16.0,13.11,16.0,Formasyon kendi içinde teyitli,13.11,13.11 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MERCN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.22,3.32,2.56,3.32,Formasyon kendi içinde teyitli,2.56,2.56 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MERKO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,0.92,0.94,0.8,0.94,Formasyon kendi içinde teyitli,0.8,0.80 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MNDTR,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.64,3.81,3.16,3.81,Formasyon kendi içinde teyitli,3.16,3.16 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MOBTL,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,8.89,10.1,7.25,10.1,Formasyon kendi içinde teyitli,7.25,7.25 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MOGAN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,8.65,8.83,6.96,8.83,Formasyon kendi içinde teyitli,6.96,6.96 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MOPAS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,15.68,15.74,12.85,15.74,Formasyon kendi içinde teyitli,12.85,12.85 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MPARK,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,427.0,436.0,360.75,436.0,Formasyon kendi içinde teyitli,360.75,360.75 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MPARK,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,427.0,436.0,360.75,436.0,Formasyon kendi içinde teyitli,360.75,360.75 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MRSHL,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1183.0,1224.0,996.0,1224.0,Formasyon kendi içinde teyitli,996.0,996.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MSGYO,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.57,4.6,3.71,4.6,Formasyon kendi içinde teyitli,3.71,3.71 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MSGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.57,4.6,3.76,4.6,Formasyon kendi içinde teyitli,3.76,3.76 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MTRKS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,15.11,15.92,12.83,15.92,Formasyon kendi içinde teyitli,12.83,12.83 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MZHLD,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.84,3.89,3.3,3.89,Formasyon kendi içinde teyitli,3.3,3.30 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,NETAS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,71.2,73.45,56.0,73.45,Formasyon kendi içinde teyitli,56.0,56.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,NTHOL,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,36.18,37.34,32.8,37.34,Formasyon kendi içinde teyitli,32.8,32.80 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,NUGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.01,6.17,5.21,6.17,Formasyon kendi içinde teyitli,5.21,5.21 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OBASE,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,19.32,20.08,15.41,20.08,Formasyon kendi içinde teyitli,15.41,15.41 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ODAS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.84,4.84,4.08,4.84,Formasyon kendi içinde teyitli,4.08,4.08 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ONRYT,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,8.05,8.12,6.58,8.12,Formasyon kendi içinde teyitli,6.58,6.58 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ORZAX,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,66.9,66.9,52.65,66.9,Formasyon kendi içinde teyitli,52.65,52.65 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OSTIM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.04,1.06,0.9,1.06,Formasyon kendi içinde teyitli,0.9,0.90 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OYAKC,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,19.49,19.73,17.59,19.73,Formasyon kendi içinde teyitli,17.59,17.59 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OYAKC,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,19.49,19.7,17.59,19.7,Formasyon kendi içinde teyitli,17.59,17.59 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OYAYO,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,30.52,30.66,21.56,30.66,Formasyon kendi içinde teyitli,21.56,21.56 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OYLUM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.05,6.05,4.86,6.05,Formasyon kendi içinde teyitli,4.86,4.86 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OZGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.46,1.48,1.18,1.48,Formasyon kendi içinde teyitli,1.18,1.18 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OZKGY,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,12.04,12.17,10.9,12.17,Formasyon kendi içinde teyitli,10.9,10.90 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OZRDN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,9.13,9.13,7.48,9.13,Formasyon kendi içinde teyitli,7.48,7.48 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OZSUB,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,36.4,36.58,24.76,36.58,Formasyon kendi içinde teyitli,24.76,24.76 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PAMEL,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,39.9,41.52,32.04,41.52,Formasyon kendi içinde teyitli,32.04,32.04 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PAMEL,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,39.9,41.52,32.04,41.52,Formasyon kendi içinde teyitli,32.04,32.04 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PAPIL,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.07,6.07,4.64,6.07,Formasyon kendi içinde teyitli,4.64,4.64 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PARSN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,51.95,52.25,44.82,52.25,Formasyon kendi içinde teyitli,44.82,44.82 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PEKGY,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,0.96,0.96,0.66,0.96,Formasyon kendi içinde teyitli,0.66,0.66 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PENGD,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.82,7.13,6.05,7.13,Formasyon kendi içinde teyitli,6.05,6.05 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PENTA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,8.94,9.78,7.49,9.78,Formasyon kendi içinde teyitli,7.49,7.49 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PETUN,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,9.39,9.7,8.06,9.7,Formasyon kendi içinde teyitli,8.06,8.06 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PINSU,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,7.56,8.42,6.44,8.42,Formasyon kendi içinde teyitli,6.44,6.44 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PKART,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,74.65,76.25,60.25,76.25,Formasyon kendi içinde teyitli,60.25,60.25 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PLTUR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,14.72,15.09,12.25,15.09,Formasyon kendi içinde teyitli,12.25,12.25 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PNLSN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,27.82,28.5,23.74,28.5,Formasyon kendi içinde teyitli,23.74,23.74 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PNSUT,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,9.26,9.68,8.33,9.68,Formasyon kendi içinde teyitli,8.33,8.33 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PNSUT,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,9.26,9.68,8.35,9.68,Formasyon kendi içinde teyitli,8.35,8.35 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,POLHO,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,15.22,16.48,12.47,16.48,Formasyon kendi içinde teyitli,12.47,12.47 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PRKME,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,11.66,12.06,9.85,12.06,Formasyon kendi içinde teyitli,9.85,9.85 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PSDTC,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,64.1,70.95,52.3,70.95,Formasyon kendi içinde teyitli,52.3,52.30 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PSGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.35,1.44,0.98,1.44,Formasyon kendi içinde teyitli,0.98,0.98 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,QNBTR,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,157.8,166.5,112.7,166.5,Formasyon kendi içinde teyitli,112.7,112.70 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,QUAGR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.47,1.55,1.15,1.55,Formasyon kendi içinde teyitli,1.15,1.15 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,RAYSG,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,109.6,118.2,87.8,118.2,Formasyon kendi içinde teyitli,87.8,87.80 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,RAYSG,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,109.6,109.6,87.8,109.6,Formasyon kendi içinde teyitli,87.8,87.80 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,RNPOL,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.9,1.92,1.49,1.92,Formasyon kendi içinde teyitli,1.49,1.49 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,RUZYE,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.7,3.7,2.79,3.7,Formasyon kendi içinde teyitli,2.79,2.79 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SARKY,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,16.38,17.86,14.5,17.86,Formasyon kendi içinde teyitli,14.5,14.50 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SAYAS,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,33.6,36.02,28.2,36.02,Formasyon kendi içinde teyitli,28.2,28.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SAYAS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,33.6,33.98,28.2,33.98,Formasyon kendi içinde teyitli,28.2,28.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SDTTR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,12.74,13.09,10.73,13.09,Formasyon kendi içinde teyitli,10.73,10.73 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SEGMN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,13.83,15.1,10.71,15.1,Formasyon kendi içinde teyitli,10.71,10.71 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SEKFK,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,2.88,2.94,2.26,2.94,Formasyon kendi içinde teyitli,2.26,2.26 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SELVA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,0.99,1.0,0.79,1.0,Formasyon kendi içinde teyitli,0.79,0.79 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SILVR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.41,1.47,1.25,1.47,Formasyon kendi içinde teyitli,1.25,1.25 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SMRTG,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.05,4.08,3.32,4.08,Formasyon kendi içinde teyitli,3.32,3.32 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SNGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,2.49,2.51,2.09,2.51,Formasyon kendi içinde teyitli,2.09,2.09 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SODSN,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.22,6.22,5.01,6.22,Formasyon kendi içinde teyitli,5.01,5.01 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SOHOE,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,7.69,7.8,6.56,7.8,Formasyon kendi içinde teyitli,6.56,6.56 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SONME,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,103.0,113.4,83.0,113.4,Formasyon kendi içinde teyitli,83.0,83.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SONME,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,103.0,104.0,83.0,104.0,Formasyon kendi içinde teyitli,83.0,83.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SSAAT,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,23.62,24.94,21.02,24.94,Formasyon kendi içinde teyitli,21.02,21.02 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SURGY,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,17.02,17.2,13.41,17.2,Formasyon kendi içinde teyitli,13.41,13.41 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SUWEN,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.75,4.94,3.88,4.94,Formasyon kendi içinde teyitli,3.88,3.88 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SVGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,2.06,2.13,1.49,2.13,Formasyon kendi içinde teyitli,1.49,1.49 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TABGD,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,204.1,205.0,176.1,205.0,Formasyon kendi içinde teyitli,176.1,176.10 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TARKM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,328.0,339.0,266.0,339.0,Formasyon kendi içinde teyitli,266.0,266.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TATEN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.88,3.9,3.08,3.9,Formasyon kendi içinde teyitli,3.08,3.08 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TATGD,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,15.45,15.66,13.49,15.66,Formasyon kendi içinde teyitli,13.49,13.49 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TBORG,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,115.4,120.0,104.9,120.0,Formasyon kendi içinde teyitli,104.9,104.90 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TDGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.88,5.28,3.75,5.28,Formasyon kendi içinde teyitli,3.75,3.75 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TEZOL,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.82,6.9,5.92,6.9,Formasyon kendi içinde teyitli,5.92,5.92 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TLMAN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,55.0,57.0,45.54,57.0,Formasyon kendi içinde teyitli,45.54,45.54 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TMSN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,49.38,50.0,41.5,50.0,Formasyon kendi içinde teyitli,41.5,41.50 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TRGYO,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,90.4,90.4,84.4,90.4,Formasyon kendi içinde teyitli,84.4,84.40 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TRILC,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,0.77,0.77,0.68,0.77,Formasyon kendi içinde teyitli,0.68,0.68 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TSKB,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,10.31,10.37,8.16,10.37,Formasyon kendi içinde teyitli,8.16,8.16 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TSPOR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,0.76,0.79,0.69,0.79,Formasyon kendi içinde teyitli,0.69,0.69 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TTRAK,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,371.0,374.5,324.75,374.5,Formasyon kendi içinde teyitli,324.75,324.75 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TUKAS,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,1.87,1.88,1.6,1.88,Formasyon kendi içinde teyitli,1.6,1.60 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,UCAYM,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,11.77,11.81,9.25,11.81,Formasyon kendi içinde teyitli,9.25,9.25 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ULKER,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,82.15,82.4,72.95,82.4,Formasyon kendi içinde teyitli,72.95,72.95 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ULUSE,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,138.8,148.3,122.2,148.3,Formasyon kendi içinde teyitli,122.2,122.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ULUUN,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.33,6.41,5.66,6.41,Formasyon kendi içinde teyitli,5.66,5.66 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,UNLU,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,9.62,9.8,7.58,9.8,Formasyon kendi içinde teyitli,7.58,7.58 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,VAKFA,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,9.7,9.99,7.83,9.99,Formasyon kendi içinde teyitli,7.83,7.83 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,VESBE,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,3.4,3.87,2.76,3.87,Formasyon kendi içinde teyitli,2.76,2.76 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,VKING,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,12.09,12.2,9.55,12.2,Formasyon kendi içinde teyitli,9.55,9.55 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YAPRK,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,7.1,7.54,5.35,7.54,Formasyon kendi içinde teyitli,5.35,5.35 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YATAS,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,25.14,25.96,22.0,25.96,Formasyon kendi içinde teyitli,22.0,22.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YAYLA,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,12.61,13.08,8.49,13.08,Formasyon kendi içinde teyitli,8.49,8.49 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YAYLA,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,12.61,12.61,8.49,12.61,Formasyon kendi içinde teyitli,8.49,8.49 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YBTAS,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,10.9,10.99,9.2,10.99,Formasyon kendi içinde teyitli,9.2,9.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YBTAS,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,10.9,10.99,9.2,10.99,Formasyon kendi içinde teyitli,9.2,9.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YEOTK,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,25.64,25.64,19.67,25.64,Formasyon kendi içinde teyitli,19.67,19.67 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YESIL,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,0.78,0.79,0.64,0.79,Formasyon kendi içinde teyitli,0.64,0.64 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YIGIT,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,13.55,14.09,11.51,14.09,Formasyon kendi içinde teyitli,11.51,11.51 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YUNSA,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.22,6.46,4.92,6.46,Formasyon kendi içinde teyitli,4.92,4.92 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YUNSA,HAFTALIK,Three Inside Up,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,6.22,6.46,4.92,6.46,Formasyon kendi içinde teyitli,4.92,4.92 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YYAPI,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,0.55,0.56,0.49,0.56,Formasyon kendi içinde teyitli,0.49,0.49 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ZEDUR,HAFTALIK,Morning Star,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.67,4.84,3.63,4.84,Formasyon kendi içinde teyitli,3.63,3.63 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ZEDUR,HAFTALIK,Yutan Boğa,A,BOĞA,BOĞA TEYİDİ,2026-11-06,,4.67,4.74,3.63,4.74,Formasyon kendi içinde teyitli,3.63,3.63 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ACSEL,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,91.0,83.7,67.5,83.7,Teyit geldi: haftalık kapanış > 83.70,67.5,67.50 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AKHAN,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,27.0,24.24,21.62,24.24,Teyit geldi: haftalık kapanış > 24.24,21.62,21.62 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ATATR,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,4.52,4.18,3.83,4.18,Teyit geldi: haftalık kapanış > 4.18,3.83,3.83 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ATSYH,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,80.0,74.0,64.0,74.0,Teyit geldi: haftalık kapanış > 74.00,64.0,64.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,AYCES,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,328.0,307.0,282.0,307.0,Teyit geldi: haftalık kapanış > 307.00,282.0,282.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BAGFS,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,18.05,17.49,16.32,17.49,Teyit geldi: haftalık kapanış > 17.49,16.32,16.32 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BMSCH,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,9.21,9.11,7.39,9.11,Teyit geldi: haftalık kapanış > 9.11,7.39,7.39 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BMSCH,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,9.21,8.55,7.82,8.55,Teyit geldi: haftalık kapanış > 8.55,7.82,7.82 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BNTAS,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,5.15,5.1,4.35,5.1,Teyit geldi: haftalık kapanış > 5.10,4.35,4.35 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BURCE,HAFTALIK,Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,20.2,16.99,14.72,16.99,Teyit geldi: haftalık kapanış > 16.99,14.72,14.72 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CASA,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,43.04,41.54,30.9,41.54,Teyit geldi: haftalık kapanış > 41.54,30.9,30.90 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DAGI,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,6.59,6.11,5.08,6.11,Teyit geldi: haftalık kapanış > 6.11,5.08,5.08 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DAGI,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,6.59,6.05,5.27,6.05,Teyit geldi: haftalık kapanış > 6.05,5.27,5.27 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,EUHOL,HAFTALIK,Piercing,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,7.06,6.9,4.16,6.9,Teyit geldi: haftalık kapanış > 6.90,4.16,4.16 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,FROTO,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,73.15,71.0,62.3,71.0,Teyit geldi: haftalık kapanış > 71.00,62.3,62.30 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GESAN,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,36.1,35.3,30.84,35.3,Teyit geldi: haftalık kapanış > 35.30,30.84,30.84 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,GOKNR,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,13.85,13.3,11.38,13.3,Teyit geldi: haftalık kapanış > 13.30,11.38,11.38 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KENT,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,269.0,255.75,231.0,255.75,Teyit geldi: haftalık kapanış > 255.75,231.0,231.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,NTHOL,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,36.18,35.84,32.8,35.84,Teyit geldi: haftalık kapanış > 35.84,32.8,32.80 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ORZAX,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,66.9,61.2,57.0,61.2,Teyit geldi: haftalık kapanış > 61.20,57.0,57.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OYAKC,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,19.49,19.15,17.82,19.15,Teyit geldi: haftalık kapanış > 19.15,17.82,17.82 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OZSUB,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,36.4,33.34,25.46,33.34,Teyit geldi: haftalık kapanış > 33.34,25.46,25.46 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,QNBTR,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,157.8,142.0,112.7,142.0,Teyit geldi: haftalık kapanış > 142.00,112.7,112.70 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,RYSAS,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,27.34,26.38,24.2,26.38,Teyit geldi: haftalık kapanış > 26.38,24.2,24.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SARAE,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,31.92,31.0,27.0,31.0,Teyit geldi: haftalık kapanış > 31.00,27.0,27.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SODSN,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,6.22,5.69,5.01,5.69,Teyit geldi: haftalık kapanış > 5.69,5.01,5.01 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,USAK,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,0.41,0.4,0.36,0.4,Teyit geldi: haftalık kapanış > 0.40,0.36,0.36 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,VAKFA,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,9.7,9.05,7.83,9.05,Teyit geldi: haftalık kapanış > 9.05,7.83,7.83 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,VKFYO,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,17.63,17.12,15.96,17.12,Teyit geldi: haftalık kapanış > 17.12,15.96,15.96 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YBTAS,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,10.9,10.5,9.2,10.5,Teyit geldi: haftalık kapanış > 10.50,9.2,9.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YUNSA,HAFTALIK,Boğa Harami,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,6.22,5.69,4.92,5.69,Teyit geldi: haftalık kapanış > 5.69,4.92,4.92 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,YUNSA,HAFTALIK,Ters Hammer,B,BOĞA,BOĞA TEYİDİ,2026-10-30,2026-11-06,6.22,5.65,5.13,5.65,Teyit geldi: haftalık kapanış > 5.65,5.13,5.13 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ADEL,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,21.16,23.58,17.48,23.58,Sonraki haftalık kapanış > 23.58,17.48,17.48 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ALARK,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,101.8,102.9,89.1,102.9,Sonraki haftalık kapanış > 102.90,89.1,89.10 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ALKA,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,4.96,5.2,4.18,5.2,Sonraki haftalık kapanış > 5.20,4.18,4.18 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ANGEN,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,5.91,6.53,5.14,6.53,Sonraki haftalık kapanış > 6.53,5.14,5.14 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ARCLK,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,70.15,72.0,65.8,72.0,Sonraki haftalık kapanış > 72.00,65.8,65.80 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ATLAS,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,4.37,4.47,3.74,4.47,Sonraki haftalık kapanış > 4.47,3.74,3.74 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BARMA,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,4.65,5.15,4.04,5.15,Sonraki haftalık kapanış > 5.15,4.04,4.04 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,BORSK,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,4.83,4.95,4.15,4.95,Sonraki haftalık kapanış > 4.95,4.15,4.15 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CEMAS,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,2.19,2.46,1.77,2.46,Sonraki haftalık kapanış > 2.46,1.77,1.77 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,CMENT,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,221.5,235.0,215.0,235.0,Sonraki haftalık kapanış > 235.00,215.0,215.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DGGYO,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,24.18,24.94,20.44,24.94,Sonraki haftalık kapanış > 24.94,20.44,20.44 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ECILC,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,49.34,50.4,40.7,50.4,Sonraki haftalık kapanış > 50.40,40.7,40.70 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ECZYT,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,157.6,172.9,132.2,172.9,Sonraki haftalık kapanış > 172.90,132.2,132.20 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,IHLGM,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,0.98,1.04,0.84,1.04,Sonraki haftalık kapanış > 1.04,0.84,0.84 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,IHYAY,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,0.77,0.86,0.68,0.86,Sonraki haftalık kapanış > 0.86,0.68,0.68 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KLMSN,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,17.65,18.56,14.81,18.56,Sonraki haftalık kapanış > 18.56,14.81,14.81 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KLSER,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,14.53,15.72,11.0,15.72,Sonraki haftalık kapanış > 15.72,11.0,11.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KOTON,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,8.41,8.8,7.49,8.8,Sonraki haftalık kapanış > 8.80,7.49,7.49 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,KRSTL,HAFTALIK,Ters Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,5.94,7.14,5.83,7.14,Sonraki haftalık kapanış > 7.14,5.83,5.83 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,LILAK,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,19.05,20.58,16.26,20.58,Sonraki haftalık kapanış > 20.58,16.26,16.26 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MEGAP,HAFTALIK,Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,0.97,0.99,0.86,0.99,Sonraki haftalık kapanış > 0.99,0.86,0.86 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,MHRGY,HAFTALIK,Hammer,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,1.73,1.74,1.51,1.74,Sonraki haftalık kapanış > 1.74,1.51,1.51 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,NIBAS,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,2.45,2.58,2.0,2.58,Sonraki haftalık kapanış > 2.58,2.0,2.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ORCAY,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,1.7,1.98,1.4,1.98,Sonraki haftalık kapanış > 1.98,1.4,1.40 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,OSMEN,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,4.75,4.99,4.03,4.99,Sonraki haftalık kapanış > 4.99,4.03,4.03 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PAHOL,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,0.77,0.91,0.63,0.91,Sonraki haftalık kapanış > 0.91,0.63,0.63 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,PETKM,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,16.33,18.47,15.41,18.47,Sonraki haftalık kapanış > 18.47,15.41,15.41 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,RGYAS,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,170.6,179.0,164.0,179.0,Sonraki haftalık kapanış > 179.00,164.0,164.00 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,SEGYO,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,2.24,2.41,1.84,2.41,Sonraki haftalık kapanış > 2.41,1.84,1.84 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TKNSA,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,11.54,11.99,10.06,11.99,Sonraki haftalık kapanış > 11.99,10.06,10.06 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,VAKFN,HAFTALIK,Boğa Harami,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,0.85,0.94,0.81,0.94,Sonraki haftalık kapanış > 0.94,0.81,0.81 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,VESTL,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,12.8,14.2,10.54,14.2,Sonraki haftalık kapanış > 14.20,10.54,10.54 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,VRGYO,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,0.98,1.03,0.81,1.03,Sonraki haftalık kapanış > 1.03,0.81,0.81 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ZOREN,HAFTALIK,Piercing,B,BOĞA,TEYİT BEKLİYOR,2026-11-06,,1.33,1.46,1.05,1.46,Sonraki haftalık kapanış > 1.46,1.05,1.05 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,DURDO,HAFTALIK,Gravestone Doji,C,AYI,İZLE,2026-11-06,,5.5,6.2,5.39,5.39,Tek başına sinyal değil; izleme,6.2,6.20 üstü formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,ORCAY,HAFTALIK,Dragonfly Doji,C,BOĞA,İZLE,2026-11-06,,1.7,1.75,1.4,1.75,Tek başına sinyal değil; izleme,1.4,1.40 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,TMPOL,HAFTALIK,Dragonfly Doji,C,BOĞA,İZLE,2026-11-06,,57.25,59.85,44.7,59.85,Tek başına sinyal değil; izleme,44.7,44.70 altı formasyonu bozar
+MUM_TARAMA_2026-08-11_v1.7_STRICT_RAW_OHLC,UFUK,HAFTALIK,Dragonfly Doji,C,BOĞA,İZLE,2026-11-06,,99.95,102.0,79.0,102.0,Tek başına sinyal değil; izleme,79.0,79.00 altı formasyonu bozar
