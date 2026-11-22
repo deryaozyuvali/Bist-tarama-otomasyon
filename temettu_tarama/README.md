@@ -8,6 +8,8 @@ Hedef 10 yıl veya altı. 3–5 yıl çok iyi. 15 yıla kadar sadece istisna ola
 ## Çalıştırma
 ```
 python3 fd_temettu_tarama.py evo_ham_<tarih>.csv FCF_MASTER.xlsx FD_Temettu_Tarama_<tarih>.xlsx
+# Yalnız yayıncının kuralları (FCF master kullanılmaz):
+python3 fd_temettu_tarama.py evo_ham_<tarih>.csv - FD_Temettu_Tarama_Yayinci_<tarih>.xlsx
 ```
 `evo_ham_*.csv` dosyası EVO (Fintables) SQL çıktısıdır; sorgu `evo_sorgu.sql` içinde: PD, nakit, finansal borç, kullanım hakkı,
 geri alınmış paylar, ana ortaklık net kârı (TTM ve yıllık) ve temettü geçmişi. Sorgu kodun içinde

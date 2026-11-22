@@ -18,6 +18,9 @@ import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
 
+# YAYINCI modu: FCF master kullanılmaz, sadece yayıncının videolarda söylediği kurallar uygulanır.
+YAYINCI = False
+
 HOLDING_KODLARI = {"KCHOL", "SAHOL", "AGHOL", "ALARK", "DOHOL", "GLYHO", "GOLTS"}
 
 
@@ -127,7 +130,7 @@ def hesapla(r, fcf, geri_alim_adet=None, geri_alim_acik=None):
         bayrak.append(f"FCF statü {f.get('fcf_statu')}")
     if fcf_kapsama is not None and fcf_kapsama < 1:
         bayrak.append("FCF temettüyü karşılamıyor")
-    if not f:
+    if not f and not YAYINCI:
         bayrak.append("FCF master'da yok")
     if r["gap"] and not ga:
         neden = (geri_alim_acik or {}).get(kod)
@@ -173,7 +176,12 @@ def hesapla(r, fcf, geri_alim_adet=None, geri_alim_acik=None):
     if yeni and not fcf_saglam:
         bayrak.append("P dışı: sağlam pozitif FCF yok, tavan yalnız kâra dayanır")
 
-    if yeni:
+    if YAYINCI:
+        sinif = yayinci_sinifi(r, fd, fd_tem_gecmis, fd_tem_tahmin, fd_tem_tavan, yeni)
+        bayrak[:] = [b for b in bayrak if not b.startswith(("HOLDİNG", "FCF", "P dışı"))]
+        if r["d12"] > r["np_ttm"] > 0:
+            bayrak.append(f"Son 12 ay temettüsü TTM kârın {r['d12'] / r['np_ttm']:.1f} katı")
+    elif yeni:
         if (fd > 0 and r["n_kar"] >= 4 and fcf_saglam and not holding
                 and fd_tem_tavan is not None and fd_tem_tavan <= 10):
             sinif = "P · temettü güveni yok: tavanda ≤10 yıl, dağıtım kanıtı şart"
@@ -209,6 +217,32 @@ def hesapla(r, fcf, geri_alim_adet=None, geri_alim_acik=None):
         "Funnel MIN 2026/09": f.get("funnel"), "Funnel kategori": f.get("funnel_kat"),
         "Bayraklar": " | ".join(bayrak),
     }
+
+
+def yayinci_sinifi(r, fd, t12, ttah, tavan, yeni):
+    """Yalnız yayıncının kuralları.
+    * 1. video: 'Bu yıl da geçen yıl kadar dağıtsın' -> ana ölçü FD / son 12 ay temettü.
+      'Önümüzdeki 10 yılda aldığım temettüyle şirketi satın alabilmeliyim; istisnai durumda 15'.
+    * Canlı yayın: 'Son 5 yılın hepsinde kâr etmiş ve temettü dağıtmış şirketler' filtresi.
+    * Hiç dağıtmamışsa yöntem aynı ama güven sorunu; kasadaki nakit iskontolanır (10 milyara 1 milyar);
+      'kâr, kâr, kâr' görmek istiyor -> 5/5 kâr şartı, tavan = net kârın tamamı."""
+    duzenli = r["n_tem"] == 5 and r["n_kar"] == 5 and fd > 0
+    # 'Temettü olması için önce kâr olmalı': geçen yılki temettü bugünkü yıllık kârı aşıyorsa
+    # 'geçen yıl kadar dağıtır' varsayımı tutmaz.
+    kar_yetmez = r["d12"] > r["np_ttm"] > 0
+    if yeni:
+        if fd > 0 and r["n_kar"] == 5 and tavan is not None and tavan <= 10:
+            return "P · hiç/az temettü: kârın tamamı dağıtılsa ≤10 yıl, dağıtacağına güven aranmalı"
+        return "E · >15 yıl ya da hesaplanamaz"
+    if kar_yetmez and t12 is not None and t12 <= 15:
+        return "D · geçen yılki temettü bugünkü kârı aşıyor, tekrarı zor"
+    if duzenli and t12 is not None and t12 <= 10:
+        return "A · 5/5 kâr+temettü, geçen yılki temettüyle ≤10 yıl"
+    if duzenli and t12 is not None and t12 <= 15:
+        return "C · 5/5 kâr+temettü, 10–15 yıl (yayıncının istisna bandı)"
+    if (t12 is not None and t12 <= 10) or (ttah is not None and ttah <= 10):
+        return "D · ≤10 yıl ama 5 yıllık kâr/temettü serisi eksik ya da sadece kâr artışıyla"
+    return "E · >15 yıl ya da hesaplanamaz"
 
 
 YONTEM = [
@@ -263,8 +297,11 @@ def yaz(sonuc, yol):
 
 
 def main():
+    global YAYINCI
     evo, fcf_yol, cikti = sys.argv[1], sys.argv[2], sys.argv[3]
-    fcf = oku_fcf(fcf_yol)
+    # FCF yolu "-" verilirse YAYINCI modu: FCF master hiç okunmaz.
+    YAYINCI = fcf_yol == "-"
+    fcf = {} if YAYINCI else oku_fcf(fcf_yol)
     import os
     ga = oku_geri_alim(os.path.join(os.path.dirname(os.path.abspath(evo)), "geri_alim_adet.csv"))
     acik_yol = os.path.join(os.path.dirname(os.path.abspath(evo)), "geri_alim_acik.csv")
