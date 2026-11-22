@@ -203,7 +203,7 @@ def hesapla(r, fcf, geri_alim_adet=None, geri_alim_acik=None):
         "Sınıf": sinif,
         "FD/Temettü (son 12 ay)": fd_tem_gecmis, "FD/Temettü (tahmin)": fd_tem_tahmin,
         "FD/Net kâr (TTM)": fd_nk, "PD/Temettü": pd_tem,
-        "Temettü durumu": tem_durum, "FD/Temettü tavanı (kâr ve FCF'in küçüğü)": fd_tem_tavan,
+        "Temettü durumu": tem_durum, ("FD/Temettü tavanı (net kârın tamamı)" if YAYINCI else "FD/Temettü tavanı (kâr ve FCF'in küçüğü)"): fd_tem_tavan,
         "Temettü verimi FD'ye (%)": round(100 * r["d12"] / fd, 1) if fd > 0 else None,
         "PD (mn)": r["pd"], "Geri alınan pay (mn)": round(geri_alim), "Bilançodaki geri alım maliyeti (mn)": abs(r["gap"]),
         "Geri alım yöntemi": ga_yontem, "Nakit (mn)": r["nakit"],
