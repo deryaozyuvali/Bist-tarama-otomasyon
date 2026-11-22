@@ -1,5 +1,39 @@
 kod,adet,odenmis_sermaye,tarih,kaynak
-PCILT,5965070,118350000,2026-11-20,"Eski programlar 7.650.028 − 07.05.2026 satış 5.000.000 (KAP 1602888) + 14.09.2026 programı 3.315.042 (KAP 1700892); FR 2026/09: 30.09 itibarıyla 3.437.685 ile tutarlı"
+PCILT,5965070,118350000,2026-11-20,Eski programlar 7.650.028 − 07.05.2026 satış 5.000.000 (KAP 1602888) + 14.09.2026 programı 3.315.042 (KAP 1700892); FR 2026/09: 30.09 itibarıyla 3.437.685 ile tutarlı
 GRSEL,193000,102000000,2026-11-19,"KAP 1700436: şirketin sahip olduğu GRSEL payı 193.000 adet (%0,19). Eski 300.000 adet 07.07.2025'te satıldı (KAP 1458853)"
 LKMNH,13386205,216000000,2026-11-12,"KAP 1697770: 13.366.205 + 20.000 = 13.386.205 adet, sermayenin %6,20'si"
 MACKO,2750000,100000000,2025-06-20,"KAP 1450720: iki programda toplam 2.750.000 adet (%2,75). Haziran 2025 sonrası bildirim kontrol edilmedi"
+MAVI,23693977,794512000,2026-11-20,"KAP 1700865: bugüne kadar geri alınan toplam 23.693.977 adet (%2,98)"
+GLYHO,40474351,1950000000,2026-11-20,"KAP 1700836: sahip olunan 40.474.351 adet (%2,0756)"
+GEDIK,102242635,2000000000,2026-11-20,"KAP 1700810: tüm programlarla toplam 102.242.635 adet (%5,1121)"
+ENERY,430163665,9000000000,2026-11-19,"KAP 1700403: tüm programlarla toplam 430.163.665 adet (%4,7796)"
+ARDYZ,302204,322274085,2026-11-19,"KAP 1700482: geri alınan paylar 302.204 adet (%0,094)"
+TABGD,571000,261292000,2026-11-18,"KAP 1700084: geri alınan payların nominali 571.000 TL (%0,2185)"
+KRVGD,50297385,2160000000,2026-11-20,"KAP 1700862: geçmiş programlarla birlikte 50.297.385 adet (%2,33)"
+ATATP,461558,93750000,2026-11-19,"KAP 1700442: 792.379 alınan − 330.821 satılan = 461.558 adet (%0,4923); 20.11 yeni program, henüz alım yok"
+GWIND,970810,540000000,2026-05-05,"KAP 1601346: toplam 970.810 adet (%0,17978); sonrası bildirim yok"
+AKSGY,21399131,2415000000,2026-10-30,"KAP 1690246: sahip olunan nominal 21.399.131 TL (%0,8861)"
+TRALT,160125000,3202500000,2026-10-22,"KAP 1686001: iki programla toplam %5,00 (75.000.000 + 85.125.000 adet)"
+TGSAS,125139,15000000,2026-10-20,KAP 1684567: toplam 125.139 adet
+ISKPL,5851658,1500000000,2026-10-22,"KAP 1686038: sahip olunan 5.851.657,89 adet (%0,39011)"
+OSMEN,2802825,401411202,2026-11-11,"KAP 1697312: toplam 2.802.825 adet (%0,6982); 30.09 bilançoda 4 mn TL ile tutarlı"
+JANTS,1423969,700000000,2026-10-23,"KAP 1687014: toplam 1.423.969 adet (%0,20342)"
+ALFAS,2075000,368000000,2026-09-30,"KAP 1670419: sahip olunan 2.075.000 adet (%0,5639); sonrası bildirim yok"
+LOGO,2859500,95000000,2026-09-18,"KAP 1665628: sermayedeki paylarımız %3,01"
+BIMAS,16720000,1200000000,2026-07-30,"KAP 1639865: geçmiş programlarla toplam 16.720.000 adet (%1,3933)"
+GOKNR,17500000,350000000,2026-06-16,KAP 1618324: program sonu toplam 17.500.000 adet (%5)
+DOHOL,44324063,2616996091,2026-04-10,"KAP 1590824: önceki dönemlerle toplam 44.322.953 adet (%1,6937)"
+EREGL,62440000,7000000000,2026-03-31,"KAP 1580830: program sonu 31.225.000 adet (%0,892); bilanço maliyeti 1.315 mn ≈ bildirim 1.199 mn"
+SARKY,7160000,1000000000,2025-11-27,"KAP 1521011: toplam nominal 7.166.530 TL (%0,716); sonrası bildirim yok"
+PNLSN,1120876,75000000,2025-12-02,"KAP 1522866: program sonu 1.120.876 adet (%1,4945)"
+INDES,30600000,750000000,2025-02-25,"KAP 1395572: satış sonrası kalan 30.598.627 adet (%4,08)"
+AVPGY,2596000,400000000,2024-12-04,"KAP 1362570: program sonu 2.598.872 adet (%0,649); oran, bedelsizlerden etkilenmesin diye"
+PSGYO,21565148,6900847276,2024-09-11,"KAP 1443245 serisi: toplam nominal 15.000.000 TL (%0,3125); oran kullanıldı"
+AKSEN,1226338,1226338236,2024-04-28,"KAP 1277898: program sonu 1.262.645 adet (%0,1)"
+MTRKS,2799327,100500000,2024-06-24,"KAP 1301341: %2,86 − 24.06.2024 satılan %0,0746 = %2,7854; sonradan bedelsiz yapıldığı için adet değil oran"
+SISE,70760245,3063214056,2026-09-30,"FR 2026/09 Not 23 sermaye tablosu: geri alınmış paylar %2,31"
+HLGYO,87300234,3840000000,2026-09-30,FR 2026/09: 87.300.234 adet geri alınmış pay
+TRCAS,8450916,255600000,2026-09-30,FR 2026/09 sermaye tablosu: geri alınmış paylar 8.450.916
+YGGYO,8337987,241920000,2026-09-30,FR 2026/09: toplam 8.337.987 nominal bedelli geri alınmış pay
+KFEIN,1666000,197500000,2026-09-30,FR 2026/09 HBK notu: geri alınmış paylar 1.666.000
+GRTHO,3512468,125000000,2026-11-19,FR 2026/09: 31.12.2025'te 1.000.000 adet (eski) + KAP 1700402: 24.09.2026 programında 2.512.468 adet

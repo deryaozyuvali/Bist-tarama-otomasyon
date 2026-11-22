@@ -65,7 +65,7 @@ def oku_geri_alim(yol):
         return {}
 
 
-def hesapla(r, fcf, geri_alim_adet=None):
+def hesapla(r, fcf, geri_alim_adet=None, geri_alim_acik=None):
     kod = r["kod"]
     ga = (geri_alim_adet or {}).get(kod)
     f = fcf.get(kod, {})
@@ -130,7 +130,9 @@ def hesapla(r, fcf, geri_alim_adet=None):
     if not f:
         bayrak.append("FCF master'da yok")
     if r["gap"] and not ga:
-        bayrak.append("Geri alınmış pay: adet KAP'tan doğrulanmadı (maliyet bedeli kullanıldı)")
+        neden = (geri_alim_acik or {}).get(kod)
+        bayrak.append("Geri alınmış pay: adet doğrulanamadı, maliyet bedeli kullanıldı"
+                      + (f" — {neden}" if neden else " (KAP'a henüz bakılmadı)"))
 
     # ---- Sınıflama ----
     temiz = (r["n_tem"] == 5 and r["n_kar"] == 5 and kod not in HOLDING_KODLARI and fd > 0)
@@ -163,8 +165,17 @@ def hesapla(r, fcf, geri_alim_adet=None):
         tem_durum = "Düzenli" if r["n_tem"] == 5 else "Kesintili"
     yeni = r["n_tem"] <= 2
 
+    # Temettü geçmişi yoksa NAKİT kanıtı şart: FCF master'da sağlam (KESİN/TÜRETİLMİŞ) ve pozitif FCF
+    # olmadan tavan sadece net kâra dayanır; GYO'larda bu büyük ölçüde değerleme kazancıdır, nakit değil.
+    fcf_saglam = (isinstance(fcf09, (int, float)) and fcf09 > 0
+                  and f.get("fcf_statu") not in ("KOŞULLU", "NULL"))
+    holding = kod in HOLDING_KODLARI or (f.get("tip") or "").lower().startswith("holding")
+    if yeni and not fcf_saglam:
+        bayrak.append("P dışı: sağlam pozitif FCF yok, tavan yalnız kâra dayanır")
+
     if yeni:
-        if fd > 0 and r["n_kar"] >= 4 and fd_tem_tavan is not None and fd_tem_tavan <= 10:
+        if (fd > 0 and r["n_kar"] >= 4 and fcf_saglam and not holding
+                and fd_tem_tavan is not None and fd_tem_tavan <= 10):
             sinif = "P · temettü güveni yok: tavanda ≤10 yıl, dağıtım kanıtı şart"
         else:
             sinif = "E · >15 yıl ya da hesaplanamaz"
@@ -204,7 +215,7 @@ YONTEM = [
     ("Fikir", "Hisseyi kiralık ev gibi düşün: ödediğin gerçek bedel (Firma Değeri) kaç yılda temettüyle geri döner? Hedef ≤10 yıl, 3–5 yıl çok iyi."),
     ("Evren", "EVO standart şablon şirketleri; son 5 takvim yılının (2022–2026) en az 3'ünde nakit temettü + TTM ana ortaklık kârı > 0. Banka/sigorta/leasing hariç (FD kavramı uymaz)."),
     ("PD", "hisse_senetleri.piyasa_degeri − geri alınmış payların PİYASA değeri. Geri alınan pay temettü ve oy hakkı almaz, yok sayılır."),
-    ("Geri alınan pay", "Doğru yöntem ADET × güncel fiyat (yorumda Serhan Ergün, yayıncı onayladı). Bilançodaki 'Geri Alınmış Paylar' tutarı TMS29 ile endekslenmiş MALİYETTİR, adet değil; fiyattan sapar (LKMNH: maliyet 351 mn, piyasa 134 mn). Adetler geri_alim_adet.csv'de, KAP bildirimlerinden: geri alınan paylar SATILABİLİYOR (PCILT 5 mn adedi 05/2026'da sattı, GRSEL 300 bini 07/2025'te sattı), bu yüzden tek bildirime değil son duruma bakılmalı. Adet yoksa maliyet bedeli kullanılır ve bayrak düşülür. Paylar itfa edilip sermayeden düşülmüşse ödenmiş sermaye zaten azalmıştır, düzeltme gerekmez (yorumda ygttylmz, yayıncı onayladı)."),
+    ("Geri alınan pay", "Doğru yöntem ADET × güncel fiyat (yorumda Serhan Ergün, yayıncı onayladı). Bilançodaki 'Geri Alınmış Paylar' tutarı TMS29 ile endekslenmiş MALİYETTİR, adet değil; fiyattan sapar (LKMNH: maliyet 351 mn, piyasa 134 mn). Adetler geri_alim_adet.csv'de, KAP bildirimlerinden: geri alınan paylar SATILABİLİYOR (PCILT 5 mn adedi 05/2026'da sattı, GRSEL 300 bini 07/2025'te sattı), bu yüzden tek bildirime değil son duruma bakılmalı. Adet yoksa maliyet bedeli kullanılır ve bayrak düşülür; KAP'ta arandığı halde çözülemeyenlerin nedeni geri_alim_acik.csv'de. Eski bildirimlerde ADET yerine SERMAYEYE ORAN kullanıldı: bedelsiz sermaye artırımında geri alınmış paylar da çoğalır, oran değişmez (MTRKS örneği). Paylar itfa edilip sermayeden düşülmüşse ödenmiş sermaye zaten azalmıştır, düzeltme gerekmez (yorumda ygttylmz, yayıncı onayladı)."),
     ("HBK notu", "Net kâr = ANA ORTAKLIK payı (TMS 33). Yayıncının GRSEL 06/2025 örneğinde şirket toplam kârı bölmüş ve geri alınan payı düşmemiş: doğrusu 1.111.000.802 / 101.700.000 = 10,92 TL, raporlanan 11,66 TL yanlış. Tarama ana ortaklık kârını ve toplam temettüyü kullandığı için hisse başı hatalardan etkilenmez."),
     ("Finansal borç", "KV+UV 'Finansal Borçlar' − kira yükümlülüğü. Kira yükümlülüğü ≈ 'Kullanım Hakkı Varlıkları' (EVO'da ayrı kira satırı yok; GRSEL'de video 362 mn, bu yaklaşım 373 mn verdi)."),
     ("Nakit iskontosu", "Kasadaki nakde güven: 5/5 yıl kâr+temettü %95, 4 yıl %70, 3 yıl %40, altı %10 (videodaki 'gece kulübü' kuralı)."),
@@ -214,7 +225,7 @@ YONTEM = [
     ("Sınıf A", "5/5 yıl kâr, 5/5 yıl temettü, holding değil; FD/Temettü hem son 12 ay hem tahminde ≤10; FCF TTM (GEM v6.2 master) temettü tahmininin en az 1 katı ve statü KESİN/TÜRETİLMİŞ."),
     ("Sınıf B", "A ile aynı ama FCF teyidi yok/zayıf."),
     ("Sınıf C", "10–15 yıl (yayıncının 'istisna' bandı)."),
-    ("Sınıf P", "Son 5 yılın en fazla 2'sinde temettü (hiç vermemiş ya da yeni başlamış). Yayıncı: yöntem aynı, ama hiç dağıtmamış şirketin temettüye geçme oranı düşük; dağıtmazsa sistem çöker. Bu yüzden nakit %10 sayılır, temettü tahmini yapılmaz, sadece TAVAN hesaplanır (kâr ve FCF'in küçüğü tamamen dağıtılsa FD kaç yılda döner). Tavanda ≤10 yıl + 5 yılın en az 4'ünde kâr → P: alım listesi DEĞİL, dağıtım kanıtı aranacak liste (kâr dağıtım politikası, genel kurul kararı, guidance, başlamış ödeme). Kanıt bulunursa bir sonraki taramada gerçek temettüyle değerlendirilir."),
+    ("Sınıf P", "Son 5 yılın en fazla 2'sinde temettü (hiç vermemiş ya da yeni başlamış). Yayıncı: yöntem aynı, ama hiç dağıtmamış şirketin temettüye geçme oranı düşük; dağıtmazsa sistem çöker. Bu yüzden nakit %10 sayılır, temettü tahmini yapılmaz, sadece TAVAN hesaplanır (kâr ve FCF'in küçüğü tamamen dağıtılsa FD kaç yılda döner). Tavanda ≤10 yıl + 5 yılın en az 4'ünde kâr + FCF master'da sağlam pozitif FCF (GYO kârı çoğunlukla değerleme kazancı, nakit değil) + holding değil → P: alım listesi DEĞİL, dağıtım kanıtı aranacak liste (kâr dağıtım politikası, genel kurul kararı, guidance, başlamış ödeme). Kanıt bulunursa bir sonraki taramada gerçek temettüyle değerlendirilir."),
     ("Sınıf D", "Tahmini FD/Temettü ≤10 ama kâr/temettü geçmişi kesintili, holding ya da FD negatif → elle inceleme."),
     ("Bilinen sınırlar", "Geçmiş temettüler nominal TL (TMS29 sonrası bilanço ise cari alım gücü); yayıncı USD bazında düşünür. Geri alınan paylar maliyet bedeliyle düşüldü (adet yok). İmtiyazlı pay, ilişkili taraf alacakları, stok/alacak düzeltmesi elle bakılacak başlıklar. 10 yıllık temettü projeksiyonu yapılmadı: tek yıl 'bugünkü kira' ölçüsü."),
 ]
@@ -256,7 +267,12 @@ def main():
     fcf = oku_fcf(fcf_yol)
     import os
     ga = oku_geri_alim(os.path.join(os.path.dirname(os.path.abspath(evo)), "geri_alim_adet.csv"))
-    sonuc = [hesapla(r, fcf, ga) for r in oku_evo(evo)]
+    acik_yol = os.path.join(os.path.dirname(os.path.abspath(evo)), "geri_alim_acik.csv")
+    acik = {}
+    if os.path.exists(acik_yol):
+        with open(acik_yol, encoding="utf-8") as f:
+            acik = {r["kod"]: r["neden"] for r in csv.DictReader(f)}
+    sonuc = [hesapla(r, fcf, ga, acik) for r in oku_evo(evo)]
     sira = {"A": 0, "B": 1, "C": 2, "P": 3, "D": 4, "E": 5}
     sonuc.sort(key=lambda s: (sira[s["Sınıf"][0]], s["FD/Temettü (tahmin)"] or 9e9))
     yaz(sonuc, cikti)
