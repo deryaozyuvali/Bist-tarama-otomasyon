@@ -139,7 +139,36 @@ def hesapla(r, fcf, geri_alim_adet=None):
     ana = [x for x in (fd_tem_gecmis, fd_tem_tahmin) if x is not None]
     en_kotu = max(ana) if len(ana) == 2 else None
 
-    if temiz and en_kotu is not None and en_kotu <= 10 and fcf_ok:
+    # ---- Temettü vermeyen / yeni başlayan şirketler (canlı yayın, Zülfikar'ın sorusu) ----
+    # "Yöntem aynı, ama hiç dağıtmamış şirketin temettüye geçme oranı düşük. Dağıtacağına ne kadar
+    #  güvenebiliyoruz? Dağıtmazsa kurduğun bütün sistem gider." + 1. video: temettü vermeyen
+    #  şirkette kasadaki nakit de iskontolanır (10 milyara 1 milyar). Bu yüzden:
+    #   * nakit iskontosu %10 (nakit_iskontosu zaten min(n_tem, n_kar) ≤ 2 için 0,10 veriyor)
+    #   * temettü geçmişi yok -> tahmin yok; yalnızca TAVAN hesaplanır: şirket kârının ve FCF'inin
+    #     küçüğünü tamamen dağıtsa FD kaç yılda döner? Tavanda bile >10 yıl ise elenir.
+    #   * tavanda ≤10 yıl çıksa bile A/B/C olamaz: "P" sınıfı = dağıtım KANITI aranacak liste
+    #     (kâr dağıtım politikası, genel kurul kararı, guidance, son 12 ayda başlamış ödeme).
+    if r["np_ttm"] > 0:
+        tavan = min(r["np_ttm"], fcf09) if isinstance(fcf09, (int, float)) else r["np_ttm"]
+    else:
+        tavan = 0.0
+    fd_tem_tavan = oran(fd, tavan)
+    if r["n_tem"] == 0:
+        tem_durum = "Hiç vermedi (5 yıl)"
+    elif r["n_tem"] <= 2 and r["d12"] > 0:
+        tem_durum = "Yeni başladı / seyrek"
+    elif r["n_tem"] <= 2:
+        tem_durum = "Seyrek, son 12 ayda yok"
+    else:
+        tem_durum = "Düzenli" if r["n_tem"] == 5 else "Kesintili"
+    yeni = r["n_tem"] <= 2
+
+    if yeni:
+        if fd > 0 and r["n_kar"] >= 4 and fd_tem_tavan is not None and fd_tem_tavan <= 10:
+            sinif = "P · temettü güveni yok: tavanda ≤10 yıl, dağıtım kanıtı şart"
+        else:
+            sinif = "E · >15 yıl ya da hesaplanamaz"
+    elif temiz and en_kotu is not None and en_kotu <= 10 and fcf_ok:
         sinif = "A · ≤10 yıl + FCF karşılıyor"
     elif temiz and en_kotu is not None and en_kotu <= 10:
         sinif = "B · ≤10 yıl, FCF teyidi zayıf"
@@ -155,6 +184,7 @@ def hesapla(r, fcf, geri_alim_adet=None):
         "Sınıf": sinif,
         "FD/Temettü (son 12 ay)": fd_tem_gecmis, "FD/Temettü (tahmin)": fd_tem_tahmin,
         "FD/Net kâr (TTM)": fd_nk, "PD/Temettü": pd_tem,
+        "Temettü durumu": tem_durum, "FD/Temettü tavanı (kâr ve FCF'in küçüğü)": fd_tem_tavan,
         "Temettü verimi FD'ye (%)": round(100 * r["d12"] / fd, 1) if fd > 0 else None,
         "PD (mn)": r["pd"], "Geri alınan pay (mn)": round(geri_alim), "Bilançodaki geri alım maliyeti (mn)": abs(r["gap"]),
         "Geri alım yöntemi": ga_yontem, "Nakit (mn)": r["nakit"],
@@ -184,6 +214,7 @@ YONTEM = [
     ("Sınıf A", "5/5 yıl kâr, 5/5 yıl temettü, holding değil; FD/Temettü hem son 12 ay hem tahminde ≤10; FCF TTM (GEM v6.2 master) temettü tahmininin en az 1 katı ve statü KESİN/TÜRETİLMİŞ."),
     ("Sınıf B", "A ile aynı ama FCF teyidi yok/zayıf."),
     ("Sınıf C", "10–15 yıl (yayıncının 'istisna' bandı)."),
+    ("Sınıf P", "Son 5 yılın en fazla 2'sinde temettü (hiç vermemiş ya da yeni başlamış). Yayıncı: yöntem aynı, ama hiç dağıtmamış şirketin temettüye geçme oranı düşük; dağıtmazsa sistem çöker. Bu yüzden nakit %10 sayılır, temettü tahmini yapılmaz, sadece TAVAN hesaplanır (kâr ve FCF'in küçüğü tamamen dağıtılsa FD kaç yılda döner). Tavanda ≤10 yıl + 5 yılın en az 4'ünde kâr → P: alım listesi DEĞİL, dağıtım kanıtı aranacak liste (kâr dağıtım politikası, genel kurul kararı, guidance, başlamış ödeme). Kanıt bulunursa bir sonraki taramada gerçek temettüyle değerlendirilir."),
     ("Sınıf D", "Tahmini FD/Temettü ≤10 ama kâr/temettü geçmişi kesintili, holding ya da FD negatif → elle inceleme."),
     ("Bilinen sınırlar", "Geçmiş temettüler nominal TL (TMS29 sonrası bilanço ise cari alım gücü); yayıncı USD bazında düşünür. Geri alınan paylar maliyet bedeliyle düşüldü (adet yok). İmtiyazlı pay, ilişkili taraf alacakları, stok/alacak düzeltmesi elle bakılacak başlıklar. 10 yıllık temettü projeksiyonu yapılmadı: tek yıl 'bugünkü kira' ölçüsü."),
 ]
@@ -195,7 +226,7 @@ def yaz(sonuc, yol):
     ws.title = "SONUC"
     basl = list(sonuc[0].keys())
     ws.append(basl)
-    renk = {"A": "C6EFCE", "B": "E2EFDA", "C": "FFF2CC", "D": "FCE4D6", "E": "EDEDED"}
+    renk = {"A": "C6EFCE", "B": "E2EFDA", "C": "FFF2CC", "P": "DDEBF7", "D": "FCE4D6", "E": "EDEDED"}
     for s in sonuc:
         ws.append([s[k] for k in basl])
         fill = PatternFill("solid", fgColor=renk[s["Sınıf"][0]])
@@ -226,11 +257,11 @@ def main():
     import os
     ga = oku_geri_alim(os.path.join(os.path.dirname(os.path.abspath(evo)), "geri_alim_adet.csv"))
     sonuc = [hesapla(r, fcf, ga) for r in oku_evo(evo)]
-    sira = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
+    sira = {"A": 0, "B": 1, "C": 2, "P": 3, "D": 4, "E": 5}
     sonuc.sort(key=lambda s: (sira[s["Sınıf"][0]], s["FD/Temettü (tahmin)"] or 9e9))
     yaz(sonuc, cikti)
     for s in sonuc:
-        if s["Sınıf"][0] in "ABCD":
+        if s["Sınıf"][0] in "ABCPD":
             print(f"{s['Sınıf'][:1]} {s['Kod']:6} FD/T12={s['FD/Temettü (son 12 ay)']!s:>6} "
                   f"FD/Ttah={s['FD/Temettü (tahmin)']!s:>6} FD/NK={s['FD/Net kâr (TTM)']!s:>6} "
                   f"FCF/T={s['FCF / Temettü']!s:>6} Fun={s['Funnel MIN 2026/09']!s:>4} | {s['Bayraklar']}")
