@@ -56,12 +56,30 @@ def oku_fcf(yol):
     return out
 
 
-def hesapla(r, fcf):
+def oku_geri_alim(yol):
+    """Geri alınmış pay ADEDİ (KAP bildirimlerinden). Yoksa bilanço maliyet bedeli kullanılır."""
+    try:
+        with open(yol, encoding="utf-8") as f:
+            return {r["kod"]: r for r in csv.DictReader(f)}
+    except FileNotFoundError:
+        return {}
+
+
+def hesapla(r, fcf, geri_alim_adet=None):
     kod = r["kod"]
+    ga = (geri_alim_adet or {}).get(kod)
     f = fcf.get(kod, {})
     kira = min(r["rou"], r["fb"])                   # kira yükümlülüğü ≈ kullanım hakkı varlığı
     fin_borc = r["fb"] - kira                        # banka kredisi + tahvil
-    geri_alim = abs(r["gap"])                        # geri alınmış paylar (maliyet bedeli)
+    # Geri alınmış paylar: doğru yöntem ADET × güncel fiyat (= PD × adet / ödenmiş sermaye).
+    # Bilançodaki tutar TMS29'la endekslenmiş MALİYET bedelidir; fiyat değiştikçe sapar.
+    # Paylar itfa edilip sermayeden düşülmüşse ödenmiş sermaye zaten azalmıştır, düzeltme gerekmez.
+    if ga:
+        geri_alim = r["pd"] * float(ga["adet"]) / float(ga["odenmis_sermaye"])
+        ga_yontem = f"adet×fiyat ({int(float(ga['adet'])):,} adet, {ga['tarih']})".replace(",", ".")
+    else:
+        geri_alim = abs(r["gap"])
+        ga_yontem = "bilanço maliyeti" if r["gap"] else "-"
     h = nakit_iskontosu(r["n_tem"], r["n_kar"])
     pd_duz = r["pd"] - geri_alim
     fd = pd_duz - r["nakit"] * h + fin_borc
@@ -111,6 +129,8 @@ def hesapla(r, fcf):
         bayrak.append("FCF temettüyü karşılamıyor")
     if not f:
         bayrak.append("FCF master'da yok")
+    if r["gap"] and not ga:
+        bayrak.append("Geri alınmış pay: adet KAP'tan doğrulanmadı (maliyet bedeli kullanıldı)")
 
     # ---- Sınıflama ----
     temiz = (r["n_tem"] == 5 and r["n_kar"] == 5 and kod not in HOLDING_KODLARI and fd > 0)
@@ -136,7 +156,8 @@ def hesapla(r, fcf):
         "FD/Temettü (son 12 ay)": fd_tem_gecmis, "FD/Temettü (tahmin)": fd_tem_tahmin,
         "FD/Net kâr (TTM)": fd_nk, "PD/Temettü": pd_tem,
         "Temettü verimi FD'ye (%)": round(100 * r["d12"] / fd, 1) if fd > 0 else None,
-        "PD (mn)": r["pd"], "Geri alınan pay (mn)": geri_alim, "Nakit (mn)": r["nakit"],
+        "PD (mn)": r["pd"], "Geri alınan pay (mn)": round(geri_alim), "Bilançodaki geri alım maliyeti (mn)": abs(r["gap"]),
+        "Geri alım yöntemi": ga_yontem, "Nakit (mn)": r["nakit"],
         "Nakit iskontosu": h, "Finansal borç (kira hariç, mn)": round(fin_borc),
         "Kira yük. tahmini (mn)": round(kira), "FD düzeltilmiş (mn)": round(fd),
         "Net kâr TTM (mn)": r["np_ttm"], "Dağıtım oranı": round(payout, 2),
@@ -152,7 +173,9 @@ def hesapla(r, fcf):
 YONTEM = [
     ("Fikir", "Hisseyi kiralık ev gibi düşün: ödediğin gerçek bedel (Firma Değeri) kaç yılda temettüyle geri döner? Hedef ≤10 yıl, 3–5 yıl çok iyi."),
     ("Evren", "EVO standart şablon şirketleri; son 5 takvim yılının (2022–2026) en az 3'ünde nakit temettü + TTM ana ortaklık kârı > 0. Banka/sigorta/leasing hariç (FD kavramı uymaz)."),
-    ("PD", "hisse_senetleri.piyasa_degeri − geri alınmış paylar (bilanço maliyet bedeli). Yayıncı: geri alınan pay yok sayılır."),
+    ("PD", "hisse_senetleri.piyasa_degeri − geri alınmış payların PİYASA değeri. Geri alınan pay temettü ve oy hakkı almaz, yok sayılır."),
+    ("Geri alınan pay", "Doğru yöntem ADET × güncel fiyat (yorumda Serhan Ergün, yayıncı onayladı). Bilançodaki 'Geri Alınmış Paylar' tutarı TMS29 ile endekslenmiş MALİYETTİR, adet değil; fiyattan sapar (LKMNH: maliyet 351 mn, piyasa 134 mn). Adetler geri_alim_adet.csv'de, KAP bildirimlerinden: geri alınan paylar SATILABİLİYOR (PCILT 5 mn adedi 05/2026'da sattı, GRSEL 300 bini 07/2025'te sattı), bu yüzden tek bildirime değil son duruma bakılmalı. Adet yoksa maliyet bedeli kullanılır ve bayrak düşülür. Paylar itfa edilip sermayeden düşülmüşse ödenmiş sermaye zaten azalmıştır, düzeltme gerekmez (yorumda ygttylmz, yayıncı onayladı)."),
+    ("HBK notu", "Net kâr = ANA ORTAKLIK payı (TMS 33). Yayıncının GRSEL 06/2025 örneğinde şirket toplam kârı bölmüş ve geri alınan payı düşmemiş: doğrusu 1.111.000.802 / 101.700.000 = 10,92 TL, raporlanan 11,66 TL yanlış. Tarama ana ortaklık kârını ve toplam temettüyü kullandığı için hisse başı hatalardan etkilenmez."),
     ("Finansal borç", "KV+UV 'Finansal Borçlar' − kira yükümlülüğü. Kira yükümlülüğü ≈ 'Kullanım Hakkı Varlıkları' (EVO'da ayrı kira satırı yok; GRSEL'de video 362 mn, bu yaklaşım 373 mn verdi)."),
     ("Nakit iskontosu", "Kasadaki nakde güven: 5/5 yıl kâr+temettü %95, 4 yıl %70, 3 yıl %40, altı %10 (videodaki 'gece kulübü' kuralı)."),
     ("FD", "PD_düz − Nakit × iskonto + Finansal borç (kira hariç)."),
@@ -200,7 +223,9 @@ def yaz(sonuc, yol):
 def main():
     evo, fcf_yol, cikti = sys.argv[1], sys.argv[2], sys.argv[3]
     fcf = oku_fcf(fcf_yol)
-    sonuc = [hesapla(r, fcf) for r in oku_evo(evo)]
+    import os
+    ga = oku_geri_alim(os.path.join(os.path.dirname(os.path.abspath(evo)), "geri_alim_adet.csv"))
+    sonuc = [hesapla(r, fcf, ga) for r in oku_evo(evo)]
     sira = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
     sonuc.sort(key=lambda s: (sira[s["Sınıf"][0]], s["FD/Temettü (tahmin)"] or 9e9))
     yaz(sonuc, cikti)

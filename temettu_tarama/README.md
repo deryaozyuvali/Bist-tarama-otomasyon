@@ -19,3 +19,10 @@ değil, EVO tarafında çalıştırılıyor. Yöntem ayrıntıları Excel'in `YO
 - **C**: 10–15 yıl arası, yani istisna bandı.
 - **D**: Tahmine göre ucuz, ama geçmişi kesintili, holding ya da veri sorunu var. Elle incelenmeli.
 - **E**: 15 yıldan fazla.
+
+## Geri alınan paylar (`geri_alim_adet.csv`)
+Bu kural video altındaki yorumlarda netleşti ve yayıncı onayladı:
+- Geri alınan pay temettü ve oy hakkı almaz, bu yüzden yok sayılır. Piyasa değerinden düşülecek tutar **adet × güncel fiyat** olmalı. Bilançodaki "Geri Alınmış Paylar" tutarı TMS29 ile endekslenmiş maliyet bedelidir, pay adedi değildir.
+- Paylar itfa edilip sermayeden düşülmüşse ödenmiş sermaye zaten azalmıştır. Ek düzeltme gerekmez.
+- Geri alınan paylar sonradan satılabilir (PCILT 05/2026, GRSEL 07/2025). Adet son KAP bildirimlerinden toplanmalı.
+- Adeti dosyada olmayan şirketlerde maliyet bedeli kullanılır ve bayrak düşülür. Önce aday listesindekilerin adedini doldur.
