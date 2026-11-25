@@ -107,7 +107,16 @@ def yukle():
     yu = os.path.join(HAM, "azinlik", "yonetici_ucret.csv")
     if os.path.exists(yu):
         d = d.merge(pd.read_csv(yu)[["kod", "yonetici_fayda_tl", "huzur_hakki_tl"]], on="kod", how="left")
+    # İlişkili taraf değerlendirmesi (elle, kaynaklı): temel/iliskili_degerlendirme.csv
+    it = os.path.join(os.path.dirname(__file__), "iliskili_degerlendirme.csv")
+    if os.path.exists(it):
+        e = pd.read_csv(it)
+        e["satir"] = e["kategori"] + "|" + e["siddet"] + "|" + e["aciklama"]
+        d = d.merge(e.groupby("kod")["satir"].apply(lambda x: "\n".join(x)).rename("iliskili_kayit").reset_index(),
+                    on="kod", how="left")
     for c in d.columns:
+        if c in ("iliskili_kayit",):
+            continue
         if c in ("imtiyaz_beyan", "karpayi_tablo_tarihi", "grup_farkli", "tablo_tutarsiz"):
             continue
         if c in ("icerden_kimler", "guidance_var", "guidance_yillari", "guidance_karne", "guidance_son_sonuclar"):
@@ -217,7 +226,7 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
     bugun_ts = pd.Timestamp(bugun, tz="UTC")
     son_bed = pd.to_datetime(d["son_bedelli"], errors="coerce", utc=True)
     son_tem = pd.to_datetime(d["son_temettu"], errors="coerce", utc=True)
-    bayrak, arti, elle = [], [], []
+    bayrak, arti, elle, notlar = [], [], [], []
     for i, r in d.iterrows():
         f, a, m = [], [], []
         if r["ay"] < 6 or r["yil"] < 2026:
@@ -290,6 +299,24 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
                 f.append(f"üst yönetim ücret/huzur hakkı kâra göre yüksek ({yf/1e6:,.0f} mn TL; "
                          f"net kâr oranı {_f(o_net, True) if pd.notna(o_net) else 'net zarar'}, esas faaliyet kârı oranı {_f(o_esas, True)})")
 
+        # İlişkili taraf (videodaki: patronun şirketinden satın alma, ana ortağa borç/teminat, çok fazla grup içi işlem)
+        iliskili_not = []
+        ETIKET = {"ana_ortaga_borc": "ana ortağa/ortaklara borç", "gruba_ticari_olmayan_alacak": "gruba ticari olmayan alacak",
+                  "ana_ortak_lehine_teminat": "ana ortak/grup lehine teminat", "iliskili_taraftan_satin_alma": "ilişkili taraftan satın alma",
+                  "yaygin_surekli_islem": "grup içi işlem ≥%10 (SPK m.10)"}
+        for satir in str(r.get("iliskili_kayit") or "").split("\n"):
+            if not satir or satir == "nan":
+                continue
+            kat, sid, acik = satir.split("|", 2)
+            metin = f"{ETIKET.get(kat, kat)}: {acik}"
+            if sid == "yuksek":
+                f.append("⚠ İLİŞKİLİ TARAF – " + metin)
+            elif sid == "orta" or kat == "iliskili_taraftan_satin_alma":
+                f.append("ilişkili taraf – " + metin)
+            else:
+                iliskili_not.append(metin)
+        notlar.append(" | ".join(iliskili_not))
+
         # artılar
         if r.get("guidance_var") is True or r.get("guidance_var") == "True":
             if len(son2) == 2 and all(x == "TUTTU" for x in son2):
@@ -318,6 +345,7 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
         arti.append(" | ".join(a))
         elle.append(m[0])
     d["yonetici_net_kar"] = oran(d.get("yonetici_fayda_tl"), d["ana_kar"]) if "yonetici_fayda_tl" in d else np.nan
+    d["iliskili_notlar"] = notlar
     d["kirmizi_bayraklar"] = bayrak
     d["patron_satisi"] = ["⛔ PATRON" in x for x in bayrak]
     d["bayrak_sayisi"] = [len(x.split(" | ")) if x else 0 for x in bayrak]
@@ -341,14 +369,14 @@ KOLONLAR = [
     "icerden_net_sermaye_yuzde", "icerden_net_tl_yaklasik", "patron_satisi",
     "guidance_var", "guidance_yillari", "guidance_karne",
     "imtiyaz_beyan", "imtiyazli_kar_payi", "bagis_net_kar_orani", "yk_calisan_kar_payi", "yonetici_fayda_tl", "yonetici_net_kar",
-    "bayrak_sayisi", "kirmizi_bayraklar", "artilar", "sektor_notu", "eleme",
+    "bayrak_sayisi", "kirmizi_bayraklar", "artilar", "iliskili_notlar", "sektor_notu", "eleme",
 ]
 
 ELLE_BAK = (
     "Elle bak (otomatik değil): faaliyet raporu + genel müdür mesajı; patron tipi ve "
     "patron satışının gerekçesi; bağışın alıcısı (vakıf?); "
-    "ilişkili taraf işlemleri ve satın almalar (dipnot); Çin rekabeti; giriş bariyeri/hendek; analist toplantısı; "
-    "'neden ucuz?' sorusu; karar verdikten sonra 1 hafta bekle. (Otomatik eklenenler: KAP patron alım/satımı, guidance karnesi, kâr payı imtiyazı/bağış/YK payı, üst yönetim ücretleri.)"
+    "ilişkili taraf bayrağı olanlarda karşı taraf ve gerekçe; GYO'da ilişkili tarafa verilen kira; Çin rekabeti; giriş bariyeri/hendek; analist toplantısı; "
+    "'neden ucuz?' sorusu; karar verdikten sonra 1 hafta bekle. (Otomatik eklenenler: KAP patron alım/satımı, guidance karnesi, kâr payı imtiyazı/bağış/YK payı, üst yönetim ücretleri, ilişkili taraf işlemleri.)"
 )
 
 
@@ -432,6 +460,15 @@ def ozet_yaz(aday, d, a, yol):
           "elle okundu; 'bin TL' raporlayanlar TL'ye çevrildi). Bayrak: hem son 12 ay net kârın hem esas faaliyet "
           "kârının ≥%10'u (biri zarardaysa diğeri). Holdinglerde esas faaliyet kârı küçük görünür, ölçek için elle bak. "
           "Ham veri: `temel/ham/azinlik/`.", "",
+          "## İlişkili taraflar hakkında", "",
+          "ELEME KRİTERİ DEĞİL, bayrak. Videoda: 'Kendi başka şirketini satın alıyor ... ilişkili taraftan satın alım varsa "
+          "iyi olma ihtimali %5-%10', 'Ana ortağa durduk yere borç veriyorsa, teminat veriyorsa uzak duruyorum', 'Çok fazla "
+          "işlem varsa kaçıyorum' ve değerleme raporunu Big Four dışı biri yazdıysa sorgula. Kaynaklar (son 3 yıl, adaylar): "
+          "KAP 'İlişkili Taraf İşlemleri' (SPK II-17.1 m.9/m.10), KAP 'Finansal/Maddi Duran Varlık Edinimi' (karşı taraf "
+          "ilişkili = Evet), 2025/12 dipnot TRİ tablosu (ana ortak/grup lehine teminat) ve bilançodaki 'ilişkili taraflardan "
+          "diğer alacaklar'. ⚠ = yüksek (ana ortağa borç ≥ özkaynağın %10'u, ana ortak lehine büyük kefalet, özkaynağın "
+          "%10'undan büyük ilişkili taraftan alım). Grup içi ≥%10 işlemler sadece not (iliskili_notlar sütunu). Tamamı elle "
+          "okundu, kaynak bildirim no'ları: `temel/iliskili_degerlendirme.csv`. Yüzde 100 bağlı ortaklıkla işlemler sayılmadı.", "",
           "## Her aday için elle bakılacaklar", "", ELLE_BAK, ""]
     open(yol, "w", encoding="utf-8").write("\n".join(L))
 

@@ -1,0 +1,46 @@
+kod,kategori,siddet,aciklama,kaynak
+MACKO,ana_ortaga_borc,yuksek,"%51 ortak Mediazz'a 2023'te 60 mn, 2024'te 30 mn, 2025'te 50 mn TL borç verildi; 31.12.2025 bakiyesi 88,6 mn TL (özkaynağın ~%13)","KAP İlişkili Taraf İşlemleri 1356056, 1402678, 1416692; 2025/12 dipnot"
+VBTYZ,ana_ortaga_borc,yuksek,"Ortaklardan alacak 151,9 mn TL + ilişkili taraflardan diğer alacak 108,6 mn TL (toplam özkaynağın ~%21; 2024'te 3,2 mn idi)",2025/12 dipnot (diğer alacaklar)
+CLEBI,gruba_ticari_olmayan_alacak,orta,"İlişkili taraflardan diğer (ticari olmayan) alacak 1,43 mlr TL (özkaynağın ~%15); karşı taraf Dipnot 31'de, elle bak",2025/12 dipnot (diğer alacaklar)
+KLMSN,gruba_ticari_olmayan_alacak,orta,"İlişkili taraflardan diğer alacak 501 mn TL (özkaynağın ~%11; 2024: 773 mn); karşı taraf elle bak",2025/12 dipnot (diğer alacaklar)
+TRILC,gruba_ticari_olmayan_alacak,orta,"İlişkili taraflardan diğer alacak 139 mn + ortaklardan 15 mn TL (özkaynağın ~%11); ama ortaklara 265 mn TL borçlu (net borçlu)",2025/12 dipnot (diğer alacaklar)
+AHGAZ,ana_ortak_lehine_teminat,yuksek,"Nihai ortak Ahlatcı Holding ve grup şirketleri adına Ziraat Bankası'na 700 mn USD kefalet; diğer TRİ'lerin özkaynağa oranı %33",2025/12 dipnot (TRİ tablosu)
+KCAER,ana_ortak_lehine_teminat,yuksek,"B-C dışı diğer grup şirketleri lehine verilen TRİ 11,1 mlr TL (özkaynağın ~%72)",2025/12 dipnot (TRİ tablosu; taranmış PDF)
+ARSAN,ana_ortak_lehine_teminat,orta,"B-C dışı grup şirketleri lehine verilen teminat 5,05 mlr TL (özkaynağın ~%34)",2025/12 dipnot (TRİ tablosu)
+TATGD,ana_ortak_lehine_teminat,orta,"Diğer verilen TRİ'lerin özkaynağa oranı %37 (2024: %28); lehine verilen taraf elle bak",2025/12 dipnot (TRİ tablosu)
+PENTA,ana_ortak_lehine_teminat,orta,"Diğer verilen TRİ'lerin özkaynağa oranı %25; banka kredileri 2018'den beri Yıldız Holding seviyesinde (ana ortak kredisi için teminat)",2025/12 dipnot (TRİ tablosu)
+TRGYO,ana_ortak_lehine_teminat,bilgi,"Diğer verilen TRİ'lerin özkaynağa oranı %10 (2024: %11); lehine verilen taraf elle bak",2025/12 dipnot (TRİ tablosu)
+AKFIS,ana_ortak_lehine_teminat,bilgi,"Ana ortak lehine 946 mn TL TRİ (özkaynağın %2,4; diğer TRİ/özkaynak %3,2)",2025/12 dipnot (TRİ tablosu)
+RGYAS,iliskili_taraftan_satin_alma,yuksek,"Eyl 2025: ilişkili taraftan %50 pay alımı, işlem bedeli özkaynağın %37'si (EY değerlemesi 67,2 mn EUR); Ara 2025: ilişkili taraftan %50 pay, özkaynağın %13'ü (EY 23,2 mn EUR)","KAP FDV Edinimi 1494375, 1521483"
+LMKDC,iliskili_taraftan_satin_alma,orta,"Mar 2024: hissedar Limak Çimento'dan entegre çimento fabrikası 2,47 mlr TL'ye alındı (EY değerlemesi 3,07 mlr, iskontolu); ayrıca ana ortaktan tesis alt kiralama",KAP MDV Alımı 1257172; İTİ 1480123
+CCOLA,iliskili_taraftan_satin_alma,bilgi,"Şub 2024: TCCC'den (%20 ortak) Coca-Cola Bangladesh %100, işlem bedeli özkaynağın %4'ü (Deloitte değerlemesi)",KAP FDV Edinimi 1249652
+CEOEM,iliskili_taraftan_satin_alma,bilgi,"May 2026: ilişkili tarafla %50 ortak şirket kuruluşu, özkaynağın %4'ü; değerleme yok (kuruluşla edinim)",KAP FDV Edinimi 1607827
+ALARK,iliskili_taraftan_satin_alma,bilgi,"Mar 2026: bağlı ortaklık Alarko GYO'dan ALGYO payı (%5), özkaynağın %5,9'u; grup içi, değerleme yok",KAP FDV Edinimi 1572163
+GENIL,iliskili_taraftan_satin_alma,bilgi,"2024-2026: iştirak Neo Auvra'ya paya dönüştürülebilir borç (700 bin USD) ve hissedar GEN dahil ilişkili taraflardan tekrarlı pay alımı (%32→%77); tutarlar küçük, değerleme yok","KAP İTİ 1249263; FDV 1246394, 1347794, 1447466, 1659263"
+MAVI,yaygin_surekli_islem,bilgi,"Erak Giyim'den ticari mal alımı satışların maliyetinin %22,1'i (SPK m.10 raporu)",KAP İTİ 1573609
+GUBRF,yaygin_surekli_islem,bilgi,"Hissedar Tarım Kredi Kooperatifleri Merkez Birliği'ne gübre satışı hasılatın %10'unu aşıyor",KAP İTİ 1247355
+AFYON,yaygin_surekli_islem,bilgi,"Ana ortak Çimsa'ya çimento/klinker satışı hasılatın %10'unu aşıyor",KAP İTİ 1548959
+BRISA,yaygin_surekli_islem,bilgi,"Bridgestone Singapore'dan kauçuk alımı SMM'nin %10'unu aşıyor",KAP İTİ 1563118
+AKSA,yaygin_surekli_islem,bilgi,"Grup ihracat şirketi Ak-Pa'ya satış %10 üstü",KAP İTİ 1645496
+DESA,yaygin_surekli_islem,bilgi,"Adesa Mağazacılık'a satış ve Samsonite'ten alım %10 üstü",KAP İTİ 1573211
+GENIL,yaygin_surekli_islem,bilgi,"İlişkili Salutem Ecza Deposu'na ilaç satışı hasılatın %10'unu aşıyor",KAP İTİ 1642687
+HTTBT,yaygin_surekli_islem,bilgi,"Pegasus'a lisans satışı %10 üstü",KAP İTİ 1585106
+JANTS,yaygin_surekli_islem,bilgi,"Jantsan Lastik ve Jant Pazarlama'ya jant satışı hasılatın %10'u ve üstü",KAP İTİ 1522882
+LMKDC,yaygin_surekli_islem,bilgi,"Limak Çimento ve LİMAK-MAPA ile işlemler %10 üstü",KAP İTİ 1523983
+MACKO,yaygin_surekli_islem,bilgi,"Onedio'ya reklam satışı (27,5 mn TL garantili) ve Mediazz ile işlemler %10 üstü",KAP İTİ 1559445
+MEDTR,yaygin_surekli_islem,bilgi,"Meditera Medical'e ihracat satışı hasılatın %10'unu aşıyor",KAP İTİ 1567583
+OYAKC,yaygin_surekli_islem,bilgi,"OYAK Elektrik'ten enerji alımı %10 üstü",KAP İTİ 1254134
+PKART,yaygin_surekli_islem,bilgi,"Thales France'tan alım SMM'nin %10'unu aşıyor",KAP İTİ 1577440
+POLTK,yaygin_surekli_islem,bilgi,"Coventya/MacDermid grup şirketleriyle alım-satım %10 üstü; ayrıca ana ortaktan 5 mn EUR kredi",KAP İTİ 1620281 / 1611311
+RGYAS,yaygin_surekli_islem,bilgi,"Rönesans Elektrik ve Rönesans Merkezi Hizmetler ile işlemler %10 üstü",KAP İTİ 1645599
+SAYAS,yaygin_surekli_islem,bilgi,"Ateş Wind Power'a kule/jeneratör aksamı teslimi %10 üstü",KAP İTİ 1590072
+TUPRS,yaygin_surekli_islem,bilgi,"Koç grubu şirketleriyle (rapor ekte) %10 üstü işlemler",KAP İTİ 1555987
+FROTO,yaygin_surekli_islem,bilgi,"Ford/Koç grubu ile %10 üstü işlemler (rapor ekte)",KAP İTİ 1557063
+CCOLA,yaygin_surekli_islem,bilgi,"TCCC'den hammadde alımı ve Coca-Cola Satış ve Dağıtım'a satış %10 üstü",KAP İTİ 1570797
+DERIM,yaygin_surekli_islem,bilgi,"İlişkili tarafa satışlar %10 üstü (KPMG emsal raporu)",KAP İTİ 1531397
+ATATP,yaygin_surekli_islem,bilgi,"İlişkili taraflara hizmet ve mal satışı hasılatın %10'unu aşıyor",KAP İTİ 1598874
+KLYPV,yaygin_surekli_islem,bilgi,"İlişkili taraflara panel satışı %10 üstü",KAP İTİ 1647063
+AKSGY,yaygin_surekli_islem,bilgi,"Akyaşam (yönetim hizmeti) ve SEPAŞ (elektrik) ile %10 üstü işlemler",KAP İTİ 1582357 / 1582361
+AKFGY,yaygin_surekli_islem,bilgi,"Grup şirketleriyle yaygın işlemler (rapor ekte); Eki 2026 grup şirketi Akfen İnşaat ile depo inşaat sözleşmesi",KAP İTİ 1611641 / 1676405
+AKFIS,yaygin_surekli_islem,bilgi,"Grup şirketleriyle yaygın işlemler (rapor ekte); Akfen GYO'nun deposunu inşa sözleşmesi",KAP İTİ 1617893 / 1676404
+KOTON,yaygin_surekli_islem,bilgi,"Gülyılmaz GYO'dan 2 cadde mağazası kiralama (%5 altı); Canko/Eccomod'dan alım %10 altı",KAP İTİ 1582495

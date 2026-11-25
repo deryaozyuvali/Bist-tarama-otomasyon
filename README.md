@@ -120,3 +120,9 @@ listeye girmek "al" demek değildir, elle inceleme listesini daraltır.
   elle okundu (`temel/ham/azinlik/yonetici_ucret.csv`, kaynak chunk id'li). Eleme değil, bayrak:
   imtiyaz varsa, bağış net kârın ≥%5'i ise (alıcısı elle bakılır), yönetim ücretleri hem net
   kârın hem esas faaliyet kârının ≥%10'u ise.
+- **İlişkili taraflar:** videodaki üç konu (patronun/grubun şirketinden satın alma, ana ortağa borç veya
+  teminat, çok fazla grup içi işlem) için adayların son 3 yıllık KAP "İlişkili Taraf İşlemleri" ve
+  "Finansal/Maddi Duran Varlık Edinimi" bildirimleri ile 2025/12 dipnotlarındaki TRİ tablosu ve
+  "ilişkili taraflardan diğer alacaklar" okundu. Sonuç elle, kaynak bildirim numarasıyla
+  `temel/iliskili_degerlendirme.csv`'de (ham metinler `temel/ham/iliskili/`). Eleme değil, bayrak;
+  grup içi ≥%10 işlemler sadece `iliskili_notlar` sütununda not.
