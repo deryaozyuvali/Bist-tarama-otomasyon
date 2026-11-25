@@ -107,3 +107,7 @@ listeye girmek "al" demek değildir, elle inceleme listesini daraltır.
   `results/temel/latest_on_eleme.csv`.
 - Varsayımlar (WACC, bakım yatırımı = min(capex, amortisman), kira
   düzeltmesi) `temel/temel_tarama.py` başındaki açıklamada.
+- **Patron/yönetici işlemleri (KAP):** `temel/kap_icerden.py`, aday şirketlerin son 12 aylık
+  "Pay Alım Satım Bildirimi"lerini (MKK PDF ekleri dahil) ayrıştırır. Kurumlar/fonlar sayılmaz,
+  aile içi devir/virman satış sayılmaz. Net satış ≥ sermayenin %0,25'i veya ≥25 mn TL ise
+  `⛔ PATRON/YÖNETİCİ NET SATIŞ` bayrağı; net alım artı olarak yazılır. Ham veri `temel/ham/kap/`.

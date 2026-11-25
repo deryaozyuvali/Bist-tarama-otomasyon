@@ -74,7 +74,12 @@ def yukle():
     am = os.path.join(HAM, "amortisman.csv")
     if os.path.exists(am):
         d = d.merge(pd.read_csv(am), on="kod", how="left")
+    ic = os.path.join(HAM, "kap", "icerden_ozet.csv")
+    if os.path.exists(ic):
+        d = d.merge(pd.read_csv(ic), on="kod", how="left")
     for c in d.columns:
+        if c in ("icerden_kimler",):
+            continue
         if c not in ("kod", "sektor", "halka_arz_tarihi", "son_bedelli", "son_temettu"):
             d[c] = n(d[c])
     return d
@@ -222,7 +227,17 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
         elif r["fk"] > 50:
             f.append(f"net kâr çok zayıf (F/K {r['fk']:.0f})")
 
+        # Patron / yönetici / ana ortak işlemleri (KAP pay alım-satım bildirimleri, son 12 ay)
+        icy, ictl = r.get("icerden_net_sermaye_yuzde"), r.get("icerden_net_tl_yaklasik")
+        kim = r.get("icerden_kimler") if isinstance(r.get("icerden_kimler"), str) else ""
+        if pd.notna(icy) and icy < 0 and (icy <= -0.25 or ictl <= -25e6):
+            f.append(f"⛔ PATRON/YÖNETİCİ NET SATIŞ (12 ay): sermayenin %{abs(icy):.2f}'i, ~{abs(ictl)/1e6:,.0f} mn TL ({kim[:80]})")
+        if pd.notna(r.get("devir_bildirim")) and r.get("devir_bildirim") > 0:
+            f.append("içeriden pay devri/virman bildirimi var (elle bak)")
+
         # artılar
+        if pd.notna(icy) and icy > 0 and (icy >= 0.1 or ictl >= 10e6):
+            a.append(f"patron/yönetici net alım (12 ay): %{icy:.2f}, ~{ictl/1e6:,.0f} mn TL")
         if pd.notna(son_tem[i]) and son_tem[i] > bugun_ts - pd.DateOffset(years=1):
             a.append("son 1 yılda nakit temettü")
         if r["temettu_yil_5y"] >= 4:
@@ -242,6 +257,7 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
         arti.append(" | ".join(a))
         elle.append(m[0])
     d["kirmizi_bayraklar"] = bayrak
+    d["patron_satisi"] = ["⛔ PATRON" in x for x in bayrak]
     d["bayrak_sayisi"] = [len(x.split(" | ")) if x else 0 for x in bayrak]
     d["artilar"] = arti
     d["sektor_notu"] = elle
@@ -260,15 +276,16 @@ KOLONLAR = [
     "fd_favok", "fd_favok_kira", "fk", "pd_dd", "net_borc_favok",
     "cari_oran", "asit_test", "nakit_oran", "alacak_borc",
     "piyasa_degeri", "fd", "sna_bakim", "sna_ham", "buyume_capex", "esas_faal_kar", "favok",
+    "icerden_net_sermaye_yuzde", "icerden_net_tl_yaklasik", "patron_satisi",
     "bayrak_sayisi", "kirmizi_bayraklar", "artilar", "sektor_notu", "eleme",
 ]
 
 ELLE_BAK = (
     "Elle bak (otomatik değil): faaliyet raporu + genel müdür mesajı; patron tipi ve "
-    "geçmiş beklentileri tutturma; patron hisse alım/satımı (KAP); huzur hakkı ve "
+    "geçmiş beklentileri tutturma; patron satışının gerekçesi; huzur hakkı ve "
     "vakıf bağışı (genel kurul); ilişkili taraf işlemleri ve satın almalar (dipnot); "
     "kâr payı imtiyazı; Çin rekabeti; giriş bariyeri/hendek; analist toplantısı; "
-    "'neden ucuz?' sorusu; karar verdikten sonra 1 hafta bekle."
+    "'neden ucuz?' sorusu; karar verdikten sonra 1 hafta bekle. (Patron alım/satımı KAP'tan otomatik eklendi.)"
 )
 
 
@@ -278,6 +295,15 @@ def _f(x, yuzde=False, ondalik=1):
     if yuzde:
         return f"-%{abs(x)*100:.0f}" if x < 0 else f"%{x*100:.0f}"
     return f"{x:.{ondalik}f}"
+
+
+def _patron(r):
+    y = r.get("icerden_net_sermaye_yuzde")
+    if pd.isna(y):
+        return "–"
+    if r.get("patron_satisi"):
+        return f"⛔ satış %{abs(y):.2f}"
+    return f"alım %{y:.2f}" if y > 0 else f"satış %{abs(y):.2f}"
 
 
 def ozet_yaz(aday, d, a, yol):
@@ -295,13 +321,13 @@ def ozet_yaz(aday, d, a, yol):
     for puan, baslik in [(4, "Liste A — 4/4 kriter"), (3, "Liste B — 3/4 kriter")]:
         t = aday[aday["cekirdek_puan"] == puan]
         L += [f"## {baslik} ({len(t)})", "",
-              "| Kod | Sektör | Eksik kriter | ROIC | FD/SNA | SNA+ yıl | USD satış büyüme | Brüt marj | FD/FAVÖK | Bayrak |",
-              "|---|---|---|---|---|---|---|---|---|---|"]
+              "| Kod | Sektör | Eksik kriter | ROIC | FD/SNA | SNA+ yıl | USD satış büyüme | Brüt marj | FD/FAVÖK | Patron 12 ay | Bayrak |",
+              "|---|---|---|---|---|---|---|---|---|---|---|"]
         for _, r in t.iterrows():
             eksik = ", ".join(k[:2] for k in ["K1_roic_wacc", "K2_sna_surdurulebilir", "K3_fd_sna", "K4_daralma_yok"] if not r[k]) or "–"
             L.append(f"| {r['kod']} | {r['sektor']} | {eksik} | {_f(r['roic'], True)} | {_f(r['fd_sna'])} | "
                      f"{int(r['sna_pozitif_yil'])}/{int(r['sna_veri_yil'])} | {_f(r['satis_usd_buyume'], True)} | "
-                     f"{_f(r['brut_marj'], True)} | {_f(r['fd_favok'])} | {int(r['bayrak_sayisi'])} |")
+                     f"{_f(r['brut_marj'], True)} | {_f(r['fd_favok'])} | {_patron(r)} | {int(r['bayrak_sayisi'])} |")
         L.append("")
     L += ["## Bayraklar ve artılar (adaylar)", ""]
     for _, r in aday.iterrows():
@@ -313,7 +339,14 @@ def ozet_yaz(aday, d, a, yol):
         if isinstance(r["sektor_notu"], str) and r["sektor_notu"]:
             satir += f" — 🔎 {r['sektor_notu']}"
         L.append(satir)
-    L += ["", "## Her aday için elle bakılacaklar", "", ELLE_BAK, ""]
+    L += ["", "## Patron / yönetici işlemleri hakkında", "",
+          "Kaynak: KAP 'Pay Alım Satım Bildirimi'leri, son 12 ay, sadece aday şirketler. Bank of America, FMR, Goldman, "
+          "yatırım/emeklilik fonları gibi kurumlar SAYILMADI; kişiler, ana ortak/holding ve grup şirketleri sayıldı. "
+          "Aile içi devir, virman ve teminat amaçlı devirler satış sayılmadı (ayrı bayrak). Şirket parasıyla yapılan geri "
+          "alım bu kapsamda değil (videoda da önemsenmiyor). '⛔' eşiği: net satış sermayenin ≥%0,25'i veya ≥25 mn TL. "
+          "Videoda: 'Patron hisse satıyorsa genellikle uzak duruyorum ... çok temel gerekçeleri olması lazım.' "
+          "Satışın gerekçesi (ör. halka açıklık artırma, borç ödeme) bildirim metninden elle okunmalı.", "",
+          "## Her aday için elle bakılacaklar", "", ELLE_BAK, ""]
     open(yol, "w", encoding="utf-8").write("\n".join(L))
 
 
@@ -334,7 +367,7 @@ def main():
     aday = tum[(tum["eleme"] == "") & (tum["cekirdek_puan"] >= 3)].copy()
     aday["liste"] = np.where(aday["cekirdek_puan"] == 4, "A (4/4)", "B (3/4)")
     aday["elle_bak"] = ELLE_BAK
-    aday = aday.sort_values(["cekirdek_puan", "bayrak_sayisi", "fd_sna"], ascending=[False, True, True])
+    aday = aday.sort_values(["cekirdek_puan", "patron_satisi", "bayrak_sayisi", "fd_sna"], ascending=[False, True, True, True])
     aday.to_csv(os.path.join(a.cikti, a.tarih, "on_eleme.csv"), index=False)
     aday.to_csv(os.path.join(a.cikti, "latest_on_eleme.csv"), index=False)
 
