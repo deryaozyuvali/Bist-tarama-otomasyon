@@ -82,3 +82,28 @@ geçmiş tarihli bir taramaya da bakabilirsin.
 - `gate.py` — mum taramanın hafta/ay sonu kontrolü (yeni).
 - `.github/workflows/*.yml` — zamanlama tanımları (yeni).
 - `requirements.txt` — gerekli Python paketleri.
+
+## Temel analiz ön eleme (`temel/`)
+
+Bir yatırımcının "şirket incelerken nelere dikkat ediyorum" videosundaki
+**veriden otomatik hesaplanabilen** kriterlerin taraması. Bu bir **ön eleme**:
+listeye girmek "al" demek değildir, elle inceleme listesini daraltır.
+
+- **Veri:** EVO / Fintables MCP (`temel/sorgular.sql`). Bu veri kaynağı GitHub
+  Actions'tan erişilebilir değil; veri Claude oturumunda çekilip
+  `temel/ham/*.csv` olarak kaydedilir. Bilançolar çeyreklik açıklandığı için
+  çeyrekte bir güncellemek yeterli.
+- **Çalıştırma:** `python temel/temel_tarama.py --tarih 2026-11-25 [--wacc 0.10] [--fd-sna 10]`
+- **Çekirdek 4 kriter** (videoda "bu dördü tutuyorsa yatırım sinyalleri başlıyor"):
+  K1 ROIC > WACC · K2 sürdürülebilir pozitif serbest nakit · K3 FD/SNA < 10 ·
+  K4 işlerde daralma yok (vekil gösterge).
+- **Kesin eleme:** finansal yapılar (aracı kurum, MKYO, GSYO; bankalar zaten
+  kapsam dışı), halka arzı 1 yıldan yeni olanlar.
+- **Kırmızı bayraklar / artılar:** sürekli bedelli, alacak şişmesi, değer
+  tuzağı (PD/DD<1 ama ROIC<WACC), borçluyken temettü, zirve kâr, azınlık payı,
+  aktifleştirme, kira ağırlığı; temettü, brüt marj, borç azaltma hikâyesi vb.
+- **Çıktı:** `results/temel/<TARİH>/ozet.md` (okunabilir rapor),
+  `on_eleme.csv` (A: 4/4, B: 3/4 adaylar), `tum_sirketler.csv`,
+  `results/temel/latest_on_eleme.csv`.
+- Varsayımlar (WACC, bakım yatırımı = min(capex, amortisman), kira
+  düzeltmesi) `temel/temel_tarama.py` başındaki açıklamada.
