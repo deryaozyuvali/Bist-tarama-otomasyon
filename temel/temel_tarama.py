@@ -65,6 +65,26 @@ def n(x):
     return pd.to_numeric(x, errors="coerce")
 
 
+IKON = {"TUTTU": "✓", "KISMEN": "~", "TUTTURAMADI": "✗"}
+
+
+def guidance_ozet():
+    """Şirketlerin açıkladığı beklentiler (EVO guidance) ve gerçekleşenle karşılaştırma.
+    Değerlendirme temel/guidance_degerlendirme.csv'de elle yapıldı (gerekçeli). ELEME KRİTERİ DEĞİL."""
+    ham = os.path.join(HAM, "guidance_ham.csv")
+    deg = os.path.join(os.path.dirname(__file__), "guidance_degerlendirme.csv")
+    if not os.path.exists(ham):
+        return pd.DataFrame(columns=["kod"])
+    g = pd.read_csv(ham).groupby("kod")["yil"].apply(lambda x: ",".join(str(int(v)) for v in sorted(x))).rename("guidance_yillari").reset_index()
+    g["guidance_var"] = True
+    if os.path.exists(deg):
+        e = pd.read_csv(deg).sort_values(["kod", "yil"])
+        kar = e.groupby("kod").apply(lambda t: " · ".join(f"{y} {IKON[r]}" for y, r in zip(t.yil, t.sonuc))).rename("guidance_karne")
+        son = e.groupby("kod")["sonuc"].apply(lambda x: "|".join(x.tail(2))).rename("guidance_son_sonuclar")
+        g = g.merge(kar.reset_index(), on="kod", how="left").merge(son.reset_index(), on="kod", how="left")
+    return g
+
+
 def yukle():
     g = pd.read_csv(os.path.join(HAM, "gelir.csv"))
     na = pd.read_csv(os.path.join(HAM, "nakit.csv"))
@@ -74,11 +94,12 @@ def yukle():
     am = os.path.join(HAM, "amortisman.csv")
     if os.path.exists(am):
         d = d.merge(pd.read_csv(am), on="kod", how="left")
+    d = d.merge(guidance_ozet(), on="kod", how="left")
     ic = os.path.join(HAM, "kap", "icerden_ozet.csv")
     if os.path.exists(ic):
         d = d.merge(pd.read_csv(ic), on="kod", how="left")
     for c in d.columns:
-        if c in ("icerden_kimler",):
+        if c in ("icerden_kimler", "guidance_var", "guidance_yillari", "guidance_karne", "guidance_son_sonuclar"):
             continue
         if c not in ("kod", "sektor", "halka_arz_tarihi", "son_bedelli", "son_temettu"):
             d[c] = n(d[c])
@@ -235,7 +256,18 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
         if pd.notna(r.get("devir_bildirim")) and r.get("devir_bildirim") > 0:
             f.append("içeriden pay devri/virman bildirimi var (elle bak)")
 
+        # Guidance (eleme değil, yorum)
+        son2 = str(r.get("guidance_son_sonuclar") or "").split("|")
+        if len(son2) == 2 and all(x == "TUTTURAMADI" for x in son2):
+            f.append(f"beklentileri üst üste 2 yıl tutturamadı ({r.get('guidance_karne')})")
+
         # artılar
+        if r.get("guidance_var") is True or r.get("guidance_var") == "True":
+            if len(son2) == 2 and all(x == "TUTTU" for x in son2):
+                a.append(f"beklenti açıklıyor ve son 2 yıl tutturdu ({r.get('guidance_karne')})")
+            else:
+                karne = r.get("guidance_karne")
+                a.append("beklenti (guidance) açıklıyor" + (f" ({karne})" if isinstance(karne, str) else " (henüz ölçülebilir yıl yok)"))
         if pd.notna(icy) and icy > 0 and (icy >= 0.1 or ictl >= 10e6):
             a.append(f"patron/yönetici net alım (12 ay): %{icy:.2f}, ~{ictl/1e6:,.0f} mn TL")
         if pd.notna(son_tem[i]) and son_tem[i] > bugun_ts - pd.DateOffset(years=1):
@@ -277,6 +309,7 @@ KOLONLAR = [
     "cari_oran", "asit_test", "nakit_oran", "alacak_borc",
     "piyasa_degeri", "fd", "sna_bakim", "sna_ham", "buyume_capex", "esas_faal_kar", "favok",
     "icerden_net_sermaye_yuzde", "icerden_net_tl_yaklasik", "patron_satisi",
+    "guidance_var", "guidance_yillari", "guidance_karne",
     "bayrak_sayisi", "kirmizi_bayraklar", "artilar", "sektor_notu", "eleme",
 ]
 
@@ -306,6 +339,13 @@ def _patron(r):
     return f"alım %{y:.2f}" if y > 0 else f"satış %{abs(y):.2f}"
 
 
+def _guid(r):
+    if not (r.get("guidance_var") is True or r.get("guidance_var") == "True"):
+        return "–"
+    k = r.get("guidance_karne")
+    return k if isinstance(k, str) else f"var ({r.get('guidance_yillari')})"
+
+
 def ozet_yaz(aday, d, a, yol):
     gecerli = d[d["eleme"] == ""]
     L = [f"# Temel ön eleme — {a.tarih}", "",
@@ -321,13 +361,13 @@ def ozet_yaz(aday, d, a, yol):
     for puan, baslik in [(4, "Liste A — 4/4 kriter"), (3, "Liste B — 3/4 kriter")]:
         t = aday[aday["cekirdek_puan"] == puan]
         L += [f"## {baslik} ({len(t)})", "",
-              "| Kod | Sektör | Eksik kriter | ROIC | FD/SNA | SNA+ yıl | USD satış büyüme | Brüt marj | FD/FAVÖK | Patron 12 ay | Bayrak |",
-              "|---|---|---|---|---|---|---|---|---|---|---|"]
+              "| Kod | Sektör | Eksik kriter | ROIC | FD/SNA | SNA+ yıl | USD satış büyüme | Brüt marj | FD/FAVÖK | Patron 12 ay | Guidance | Bayrak |",
+              "|---|---|---|---|---|---|---|---|---|---|---|---|"]
         for _, r in t.iterrows():
             eksik = ", ".join(k[:2] for k in ["K1_roic_wacc", "K2_sna_surdurulebilir", "K3_fd_sna", "K4_daralma_yok"] if not r[k]) or "–"
             L.append(f"| {r['kod']} | {r['sektor']} | {eksik} | {_f(r['roic'], True)} | {_f(r['fd_sna'])} | "
                      f"{int(r['sna_pozitif_yil'])}/{int(r['sna_veri_yil'])} | {_f(r['satis_usd_buyume'], True)} | "
-                     f"{_f(r['brut_marj'], True)} | {_f(r['fd_favok'])} | {_patron(r)} | {int(r['bayrak_sayisi'])} |")
+                     f"{_f(r['brut_marj'], True)} | {_f(r['fd_favok'])} | {_patron(r)} | {_guid(r)} | {int(r['bayrak_sayisi'])} |")
         L.append("")
     L += ["## Bayraklar ve artılar (adaylar)", ""]
     for _, r in aday.iterrows():
@@ -346,6 +386,13 @@ def ozet_yaz(aday, d, a, yol):
           "alım bu kapsamda değil (videoda da önemsenmiyor). '⛔' eşiği: net satış sermayenin ≥%0,25'i veya ≥25 mn TL. "
           "Videoda: 'Patron hisse satıyorsa genellikle uzak duruyorum ... çok temel gerekçeleri olması lazım.' "
           "Satışın gerekçesi (ör. halka açıklık artırma, borç ödeme) bildirim metninden elle okunmalı.", "",
+          "## Guidance (şirketin açıkladığı beklentiler) hakkında", "",
+          "Kaynak: EVO guidance tablosu. ELEME KRİTERİ DEĞİL. Beklenti açıklamak artı olarak yazılır; son iki "
+          "değerlendirilebilir yılda üst üste TUTTURAMADI ise bayrak. ✓ tuttu, ~ kısmen, ✗ tutturamadı. Ana finansal "
+          "hedefler (ciro/gelir, FAVÖK/marj, net kâr) belirleyici; hacim/mağaza gibi operasyonel hedefler ikincil. "
+          "Yıl içinde revize edilen hedeflerde ilk açıklanan hedef esas alındı (revizyon not edildi). Gerekçeler: "
+          "`temel/guidance_degerlendirme.csv`. Videoda: 'Her sene yüksek beklenti açıklıyor, her sene tutturamıyor ... "
+          "bunlara bulaşılmaz.' 2026 beklentileri yıl bitmediği için değerlendirilmedi.", "",
           "## Her aday için elle bakılacaklar", "", ELLE_BAK, ""]
     open(yol, "w", encoding="utf-8").write("\n".join(L))
 

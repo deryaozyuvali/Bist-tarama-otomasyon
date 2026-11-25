@@ -111,3 +111,6 @@ listeye girmek "al" demek değildir, elle inceleme listesini daraltır.
   "Pay Alım Satım Bildirimi"lerini (MKK PDF ekleri dahil) ayrıştırır. Kurumlar/fonlar sayılmaz,
   aile içi devir/virman satış sayılmaz. Net satış ≥ sermayenin %0,25'i veya ≥25 mn TL ise
   `⛔ PATRON/YÖNETİCİ NET SATIŞ` bayrağı; net alım artı olarak yazılır. Ham veri `temel/ham/kap/`.
+- **Guidance (beklenti) kontrolü:** EVO guidance tablosundaki beklentiler gerçekleşenle karşılaştırıldı
+  (`temel/guidance_degerlendirme.csv`, her satır gerekçeli; ham metin `temel/ham/guidance_ham.csv`).
+  Eleme kriteri değil: beklenti açıklamak artı, son iki yıl üst üste tutturamamak bayrak.
