@@ -317,7 +317,7 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
 
         # İlişkili taraf (videodaki: patronun şirketinden satın alma, ana ortağa borç/teminat, çok fazla grup içi işlem)
         iliskili_not = []
-        ETIKET = {"ana_ortaga_borc": "ana ortağa/ortaklara borç", "gruba_ticari_olmayan_alacak": "gruba ticari olmayan alacak",
+        ETIKET = {"ana_ortaga_borc": "ana ortağa/ortaklara borç", "gruba_ticari_olmayan_alacak": "gruba ticari olmayan alacak", "gruba_ticari_alacak": "gruptan yüksek ticari alacak",
                   "ana_ortak_lehine_teminat": "ana ortak/grup lehine teminat", "iliskili_taraftan_satin_alma": "ilişkili taraftan satın alma",
                   "yaygin_surekli_islem": "grup içi işlem ≥%10 (SPK m.10)"}
         for satir in str(r.get("iliskili_kayit") or "").split("\n"):

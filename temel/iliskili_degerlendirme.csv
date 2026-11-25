@@ -47,4 +47,4 @@ KOTON,yaygin_surekli_islem,bilgi,"Gülyılmaz GYO'dan 2 cadde mağazası kiralam
 GUBRF,iliskili_taraftan_satin_alma,yuksek,"Eki 2026: bağlı ortaklık Gübretaş Maden üzerinden Tarım Kredi grubu şirketlerine 7,25 mlr TL yatırım (TK Market %10,26 ve TK Yem %10 sermaye artırımı, TK Tedarik %30 pay alımı + sermaye artırımı); ~özkaynağın %15'i; değerlemeler Halk/Vakıf/Bizim Menkul (Big Four değil)","KAP ÖDA 1686044, 1691046; GEM GUBRF2026Q3"
 CCOLA,iliskili_taraftan_satin_alma,bilgi,"Eyl 2024: ana hissedar Anadolu Efes'in bağlı ortaklığı AEP'den Anadolu Etap Penkon %20 pay (→%100), özkaynağın %0,7'si (KPMG değerlemesi)",KAP FDV Edinimi 1338161
 GATEG,ana_ortaga_borc,yuksek,"Ortağa 210,8 mn TL borç (özkaynağın ~%60'ı); ayrıca 784,8 mn TL rehin/ipotek",GEM GATEG2026Q3 (2026/9 dipnot)
-PLTUR,gruba_ticari_olmayan_alacak,orta,"İlişkili taraflardan 2,04 mlr TL ticari alacak (özkaynağın ~%19); 8,58 mlr TL verilen TRİ",GEM PLTUR2026Q3 (2026/9 dipnot)
+PLTUR,gruba_ticari_alacak,orta,"İlişkili taraflardan 2,04 mlr TL ticari alacak (özkaynağın ~%19); 8,58 mlr TL verilen TRİ",GEM PLTUR2026Q3 (2026/9 dipnot)
