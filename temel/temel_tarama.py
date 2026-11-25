@@ -151,6 +151,15 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
     d["sna_ham"] = d["cfo"] - capex - kira
     d["sna_bakim"] = d["cfo"] - bakim_capex - kira
     d["buyume_capex"] = capex - bakim_capex
+    # Belgeyle kanıtlı SNA düzeltmeleri (imtiyaz yatırımı, gizli tedarikçi finansmanı): temel/sna_duzeltme.csv
+    dz = os.path.join(os.path.dirname(__file__), "sna_duzeltme.csv")
+    d["sna_duzeltme"] = ""
+    if os.path.exists(dz):
+        for _, k in pd.read_csv(dz).iterrows():
+            m = d["kod"] == k["kod"]
+            d.loc[m, "sna_bakim"] = k["sna_duzeltilmis_tl"]
+            d.loc[m, "sna_ham"] = np.minimum(d.loc[m, "sna_ham"], k["sna_duzeltilmis_tl"])
+            d.loc[m, "sna_duzeltme"] = k["gerekce"]
 
     # Yıllık SNA sürdürülebilirliği (2022-2025)
     yil_pozitif = 0
@@ -263,6 +272,10 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
             f.append(f"kira ağır (FAVÖK'ün %{r['kira_favok']*100:.0f}'i → FD/FAVÖK yanıltır)")
         if r["ana_ozk"] <= 0:
             f.append("özkaynak negatif")
+        if r.get("sna_duzeltme"):
+            f.append("SNA belgeyle düzeltildi: " + r["sna_duzeltme"][:120])
+        if 0.08 <= r["roic"] <= 0.12:
+            f.append(f"ROIC sınırda (%{r['roic']*100:.1f}; WACC varsayımı %{wacc*100:.0f}, tanıma duyarlı)")
         if r["ana_kar"] <= 0:
             f.append("son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla)")
         elif r["fk"] > 50:
@@ -283,7 +296,10 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
 
         # Azınlık hakları (KAP kâr payı tablosu + 2025/12 dipnot "üst düzey yöneticilere sağlanan faydalar")
         if r.get("imtiyazli_kar_payi", 0) > 0:
-            f.append(f"⚠ kâr payı imtiyazı: imtiyazlı paylara {r['imtiyazli_kar_payi']/1e6:,.1f} mn TL ayrıldı")
+            o_imt = r["imtiyazli_kar_payi"] / r["ana_kar"] if r["ana_kar"] > 0 else np.nan
+            isaret = "⚠ " if (pd.isna(o_imt) or o_imt >= 0.05) else ""
+            f.append(f"{isaret}kâr payı imtiyazı: imtiyazlı paylara {r['imtiyazli_kar_payi']/1e6:,.1f} mn TL ayrıldı "
+                     f"(net kârın %{o_imt*100:.1f}'i)")
         elif r.get("grup_farkli") is True:
             f.append("pay grupları arasında farklı kâr payı (imtiyaz olabilir, elle bak)")
         if r.get("bagis_net_kar_orani", 0) >= 0.05:
