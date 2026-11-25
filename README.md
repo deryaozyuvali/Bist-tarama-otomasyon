@@ -114,3 +114,9 @@ listeye girmek "al" demek değildir, elle inceleme listesini daraltır.
 - **Guidance (beklenti) kontrolü:** EVO guidance tablosundaki beklentiler gerçekleşenle karşılaştırıldı
   (`temel/guidance_degerlendirme.csv`, her satır gerekçeli; ham metin `temel/ham/guidance_ham.csv`).
   Eleme kriteri değil: beklenti açıklamak artı, son iki yıl üst üste tutturamamak bayrak.
+- **Azınlık hakları:** `temel/azinlik_karpayi.py`, KAP "Kâr Payı Dağıtım Tablosu"ndan kâr payı
+  imtiyazını, bağışları ve YK üyelerine/çalışanlara kârdan payı çıkarır
+  (`temel/ham/azinlik/karpayi_ozet.csv`). Üst yönetim ücreti + huzur hakkı 2025/12 dipnotlarından
+  elle okundu (`temel/ham/azinlik/yonetici_ucret.csv`, kaynak chunk id'li). Eleme değil, bayrak:
+  imtiyaz varsa, bağış net kârın ≥%5'i ise (alıcısı elle bakılır), yönetim ücretleri hem net
+  kârın hem esas faaliyet kârının ≥%10'u ise.

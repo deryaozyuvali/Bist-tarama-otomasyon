@@ -98,7 +98,18 @@ def yukle():
     ic = os.path.join(HAM, "kap", "icerden_ozet.csv")
     if os.path.exists(ic):
         d = d.merge(pd.read_csv(ic), on="kod", how="left")
+    # Azınlık hakları: kâr payı dağıtım tablosu (imtiyaz, bağış, YK/çalışan payı) + üst yönetim ücretleri
+    kp = os.path.join(HAM, "azinlik", "karpayi_ozet.csv")
+    if os.path.exists(kp):
+        k = pd.read_csv(kp)[["kod", "tarih", "imtiyaz_beyan", "imtiyazli_kar_payi", "bagis", "bagis_net_kar_orani",
+                              "yk_calisan_kar_payi", "yk_calisan_net_kar_orani", "grup_farkli", "tablo_tutarsiz"]]
+        d = d.merge(k.rename(columns={"tarih": "karpayi_tablo_tarihi"}), on="kod", how="left")
+    yu = os.path.join(HAM, "azinlik", "yonetici_ucret.csv")
+    if os.path.exists(yu):
+        d = d.merge(pd.read_csv(yu)[["kod", "yonetici_fayda_tl", "huzur_hakki_tl"]], on="kod", how="left")
     for c in d.columns:
+        if c in ("imtiyaz_beyan", "karpayi_tablo_tarihi", "grup_farkli", "tablo_tutarsiz"):
+            continue
         if c in ("icerden_kimler", "guidance_var", "guidance_yillari", "guidance_karne", "guidance_son_sonuclar"):
             continue
         if c not in ("kod", "sektor", "halka_arz_tarihi", "son_bedelli", "son_temettu"):
@@ -261,6 +272,24 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
         if len(son2) == 2 and all(x == "TUTTURAMADI" for x in son2):
             f.append(f"beklentileri üst üste 2 yıl tutturamadı ({r.get('guidance_karne')})")
 
+        # Azınlık hakları (KAP kâr payı tablosu + 2025/12 dipnot "üst düzey yöneticilere sağlanan faydalar")
+        if r.get("imtiyazli_kar_payi", 0) > 0:
+            f.append(f"⚠ kâr payı imtiyazı: imtiyazlı paylara {r['imtiyazli_kar_payi']/1e6:,.1f} mn TL ayrıldı")
+        elif r.get("grup_farkli") is True:
+            f.append("pay grupları arasında farklı kâr payı (imtiyaz olabilir, elle bak)")
+        if r.get("bagis_net_kar_orani", 0) >= 0.05:
+            f.append(f"yüksek bağış: {r['bagis']/1e6:,.1f} mn TL = net kârın %{r['bagis_net_kar_orani']*100:.0f} kadarı → alıcı patronun vakfı mı? elle bak")
+        if r.get("yk_calisan_kar_payi", 0) > 0:
+            f.append(f"kârdan YK/çalışanlara pay ({r['yk_calisan_kar_payi']/1e6:,.1f} mn TL)")
+        yf = r.get("yonetici_fayda_tl")
+        if pd.notna(yf) and yf > 0:
+            o_net = yf / r["ana_kar"] if r["ana_kar"] > 0 else np.nan
+            o_esas = yf / r["esas_faal_kar"] if r["esas_faal_kar"] > 0 else np.nan
+            ors = [x for x in (o_net, o_esas) if pd.notna(x)]
+            if ors and min(ors) >= 0.10:
+                f.append(f"üst yönetim ücret/huzur hakkı kâra göre yüksek ({yf/1e6:,.0f} mn TL; "
+                         f"net kâr oranı {_f(o_net, True) if pd.notna(o_net) else 'net zarar'}, esas faaliyet kârı oranı {_f(o_esas, True)})")
+
         # artılar
         if r.get("guidance_var") is True or r.get("guidance_var") == "True":
             if len(son2) == 2 and all(x == "TUTTU" for x in son2):
@@ -288,6 +317,7 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
         bayrak.append(" | ".join(f))
         arti.append(" | ".join(a))
         elle.append(m[0])
+    d["yonetici_net_kar"] = oran(d.get("yonetici_fayda_tl"), d["ana_kar"]) if "yonetici_fayda_tl" in d else np.nan
     d["kirmizi_bayraklar"] = bayrak
     d["patron_satisi"] = ["⛔ PATRON" in x for x in bayrak]
     d["bayrak_sayisi"] = [len(x.split(" | ")) if x else 0 for x in bayrak]
@@ -310,15 +340,15 @@ KOLONLAR = [
     "piyasa_degeri", "fd", "sna_bakim", "sna_ham", "buyume_capex", "esas_faal_kar", "favok",
     "icerden_net_sermaye_yuzde", "icerden_net_tl_yaklasik", "patron_satisi",
     "guidance_var", "guidance_yillari", "guidance_karne",
+    "imtiyaz_beyan", "imtiyazli_kar_payi", "bagis_net_kar_orani", "yk_calisan_kar_payi", "yonetici_fayda_tl", "yonetici_net_kar",
     "bayrak_sayisi", "kirmizi_bayraklar", "artilar", "sektor_notu", "eleme",
 ]
 
 ELLE_BAK = (
     "Elle bak (otomatik değil): faaliyet raporu + genel müdür mesajı; patron tipi ve "
-    "geçmiş beklentileri tutturma; patron satışının gerekçesi; huzur hakkı ve "
-    "vakıf bağışı (genel kurul); ilişkili taraf işlemleri ve satın almalar (dipnot); "
-    "kâr payı imtiyazı; Çin rekabeti; giriş bariyeri/hendek; analist toplantısı; "
-    "'neden ucuz?' sorusu; karar verdikten sonra 1 hafta bekle. (Patron alım/satımı KAP'tan otomatik eklendi.)"
+    "patron satışının gerekçesi; bağışın alıcısı (vakıf?); "
+    "ilişkili taraf işlemleri ve satın almalar (dipnot); Çin rekabeti; giriş bariyeri/hendek; analist toplantısı; "
+    "'neden ucuz?' sorusu; karar verdikten sonra 1 hafta bekle. (Otomatik eklenenler: KAP patron alım/satımı, guidance karnesi, kâr payı imtiyazı/bağış/YK payı, üst yönetim ücretleri.)"
 )
 
 
@@ -393,6 +423,15 @@ def ozet_yaz(aday, d, a, yol):
           "Yıl içinde revize edilen hedeflerde ilk açıklanan hedef esas alındı (revizyon not edildi). Gerekçeler: "
           "`temel/guidance_degerlendirme.csv`. Videoda: 'Her sene yüksek beklenti açıklıyor, her sene tutturamıyor ... "
           "bunlara bulaşılmaz.' 2026 beklentileri yıl bitmediği için değerlendirilmedi.", "",
+          "## Azınlık hakları (kâr payı imtiyazı, bağış, huzur hakkı) hakkında", "",
+          "ELEME KRİTERİ DEĞİL, bayrak. Kaynak 1: KAP 'Kâr Payı Dağıtım Tablosu' (her şirketin en son tablosu) → "
+          "imtiyazlı pay sahiplerine ayrılan kâr payı, bağışlar, YK üyelerine/çalışanlara kârdan pay. Bağış eşiği: net "
+          "dönem kârının ≥%5'i (TMS 29 nedeniyle SPK ve yasal kârdan büyüğü payda). Bağışın kime gittiği (patronun "
+          "vakfı mı?) tablodan görülmez, genel kurul/faaliyet raporundan elle okunmalı. Kaynak 2: 2025/12 finansal rapor "
+          "dipnotu 'üst düzey yöneticilere sağlanan faydalar' (ücret + huzur hakkı + prim; adayların 55'inde bulundu, "
+          "elle okundu; 'bin TL' raporlayanlar TL'ye çevrildi). Bayrak: hem son 12 ay net kârın hem esas faaliyet "
+          "kârının ≥%10'u (biri zarardaysa diğeri). Holdinglerde esas faaliyet kârı küçük görünür, ölçek için elle bak. "
+          "Ham veri: `temel/ham/azinlik/`.", "",
           "## Her aday için elle bakılacaklar", "", ELLE_BAK, ""]
     open(yol, "w", encoding="utf-8").write("\n".join(L))
 
