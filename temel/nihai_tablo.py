@@ -14,6 +14,9 @@ import pandas as pd
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
+from openpyxl.worksheet.table import Table, TableStyleInfo
+import json
+import re
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FONT = "Arial"
@@ -126,42 +129,51 @@ CARPAN_KOL = {"FD/SNA (x)", "FD/FAVÖK (x)"}
 MN_KOL = {k for k, _ in KOLON if "mn TL" in k}
 
 
-def sayfa_yaz(wb, ad, baslik_notu, veri, vurgu=None):
-    ws = wb.create_sheet(ad)
-    ws["A1"] = baslik_notu
-    ws["A1"].font = Font(name=FONT, bold=True, size=12)
-    ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=len(KOLON))
-    for j, (k, w) in enumerate(KOLON, 1):
-        c = ws.cell(row=3, column=j, value=k)
+def tum_sayfa_yaz(wb, gruplar):
+    """Tek sayfa, başlık 1. satırda, gerçek Excel Tablosu: filtre ve sıralama her Excel/Sheets'te çalışır."""
+    ws = wb.create_sheet("Tablo")
+    kolonlar = [("Liste", 12)] + KOLON
+    for j, (k, w) in enumerate(kolonlar, 1):
+        c = ws.cell(row=1, column=j, value=k)
         c.font = Font(name=FONT, bold=True, color="FFFFFF", size=9)
         c.fill = BASLIK
         c.alignment = Alignment(wrap_text=True, vertical="center", horizontal="center")
-        c.border = CERCEVE
         ws.column_dimensions[get_column_letter(j)].width = w
-    ws.row_dimensions[3].height = 42
-    for i, satir in enumerate(veri):
-        rr = 4 + i
-        for j, v in enumerate(satir, 1):
-            if isinstance(v, float) and pd.isna(v):
-                v = None
-            c = ws.cell(row=rr, column=j, value=v)
-            k = KOLON[j - 1][0]
-            c.font = Font(name=FONT, size=9, bold=(k == "Kod"))
-            c.border = CERCEVE
-            c.alignment = Alignment(wrap_text=True, vertical="top")
-            if k in YUZDE_KOL:
-                c.number_format = "0.0%;-0.0%;-"
-            elif k in CARPAN_KOL:
-                c.number_format = "0.00x"
-            elif k in MN_KOL:
-                c.number_format = "#,##0.0;(#,##0.0);-"
-            if vurgu is not None:
-                c.fill = vurgu
-            elif i % 2:
-                c.fill = ZEBRA
-    ws.freeze_panes = "C4"
-    ws.auto_filter.ref = f"A3:{get_column_letter(len(KOLON))}{3 + len(veri)}"
+    ws.row_dimensions[1].height = 42
+    rr = 2
+    for liste, veri in gruplar:
+        for satir in veri:
+            for j, v in enumerate([liste] + satir, 1):
+                if isinstance(v, float) and pd.isna(v):
+                    v = None
+                c = ws.cell(row=rr, column=j, value=v)
+                k = kolonlar[j - 1][0]
+                c.font = Font(name=FONT, size=9, bold=(k == "Kod"))
+                c.alignment = Alignment(wrap_text=True, vertical="top")
+                if k in YUZDE_KOL:
+                    c.number_format = "0.0%;-0.0%;-"
+                elif k in CARPAN_KOL:
+                    c.number_format = "0.00\"x\""
+                elif k in MN_KOL:
+                    c.number_format = "#,##0.0;(#,##0.0);-"
+                if liste.startswith("Elenen"):
+                    c.fill = AGIR
+            rr += 1
+    ref = f"A1:{get_column_letter(len(kolonlar))}{rr - 1}"
+    tab = Table(displayName="NihaiTablo", ref=ref)
+    tab.tableStyleInfo = TableStyleInfo(name="TableStyleLight9", showRowStripes=True)
+    ws.add_table(tab)
+    ws.freeze_panes = "C2"
     return ws
+
+
+def ilk_sayi(v):
+    if v is None or (isinstance(v, float) and pd.isna(v)):
+        return None
+    if isinstance(v, (int, float)):
+        return float(v)
+    m = re.search(r"\d+(?:[.,]\d+)?", str(v))
+    return float(m.group(0).replace(",", ".")) if m else None
 
 
 def main():
@@ -210,12 +222,30 @@ def main():
         ws.cell(row=r, column=1).alignment = Alignment(vertical="top")
         r += 1
 
-    sayfa_yaz(wb, "Nihai Liste", f"Nihai liste — 4/4 kriter, ağır bayrak yok ({len(nihai)} şirket). Sıra: hafif bayrak sayısı, sonra FD/SNA.",
-              satirlar(nihai, gem, yat))
-    sayfa_yaz(wb, "Alt Grup", f"4/4 kriter, ağır bayrak yok ama yapısal sorun / ≥4 hafif bayrak ({len(alt)} şirket)",
-              satirlar(alt, gem, yat))
-    sayfa_yaz(wb, "Elenenler (ağır bayrak)", f"4/4 kriteri geçen ama ağır bayrakla elenenler ({len(elenen)} şirket)",
-              satirlar(elenen, gem, yat), vurgu=AGIR)
+    gruplar = [("Nihai", satirlar(nihai, gem, yat)), ("Alt grup", satirlar(alt, gem, yat)),
+               ("Elenen (ağır bayrak)", satirlar(elenen, gem, yat))]
+    tum_sayfa_yaz(wb, gruplar)
+    wb.move_sheet("Tablo", offset=-1)
+    wb.active = 0
+
+    # Web sayfası için JSON
+    anahtar = ["sira", "kod", "sektor", "donem", "fd_sna", "sna_mn", "fd_mn", "roic", "sna_pencere", "p0", "p1", "p2",
+               "satis_usd", "brut_marj", "fd_favok", "bilanco", "hikaye", "funnel", "sinif", "yatirim", "yatirim_acik",
+               "bayrak_n", "bayraklar", "artilar", "iliskili", "gem_not"]
+    kayit = []
+    for liste, veri in gruplar:
+        for s_ in veri:
+            o = {k: (None if isinstance(v, float) and pd.isna(v) else v) for k, v in zip(anahtar, s_)}
+            o["liste"] = liste
+            o["funnel_n"] = ilk_sayi(o["funnel"])
+            o["agir"] = liste.startswith("Elenen")
+            kayit.append(o)
+    with open(os.path.join(klasor, "nihai_tablo.json"), "w") as fh:
+        json.dump({"satirlar": kayit, "readme": README}, fh, ensure_ascii=False, default=float)
+    sablon = open(os.path.join(KOK, "temel", "nihai_sayfa_sablon.html"), encoding="utf-8").read()
+    veri = json.dumps({"satirlar": kayit, "readme": README}, ensure_ascii=False, default=float).replace("</", "<\\/")
+    with open(os.path.join(klasor, "Nihai_Tablo.html"), "w", encoding="utf-8") as fh:
+        fh.write(sablon.replace("/*VERI*/null/*VERI*/", veri))
 
     cikti = os.path.join(klasor, "Nihai_Tablo.xlsx")
     wb.save(cikti)
