@@ -149,6 +149,9 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
     kira = -z("kira")
     amort = z("amort")
     bakim_capex = np.minimum(capex, amort.where(amort > 0, capex))
+    # CAPEX TTM boşsa sıfır sayma: bakım yatırımı için amortismanı kullan (ihtiyatlı) ve işaretle
+    d["capex_eksik"] = d["capex"].isna() & d["cfo"].notna()
+    bakim_capex = bakim_capex.where(~d["capex_eksik"], amort.clip(lower=0))
     d["sna_ham"] = d["cfo"] - capex - kira
     d["sna_bakim"] = d["cfo"] - bakim_capex - kira
     d["buyume_capex"] = capex - bakim_capex
@@ -170,7 +173,9 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
     pen = pen[pen["cfo"].notna()].copy()
     p_capex, p_kira = -pen["capex"].fillna(0), -pen["kira"].fillna(0)
     p_am = pen["amort"].where(pen["amort"] > 0, p_capex)
-    pen["sna"] = pen["cfo"] - np.minimum(p_capex, p_am) - p_kira
+    p_bakim = np.minimum(p_capex, p_am).where(pen["capex"].notna(), pen["amort"].clip(lower=0).fillna(0))
+    pen["sna"] = pen["cfo"] - p_bakim - p_kira
+    pen["capex_eksik"] = pen["capex"].isna()
     pen = pen.sort_values(["kod", "yil"], ascending=[True, False])
     pen["sira"] = pen.groupby("kod").cumcount()           # 0 = son pencere
     pv = pen.pivot(index="kod", columns="sira", values="sna")
@@ -181,6 +186,7 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
     d["sna_pencere_ay"] = d["kod"].map(pen.groupby("kod")["ay"].first())
     d["sna_p0"] = d["sna_bakim"].where(d["sna_bakim"].notna(), d["sna_p0"])  # son pencere = belge düzeltmeli TTM
     pcols = ["sna_p0", "sna_p1", "sna_p2"]
+    d["capex_eksik_pencere"] = d["kod"].map(pen.groupby("kod")["capex_eksik"].sum()).fillna(0).astype(int)
     d["sna_veri_yil"] = d[pcols].notna().sum(axis=1)
     d["sna_pozitif_yil"] = (d[pcols] > 0).sum(axis=1)
 
@@ -283,6 +289,8 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
             f.append("özkaynak negatif")
         if r.get("sna_duzeltme"):
             f.append("SNA belgeyle düzeltildi: " + r["sna_duzeltme"][:120])
+        if r.get("capex_eksik") or r.get("capex_eksik_pencere", 0) > 0:
+            f.append("CAPEX TTM verisi eksik (bakım yatırımı = amortisman varsayıldı; elle kontrol)")
         neg = [f"{int(r[f'sna_p{i}_donem'])}/{int(r['sna_pencere_ay'])}" for i in (1, 2)
                if pd.notna(r.get(f"sna_p{i}")) and r[f"sna_p{i}"] <= 0 and pd.notna(r.get(f"sna_p{i}_donem"))]
         if neg and r["sna_bakim"] > 0:

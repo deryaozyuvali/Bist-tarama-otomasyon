@@ -5,7 +5,7 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 | Kriter | Geçen |
 |---|---|
 | K1 ROIC > WACC | 114 |
-| K2 SNA sürdürülebilir pozitif | 264 |
+| K2 SNA sürdürülebilir pozitif | 263 |
 | K3 FD/SNA < eşik | 152 |
 | K4 daralma yok (vekil) | 280 |
 
@@ -19,13 +19,13 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | PCILT | Destek ve Hizmet | – | %40 | 1.4 | 3/3 | %37 | %7 | 2.5 | – | – | 0 |
 | NTGAZ | Enerji Üretim ve Dağıtım | – | %19 | 4.9 | 3/3 | %14 | %29 | 2.2 | – | – | 0 |
-| BNTAS | Ambalaj | – | %14 | 0.8 | 3/3 | %7 | %18 | 1.4 | – | – | 1 |
 | INDES | Teknolojik Ürün Ticareti | – | %40 | 1.3 | 3/3 | %43 | %6 | 1.1 | satış %0.00 | 2025 ✓ | 1 |
 | BRISA | Otomotiv Yan Sanayi | – | %12 | 3.9 | 3/3 | %9 | %25 | 3.1 | – | 2025 ✓ | 1 |
 | MACKO | Destek ve Hizmet | – | %43 | 4.1 | 3/3 | -%6 | %64 | 3.7 | alım %0.85 | 2024 ✓ | 1 |
 | CLEBI | Ulaştırma | – | %29 | 6.1 | 3/3 | %76 | %32 | 5.8 | – | – | 1 |
 | SAFKR | Metal Eşya ve Makine | – | %24 | 8.1 | 3/3 | %89 | %23 | 4.4 | alım %0.00 | – | 1 |
 | PKART | Bilişim ve Yazılım | – | %44 | 8.1 | 2/3 | %52 | %11 | 5.5 | – | – | 1 |
+| BNTAS | Ambalaj | – | %14 | 1.0 | 3/3 | %7 | %18 | 1.4 | – | – | 2 |
 | DOHOL | Holding | – | %11 | 1.4 | 3/3 | %4 | %40 | 0.5 | – | 2025 ✗ | 2 |
 | SKYLP | Bilişim ve Yazılım | – | %14 | 2.6 | 3/3 | %94 | %45 | 7.7 | – | – | 2 |
 | KARSN | Otomotiv | – | %11 | 2.9 | 3/3 | %43 | %26 | 3.9 | – | 2024 ✗ · 2025 ~ | 2 |
@@ -51,7 +51,7 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 | FORTE | Bilişim ve Yazılım | – | %31 | 2.2 | 3/3 | %146 | %35 | 3.7 | ⛔ satış %5.09 | var (2026) | 3 |
 | TUPRS | Kimya ve Plastik | – | %39 | 2.3 | 3/3 | %49 | %15 | 2.3 | ⛔ satış %2.65 | 2024 ~ · 2025 ✓ | 3 |
 | RALYH | Holding | – | %11 | 1.0 | 3/3 | %44 | %24 | 3.2 | ⛔ satış %3.00 | – | 5 |
-| TRILC | İlaç ve Sağlık | – | %19 | 3.2 | 2/3 | %32 | %37 | 3.2 | ⛔ satış %9.78 | – | 7 |
+| TRILC | İlaç ve Sağlık | – | %19 | 3.5 | 2/3 | %32 | %37 | 3.2 | ⛔ satış %9.78 | – | 8 |
 
 ## Liste B — 3/4 kriter (93)
 
@@ -82,7 +82,6 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 | TRGYO | Gayrimenkul | K1 | %7 | 5.7 | 2/3 | %22 | %75 | 4.5 | alım %0.18 | 2024 ✓ · 2025 ✗ | 2 |
 | ACSEL | Kimya ve Plastik | K1 | %8 | 6.0 | 2/3 | %15 | %16 | 6.0 | – | – | 2 |
 | BRSAN | Ana Metal | K1 | %7 | 8.2 | 2/3 | %26 | %11 | 11.8 | – | – | 2 |
-| OZGYO | Gayrimenkul | K1 | %1 | 8.4 | 3/3 | %44 | %80 | 11.0 | – | – | 2 |
 | RGYAS | Gayrimenkul | K1 | %4 | 9.0 | 3/3 | %41 | %72 | 6.0 | alım %2.52 | – | 2 |
 | AKSA | Kimya ve Plastik | K1 | %4 | 9.1 | 3/3 | %24 | %16 | 7.5 | alım %1.50 | 2024 ✗ · 2025 ~ | 2 |
 | JANTS | Otomotiv Yan Sanayi | K1 | %3 | 9.2 | 3/3 | %22 | %15 | 12.7 | – | – | 2 |
@@ -92,8 +91,6 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 | EGPRO | Kimya ve Plastik | K3 | %26 | 13.3 | 3/3 | %17 | %40 | 3.9 | – | – | 2 |
 | KCAER | Ana Metal | K3 | %13 | 14.4 | 2/3 | -%3 | %20 | 5.3 | – | – | 2 |
 | OYAKC | Taş, Toprak, Çimento | K3 | %11 | 14.7 | 2/3 | -%1 | %26 | 4.6 | – | – | 2 |
-| TGSAS | Toptan ve Perakende Ticaret | K3 | %44 | 46.0 | 2/3 | %23 | %100 | 7.5 | – | – | 2 |
-| ENJSA | Enerji Üretim ve Dağıtım | K3 | %19 | 68.5 | 3/3 | %4 | %28 | 3.6 | – | 2024 ✓ · 2025 ✓ | 2 |
 | AFYON | Taş, Toprak, Çimento | K1 | %7 | 2.4 | 2/3 | %20 | %21 | 2.2 | – | – | 3 |
 | KRDMA | Ana Metal | K1 | %5 | 2.6 | 2/3 | %6 | %9 | 3.2 | – | – | 3 |
 | KRDMD | Ana Metal | K1 | %5 | 3.1 | 2/3 | %6 | %9 | 3.8 | – | – | 3 |
@@ -105,6 +102,7 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 | TUREX | Servis Taşımacılığı ve Araç Kiralama | K4 | %13 | 5.8 | 3/3 | -%17 | %26 | 1.8 | – | – | 3 |
 | EUREN | Enerji Üretim ve Dağıtım | K1 | %2 | 7.4 | 3/3 | %28 | %13 | 6.6 | – | – | 3 |
 | YGGYO | Gayrimenkul | K1 | %8 | 8.2 | 3/3 | %20 | %80 | 12.7 | – | – | 3 |
+| OZGYO | Gayrimenkul | K1 | %1 | 8.4 | 3/3 | %44 | %80 | 11.0 | – | – | 3 |
 | AEFES | Gıda ve İçecek | K1 | %7 | 9.6 | 3/3 | %10 | %38 | 5.4 | – | 2025 ~ | 3 |
 | MGROS | Gıda Perakendeciliği | K1 | %7 | 9.8 | 3/3 | %15 | %24 | 2.4 | – | 2024 ✓ · 2025 ~ | 3 |
 | GENIL | İlaç ve Sağlık | K3 | %14 | 11.3 | 3/3 | %19 | %27 | 6.0 | alım %8.24 | 2024 ✗ · 2025 ✗ | 3 |
@@ -114,10 +112,11 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 | ASELS | Savunma | K3 | %14 | 35.9 | 3/3 | %35 | %32 | 21.9 | – | 2024 ✓ · 2025 ✓ | 3 |
 | EUPWR | Enerji Teknolojileri | K3 | %10 | 50.7 | 2/3 | %45 | %24 | 7.5 | – | – | 3 |
 | MRSHL | Kimya ve Plastik | K3 | %29 | 60.1 | 3/3 | %16 | %45 | 12.9 | – | – | 3 |
+| TGSAS | Toptan ve Perakende Ticaret | K3 | %44 | 60.5 | 2/3 | %23 | %100 | 7.5 | – | – | 3 |
+| ENJSA | Enerji Üretim ve Dağıtım | K3 | %19 | 68.5 | 3/3 | %4 | %28 | 3.6 | – | 2024 ✓ · 2025 ✓ | 3 |
 | POLTK | Ana Metal | K3 | %13 | 133.9 | 2/3 | %38 | %24 | 92.1 | – | – | 3 |
 | SEYKM | Kimya ve Plastik | K1 | %0 | 1.2 | 2/3 | %29 | %32 | 8.0 | – | – | 4 |
 | BRKSN | İnşaat | K1 | %10 | 2.7 | 2/3 | %2 | %38 | 2.1 | – | – | 4 |
-| ATSYH | Holding | K1 | %3 | 4.2 | 2/3 | %97 | %17 | 62.8 | alım %1.07 | – | 4 |
 | TATGD | Gıda ve İçecek | K1 | %5 | 4.6 | 3/3 | %12 | %20 | 5.2 | – | 2025 ~ | 4 |
 | MTRKS | Bilişim ve Yazılım | K4 | %11 | 5.4 | 2/3 | %15 | %14 | 2.7 | – | – | 4 |
 | DAGI | Tekstil, Giyim ve Deri | K1 | %1 | 6.5 | 2/3 | %24 | %53 | 4.5 | – | – | 4 |
@@ -127,7 +126,7 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 | CEMZY | Tarım, Hayvancılık, Balıkçılık | K3 | %11 | 30.0 | 2/3 | %5 | %22 | 22.2 | – | – | 4 |
 | LILAK | Kağıt ve Kağıt Ürünleri | K1 | %9 | 1.9 | 3/3 | -%4 | %28 | 2.6 | – | 2025 ~ | 5 |
 | IHEVA | Dayanıklı Tüketim Ürünleri | K1 | %5 | 2.3 | 2/3 | %4 | %14 | 4.2 | – | – | 5 |
-| SAMAT | Kağıt ve Kağıt Ürünleri | K1 | %0 | 3.4 | 2/3 | %178 | %12 | 162.7 | – | – | 5 |
+| ATSYH | Holding | K1 | %3 | 4.2 | 2/3 | %97 | %17 | 62.8 | alım %1.07 | – | 5 |
 | TCELL | Haberleşme | K1 | %9 | 6.0 | 3/3 | %16 | %14 | 1.8 | – | 2024 ~ · 2025 ✓ | 5 |
 | BAYRK | Tekstil, Giyim ve Deri | K1 | %6 | 7.2 | 2/3 | -%1 | %34 | 8.4 | – | – | 5 |
 | ALGYO | Gayrimenkul | K1 | %1 | 7.2 | 3/3 | %24 | %68 | 63.2 | – | – | 5 |
@@ -137,6 +136,7 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 | TEHOL | Holding | K1 | %0 | 0.4 | 2/3 | %9061 | %10 | 0.5 | – | – | 6 |
 | BORSK | Gıda ve İçecek | K1 | %3 | 2.6 | 2/3 | -%5 | %14 | 7.3 | – | – | 6 |
 | SERNT | Cam, Seramik, Porselen | K1 | %5 | 2.7 | 3/3 | %15 | %39 | 7.4 | – | – | 6 |
+| SAMAT | Kağıt ve Kağıt Ürünleri | K1 | %0 | 3.4 | 2/3 | %178 | %12 | 162.7 | – | – | 6 |
 | KFEIN | Bilişim ve Yazılım | K3 | %12 | 254.4 | 2/3 | %15 | %18 | 2.3 | – | – | 6 |
 | SMART | Bilişim ve Yazılım | K1 | %10 | 2.4 | 2/3 | -%1 | %79 | 3.0 | – | – | 7 |
 | BIGTK | Destek ve Hizmet | K1 | %4 | 7.9 | 2/3 | %25 | %47 | 7.6 | – | – | 7 |
@@ -155,13 +155,13 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 
 - **PCILT** — ✅ son 1 yılda nakit temettü | düzenli temettü (5/5 yıl)
 - **NTGAZ** — ✅ son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | likidite oranları sağlam (1,5 / 1 / 0,20) — 🔎 Enerji: üretim verisi (EPİAŞ), regülasyon, PTF
-- **BNTAS** — 🚩 son 2 yılda bedelli — ✅ likidite oranları sağlam (1,5 / 1 / 0,20)
 - **INDES** — 🚩 kâr payı imtiyazı: imtiyazlı paylara 16.2 mn TL ayrıldı (net kârın %1.5'i) — ✅ beklenti (guidance) açıklıyor (2025 ✓) | son 1 yılda nakit temettü | düzenli temettü (4/5 yıl)
 - **BRISA** — 🚩 ROIC sınırda (%11.7; WACC varsayımı %10, tanıma duyarlı) — ✅ beklenti (guidance) açıklıyor (2025 ✓) | düzenli temettü (4/5 yıl) | brüt marj genişliyor (makas açılıyor) | borç azalıyor + finansman gideri kârı yiyor (borç kapanınca kâr ortaya çıkabilir)
 - **MACKO** — 🚩 ⚠ İLİŞKİLİ TARAF – ana ortağa/ortaklara borç: %51 ortak Mediazz'a 2023'te 60 mn, 2024'te 30 mn, 2025'te 50 mn TL borç verildi; 31.12.2025 bakiyesi 88,6 mn TL (özkaynağın ~%13) — ✅ beklenti (guidance) açıklıyor (2024 ✓) | patron/yönetici net alım (12 ay): %0.85, ~18 mn TL | son 1 yılda nakit temettü | düzenli temettü (4/5 yıl) | brüt marj yüksek (%64)
 - **CLEBI** — 🚩 ilişkili taraf – gruba ticari olmayan alacak: İlişkili taraflardan diğer (ticari olmayan) alacak 1,43 mlr TL (özkaynağın ~%15); karşı taraf Dipnot 31'de, elle bak — ✅ son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | brüt marj yüksek (%32)
 - **SAFKR** — 🚩 alacaklar satıştan hızlı büyüyor — ✅ likidite oranları sağlam (1,5 / 1 / 0,20)
 - **PKART** — 🚩 SNA geçmiş penceresi negatif: 2025/9 (12 aylık) — ✅ brüt marj genişliyor (makas açılıyor) | likidite oranları sağlam (1,5 / 1 / 0,20) — 🔎 Yazılım: aktifleştirme oranı + tekrarlayan gelir payı
+- **BNTAS** — 🚩 son 2 yılda bedelli | CAPEX TTM verisi eksik (bakım yatırımı = amortisman varsayıldı; elle kontrol) — ✅ likidite oranları sağlam (1,5 / 1 / 0,20)
 - **DOHOL** — 🚩 kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | ROIC sınırda (%11.4; WACC varsayımı %10, tanıma duyarlı) — ✅ beklenti (guidance) açıklıyor (2025 ✗) | düzenli temettü (4/5 yıl) | brüt marj yüksek (%40) | brüt marj genişliyor (makas açılıyor) — 🔎 Holding: parçaların değerine tek tek bakılmalı
 - **SKYLP** — 🚩 son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) | üst yönetim ücret/huzur hakkı kâra göre yüksek (27 mn TL; net kâr oranı net zarar, esas faaliyet kârı oranı %87) — ✅ brüt marj yüksek (%45) — 🔎 Yazılım: aktifleştirme oranı + tekrarlayan gelir payı
 - **KARSN** — 🚩 cari oran < 1 (1.00) | ROIC sınırda (%10.7; WACC varsayımı %10, tanıma duyarlı) — ✅ beklenti (guidance) açıklıyor (2024 ✗ · 2025 ~) | borç azalıyor + finansman gideri kârı yiyor (borç kapanınca kâr ortaya çıkabilir) — 🔎 Otomotiv: OSD üretim/ihracat, araç başı FAVÖK, Çinli rakipler
@@ -187,7 +187,7 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 - **FORTE** — 🚩 alacaklar satıştan hızlı büyüyor | maddi olmayan varlık yüksek (TMS 38 aktifleştirme/şerefiye kontrol) | ⛔ PATRON/YÖNETİCİ NET SATIŞ (12 ay): sermayenin %5.09'i, ~283 mn TL (ALİ CELAL ASİLTÜRK; EBUBEKİR BALIKÇI; HASAN CENGİZ BAYRAK) — ✅ beklenti (guidance) açıklıyor (henüz ölçülebilir yıl yok) | brüt marj yüksek (%35) | brüt marj genişliyor (makas açılıyor) — 🔎 Yazılım: aktifleştirme oranı + tekrarlayan gelir payı
 - **TUPRS** — 🚩 kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | ⛔ PATRON/YÖNETİCİ NET SATIŞ (12 ay): sermayenin %2.65'i, ~16,320 mn TL ([KCHOL bildirimi] Türkiye Petrol Rafinerileri A.Ş. ("**Tüpra) | yüksek bağış: 1,742.7 mn TL = net kârın %5 kadarı → alıcı patronun vakfı mı? elle bak — ✅ beklenti (guidance) açıklıyor (2024 ~ · 2025 ✓) | son 1 yılda nakit temettü | düzenli temettü (4/5 yıl) | brüt marj genişliyor (makas açılıyor)
 - **RALYH** — 🚩 cari oran < 1 (0.60) | kârın %29'i azınlığın (konsolidasyon düzeltmesi) | ROIC sınırda (%11.3; WACC varsayımı %10, tanıma duyarlı) | ⛔ PATRON/YÖNETİCİ NET SATIŞ (12 ay): sermayenin %3.00'i, ~57 mn TL (RIZA KANDEMİR) | içeriden pay devri/virman bildirimi var (elle bak) — ✅ brüt marj genişliyor (makas açılıyor) — 🔎 Holding: parçaların değerine tek tek bakılmalı
-- **TRILC** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 2.1) | alacaklar satıştan hızlı büyüyor | cari oran < 1 (0.80) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) | ⛔ PATRON/YÖNETİCİ NET SATIŞ (12 ay): sermayenin %9.78'i, ~68 mn TL (YUNUS EMRE BATTAL) | ilişkili taraf – gruba ticari olmayan alacak: İlişkili taraflardan diğer alacak 139 mn + ortaklardan 15 mn TL (özkaynağın ~%11); ama ortaklara 265 mn TL borçlu (net borçlu) — ✅ brüt marj yüksek (%37) | brüt marj genişliyor (makas açılıyor) — 🔎 İlaç: fiyat kararnamesi/avro değeri; Hastane: SGK/sigorta, kira
+- **TRILC** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 2.1) | alacaklar satıştan hızlı büyüyor | cari oran < 1 (0.80) | CAPEX TTM verisi eksik (bakım yatırımı = amortisman varsayıldı; elle kontrol) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) | ⛔ PATRON/YÖNETİCİ NET SATIŞ (12 ay): sermayenin %9.78'i, ~68 mn TL (YUNUS EMRE BATTAL) | ilişkili taraf – gruba ticari olmayan alacak: İlişkili taraflardan diğer alacak 139 mn + ortaklardan 15 mn TL (özkaynağın ~%11); ama ortaklara 265 mn TL borçlu (net borçlu) — ✅ brüt marj yüksek (%37) | brüt marj genişliyor (makas açılıyor) — 🔎 İlaç: fiyat kararnamesi/avro değeri; Hastane: SGK/sigorta, kira
 - **KRSTL**
 - **FMIZP** — ✅ son 1 yılda nakit temettü | düzenli temettü (4/5 yıl) | brüt marj genişliyor (makas açılıyor) | likidite oranları sağlam (1,5 / 1 / 0,20)
 - **YUNSA** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) — ✅ son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | likidite oranları sağlam (1,5 / 1 / 0,20)
@@ -213,7 +213,6 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 - **TRGYO** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) — ✅ beklenti (guidance) açıklıyor (2024 ✓ · 2025 ✗) | patron/yönetici net alım (12 ay): %0.18, ~146 mn TL | son 1 yılda nakit temettü | düzenli temettü (4/5 yıl) | brüt marj yüksek (%75) | brüt marj genişliyor (makas açılıyor) | likidite oranları sağlam (1,5 / 1 / 0,20) — 🔎 GYO: kira çarpanına bakılmalı (stokçu ayrı); ilişkili tarafa verilen kira
 - **ACSEL** — 🚩 SNA geçmiş penceresi negatif: 2024/9 (12 aylık) | ROIC sınırda (%8.3; WACC varsayımı %10, tanıma duyarlı) — ✅ brüt marj genişliyor (makas açılıyor)
 - **BRSAN** — 🚩 kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık)
-- **OZGYO** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | cari oran < 1 (0.75) — ✅ son 1 yılda nakit temettü | brüt marj yüksek (%80) — 🔎 GYO: kira çarpanına bakılmalı (stokçu ayrı); ilişkili tarafa verilen kira
 - **RGYAS** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | ⚠ İLİŞKİLİ TARAF – ilişkili taraftan satın alma: Eyl 2025: ilişkili taraftan %50 pay alımı, işlem bedeli özkaynağın %37'si (EY değerlemesi 67,2 mn EUR); Ara 2025: ilişkili taraftan %50 pay, özkaynağın %13'ü (EY 23,2 mn EUR) — ✅ patron/yönetici net alım (12 ay): %2.52, ~1,270 mn TL | son 1 yılda nakit temettü | brüt marj yüksek (%72) | brüt marj genişliyor (makas açılıyor) | likidite oranları sağlam (1,5 / 1 / 0,20) — 🔎 GYO: kira çarpanına bakılmalı (stokçu ayrı); ilişkili tarafa verilen kira
 - **AKSA** — 🚩 borçluyken temettü/geri alım | cari oran < 1 (0.95) — ✅ beklenti (guidance) açıklıyor (2024 ✗ · 2025 ~) | patron/yönetici net alım (12 ay): %1.50, ~647 mn TL | son 1 yılda nakit temettü | düzenli temettü (5/5 yıl)
 - **JANTS** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | ROIC düşükken büyüme yatırımı — ✅ düzenli temettü (4/5 yıl) | likidite oranları sağlam (1,5 / 1 / 0,20)
@@ -223,8 +222,6 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 - **EGPRO** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 2.2) | kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) — ✅ son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | brüt marj yüksek (%40) | brüt marj genişliyor (makas açılıyor) | likidite oranları sağlam (1,5 / 1 / 0,20)
 - **KCAER** — 🚩 SNA geçmiş penceresi negatif: 2024/9 (12 aylık) | ⚠ İLİŞKİLİ TARAF – ana ortak/grup lehine teminat: B-C dışı diğer grup şirketleri lehine verilen TRİ 11,1 mlr TL (özkaynağın ~%72) — ✅ son 1 yılda nakit temettü | düzenli temettü (4/5 yıl) | brüt marj genişliyor (makas açılıyor) | borç azalıyor + finansman gideri kârı yiyor (borç kapanınca kâr ortaya çıkabilir)
 - **OYAKC** — 🚩 SNA geçmiş penceresi negatif: 2024/9 (12 aylık) | ROIC sınırda (%10.8; WACC varsayımı %10, tanıma duyarlı) — ✅ son 1 yılda nakit temettü | likidite oranları sağlam (1,5 / 1 / 0,20)
-- **TGSAS** — 🚩 kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) — ✅ son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | brüt marj yüksek (%100)
-- **ENJSA** — 🚩 cari oran < 1 (0.84) | SNA belgeyle düzeltildi: İmtiyaz şebeke yatırımı (TFRYK12, 41.943 mn TL) düşüldü; aynı gerekçe — ✅ beklenti açıklıyor ve son 2 yıl tutturdu (2024 ✓ · 2025 ✓) | son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | brüt marj genişliyor (makas açılıyor) — 🔎 Enerji: üretim verisi (EPİAŞ), regülasyon, PTF
 - **AFYON** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | ROIC düşükken büyüme yatırımı | SNA geçmiş penceresi negatif: 2025/9 (12 aylık) — ✅ son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | likidite oranları sağlam (1,5 / 1 / 0,20)
 - **KRDMA** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | SNA geçmiş penceresi negatif: 2025/9 (12 aylık)
 - **KRDMD** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | SNA geçmiş penceresi negatif: 2025/9 (12 aylık)
@@ -236,6 +233,7 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 - **TUREX** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 2.2) | alacaklar satıştan hızlı büyüyor | yatırım harcaması yüksek (satışın %17'i) — ✅ brüt marj genişliyor (makas açılıyor)
 - **EUREN** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 2.1) | PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) — ✅ borç azalıyor + finansman gideri kârı yiyor (borç kapanınca kâr ortaya çıkabilir) — 🔎 Enerji: üretim verisi (EPİAŞ), regülasyon, PTF
 - **YGGYO** — 🚩 ROIC düşükken büyüme yatırımı | yatırım harcaması yüksek (satışın %15'i) | ROIC sınırda (%8.4; WACC varsayımı %10, tanıma duyarlı) — ✅ son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | brüt marj yüksek (%80) | likidite oranları sağlam (1,5 / 1 / 0,20) — 🔎 GYO: kira çarpanına bakılmalı (stokçu ayrı); ilişkili tarafa verilen kira
+- **OZGYO** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | cari oran < 1 (0.75) | CAPEX TTM verisi eksik (bakım yatırımı = amortisman varsayıldı; elle kontrol) — ✅ son 1 yılda nakit temettü | brüt marj yüksek (%80) — 🔎 GYO: kira çarpanına bakılmalı (stokçu ayrı); ilişkili tarafa verilen kira
 - **AEFES** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | kârın %56'i azınlığın (konsolidasyon düzeltmesi) | maddi olmayan varlık yüksek (TMS 38 aktifleştirme/şerefiye kontrol) — ✅ beklenti (guidance) açıklıyor (2025 ~) | son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | brüt marj yüksek (%38) | borç azalıyor + finansman gideri kârı yiyor (borç kapanınca kâr ortaya çıkabilir)
 - **MGROS** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | cari oran < 1 (0.82) | kira ağır (FAVÖK'ün %37'i → FD/FAVÖK yanıltır) — ✅ beklenti (guidance) açıklıyor (2024 ✓ · 2025 ~) | son 1 yılda nakit temettü | düzenli temettü (4/5 yıl) — 🔎 Perakende: nakit dönüşüm döngüsü, kira
 - **GENIL** — 🚩 içeriden pay devri/virman bildirimi var (elle bak) | beklentileri üst üste 2 yıl tutturamadı (2024 ✗ · 2025 ✗) | ilişkili taraf – ilişkili taraftan satın alma: 2024-2026: iştirak Neo Auvra'ya paya dönüştürülebilir borç (700 bin USD) ve hissedar GEN dahil ilişkili taraflardan tekrarlı pay alımı (%32→%77); tutarlar küçük, değerleme yok — ✅ beklenti (guidance) açıklıyor (2024 ✗ · 2025 ✗) | patron/yönetici net alım (12 ay): %8.24, ~1,566 mn TL | son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | brüt marj genişliyor (makas açılıyor) — 🔎 İlaç: fiyat kararnamesi/avro değeri; Hastane: SGK/sigorta, kira
@@ -245,10 +243,11 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 - **ASELS** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 2.7) | kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | yatırım harcaması yüksek (satışın %30'i) — ✅ beklenti açıklıyor ve son 2 yıl tutturdu (2024 ✓ · 2025 ✓) | son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | brüt marj yüksek (%32)
 - **EUPWR** — 🚩 alacaklar satıştan hızlı büyüyor | SNA geçmiş penceresi negatif: 2025/9 (12 aylık) | ROIC sınırda (%10.3; WACC varsayımı %10, tanıma duyarlı)
 - **MRSHL** — 🚩 alacaklar satıştan hızlı büyüyor | cari oran < 1 (0.96) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) — ✅ brüt marj yüksek (%45) | brüt marj genişliyor (makas açılıyor)
+- **TGSAS** — 🚩 kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | CAPEX TTM verisi eksik (bakım yatırımı = amortisman varsayıldı; elle kontrol) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) — ✅ son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | brüt marj yüksek (%100)
+- **ENJSA** — 🚩 cari oran < 1 (0.84) | SNA belgeyle düzeltildi: İmtiyaz şebeke yatırımı (TFRYK12, 41.943 mn TL) düşüldü; aynı gerekçe | CAPEX TTM verisi eksik (bakım yatırımı = amortisman varsayıldı; elle kontrol) — ✅ beklenti açıklıyor ve son 2 yıl tutturdu (2024 ✓ · 2025 ✓) | son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | brüt marj genişliyor (makas açılıyor) — 🔎 Enerji: üretim verisi (EPİAŞ), regülasyon, PTF
 - **POLTK** — 🚩 SNA geçmiş penceresi negatif: 2025/9 (12 aylık) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) | üst yönetim ücret/huzur hakkı kâra göre yüksek (43 mn TL; net kâr oranı net zarar, esas faaliyet kârı oranı %90) — ✅ likidite oranları sağlam (1,5 / 1 / 0,20)
 - **SEYKM** — 🚩 alacaklar satıştan hızlı büyüyor | PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) | net kâr çok zayıf (F/K 108) — ✅ brüt marj yüksek (%32) | brüt marj genişliyor (makas açılıyor) | likidite oranları sağlam (1,5 / 1 / 0,20)
 - **BRKSN** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | kârın %29'i azınlığın (konsolidasyon düzeltmesi) | SNA geçmiş penceresi negatif: 2025/9 (12 aylık) | ROIC sınırda (%9.5; WACC varsayımı %10, tanıma duyarlı) — ✅ son 1 yılda nakit temettü | düzenli temettü (4/5 yıl) | brüt marj yüksek (%38) | likidite oranları sağlam (1,5 / 1 / 0,20) — 🔎 Taahhüt: bakiye sipariş / PD, müşteri sözleşmelerinden doğan varlıklar
-- **ATSYH** — 🚩 cari oran < 1 (0.63) | maddi olmayan varlık yüksek (TMS 38 aktifleştirme/şerefiye kontrol) | SNA geçmiş penceresi negatif: 2025/9 (12 aylık) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) — ✅ patron/yönetici net alım (12 ay): %1.07, ~6 mn TL — 🔎 Holding: parçaların değerine tek tek bakılmalı
 - **TATGD** — 🚩 son 2 yılda bedelli | PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | ilişkili taraf – ana ortak/grup lehine teminat: Diğer verilen TRİ'lerin özkaynağa oranı %37 (2024: %28); lehine verilen taraf elle bak — ✅ beklenti (guidance) açıklıyor (2025 ~) | brüt marj genişliyor (makas açılıyor) | borç azalıyor + finansman gideri kârı yiyor (borç kapanınca kâr ortaya çıkabilir)
 - **MTRKS** — 🚩 maddi olmayan varlık yüksek (TMS 38 aktifleştirme/şerefiye kontrol) | yatırım harcaması yüksek (satışın %27'i) | SNA geçmiş penceresi negatif: 2025/9 (12 aylık) | ROIC sınırda (%10.8; WACC varsayımı %10, tanıma duyarlı) — ✅ son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) — 🔎 Yazılım: aktifleştirme oranı + tekrarlayan gelir payı
 - **DAGI** — 🚩 cari oran < 1 (0.95) | kira ağır (FAVÖK'ün %34'i → FD/FAVÖK yanıltır) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) — ✅ brüt marj yüksek (%53)
@@ -258,7 +257,7 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 - **CEMZY** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 7.3) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) | ROIC sınırda (%11.4; WACC varsayımı %10, tanıma duyarlı) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) — ✅ likidite oranları sağlam (1,5 / 1 / 0,20)
 - **LILAK** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | ROIC düşükken büyüme yatırımı | yatırım harcaması yüksek (satışın %17'i) | ROIC sınırda (%9.2; WACC varsayımı %10, tanıma duyarlı) | üst yönetim ücret/huzur hakkı kâra göre yüksek (141 mn TL; net kâr oranı %19, esas faaliyet kârı oranı %10) — ✅ beklenti (guidance) açıklıyor (2025 ~) | son 1 yılda nakit temettü | likidite oranları sağlam (1,5 / 1 / 0,20)
 - **IHEVA** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | ROIC düşükken büyüme yatırımı | yatırım harcaması yüksek (satışın %26'i) | SNA geçmiş penceresi negatif: 2025/9 (12 aylık) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla)
-- **SAMAT** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 3.3) | PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | cari oran < 1 (0.50) | kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) — ✅ brüt marj genişliyor (makas açılıyor)
+- **ATSYH** — 🚩 cari oran < 1 (0.63) | maddi olmayan varlık yüksek (TMS 38 aktifleştirme/şerefiye kontrol) | CAPEX TTM verisi eksik (bakım yatırımı = amortisman varsayıldı; elle kontrol) | SNA geçmiş penceresi negatif: 2025/9 (12 aylık) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) — ✅ patron/yönetici net alım (12 ay): %1.07, ~6 mn TL — 🔎 Holding: parçaların değerine tek tek bakılmalı
 - **TCELL** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | ROIC düşükken büyüme yatırımı | maddi olmayan varlık yüksek (TMS 38 aktifleştirme/şerefiye kontrol) | yatırım harcaması yüksek (satışın %20'i) | ROIC sınırda (%8.6; WACC varsayımı %10, tanıma duyarlı) — ✅ beklenti (guidance) açıklıyor (2024 ~ · 2025 ✓) | son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) — 🔎 Telekom: yüksek yatırım ihtiyacı, kârlılık göründüğü kadar değil
 - **BAYRK** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 6.7) | alacaklar satıştan hızlı büyüyor | cari oran < 1 (0.99) | SNA geçmiş penceresi negatif: 2025/9 (12 aylık) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) — ✅ brüt marj yüksek (%34) | brüt marj genişliyor (makas açılıyor)
 - **ALGYO** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | borçluyken temettü/geri alım | borç yükü ağır | cari oran < 1 (0.19) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) — ✅ son 1 yılda nakit temettü | düzenli temettü (4/5 yıl) | brüt marj yüksek (%68) — 🔎 GYO: kira çarpanına bakılmalı (stokçu ayrı); ilişkili tarafa verilen kira
@@ -268,6 +267,7 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 - **TEHOL** — 🚩 son 2 yılda bedelli | PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | ROIC düşükken büyüme yatırımı | kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | yatırım harcaması yüksek (satışın %83'i) | SNA geçmiş penceresi negatif: 2024/6 (12 aylık) — 🔎 Holding: parçaların değerine tek tek bakılmalı
 - **BORSK** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | ROIC düşükken büyüme yatırımı | maddi olmayan varlık yüksek (TMS 38 aktifleştirme/şerefiye kontrol) | yatırım harcaması yüksek (satışın %49'i) | SNA geçmiş penceresi negatif: 2024/6 (12 aylık) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) — ✅ brüt marj genişliyor (makas açılıyor)
 - **SERNT** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 2.6) | PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | ROIC düşükken büyüme yatırımı | borç yükü ağır | yatırım harcaması yüksek (satışın %19'i) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) — ✅ brüt marj yüksek (%39)
+- **SAMAT** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 3.3) | PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | cari oran < 1 (0.50) | kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | CAPEX TTM verisi eksik (bakım yatırımı = amortisman varsayıldı; elle kontrol) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) — ✅ brüt marj genişliyor (makas açılıyor)
 - **KFEIN** — 🚩 kârın %89'i azınlığın (konsolidasyon düzeltmesi) | maddi olmayan varlık yüksek (TMS 38 aktifleştirme/şerefiye kontrol) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) | ROIC sınırda (%11.9; WACC varsayımı %10, tanıma duyarlı) | net kâr çok zayıf (F/K 458) | üst yönetim ücret/huzur hakkı kâra göre yüksek (36 mn TL; net kâr oranı %1764, esas faaliyet kârı oranı %14) — ✅ son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | likidite oranları sağlam (1,5 / 1 / 0,20) — 🔎 Yazılım: aktifleştirme oranı + tekrarlayan gelir payı
 - **SMART** — 🚩 PD/DD<1 ama ROIC<WACC (değer tuzağı olabilir) | ROIC düşükken büyüme yatırımı | cari oran < 1 (0.68) | maddi olmayan varlık yüksek (TMS 38 aktifleştirme/şerefiye kontrol) | yatırım harcaması yüksek (satışın %132'i) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) | ROIC sınırda (%9.9; WACC varsayımı %10, tanıma duyarlı) — ✅ brüt marj yüksek (%79) — 🔎 Yazılım: aktifleştirme oranı + tekrarlayan gelir payı
 - **BIGTK** — 🚩 alacaklar satıştan hızlı büyüyor | ROIC düşükken büyüme yatırımı | cari oran < 1 (0.87) | maddi olmayan varlık yüksek (TMS 38 aktifleştirme/şerefiye kontrol) | yatırım harcaması yüksek (satışın %40'i) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) — ✅ brüt marj yüksek (%47) | brüt marj genişliyor (makas açılıyor) | borç azalıyor + finansman gideri kârı yiyor (borç kapanınca kâr ortaya çıkabilir)
