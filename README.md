@@ -109,6 +109,9 @@ listeye girmek "al" demek değildir, elle inceleme listesini daraltır.
 - **Kırmızı bayraklar / artılar:** sürekli bedelli, alacak şişmesi, değer
   tuzağı (PD/DD<1 ama ROIC<WACC), borçluyken temettü, zirve kâr, azınlık payı,
   aktifleştirme, kira ağırlığı; temettü, brüt marj, borç azaltma hikâyesi vb.
+- **Nihai tablo:** `python temel/nihai_tablo.py --tarih <TARİH>` → `results/temel/<TARİH>/Nihai_Tablo.xlsx`
+  (README sayfası: metodoloji ve formüller; Nihai Liste / Alt Grup / Elenenler sayfaları: FD/SNA, SNA pencereleri,
+  GEM Bilanço-Hikâye-Funnel puanları (`temel/gem_karne.csv`), yeni yatırım (`temel/yatirim_degerlendirme.csv`), bayraklar ve açıklamaları).
 - **Çıktı:** `results/temel/<TARİH>/ozet.md` (okunabilir rapor),
   `on_eleme.csv` (A: 4/4, B: 3/4 adaylar), `tum_sirketler.csv`,
   `results/temel/latest_on_eleme.csv`.
