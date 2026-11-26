@@ -97,6 +97,13 @@ listeye girmek "al" demek değildir, elle inceleme listesini daraltır.
 - **Çekirdek 4 kriter** (videoda "bu dördü tutuyorsa yatırım sinyalleri başlıyor"):
   K1 ROIC > WACC · K2 sürdürülebilir pozitif serbest nakit · K3 FD/SNA < 10 ·
   K4 işlerde daralma yok (vekil gösterge).
+- **K2 nasıl ölçülür:** kayan 12 aylık pencereler — son açıklanan dönemin
+  TTM'i ile 1 ve 2 yıl önceki aynı dönemin TTM'i (ör. 2026/9, 2025/9, 2024/9).
+  Son pencere > 0 ve en az 2/3 pencere > 0 olmalı. Her pencere kendi döneminin
+  TL'siyle (TMS 29) olduğundan yalnız işaret karşılaştırılır; boş pencere sıfır
+  sayılmaz. EVO'da 2023/9 TTM tüm şirketlerde boş olduğundan en fazla 3 pencere
+  var. Pencere verisi: `temel/ham/sna_pencere.csv`. Negatif geçmiş pencere
+  hafif bayrak olarak yazılır.
 - **Kesin eleme:** finansal yapılar (aracı kurum, MKYO, GSYO; bankalar zaten
   kapsam dışı), halka arzı 1 yıldan yeni olanlar.
 - **Kırmızı bayraklar / artılar:** sürekli bedelli, alacak şişmesi, değer

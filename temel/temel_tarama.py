@@ -9,7 +9,8 @@ kapsamında değil. Çıktıdaki "elle_bak" kolonu bunları hatırlatır.
 
 ÇEKİRDEK 4 KRİTER (videoda "bu dördü tutuyorsa yatırım sinyalleri başlıyor"):
   K1  ROIC > WACC
-  K2  Pozitif serbest nakit akışı, sürdürülebilir (tek yıl değil)
+  K2  Pozitif serbest nakit akışı, sürdürülebilir (tek yıl değil): kayan 12 aylık
+      pencereler (son dönem TTM + 1 ve 2 yıl önceki aynı dönem), son >0 ve en az 2/3 >0
   K3  FD / SNA < 10  (büyüme yatırımı ayıklanmış, kira düşülmüş)
   K4  İşlerde ciddi daralma yok  (VEKİL gösterge, gelecek tahmini değil)
 
@@ -161,19 +162,27 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
             d.loc[m, "sna_ham"] = np.minimum(d.loc[m, "sna_ham"], k["sna_duzeltilmis_tl"])
             d.loc[m, "sna_duzeltme"] = k["gerekce"]
 
-    # Yıllık SNA sürdürülebilirliği (2022-2025)
-    yil_pozitif = 0
-    yil_var = 0
-    for y in (2022, 2023, 2024, 2025):
-        cfo_y, capex_y, kira_y = z(f"cfo_{y}"), -z(f"capex_{y}"), -z(f"kira_{y}")
-        am_y = z(f"amort_{y}") if f"amort_{y}" in d else capex_y
-        am_y = am_y.where(am_y > 0, capex_y)
-        sna_y = cfo_y - np.minimum(capex_y, am_y) - kira_y
-        d[f"sna_{y}"] = sna_y.where(d[f"cfo_{y}"].notna())
-        yil_var += d[f"cfo_{y}"].notna().astype(int)
-        yil_pozitif += (d[f"sna_{y}"] > 0).astype(int)
-    d["sna_pozitif_yil"] = yil_pozitif
-    d["sna_veri_yil"] = yil_var
+    # SNA sürdürülebilirliği: kayan 12 aylık pencereler (son dönem TTM, 1 ve 2 yıl önceki aynı dönem TTM).
+    # Her pencere kendi döneminin TL'siyle (TMS 29) => yalnız işaret karşılaştırılır. Boş pencere sıfır sayılmaz.
+    # Not: EVO'da 2023/9 TTM tüm şirketlerde boş; bu yüzden en fazla 3 pencere var.
+    pf = os.path.join(os.path.dirname(__file__), "ham", "sna_pencere.csv")
+    pen = pd.read_csv(pf)
+    pen = pen[pen["cfo"].notna()].copy()
+    p_capex, p_kira = -pen["capex"].fillna(0), -pen["kira"].fillna(0)
+    p_am = pen["amort"].where(pen["amort"] > 0, p_capex)
+    pen["sna"] = pen["cfo"] - np.minimum(p_capex, p_am) - p_kira
+    pen = pen.sort_values(["kod", "yil"], ascending=[True, False])
+    pen["sira"] = pen.groupby("kod").cumcount()           # 0 = son pencere
+    pv = pen.pivot(index="kod", columns="sira", values="sna")
+    etk = pen.pivot(index="kod", columns="sira", values="yil")
+    for i in range(3):
+        d[f"sna_p{i}"] = d["kod"].map(pv[i]) if i in pv else np.nan
+        d[f"sna_p{i}_donem"] = d["kod"].map(etk[i]) if i in etk else np.nan
+    d["sna_pencere_ay"] = d["kod"].map(pen.groupby("kod")["ay"].first())
+    d["sna_p0"] = d["sna_bakim"].where(d["sna_bakim"].notna(), d["sna_p0"])  # son pencere = belge düzeltmeli TTM
+    pcols = ["sna_p0", "sna_p1", "sna_p2"]
+    d["sna_veri_yil"] = d[pcols].notna().sum(axis=1)
+    d["sna_pozitif_yil"] = (d[pcols] > 0).sum(axis=1)
 
     # --- Değerleme
     kira_yuk_vekil = np.minimum(z("kullanim_hakki"), z("fin_borc")).where(z("kira") < 0, 0)
@@ -210,7 +219,7 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
 
     # ===================== ÇEKİRDEK 4 KRİTER =====================
     d["K1_roic_wacc"] = d["roic"] > wacc
-    d["K2_sna_surdurulebilir"] = (d["sna_bakim"] > 0) & (d["sna_pozitif_yil"] >= np.minimum(3, d["sna_veri_yil"])) & (d["sna_veri_yil"] >= 2)
+    d["K2_sna_surdurulebilir"] = (d["sna_bakim"] > 0) & (d["sna_pozitif_yil"] >= 2) & (d["sna_veri_yil"] >= 2)
     d["K3_fd_sna"] = (d["fd_sna"] > 0) & (d["fd_sna"] < fd_sna_esik)
     d["K4_daralma_yok"] = (d["satis_usd_buyume"] > -0.10) & (d["brut_usd_buyume"].fillna(0) > -0.15) & (d["esas_faal_kar"] > 0)
     kcols = ["K1_roic_wacc", "K2_sna_surdurulebilir", "K3_fd_sna", "K4_daralma_yok"]
@@ -274,6 +283,10 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
             f.append("özkaynak negatif")
         if r.get("sna_duzeltme"):
             f.append("SNA belgeyle düzeltildi: " + r["sna_duzeltme"][:120])
+        neg = [f"{int(r[f'sna_p{i}_donem'])}/{int(r['sna_pencere_ay'])}" for i in (1, 2)
+               if pd.notna(r.get(f"sna_p{i}")) and r[f"sna_p{i}"] <= 0 and pd.notna(r.get(f"sna_p{i}_donem"))]
+        if neg and r["sna_bakim"] > 0:
+            f.append("SNA geçmiş penceresi negatif: " + ", ".join(neg) + " (12 aylık)")
         if 0.08 <= r["roic"] <= 0.12:
             f.append(f"ROIC sınırda (%{r['roic']*100:.1f}; WACC varsayımı %{wacc*100:.0f}, tanıma duyarlı)")
         if r["ana_kar"] <= 0:
@@ -377,7 +390,7 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
 KOLONLAR = [
     "kod", "sektor", "yil", "ay", "cekirdek_puan",
     "K1_roic_wacc", "K2_sna_surdurulebilir", "K3_fd_sna", "K4_daralma_yok",
-    "roic", "fd_sna", "fd_sna_kira_haric", "fd_sna_ham", "sna_pozitif_yil", "sna_veri_yil",
+    "roic", "fd_sna", "fd_sna_kira_haric", "fd_sna_ham", "sna_pozitif_yil", "sna_veri_yil", "sna_p0", "sna_p1", "sna_p2",
     "satis_usd_buyume", "brut_usd_buyume", "brut_marj", "brut_marj_sektor_yuzdelik",
     "fd_favok", "fd_favok_kira", "fk", "pd_dd", "net_borc_favok",
     "cari_oran", "asit_test", "nakit_oran", "alacak_borc",
@@ -431,11 +444,14 @@ def ozet_yaz(aday, d, a, yol):
                   ("K3_fd_sna", "K3 FD/SNA < eşik"), ("K4_daralma_yok", "K4 daralma yok (vekil)")]:
         L.append(f"| {ad} | {int(gecerli[k].fillna(False).sum())} |")
     L += ["", "> Bu bir **ön eleme**: yalnızca veriden hesaplanabilen kısım. Listeye girmek 'al' demek değildir; "
-          "her aday için elle bakılacaklar en altta.", ""]
+          "her aday için elle bakılacaklar en altta.", "",
+          "> K2 (SNA sürdürülebilirliği) kayan 12 aylık pencerelerle ölçülür: son dönem TTM ile 1 ve 2 yıl önceki "
+          "aynı dönemin TTM'i; son >0 ve en az 2/3 >0. Pencereler farklı dönem TL'si (TMS 29) olduğundan yalnız işaret "
+          "karşılaştırılır. 'SNA+ pencere' kolonu pozitif/mevcut pencere sayısıdır.", ""]
     for puan, baslik in [(4, "Liste A — 4/4 kriter"), (3, "Liste B — 3/4 kriter")]:
         t = aday[aday["cekirdek_puan"] == puan]
         L += [f"## {baslik} ({len(t)})", "",
-              "| Kod | Sektör | Eksik kriter | ROIC | FD/SNA | SNA+ yıl | USD satış büyüme | Brüt marj | FD/FAVÖK | Patron 12 ay | Guidance | Bayrak |",
+              "| Kod | Sektör | Eksik kriter | ROIC | FD/SNA | SNA+ pencere | USD satış büyüme | Brüt marj | FD/FAVÖK | Patron 12 ay | Guidance | Bayrak |",
               "|---|---|---|---|---|---|---|---|---|---|---|---|"]
         for _, r in t.iterrows():
             eksik = ", ".join(k[:2] for k in ["K1_roic_wacc", "K2_sna_surdurulebilir", "K3_fd_sna", "K4_daralma_yok"] if not r[k]) or "–"
