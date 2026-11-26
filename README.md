@@ -133,3 +133,6 @@ listeye girmek "al" demek değildir, elle inceleme listesini daraltır.
   "ilişkili taraflardan diğer alacaklar" okundu. Sonuç elle, kaynak bildirim numarasıyla
   `temel/iliskili_degerlendirme.csv`'de (ham metinler `temel/ham/iliskili/`). Eleme değil, bayrak;
   grup içi ≥%10 işlemler sadece `iliskili_notlar` sütununda not.
+- **Patron/ortak güvenilirliği:** ortaklar hakkında adli süreç nedeniyle şirketin temerrüde
+  düştüğü KAP'tan belgelenirse aynı dosyada `ortak_adli_surec` kategorisiyle ağır bayrak
+  (⚠ PATRON/ORTAK) yazılır (şu an: SKYLP).

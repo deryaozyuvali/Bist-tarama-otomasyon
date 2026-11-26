@@ -340,13 +340,16 @@ def hesapla(d, wacc, fd_sna_esik, bugun):
         iliskili_not = []
         ETIKET = {"ana_ortaga_borc": "ana ortağa/ortaklara borç", "gruba_ticari_olmayan_alacak": "gruba ticari olmayan alacak", "gruba_ticari_alacak": "gruptan yüksek ticari alacak",
                   "ana_ortak_lehine_teminat": "ana ortak/grup lehine teminat", "iliskili_taraftan_satin_alma": "ilişkili taraftan satın alma",
-                  "yaygin_surekli_islem": "grup içi işlem ≥%10 (SPK m.10)"}
+                  "yaygin_surekli_islem": "grup içi işlem ≥%10 (SPK m.10)",
+                  "ortak_adli_surec": "ortaklar adli süreçte / temerrüt"}
         for satir in str(r.get("iliskili_kayit") or "").split("\n"):
             if not satir or satir == "nan":
                 continue
             kat, sid, acik = satir.split("|", 2)
             metin = f"{ETIKET.get(kat, kat)}: {acik}"
-            if sid == "yuksek":
+            if sid == "yuksek" and kat == "ortak_adli_surec":
+                f.append("⚠ PATRON/ORTAK – " + metin)
+            elif sid == "yuksek":
                 f.append("⚠ İLİŞKİLİ TARAF – " + metin)
             elif sid == "orta" or kat == "iliskili_taraftan_satin_alma":
                 f.append("ilişkili taraf – " + metin)

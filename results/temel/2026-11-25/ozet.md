@@ -27,7 +27,6 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 | PKART | Bilişim ve Yazılım | – | %44 | 8.1 | 2/3 | %52 | %11 | 5.5 | – | – | 1 |
 | BNTAS | Ambalaj | – | %14 | 1.0 | 3/3 | %7 | %18 | 1.4 | – | – | 2 |
 | DOHOL | Holding | – | %11 | 1.4 | 3/3 | %4 | %40 | 0.5 | – | 2025 ✗ | 2 |
-| SKYLP | Bilişim ve Yazılım | – | %14 | 2.6 | 3/3 | %94 | %45 | 7.7 | – | – | 2 |
 | KARSN | Otomotiv | – | %11 | 2.9 | 3/3 | %43 | %26 | 3.9 | – | 2024 ✗ · 2025 ~ | 2 |
 | EBEBK | Toptan ve Perakende Ticaret | – | %41 | 3.6 | 3/3 | %31 | %37 | 1.9 | alım %0.28 | 2024 ✓ · 2025 ✓ | 2 |
 | MAVI | Tekstil, Giyim ve Deri | – | %31 | 3.8 | 3/3 | %9 | %52 | 2.3 | – | 2024 ~ · 2025 ~ | 2 |
@@ -39,6 +38,7 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 | TBORG | Gıda ve İçecek | – | %20 | 8.4 | 2/3 | %15 | %55 | 2.4 | – | – | 2 |
 | GRSEL | Servis Taşımacılığı ve Araç Kiralama | – | %29 | 9.8 | 3/3 | %20 | %34 | 4.7 | – | 2025 ✗ | 2 |
 | TKNSA | Teknolojik Ürün Ticareti | – | %17 | 2.2 | 3/3 | %6 | %12 | 2.2 | – | 2024 ~ | 3 |
+| SKYLP | Bilişim ve Yazılım | – | %14 | 2.6 | 3/3 | %94 | %45 | 7.7 | – | – | 3 |
 | PLTUR | Servis Taşımacılığı ve Araç Kiralama | – | %11 | 4.1 | 3/3 | %42 | %21 | 2.0 | – | – | 3 |
 | TRMET | Madencilik ve Taş Ocakçılığı | – | %14 | 5.9 | 2/3 | %56 | %51 | 4.3 | alım %0.55 | – | 3 |
 | VBTYZ | Bilişim ve Yazılım | – | %24 | 7.9 | 2/3 | %83 | %30 | 2.9 | alım %7.12 | – | 3 |
@@ -163,7 +163,6 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 - **PKART** — 🚩 SNA geçmiş penceresi negatif: 2025/9 (12 aylık) — ✅ brüt marj genişliyor (makas açılıyor) | likidite oranları sağlam (1,5 / 1 / 0,20) — 🔎 Yazılım: aktifleştirme oranı + tekrarlayan gelir payı
 - **BNTAS** — 🚩 son 2 yılda bedelli | CAPEX TTM verisi eksik (bakım yatırımı = amortisman varsayıldı; elle kontrol) — ✅ likidite oranları sağlam (1,5 / 1 / 0,20)
 - **DOHOL** — 🚩 kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | ROIC sınırda (%11.4; WACC varsayımı %10, tanıma duyarlı) — ✅ beklenti (guidance) açıklıyor (2025 ✗) | düzenli temettü (4/5 yıl) | brüt marj yüksek (%40) | brüt marj genişliyor (makas açılıyor) — 🔎 Holding: parçaların değerine tek tek bakılmalı
-- **SKYLP** — 🚩 son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) | üst yönetim ücret/huzur hakkı kâra göre yüksek (27 mn TL; net kâr oranı net zarar, esas faaliyet kârı oranı %87) — ✅ brüt marj yüksek (%45) — 🔎 Yazılım: aktifleştirme oranı + tekrarlayan gelir payı
 - **KARSN** — 🚩 cari oran < 1 (1.00) | ROIC sınırda (%10.7; WACC varsayımı %10, tanıma duyarlı) — ✅ beklenti (guidance) açıklıyor (2024 ✗ · 2025 ~) | borç azalıyor + finansman gideri kârı yiyor (borç kapanınca kâr ortaya çıkabilir) — 🔎 Otomotiv: OSD üretim/ihracat, araç başı FAVÖK, Çinli rakipler
 - **EBEBK** — 🚩 kâr geçmişin 2 katı üstünde (tek seferlik/zirve olabilir → düşük çarpan) | yüksek bağış: 44.0 mn TL = net kârın %6 kadarı → alıcı patronun vakfı mı? elle bak — ✅ beklenti açıklıyor ve son 2 yıl tutturdu (2024 ✓ · 2025 ✓) | patron/yönetici net alım (12 ay): %0.28, ~29 mn TL | son 1 yılda nakit temettü | brüt marj yüksek (%37)
 - **MAVI** — 🚩 kira ağır (FAVÖK'ün %24'i → FD/FAVÖK yanıltır) | üst yönetim ücret/huzur hakkı kâra göre yüksek (655 mn TL; net kâr oranı %31, esas faaliyet kârı oranı %11) — ✅ beklenti (guidance) açıklıyor (2024 ~ · 2025 ~) | son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | brüt marj yüksek (%52)
@@ -175,6 +174,7 @@ Varsayımlar: reel WACC eşiği **%10**, FD/SNA < **10**. Taranan 594 şirket, k
 - **TBORG** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 3.4) | SNA geçmiş penceresi negatif: 2025/9 (12 aylık) — ✅ son 1 yılda nakit temettü | düzenli temettü (4/5 yıl) | brüt marj yüksek (%55)
 - **GRSEL** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 4.5) | yatırım harcaması yüksek (satışın %18'i) — ✅ beklenti (guidance) açıklıyor (2025 ✗) | son 1 yılda nakit temettü | düzenli temettü (5/5 yıl) | brüt marj yüksek (%34) | brüt marj genişliyor (makas açılıyor) | likidite oranları sağlam (1,5 / 1 / 0,20)
 - **TKNSA** — 🚩 cari oran < 1 (0.78) | özkaynak negatif | son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) — ✅ beklenti (guidance) açıklıyor (2024 ~)
+- **SKYLP** — 🚩 son 12 ay net zarar (nakit/esas kâr var ama net kâr yok → nedenini anla) | üst yönetim ücret/huzur hakkı kâra göre yüksek (27 mn TL; net kâr oranı net zarar, esas faaliyet kârı oranı %87) | ⚠ PATRON/ORTAK – ortaklar adli süreçte / temerrüt: 28.09.2026 vadeli BPP borcu vadesinde ödenemedi; gerekçe: ortaklarla ilgili adli süreçler nedeniyle ortak desteği alınamaması ve ortakların yatırım yaptığı Hedef Portföy fonlarının SPK kararıyla (15.10.2026) tasfiyesi; borç 06.11.2026'da iştirak (Tenk Bilişim) satışıyla kapatıldı — ✅ brüt marj yüksek (%45) — 🔎 Yazılım: aktifleştirme oranı + tekrarlayan gelir payı
 - **PLTUR** — 🚩 ticari alacak yüksek, borçla dengesiz (alacak/borç 5.1) | ROIC sınırda (%10.9; WACC varsayımı %10, tanıma duyarlı) | ilişkili taraf – gruptan yüksek ticari alacak: İlişkili taraflardan 2,04 mlr TL ticari alacak (özkaynağın ~%19); 8,58 mlr TL verilen TRİ — ✅ son 1 yılda nakit temettü | düzenli temettü (4/5 yıl)
 - **TRMET** — 🚩 kârın %67'i azınlığın (konsolidasyon düzeltmesi) | yatırım harcaması yüksek (satışın %41'i) | SNA geçmiş penceresi negatif: 2024/9 (12 aylık) — ✅ patron/yönetici net alım (12 ay): %0.55, ~220 mn TL | brüt marj yüksek (%51) | brüt marj genişliyor (makas açılıyor) | likidite oranları sağlam (1,5 / 1 / 0,20) — 🔎 Madencilik: kaynak/rezerv ayrımı, projeksiyon gecikmesi
 - **VBTYZ** — 🚩 maddi olmayan varlık yüksek (TMS 38 aktifleştirme/şerefiye kontrol) | SNA geçmiş penceresi negatif: 2025/9 (12 aylık) | ⚠ İLİŞKİLİ TARAF – ana ortağa/ortaklara borç: Ortaklardan alacak 151,9 mn TL + ilişkili taraflardan diğer alacak 108,6 mn TL (toplam özkaynağın ~%21; 2024'te 3,2 mn idi) — ✅ patron/yönetici net alım (12 ay): %7.12, ~153 mn TL | brüt marj yüksek (%30) | likidite oranları sağlam (1,5 / 1 / 0,20) — 🔎 Yazılım: aktifleştirme oranı + tekrarlayan gelir payı
