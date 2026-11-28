@@ -14,6 +14,9 @@ from collections import defaultdict
 #  yillik: 2023/12, 2024/12, 2025/12 yıllık; 2026/9 TTM yalnız "son durum" uyarısı
 #  q3    : 9'dan 9'a TTM — Eyl.2024, Eyl.2025, Eyl.2026'da biten 12 aylık dönemler + 30.09 bilançoları
 MOD = sys.argv[1] if len(sys.argv) > 1 else "yillik"
+# İNA/NK eşiği: video hedefi 1,0. Kullanıcı tercihiyle gevşetilebilir: python3 ... q3 0.90
+INA_ESIK = float(sys.argv[2]) if len(sys.argv) > 2 else 1.0
+ESIK_EK = "" if INA_ESIK == 1.0 else f"_ina{int(round(INA_ESIK*100))}"
 if MOD == "q3":
     IN, YILLAR, SON, EK = "tarama/ham_veri_q3.csv", ["2024", "2025", "2026"], None, "_q3"
 else:
@@ -133,7 +136,7 @@ for k, yy in data.items():
     kar_her_yil = all((M[y]["nk"] or 0) > 0 for y in YILLAR)
     sart["3 yıl net kâr > 0"] = kar_her_yil
     ina_nk = [M[y]["ina_nk"] for y in YILLAR]
-    sart["İNA/Net kâr ≥ 1 (her yıl)"] = kar_her_yil and all(r is not None and r >= 1 for r in ina_nk)
+    sart[f"İNA/Net kâr ≥ {INA_ESIK:g} (her yıl)".replace(".", ",")] = kar_her_yil and all(r is not None and r >= INA_ESIK for r in ina_nk)
     sna = [M[y]["sna_kira"] for y in YILLAR]
     neg = [s is not None and s < 0 for s in sna]
     if all(neg):
@@ -244,8 +247,8 @@ def yaz(path, rows):
         w.writerow({k: (round(v, 3) if isinstance(v, float) and v not in (float("inf"),) else v) for k, v in r.items()})
 
 sonuc.sort(key=lambda r: (-r["gecen_sart"], len(r["kirmizi_bayraklar"])))
-yaz(f"tarama/sonuc_tum{EK}.csv", sonuc)
-yaz(f"tarama/sonuc_adaylar{EK}.csv", [r for r in sonuc if r["katman"] != "Elendi"])
+yaz(f"tarama/sonuc_tum{EK}{ESIK_EK}.csv", sonuc)
+yaz(f"tarama/sonuc_adaylar{EK}{ESIK_EK}.csv", [r for r in sonuc if r["katman"] != "Elendi"])
 print(Counter(r["katman"] for r in sonuc)) if False else None
 print("taranan:", len(sonuc), "sıkı:", sum(r["sikI_liste"] for r in sonuc), "bayraksız:", sum(r["kirmizi_bayrak_yok"] for r in sonuc))
 from collections import Counter
