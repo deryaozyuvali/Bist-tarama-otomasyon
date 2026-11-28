@@ -10,9 +10,16 @@ kullanılan yorumlar 'YORUM' etiketiyle işaretlidir.
 import csv, statistics, sys
 from collections import defaultdict
 
-IN = "tarama/ham_veri.csv"
-YILLAR = ["2023", "2024", "2025"]
-SON = "2026"  # 2026/9 TTM gelir+nakit akışı, 30.09.2026 bilanço
+# Kullanım: python3 tarama/sabri_cakar_tarama.py [yillik|q3]
+#  yillik: 2023/12, 2024/12, 2025/12 yıllık; 2026/9 TTM yalnız "son durum" uyarısı
+#  q3    : 9'dan 9'a TTM — Eyl.2024, Eyl.2025, Eyl.2026'da biten 12 aylık dönemler + 30.09 bilançoları
+MOD = sys.argv[1] if len(sys.argv) > 1 else "yillik"
+if MOD == "q3":
+    IN, YILLAR, SON, EK = "tarama/ham_veri_q3.csv", ["2024", "2025", "2026"], None, "_q3"
+else:
+    IN, YILLAR, SON, EK = "tarama/ham_veri.csv", ["2023", "2024", "2025"], "2026", ""
+Y0, Y1, Y2 = YILLAR
+L0, L2 = (f"{Y0}/9", f"{Y2}/9") if MOD == "q3" else (Y0, Y2)
 
 
 def f(x):
@@ -31,6 +38,23 @@ def div(a, b):
 data = defaultdict(dict)
 for r in csv.DictReader(open(IN)):
     data[r["k"]][r["yil"]] = {k: f(v) for k, v in r.items() if k not in ("k", "yil")}
+
+# q3 modunda TTM'i boş dönem (yeni halka arz vb.) için gelir/nakit kalemlerinde en yakın yıllık dönem (aynı yılın 12. ayı) yedek olarak kullanılır
+YEDEK = defaultdict(list)
+if MOD == "q3":
+    yil_veri = defaultdict(dict)
+    for r in csv.DictReader(open("tarama/ham_veri.csv")):
+        yil_veri[r["k"]][r["yil"]] = {k: f(v) for k, v in r.items() if k not in ("k", "yil")}
+    GT_NA = ["sat","smm","brut","opex","fk","favok","amort","fingid","npp","evg","yfg","nk","ina","capex","tem","kira"]
+    for k, yy in data.items():
+        for y in YILLAR:
+            d = yy.get(y)
+            if d is not None and (d.get("nk") is None or d.get("ina") is None):
+                yd = yil_veri.get(k, {}).get(y)
+                if yd and yd.get("nk") is not None and yd.get("ina") is not None:
+                    for c in GT_NA:
+                        d[c] = yd.get(c)
+                    YEDEK[k].append(f"{y}/12 yıllık")
 
 
 def metrikler(d):
@@ -98,8 +122,8 @@ for k, yy in data.items():
     if not all(y in yy for y in YILLAR):
         continue
     M = {y: metrikler(yy[y]) for y in YILLAR}
-    S = metrikler(yy[SON]) if SON in yy else None
-    m25 = M["2025"]
+    S = metrikler(yy[SON]) if SON and SON in yy else None
+    m25 = M[Y2]
     if not m25["sat"] or m25["sat"] <= 0 or m25.get("efk") is None:
         continue
 
@@ -114,9 +138,9 @@ for k, yy in data.items():
     neg = [s is not None and s < 0 for s in sna]
     if all(neg):
         bayrak.append("SNA 3 yıl üst üste negatif (>2 yıl)")
-    elif neg[1] and neg[2] and (M["2025"]["netborc"] or 0) > (M["2024"]["netborc"] or 0) > (M["2023"]["netborc"] or 0):
+    elif neg[1] and neg[2] and (M[Y2]["netborc"] or 0) > (M[Y1]["netborc"] or 0) > (M[Y0]["netborc"] or 0):
         bayrak.append("SNA 2 yıl negatif + net borç artıyor")
-    sart["SNA (kira dahil) 2025 > 0"] = (sna[2] or -1) > 0
+    sart["SNA (kira dahil) son dönem > 0"] = (sna[2] or -1) > 0
     sart["SNA son 2 yıl üst üste negatif değil"] = not (neg[1] and neg[2])
     tem_borctan = [y for y in YILLAR if M[y]["temettu"] > 0 and (M[y]["sna_kira"] or 0) < M[y]["temettu"]]
     if tem_borctan:
@@ -133,9 +157,9 @@ for k, yy in data.items():
     sart["Faal.gid/Brüt kâr < %80"] = ob is not None and ob < 0.80
     fe = m25["faiz_efk"]
     sart["Faiz/Esas faal. kârı ≤ %15"] = m25["efk"] > 0 and (fe is None or fe <= 0.15)
-    sart["Düzeltilmiş net kâr > 0 (2025)"] = (m25["duz_nk"] or -1) > 0
+    sart["Düzeltilmiş net kâr > 0 (son dönem)"] = (m25["duz_nk"] or -1) > 0
     if (m25["nk"] or 0) > 0 and (m25["duz_nk"] or 0) <= 0:
-        bayrak.append("2025 kârı tek seferlik/nakit dışı kalemlerden")
+        bayrak.append("Son dönem kârı tek seferlik/nakit dışı kalemlerden")
 
     # ---------- BİLANÇO (Bölüm 5) ----------
     fk = m25["faiz_karsilama"]
@@ -154,7 +178,7 @@ for k, yy in data.items():
     if all(M[y]["nakit_kvfb"] is not None and M[y]["nakit_kvfb"] < 0.5 for y in YILLAR):
         bayrak.append("Nakit 3 yıl KV fin. borcun %50'sinden az")
     # YORUM: "alacak/stok günleri satıştan hızlı artıyorsa" → (alacak+stok günü) 2023→2025 %20'den fazla arttıysa
-    g23 = (M["2023"]["alacak_gun"] or 0) + (M["2023"]["stok_gun"] or 0)
+    g23 = (M[Y0]["alacak_gun"] or 0) + (M[Y0]["stok_gun"] or 0)
     g25 = (m25["alacak_gun"] or 0) + (m25["stok_gun"] or 0)
     gun_bozulma = g23 > 0 and g25 > g23 * 1.2 and (g25 - g23) > 10
     if gun_bozulma:
@@ -167,7 +191,7 @@ for k, yy in data.items():
 
     # ---------- SON DURUM (2026/9) ----------
     son_not = []
-    if S:
+    if S and SON:
         if (S["nk"] or 0) > 0 and S["ina_nk"] is not None and S["ina_nk"] < 1:
             son_not.append(f"TTM İNA/NK {S['ina_nk']:.2f}")
         if (S["nk"] or 0) <= 0:
@@ -197,17 +221,18 @@ for k, yy in data.items():
         "gecen_sart": sum(sart.values()), "toplam_sart": len(sart),
         "kirmizi_bayraklar": " | ".join(bayrak),
         "kalan_sartlar": " | ".join(s for s, v in sart.items() if not v),
-        "ina_nk_2023": ina_nk[0], "ina_nk_2024": ina_nk[1], "ina_nk_2025": ina_nk[2],
+        f"ina_nk_{Y0}": ina_nk[0], f"ina_nk_{Y1}": ina_nk[1], f"ina_nk_{Y2}": ina_nk[2],
         "ina_nk_ttm": S["ina_nk"] if S else None,
-        "sna_kira_2025_mn": (sna[2] or 0) / 1e6,
-        "brut_marj_2023": M["2023"]["brut_marj"], "brut_marj_2025": m25["brut_marj"],
-        "efk_marj_2023": M["2023"]["efk_marj"], "efk_marj_2025": m25["efk_marj"],
-        "opex_brut_2025": ob, "faiz_efk_2025": fe, "faiz_karsilama_2025": fk,
-        "nb_favok_2025": nbf, "nb_favok_ttm": S["nb_favok"] if S else None,
-        "cari_2025": cari[2], "asit_2025": m25["asit"], "nakit_oran_2025": m25["nakit_oran"],
-        "ndd_2025": m25["ndd"], "capex_amort_2025": m25["capex_amort"], "roe_2025": m25["roe"],
+        f"sna_kira_{Y2}_mn": (sna[2] or 0) / 1e6,
+        f"brut_marj_{Y0}": M[Y0]["brut_marj"], f"brut_marj_{Y2}": m25["brut_marj"],
+        f"efk_marj_{Y0}": M[Y0]["efk_marj"], f"efk_marj_{Y2}": m25["efk_marj"],
+        "opex_brut_son": ob, "faiz_efk_son": fe, "faiz_karsilama_son": fk,
+        "nb_favok_son": nbf, "nb_favok_ttm": S["nb_favok"] if S else None,
+        "cari_son": cari[2], "asit_son": m25["asit"], "nakit_oran_son": m25["nakit_oran"],
+        "ndd_son": m25["ndd"], "capex_amort_son": m25["capex_amort"], "roe_son": m25["roe"],
         "stres_karsilama": stres, "stres_not": stres_not,
         "son_durum_uyari": " | ".join(son_not),
+        "veri_notu": ("TTM yok, yedek: " + ", ".join(YEDEK[k])) if YEDEK.get(k) else "",
     })
 
 def yaz(path, rows):
@@ -219,8 +244,8 @@ def yaz(path, rows):
         w.writerow({k: (round(v, 3) if isinstance(v, float) and v not in (float("inf"),) else v) for k, v in r.items()})
 
 sonuc.sort(key=lambda r: (-r["gecen_sart"], len(r["kirmizi_bayraklar"])))
-yaz("tarama/sonuc_tum.csv", sonuc)
-yaz("tarama/sonuc_adaylar.csv", [r for r in sonuc if r["katman"] != "Elendi"])
+yaz(f"tarama/sonuc_tum{EK}.csv", sonuc)
+yaz(f"tarama/sonuc_adaylar{EK}.csv", [r for r in sonuc if r["katman"] != "Elendi"])
 print(Counter(r["katman"] for r in sonuc)) if False else None
 print("taranan:", len(sonuc), "sıkı:", sum(r["sikI_liste"] for r in sonuc), "bayraksız:", sum(r["kirmizi_bayrak_yok"] for r in sonuc))
 from collections import Counter
